@@ -76,6 +76,9 @@ ring:
   username: !secret ring_username
   password: !secret ring_password
 
+shell_command:
+  update_me: touch /config/update.txt
+
 sensor:
   - platform: rest
     resource: !secret grenhouse_url
