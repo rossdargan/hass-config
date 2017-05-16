@@ -1,0 +1,3 @@
+zwave.dead_4:
+  ignored: true
+  polling_intensity: 0

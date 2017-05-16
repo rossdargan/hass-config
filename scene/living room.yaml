@@ -1,0 +1,27 @@
+ - name: Living room media paused
+   entities:
+    light.lounge_iris:
+      state: on
+      transition: 2
+      brightness: 254
+      color_name: 'Amber'
+    light.lounge_lamp:
+      state: on
+      transition: 2
+      brightness: 254
+      color_name: 'Amber'
+    light.lounge_main_light_level_13_0:
+      state: on
+      brightness: 100
+
+
+ - name: Living room media playing
+   entities:
+    light.lounge_iris:
+      state: off
+      transition: 2
+    light.lounge_lamp:
+      state: off
+      transition: 2
+    light.lounge_main_light_level_13_0:
+      state: off

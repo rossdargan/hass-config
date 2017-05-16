@@ -1,0 +1,14 @@
+  - alias: Kath Home notification
+    trigger:
+      - platform: state
+        entity_id: device_tracker.kathsiphone
+        from: 'not_home'
+        to: 'home'
+    action:
+      - service: notify.slackbot
+        data:
+          message: "Kaths Home!"
+      - service: tts.google_say
+        data:
+          entity_id: media_player.dining_room
+          message: "Mummys Home. Time to behave!"

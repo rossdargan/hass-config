@@ -1,0 +1,68 @@
+##########################################################
+###  Hide the lougne media players if the tv is turned off
+##########################################################
+  - alias: Show AV
+    trigger:
+      - platform: state
+        entity_id: switch.lounge_tv_switch_6_0
+      - platform: homeassistant
+        event: start
+    action:
+      service: script.group_visibility
+      data:
+        entity_id: group.lounge_av
+        cond: switch.lounge_tv_switch_6_0
+        visible_state: 'on'
+
+
+  - alias: Show Roku
+    trigger:
+      - platform: state
+        entity_id: sensor.living_room_tv_source
+      - platform: homeassistant
+        event: start
+    action:
+      service: script.group_visibility
+      data:
+        entity_id: group.tv_roku
+        cond: sensor.living_room_tv_source
+        visible_state: 'Roku'
+
+  - alias: Show CCAudio
+    trigger:
+      - platform: state
+        entity_id: sensor.living_room_tv_source
+      - platform: homeassistant
+        event: start
+    action:
+      service: script.group_visibility
+      data:
+        entity_id: group.tv_ccaudio
+        cond: sensor.living_room_tv_source
+        visible_state: 'CC Audio'
+
+  - alias: Show CCTV
+    trigger:
+      - platform: state
+        entity_id: sensor.living_room_tv_source
+      - platform: homeassistant
+        event: start
+    action:
+      service: script.group_visibility
+      data:
+        entity_id: group.tv_cctv
+        cond: sensor.living_room_tv_source
+        visible_state: 'Chromecast'
+
+  - alias: Show Plex
+    trigger:
+      - platform: state
+        entity_id: sensor.roku_tv_source
+      - platform: homeassistant
+        event: start
+    action:
+      service: script.group_visibility
+      data:
+        entity_id: group.tv_roku
+        cond: sensor.tv_plex
+        visible_state: 'Plex'

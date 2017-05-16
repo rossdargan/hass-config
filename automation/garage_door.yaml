@@ -1,0 +1,24 @@
+###################################################################
+###  When the garage door is opened turn on the garage light switch
+###################################################################
+
+  - alias: Garage Door Opened
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.garage_door
+        to: 'on'
+    action:
+      service: switch.turn_on
+      data:
+        entity_id: switch.garage_light_switch_3_0
+
+  - alias: Garage Door Closed
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.garage_door
+        to: 'off'
+        for: '00:05:00'
+    action:
+      service: switch.turn_off
+      data:
+        entity_id: switch.garage_light_switch_3_0

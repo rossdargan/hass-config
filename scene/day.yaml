@@ -1,0 +1,5 @@
+ - name: Day
+   entities:
+    switch.bedroom_tv_switch_2_0: on
+    switch.lounge_tv_switch_6_0: on
+    switch.playroom_tv_switch_5_0: on

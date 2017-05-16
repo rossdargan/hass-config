@@ -1,0 +1,66 @@
+##########################################################
+###  Switch roku to plex after turning on
+##########################################################
+  - alias: Start Plex with Lounge TV
+    trigger:
+      - platform: state
+        entity_id: switch.lounge_tv_switch_6_0
+        to: 'on'
+        for:
+          seconds: 30
+    action:
+      service: media_player.select_source
+      data:
+        entity_id: media_player.lounge
+        source: "Plex"
+
+
+
+  - alias: Start Plex with Playroom TV
+    trigger:
+      - platform: state
+        entity_id: switch.playroom_tv_switch_5_0
+        to: 'on'
+        for:
+          seconds: 40
+    action:
+      service: media_player.select_source
+      data:
+        entity_id: media_player.playroom
+        source: "Plex"
+
+
+  - alias: Start Plex with Bedroom TV
+    trigger:
+      - platform: state
+        entity_id: switch.bedroom_tv_switch_2_0
+        to: 'on'
+        for:
+          seconds: 30
+    action:
+      service: media_player.select_source
+      data:
+        entity_id: media_player.bedroom
+        source: "Plex"
+
+  - alias: Lounge TV playing
+    trigger:
+      - platform: state
+        entity_id: media_player.plex_4757684ab9e2dac8d888fcb9cc38a38d
+        from: 'paused'
+        to: 'playing'
+    action:
+      service: scene.turn_on
+      entity_id: scene.living_room_media_playing
+
+  - alias: Lounge TV Paused
+    trigger:
+      - platform: state
+        entity_id: media_player.plex_4757684ab9e2dac8d888fcb9cc38a38d
+        from: 'playing'
+        to: 'paused'
+    action:
+      service: scene.turn_on
+      entity_id: scene.living_room_media_paused
+
+

@@ -1,0 +1,25 @@
+  - alias: Alarm Remote Fob pressed
+    trigger:
+      platform: mqtt
+      topic: alarm/events/Remote Control/+
+    action:
+      - service: script.alarm_messages
+        data_template:
+         action: '{{ trigger.payload }}'
+         name: '{{ trigger.topic.replace("alarm/events/Remote Control/","").replace(" Fob", "") }}'
+ #     - service: mqtt.publish
+ #       data:
+ #        topic: {{ trigger.topic }}
+ #        payload: ''
+ #        retain: true  
+  - alias: Alarm Triggered
+    trigger:
+      platform: mqtt
+      topic: alarm/events
+      payload: 'Burglary'
+    action:
+      - service: mqtt.publish
+        data_template:
+          topic: 'alarm/state'
+          payload: 'triggered'
+          retain: true

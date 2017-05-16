@@ -1,0 +1,321 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret latitude
+  longitude: !secret longitude
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 30
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/London
+  customize: !include customize.yaml  
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+#config:
+
+####################
+## ZONES
+####################
+zone: 
+  name: Kids School
+  latitude: !secret kids_school_lat
+  longitude: !secret kids_school_long
+  radius: 250
+  icon: mdi:school
+
+zone 2:
+  name: Kath Work
+  latitude: !secret kath_work_latitude
+  longitude: !secret kath_work_longitude
+  radius: 250
+  icon: mdi:worker
+
+zone 3:
+  name: Ross Work
+  latitude: !secret ross_work_lat
+  longitude: !secret ross_work_long
+  icon: mdi:worker
+
+http:
+  # Uncomment this to add a password (recommended!)
+ api_password: !secret api_password
+  # Uncomment this if you are using SSL or running in Docker etc
+# base_url: www.the-dargans.co.uk:443
+
+# Checks for available updates
+updater:
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time.
+history:
+
+# View all events in a logbook
+#logbook:
+
+# Track the sun
+sun:
+
+# Weather Prediction
+
+# Text to speech
+tts:
+  platform: google
+
+
+ring:
+  username: !secret ring_username
+  password: !secret ring_password
+
+sensor:
+  - platform: rest
+    resource: !secret grenhouse_url
+    value_template: '{{ value_json.temperature | round(0)}}'
+    unit_of_measurement: "°C"
+    name: "Greenhouse Temperature"
+  - platform: rest
+    resource: !secret grenhouse_url
+    value_template: '{{ value_json.Humidity | multiply(100) | round(0)}}'
+    unit_of_measurement: "%"
+    name: "Greenhouse Humidity"
+  - platform: rest
+    resource: !secret grenhouse_url
+    value_template: '{{ value_json.Light | round(0)}}'
+    unit_of_measurement: "%"
+    name: "Greenhouse Light"
+  - platform: rest
+    resource: !secret grenhouse_url
+    value_template: '{{ value_json.Reservoir == "1" }}'
+    unit_of_measurement: "Full"
+    name: "Greenhouse Resevoir"
+
+  - platform: mqtt
+    name: "Alarm Events"
+    state_topic: "alarm/events"
+  - platform: plex
+    host: 192.168.1.50
+    username: !secret plex_username
+    password: !secret plex_password
+  - platform: yr
+    monitored_conditions:
+        - temperature
+        - symbol
+        - precipitation
+        - windSpeed
+        - pressure
+        - windDirection
+        - humidity
+        - fog
+        - cloudiness
+        - lowClouds
+        - mediumClouds
+        - highClouds
+        - dewpointTemperature
+  - platform: sonarr
+    api_key: !secret sonarr_api_key
+    host: 192.168.1.50
+    port: 8989
+    monitored_conditions:
+      - upcoming
+    days: 2
+    urlbase: sonarr
+  - platform: pocketcasts
+    username: !secret pocketcast_username
+    password: !secret pocketcast_password
+  - platform: ring
+    monitored_conditions:
+      - battery
+      - last_activity
+      - last_ding
+      - last_motion
+      - volume
+  - platform: command_line
+    name: Occasion
+    command: "python3 /config/occasion.py"
+  - platform: google_travel_time
+    name: Ross Work commute
+    api_key: !secret google_api_key
+    origin: !secret google_home_place
+    destination: !secret google_ross_Work_place
+    options:
+      units: imperial 
+  - platform: google_travel_time
+    name: Kath Work commute
+    api_key: !secret google_api_key
+    origin: !secret google_home_place
+    destination: !secret google_kath_work_place
+    options:
+      units: imperial 
+
+mqtt:
+  broker: 192.168.1.52
+  port: 1883
+  client_id: home-assistant-1
+  keepalive: 60
+  username: !secret mqtt_username
+  password: !secret mqtt_password
+
+
+media_player:
+  - platform: roku
+  - platform: spotify
+    client_id: !secret spotify_clientid
+    client_secret: !secret spotify_secret
+  - platform: plex
+    entity_namespace: 'plex'
+    include_non_clients: true
+    scan_interval: 5
+    show_all_controls: false
+    use_custom_entity_ids: true
+    use_episode_art: true
+  - platform: yamaha
+    host: 192.168.1.26
+    name: "Yamaha Reciever"
+    source_ignore:     
+      - "AUDIO2"
+      - "AUX"
+      - "AV1"
+      - "AV2"
+      - "AV3"
+      - "AV4"
+      - "AirPlay"
+      - "Bluetooth"
+      - "HDMI2"
+      - "HDMI5"
+      - "HDMI6"
+      - "JUKE"
+      - "MusicCast Link"
+      - "NET RADIO"
+      - "SERVER"
+      - "Spotify"
+      - "TUNER"
+      - "USB"
+      - "iPod (USB)"
+    source_names:
+      HDMI4: "Xbox"
+      HDMI1: "Roku"
+      HDMI3: "Chromecast"
+      AUDIO1: "CC Audio"
+      NET RADIO: "Radio"    
+  - platform: universal
+    name: Lounge Universal
+    children:    
+      - media_player.plex_4757684ab9e2dac8d888fcb9cc38a38d
+   #   - media_player.lounge
+      - media_player.living_room_home
+      - media_player.lounge_2
+      - media_player.loungetv      
+    commands:
+      volume_up:
+        service: media_player.volume_up
+        data:
+          entity_id: media_player.yamaha_receiver
+      volume_down:
+        service: media_player.volume_down
+        data:
+          entity_id: media_player.yamaha_receiver
+      volume_mute:
+        service: media_player.volume_mute
+        data:
+          entity_id: media_player.yamaha_receiver
+      select_source:
+        service: media_player.select_source
+        data_template:
+          entity_id: media_player.yamaha_receiver
+          source: ''
+      volume_set:
+        service: media_player.volume_set
+        data_template:
+          entity_id: media_player.yamaha_receiver
+          volume_level: ''
+    attributes:
+      #state: switch.av
+      is_volume_muted: media_player.yamaha_receiver|is_volume_muted
+      volume_level: media_player.yamaha_receiver|volume_level
+      source: media_player.yamaha_receiver|source
+      source_list: media_player.yamaha_receiver|source_list
+
+nest:
+  client_id: !secret nest_clientid
+  client_secret: !secret nest_secret
+
+alarm_control_panel:
+  platform: mqtt
+  state_topic: "alarm/state"
+  command_topic: "alarm/mode"
+  name: "Alarm"
+  payload_disarm: "Disarm"
+  payload_arm_home: "Home"
+  payload_arm_away: "Away"
+  code: !secret pin
+
+device_tracker:
+  - platform: owntracks
+    secret: !secret owntracks
+  - platform: icloud
+    username: !secret apple_username
+    password: !secret apple_password
+    account_name: Apple
+
+camera:
+  - platform: generic
+    still_image_url: https://live.streamdays.com/bespoke-hosting/durhamcouncil/camera08.jpg?
+    name: A1
+
+
+
+notify:
+ - name: slackbot
+   platform: slack
+   api_key: !secret slackbot
+   default_channel: '#home'
+
+zwave:
+  usb_path: /dev/ttyUSB0
+
+panel_iframe:
+  plexpy:
+      title: 'PlexPy'
+      url: !secret plexpy_url
+      icon: mdi:account-search
+  sonarr:
+      title: 'Sonarr'
+      url: !secret sonarr_url
+      icon: mdi:television
+  radarr:
+      title: 'Radarr'
+      url: !secret radarr_url
+      icon: mdi:radar
+
+
+ 
+
+
+scene: !include_dir_merge_list scene
+automation: !include_dir_merge_list automation
+script: !include_dir_merge_named script
+alert: !include_dir_merge_named alert
+group: !include groups.yaml
+binary_sensor: !include_dir_merge_list binary_sensor
+
+emulated_hue:
+  type: alexa
+  listen_port: 80
+  expose_by_default: true
+  exposed_domains:
+    - switch
+    - light
+
+#logger:
+#  default: error
+#  logs:
+#    homeassistant.components.zwave: error

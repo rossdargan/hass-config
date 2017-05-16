@@ -1,0 +1,26 @@
+  - alias: Change scene- Alarm is Disarmed
+    trigger:
+      - platform: state
+        entity_id: alarm_control_panel.alarm
+        to: 'disarmed'
+    action:
+      - service: scene.turn_on
+        entity_id: scene.day
+
+  - alias: Change scene- alarm is Armed
+    trigger:
+      - platform: state
+        entity_id: alarm_control_panel.alarm
+        to: 'armed_away'
+    action:
+      - service: scene.turn_on
+        entity_id: scene.everything_turned_off
+
+  - alias: Change scene- alarm is Home
+    trigger:
+      - platform: state
+        entity_id: alarm_control_panel.alarm
+        to: 'armed_home'
+    action:
+      - service: scene.turn_on
+        entity_id: scene.everything_turned_off

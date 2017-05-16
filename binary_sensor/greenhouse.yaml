@@ -1,0 +1,5 @@
+  - platform: rest
+    resource: !secret grenhouse_url
+    name: "Greenhouse Resevoir"
+    device_class: moisture
+    value_template : '{{ value_json.Reservoir }}'

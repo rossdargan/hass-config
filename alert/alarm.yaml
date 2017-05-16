@@ -1,0 +1,9 @@
+  burglar_alarm:
+    name: Burglar Alarm
+    entity_id: alarm_control_panel.alarm
+    state: 'triggered'
+    repeat: 5
+    can_acknowledge: True
+    skip_first: False
+    notifiers:
+      - slackbot      

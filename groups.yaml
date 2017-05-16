@@ -1,0 +1,167 @@
+  default_view:
+    view: yes
+    icon: mdi:home
+    entities:
+      - alert.burglar_alarm
+      - alert.greenhouse
+      - alarm_control_panel.alarm
+      - group.work_sensors
+      - device_tracker.kathsiphone
+      - device_tracker.rossdargan_rossphone
+      - climate.living_room
+      - sensor.greenhouse_temperature
+      - sensor.yr_dewpoint_temperature
+      - group.main_lights
+      - group.tvs
+      - media_player.spotify
+
+  lounge:
+    view: yes
+    name: Lounge
+    icon: mdi:sofa
+    entities:      
+#      - media_player.lounge_universal
+      - sensor.living_room_thermostat_humidity
+      - sensor.living_room_thermostat_temperature
+      - binary_sensor.lounge_pir      
+      - sensor.lounge_main_light_power_13_4
+      - group.lounge_lights
+      - group.lounge_av    
+      #- group.tv_roku
+      #- group.tv_plex
+      #- group.tv_ccaudio
+      #- group.tv_cctv
+      - switch.lounge_tv_switch_6_0
+      - media_player.lounge_universal
+
+
+  kitchen:
+    view: yes
+    icon: mdi:food-variant
+    entities:
+      - media_player.kitchen
+      - group.kitchen_lights
+
+
+  bedroom:
+    view: yes
+    name: Bedroom
+    icon: mdi:hotel
+    entities:
+      - sensor.bedroom_tv_power_2_0
+      - sensor.electric_blanket_unknown_7_0
+      - switch.bedroom_tv_switch_2_0
+      - switch.electric_blanket_switch_7_0
+      - light.kath_lamp
+      - light.ross_bedroom_colour_lamp
+      - media_player.bedroom      
+
+  playroom:
+    view: yes
+    name: playroom
+    icon: mdi:gamepad-variant
+    entities:
+      - media_player.playroom
+      - media_player.playroom_speakers
+      - switch.playroom_tv_switch_5_0      
+
+
+
+  main_lights:
+    icon: mdi:ceiling-light
+    name: Lights
+    entities:
+      - switch.hall_main_light_switch_8_0
+      - light.lounge_main_light_level_13_0
+      - light.kitchen_main_light_level_9_0
+
+  tvs:
+    name: Televisions
+    entities:
+      - switch.bedroom_tv_switch_2_0
+      - switch.playroom_tv_switch_5_0
+      - switch.lounge_tv_switch_6_0
+
+
+  alarm_sensors:
+    name: Alarm Sensors
+    entities:
+      - binary_sensor.dining_room_pir
+      - binary_sensor.office_pir
+      - binary_sensor.hall_pir
+      - binary_sensor.lounge_pir
+      - binary_sensor.kitchen_pir
+      - binary_sensor.front_door
+      - binary_sensor.playroom_door
+      - binary_sensor.garage_door
+      - sensor.alarm_events
+
+
+
+
+  work_sensors:
+    name: Commute
+    icon: mdi:car
+    entities:
+      - sensor.kath_work_commute
+      - sensor.ross_work_commute
+      - camera.a1
+
+
+
+
+
+
+  admin:
+    view: yes
+    name: admin
+    icon: mdi:settings
+    entities:
+      - sensor.hallway_nest_protect_battery_health
+      - sensor.upstairs_nest_protect_battery_health
+      - sensor.ring_front_door_battery
+      - group.all_automations
+      - group.all_scripts
+      - group.all_switches
+      - group.all_lights
+      - group.alarm_sensors
+
+  kitchen_lights:
+    name: "Kitchen Lights"
+    entities:
+      - switch.kitchen_outer_lights_switch_10_0
+      - light.kitchen_hue
+      - light.kitchen_main_light_level_9_0
+
+  lounge_lights:
+    name: "Lounge Lights"
+    entities:
+      - light.lounge_main_light_level_13_0
+      - light.lounge_iris
+      - light.lounge_lamp
+      - switch.floor_lamp_switch_7_0      
+
+  lounge_av:
+    name: "Receiver"
+    entities:
+      - media_player.yamaha_reciever      
+
+  tv_plex:
+    name: "Plex"
+    entities:
+      - media_player.plex_4757684ab9e2dac8d888fcb9cc38a38d
+
+  tv_roku:
+    name: "Roku"
+    entities:
+      - media_player.lounge
+
+  tv_ccaudio:
+    name: "Chromecast Audio"
+    entities:
+      - media_player.lounge_2
+
+  tv_cctv:
+    name: "Chromecast TV"
+    entities:
+      - media_player.loungetv

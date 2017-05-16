@@ -1,0 +1,40 @@
+#########################################################
+###  Turn the hall light off after 5 minutes
+########################################################
+
+- alias: Timer- Turn hall light off 
+  trigger:
+    - platform: state
+      entity_id:
+        - switch.hall_main_light_switch_8_0
+      from: 'off'
+      to: 'on'
+      for: '00:05:00'
+
+#Turn it off!
+  action:
+    - service: switch.turn_off
+      data:
+        entity_id: switch.hall_main_light_switch_8_0
+
+
+########################################################
+###  When the front door is opened turn on the hall light
+########################################################
+
+- alias: Front Door Opened or alarm disarmed
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.front_door
+      to: 'on'
+    - platform: state
+      entity_id: alarm_control_panel.alarm
+      to: 'disarmed'
+  condition:  
+    - condition: sun
+      after: sunset
+      after_offset: "-00:45:00"
+  action:
+    service: switch.turn_on
+    data:
+      entity_id: switch.hall_main_light_switch_8_0

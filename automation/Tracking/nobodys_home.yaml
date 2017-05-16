@@ -1,0 +1,15 @@
+  - alias: Kath Home notification
+    trigger:
+      - platform: state
+        entity_id: group.all_devices
+        from: 'home'
+        to: 'not_home'
+    condition:
+      - condition: state        
+        entity_id: alarm_control_panel.alarm
+        state: 'disarmed'
+    action:
+      - service: notify.slackbot
+        data:
+          message: "Everyones out - and alarms not set!"      
+

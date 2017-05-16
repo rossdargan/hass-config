@@ -1,0 +1,11 @@
+alarm_messages:
+  alias: '_Notify when a the alarm mode is changed'
+  sequence:
+  - service: notify.slackbot
+    data_template:
+      message: 'Alarm put in {{ action }} by {{ name }}'
+  - service: mqtt.publish
+    data_template:
+      topic: 'alarm/state'
+      payload_template: '{{ action.replace(" Mode", "").replace(" mode", "").replace("Disarm","disarmed").replace("Away","armed_away").replace("Home", "armed_home") }}'
+      retain: true

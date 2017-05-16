@@ -1,0 +1,60 @@
+   #############################################################################################
+   # Need to turn of all PIRs because if it was on after a reboot it will never get turned off #
+   #############################################################################################
+turn_off_all_pir:
+  alias: 'Turn off all the PIRs - might not be needed'
+  sequence:
+  - service: mqtt.publish
+    data:
+     topic: alarm/events/PIR/Office
+     payload: Close
+  - service: mqtt.publish
+    data:
+     topic: alarm/events/PIR/Lounge
+     payload: Close     
+  - service: mqtt.publish
+    data:
+     topic: alarm/events/PIR/Hall
+     payload: Close    
+  - service: mqtt.publish
+    data:
+     topic: alarm/events/PIR/Kitchen
+     payload: Close     
+  - service: mqtt.publish
+    data:
+     topic: alarm/events/PIR/Dining Room
+     payload: Close     
+
+#plex_lounge_play:  
+#  alias: "Plex Webhook - Play"
+#  sequence:
+#  - condition: and
+#    conditions:
+#    - condition: template
+#      value_template: '{{ Player.uuid == "4757684ab9e2dac8d888fcb9cc38a38d" }}'
+#    - condition: or
+#      conditions:
+#      - condition: template
+#        value_template: '{{ event == "media.play" }}'
+#      - condition: template
+#        value_template: '{{ event == "media.resume" }}'
+#  - service: scene.turn_on
+#    data:
+#      entity_id: scene.living_room_media_playing
+
+#plex_lounge_pause:
+#  alias: "Plex Webhook - Pause"
+#  sequence:
+#  - condition: and
+#    conditions:
+#    - condition: template
+#      value_template: '{{ Player.uuid == "4757684ab9e2dac8d888fcb9cc38a38d" }}'
+#    - condition: or
+#      conditions:
+#      - condition: template
+#        value_template: '{{ event == "media.pause" }}'
+#      - condition: template
+#        value_template: '{{ event == "media.stop" }}'
+#  - service: scene.turn_on
+#    data:
+#      entity_id: scene.living_room_media_paused
