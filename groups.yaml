@@ -14,6 +14,7 @@
       - group.main_lights
       - group.tvs
       - media_player.spotify
+      - group.lounge
 
   lounge:
     view: yes
