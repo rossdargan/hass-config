@@ -13,4 +13,3 @@ notifications:
   webhooks:
     urls:
       - https://www.the-dargans.co.uk/travis
-      - https://requestb.in/16cabyc1
