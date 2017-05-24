@@ -119,6 +119,7 @@
     name: admin
     icon: mdi:settings
     entities:
+      - sensor.ssl_certificate_expiry
       - sensor.hallway_nest_protect_battery_health
       - sensor.upstairs_nest_protect_battery_health
       - sensor.ring_front_door_battery
