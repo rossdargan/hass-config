@@ -3,6 +3,7 @@
     icon: mdi:home
     entities:
       - alert.burglar_alarm
+      - alert.update_available
       - alert.greenhouse
       - alarm_control_panel.alarm
       - group.work_sensors
