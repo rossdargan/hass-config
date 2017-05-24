@@ -5,6 +5,7 @@
       - alert.burglar_alarm
       - alert.update_available
       - alert.greenhouse
+      - alert.certificate
       - alarm_control_panel.alarm
       - group.work_sensors
       - device_tracker.kathsiphone
@@ -119,6 +120,7 @@
     name: admin
     icon: mdi:settings
     entities:
+      - sensor.ssl_certificate_expiry
       - sensor.hallway_nest_protect_battery_health
       - sensor.upstairs_nest_protect_battery_health
       - sensor.ring_front_door_battery
