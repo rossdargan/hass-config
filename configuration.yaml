@@ -97,7 +97,8 @@ sensor:
     value_template: '{{ value_json.Reservoir == "1" }}'
     unit_of_measurement: "Full"
     name: "Greenhouse Resevoir"
-
+  - platform: cert_expiry
+    host: www.the-dargans.co.uk
   - platform: mqtt
     name: "Alarm Events"
     state_topic: "alarm/events"
