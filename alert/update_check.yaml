@@ -1,0 +1,8 @@
+  update_available:
+    name: Update Available
+    entity_id: updater.updater
+    repeat: 5
+    can_acknowledge: True
+    skip_first: False
+    notifiers:
+      - slackbot      
