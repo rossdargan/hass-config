@@ -110,17 +110,12 @@
       - sensor.ross_work_commute
       - camera.a1
 
-
-
-
-
-
   admin:
     view: yes
     name: admin
     icon: mdi:settings
     entities:
-      - power_sensors
+      - group.power_sensors
       - sensor.ssl_certificate_expiry
       - sensor.hallway_nest_protect_battery_health
       - sensor.upstairs_nest_protect_battery_health
