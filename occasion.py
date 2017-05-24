@@ -14,7 +14,7 @@ def mk_occasion(name, start, end, days=None):
 # Matching is done from top to bottom
 OCCASIONS = [
     # More specific occasions
-    mk_occasion('work_morning', '06:00:00', '07:10:00', range(5)),
+    mk_occasion('work_morning', '06:00:00', '09:10:00', range(5)),
 
     # General matching
     mk_occasion('weekday', '00:00:00', '23:59:59', range(5)),
