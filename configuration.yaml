@@ -77,6 +77,11 @@ ring:
   password: !secret ring_password
 
 sensor:
+  - platform: speedtest
+    monitored_conditions:
+      - ping
+      - download
+      - upload
   - platform: rest
     resource: !secret grenhouse_url
     value_template: '{{ value_json.temperature | round(0)}}'
