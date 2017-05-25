@@ -298,7 +298,6 @@ group: !include groups.yaml
 binary_sensor: !include_dir_merge_list binary_sensor
 
 emulated_hue:
-  type: alexa
   listen_port: 80
   expose_by_default: true
   exposed_domains:
