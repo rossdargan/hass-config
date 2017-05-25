@@ -170,7 +170,18 @@
     name: "Chromecast TV"
     entities:
       - media_player.loungetv
-
+  glances:
+    name: "Glances"
+    entities:
+      - sensor.docker4_cpu_load
+      - sensor.docker4_disk_free
+      - sensor.docker4_ram_free      
+      - sensor.docker3_cpu_load
+      - sensor.docker3_disk_free
+      - sensor.docker3_ram_free      
+      - sensor.docker1_cpu_load
+      - sensor.docker1_disk_free
+      - sensor.docker1_ram_free      
   power_sensors:
     name: "Power Usage"
     entities:
@@ -185,3 +196,4 @@
       - sensor.garage_light_power_3_8
       - sensor.floor_lamp_power_7_8
  
+  
