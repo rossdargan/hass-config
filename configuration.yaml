@@ -284,10 +284,10 @@ notify:
    platform: slack
    api_key: !secret slackbot
    default_channel: '#home'
-  - name: html5
-    platform: html5
-    gcm_api_key: 'AIzaSyBZkpkdP1bP49PfaLDXFM59stSOotfpkPo'
-    gcm_sender_id: 'hass-168713'
+ - name: html5
+   platform: html5
+   gcm_api_key: !secret gcm_api_key
+   gcm_sender_id: !secret gcm_sender_id
     
 zwave:
   usb_path: /dev/ttyUSB0
