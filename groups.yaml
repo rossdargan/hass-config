@@ -118,6 +118,8 @@
       - sensor.speedtest_ping
       - sensor.speedtest_download
       - sensor.speedtest_upload
+      - sensor.water_sensor_flood_12_8
+      - binary_sensor.water_sensor_sensor_12_0
       - group.power_sensors
       - sensor.ssl_certificate_expiry
       - sensor.hallway_nest_protect_battery_health
