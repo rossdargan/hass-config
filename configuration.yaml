@@ -78,6 +78,7 @@ ring:
 
 sensor:
   - platform: glances
+    name: docker4
     host: 192.168.1.53
     resources:
       - 'disk_use_percent'
@@ -94,6 +95,42 @@ sensor:
       - 'process_total'
       - 'process_thread'
       - 'process_sleeping'
+  - platform: glances
+    name: docker1
+    host: 192.168.1.50
+    resources:
+      - 'disk_use_percent'
+      - 'disk_use'
+      - 'disk_free'
+      - 'memory_use_percent'
+      - 'memory_use'
+      - 'memory_free'
+      - 'swap_use_percent'
+      - 'swap_use'
+      - 'swap_free'
+      - 'processor_load'
+      - 'process_running'
+      - 'process_total'
+      - 'process_thread'
+      - 'process_sleeping' 
+  - platform: glances
+    name: docker3
+    host: 192.168.1.52
+    resources:
+      - 'disk_use_percent'
+      - 'disk_use'
+      - 'disk_free'
+      - 'memory_use_percent'
+      - 'memory_use'
+      - 'memory_free'
+      - 'swap_use_percent'
+      - 'swap_use'
+      - 'swap_free'
+      - 'processor_load'
+      - 'process_running'
+      - 'process_total'
+      - 'process_thread'
+      - 'process_sleeping' 
   - platform: speedtest
     monitored_conditions:
       - ping
