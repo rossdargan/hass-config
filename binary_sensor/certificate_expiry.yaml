@@ -1,5 +1,5 @@
   - platform: template
     sensors:
       certificate_nearly_expired:
-        value_template: '{{ states.sensor.ssl_certificate_expiry.state < 15 }}'
+        value_template: '{{ int(states.sensor.ssl_certificate_expiry.state) < 15 }}'
         friendly_name: 'Certificate has nearly expired'
