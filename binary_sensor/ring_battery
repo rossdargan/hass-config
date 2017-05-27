@@ -1,0 +1,5 @@
+  - platform: template
+    sensors:
+      ring_battery_nearly_died:
+        value_template: '{{ sensor.ring_front_door_battery|int < 20 }}'
+        friendly_name: 'Doorbell battery is nearly dead'
