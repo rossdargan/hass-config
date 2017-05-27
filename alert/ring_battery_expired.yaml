@@ -1,0 +1,8 @@
+  ring_battery:
+    name: Battery has nearly expired
+    entity_id: binary_sensor.ring_battery_nearly_died
+    repeat: 240
+    can_acknowledge: True
+    skip_first: False
+    notifiers:
+      - slackbot  
