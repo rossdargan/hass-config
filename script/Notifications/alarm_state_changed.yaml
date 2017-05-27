@@ -4,6 +4,12 @@ alarm_messages:
   - service: notify.slackbot
     data_template:
       message: 'Alarm put in {{ action }} by {{ name }}'
+  - service: notify.html5
+    data_template:
+      title: 'Alarm {{action}}'
+      message: 'Alarm put in {{ action }} by {{ name }}'
+      data:
+        -  icon: "https://www.the-dargans.co.uk/local/Kath.jpg"
   - service: mqtt.publish
     data_template:
       topic: 'alarm/state'
