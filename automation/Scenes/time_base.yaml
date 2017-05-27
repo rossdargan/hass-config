@@ -1,0 +1,16 @@
+  - alias: Night time trigger
+    trigger:
+      platform: time
+      after: '0:00:01'
+    action:
+      - service: scene.turn_on
+        entity_id: scene.everything_turned_off
+  
+  - alias: Morning time trigger
+    trigger:
+      platform: time
+      after: '7:00:00'
+    action:
+      - service: scene.turn_on
+        entity_id: scene.day
+
