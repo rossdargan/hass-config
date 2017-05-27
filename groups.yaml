@@ -6,6 +6,7 @@
       - alert.update_available
       - alert.greenhouse
       - alert.certificate
+      - alert.ring_battery
       - alarm_control_panel.alarm
       - group.work_sensors
       - device_tracker.kathsiphone
