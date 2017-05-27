@@ -130,6 +130,7 @@
       - group.all_switches
       - group.all_lights
       - group.alarm_sensors
+      - group.glances
 
   kitchen_lights:
     name: "Kitchen Lights"
