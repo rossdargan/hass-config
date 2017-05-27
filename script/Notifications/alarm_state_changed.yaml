@@ -9,7 +9,8 @@ alarm_messages:
       title: 'Alarm {{action}}'
       message: 'Alarm put in {{ action }} by {{ name }}'
       data:
-        icon: "https://www.the-dargans.co.uk/local/{{ name }}.png"
+        icon: "https://www.the-dargans.co.uk/local/{{ name|lower }}.png"
+        tag: 'alarm'
   - service: mqtt.publish
     data_template:
       topic: 'alarm/state'
