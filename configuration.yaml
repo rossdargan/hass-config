@@ -328,7 +328,11 @@ device_tracker:
     username: !secret apple_username
     password: !secret apple_password
     account_name: Apple
-
+  - platform: tplink
+    host: 192.168.1.1
+    username: admin
+    password: !secret tplink_password
+    
 camera:
   - platform: generic
     still_image_url: https://live.streamdays.com/bespoke-hosting/durhamcouncil/camera08.jpg?
