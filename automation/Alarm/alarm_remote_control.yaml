@@ -6,7 +6,7 @@
       - service: script.alarm_messages
         data_template:
          action: '{{ trigger.payload }}'
-         name: '{{ trigger.topic.replace("alarm/events/Remote Control/","").replace(" Fob", "") }}'
+         name: '{{ trigger.topic.replace("alarm/events/Remote Control/","").replace(" Fob", "").replace("Kaths","Kath" }}'
  #     - service: mqtt.publish
  #       data:
  #        topic: {{ trigger.topic }}
