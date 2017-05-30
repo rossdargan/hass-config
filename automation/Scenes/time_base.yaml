@@ -2,6 +2,10 @@
     trigger:
       platform: time
       after: '0:00:01'
+    condition:
+      condition: state
+      entity_id: alarm_control_panel.alarm
+      state: 'disarmed'
     action:
       - service: scene.turn_on
         entity_id: scene.everything_turned_off
@@ -10,6 +14,10 @@
     trigger:
       platform: time
       after: '7:00:00'
+    condition:
+      condition: state
+      entity_id: alarm_control_panel.alarm
+      state: 'disarmed'
     action:
       - service: scene.turn_on
         entity_id: scene.day
