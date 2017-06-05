@@ -1,3 +1,23 @@
+customize_glob:
+  light.*:
+    custom_ui_state_card: custom-ui
+    state_card_mode: break-slider
+    stretch_slider: true
+    extra_data_template: "{power_consumption!=10}W"
+    hide_control: false
+    show_last_changed: false
+    slider_theme:
+      min: 10
+      max: 200
+      pin: true
+      off_when_min: false
+      report_when_not_changed: false
+    extra_badge:
+      entity_id: sensor.my_sensor  # Will take precedence over attribute and unit below.
+      attribute: power_consumption
+      unit: W
+      blacklist_states: 0
+
   script.group_visibility:   
    hidden: false
   sensor.kath_work_commute:
@@ -68,41 +88,6 @@
   light.kitchen_main_light_step_size_9_6:
     emulated_hue: false
   light.lounge_main_light_step_size_13_6:
-    custom_ui_state_card: custom-ui
-    state_card_mode: break-slider
-    stretch_slider: true
-    extra_data_template: "{power_consumption!=10}W"
-    hide_control: false
-    show_last_changed: false
-    slider_theme:
-      min: 10
-      max: 200
-      pin: true
-      off_when_min: false
-      report_when_not_changed: false
-    extra_badge:
-      entity_id: sensor.my_sensor  # Will take precedence over attribute and unit below.
-      attribute: power_consumption
-      unit: W
-      blacklist_states: 0
     emulated_hue: false
   switch.dead_switch_4_0:
     emulated_hue: false
-  light.bedroom:
-    custom_ui_state_card: custom-ui
-    state_card_mode: break-slider
-    stretch_slider: true
-    extra_data_template: "{power_consumption!=10}W"
-    hide_control: false
-    show_last_changed: false
-    slider_theme:
-      min: 10
-      max: 200
-      pin: true
-      off_when_min: false
-      report_when_not_changed: false
-    extra_badge:
-      entity_id: sensor.my_sensor  # Will take precedence over attribute and unit below.
-      attribute: power_consumption
-      unit: W
-      blacklist_states: 0
