@@ -5,6 +5,7 @@
     trigger:
       - platform: state
         entity_id: switch.lounge_tv_switch_6_0
+        from: 'off'     
         to: 'on'
         for:
           seconds: 30
@@ -20,6 +21,7 @@
     trigger:
       - platform: state
         entity_id: switch.playroom_tv_switch_5_0
+        from: 'off'         
         to: 'on'
         for:
           seconds: 40
@@ -34,6 +36,7 @@
     trigger:
       - platform: state
         entity_id: switch.bedroom_tv_switch_2_0
+        from: 'off'         
         to: 'on'
         for:
           seconds: 30
