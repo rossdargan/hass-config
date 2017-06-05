@@ -7,7 +7,7 @@
     - platform: state
       entity_id:
         - light.adams_light
-      state: 'on'
+      to: 'on'
       for: '01:00:00'
 
 #Turn it off!
