@@ -69,7 +69,7 @@
       - media_player.playroom
       - media_player.playroom_speakers
       - switch.playroom_tv_switch_5_0      
-
+      - switch.playroom_light_switch_3_0
 
 
   main_lights:
@@ -201,5 +201,7 @@
       - sensor.playroom_tv_power_5_8
       - sensor.garage_light_power_3_8
       - sensor.floor_lamp_power_7_8
+      - sensor.playroom_light_power_3_8
+
  
   
