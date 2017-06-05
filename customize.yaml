@@ -45,13 +45,13 @@
     icon: mdi:lamp
     friendly_name: "Ross Lamp"
     emulated_hue: false
-  light.toilet:
-    icon: mdi:emoticon-poop
+  switch.playroom_light_switch_3_0:
+    icon: mdi:lamp
     emulated_hue: false
   switch.floor_lamp_switch_7_0:
     icon: mdi:lamp
     friendly_name: "Floor Lamp"
-  switch.garage_light_switch_3_0:
+  light.garage:
     icon: mdi:lamp
     friendly_name: "Garage Light"
   switch.kitchen_outer_lights_switch_10_0:
