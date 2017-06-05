@@ -18,6 +18,7 @@
       - group.tvs
       - media_player.spotify
       - group.lounge
+      - camera.office
 
   lounge:
     view: yes
@@ -132,6 +133,9 @@
       - group.all_lights
       - group.alarm_sensors
       - group.glances
+      - switch.office_torch
+      - sensor.office_motion
+      - sensor.office_light_level
 
   kitchen_lights:
     name: "Kitchen Lights"
