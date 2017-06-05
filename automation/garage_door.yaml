@@ -10,7 +10,7 @@
     action:
       service: light.turn_on
       data:
-        entity_id: light.garage_light
+        entity_id: light.garage
 
   - alias: Garage Door Closed
     trigger:
@@ -21,4 +21,4 @@
     action:
       service: light.turn_off
       data:
-        entity_id: light.garage_light
+        entity_id: light.garage
