@@ -5,7 +5,7 @@
     condition:
       condition: state
       entity_id: alarm_control_panel.alarm
-      to: 'disarmed'
+      state: 'disarmed'
     action:
       - service: scene.turn_on
         entity_id: scene.everything_turned_off
@@ -17,7 +17,7 @@
     condition:
       condition: state
       entity_id: alarm_control_panel.alarm
-      to: 'disarmed'
+      state: 'disarmed'
     action:
       - service: scene.turn_on
         entity_id: scene.day
