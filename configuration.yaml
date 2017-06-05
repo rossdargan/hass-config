@@ -374,7 +374,7 @@ android_ip_webcam:
   - host: 192.168.1.124
     name: Office
     username: admin
-    password !secret webcam_password
+    password: !secret webcam_password
     sensors:
       - light
       - motion
