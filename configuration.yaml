@@ -403,3 +403,18 @@ android_ip_webcam:
     switches:
       - torch
 
+
+panel_iframe:
+  plexpy:
+      title: 'PlexPy'
+      url: !secret plexpy_url
+      icon: mdi:account-search
+  sonarr:
+      title: 'Sonarr'
+      url: !secret sonarr_url
+      icon: mdi:television
+  radarr:
+      title: 'Radarr'
+      url: !secret radarr_url
+      icon: mdi:radar
+
