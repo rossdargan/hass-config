@@ -242,7 +242,7 @@ sensor:
       units: imperial 
 
 mqtt:
-  broker: localhost
+  broker: 192.168.1.53
   port: 1883
   client_id: home-assistant-1
   keepalive: 60
