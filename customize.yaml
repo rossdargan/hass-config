@@ -12,24 +12,24 @@
     hidden: false
   group.all_switches:
     hidden: false
-  switch.hall_main_light_switch_8_0:
+  switch.hall_main_light_switch:
     icon: mdi:ceiling-light
     friendly_name: "Hall Light"
-  light.kitchen_main_light_level_9_0:
+  light.kitchen_main_light_level:
     icon: mdi:ceiling-light
     friendly_name: "Kitchen Light"
-  light.lounge_main_light_level_13_0:
+  light.lounge_main_light_level:
     icon: mdi:ceiling-light
     friendly_name: "Lounge Light"
   sensor.yr_dewpoint_temperature:
     friendly_name: "Temp"
-  switch.bedroom_tv_switch_2_0:
+  switch.bedroom_tv_switch:
     icon: mdi:television
     friendly_name: "Bedroom TV"
-  switch.playroom_tv_switch_5_0:
+  switch.playroom_tv_switch:
     icon: mdi:television
     friendly_name: "Playroom TV"
-  switch.lounge_tv_switch_6_0:
+  switch.lounge_tv_switch:
     icon: mdi:television
     friendly_name: "Lounge TV"
   light.dining_room_lamp:
@@ -45,16 +45,16 @@
     icon: mdi:lamp
     friendly_name: "Ross Lamp"
     emulated_hue: false
-  switch.playroom_light_switch_3_0:
+  switch.playroom_light_switch:
     icon: mdi:lamp
     emulated_hue: false
-  switch.floor_lamp_switch_7_0:
+  switch.floor_lamp_switch:
     icon: mdi:lamp
     friendly_name: "Floor Lamp"
   light.garage:
     icon: mdi:lamp
     friendly_name: "Garage Light"
-  switch.kitchen_outer_lights_switch_10_0:
+  switch.kitchen_outer_lights_switch:
     icon: mdi:ceiling-light    
     friendly_name: "Kitchen Outer Lights"
   light.lounge_iris:
@@ -65,9 +65,5 @@
     emulated_hue: false
   light.adams_light:
     emulated_hue: false
-  light.kitchen_main_light_step_size_9_6:
-    emulated_hue: false
-  light.lounge_main_light_step_size_13_6:
-    emulated_hue: false
-  switch.dead_switch_4_0:
+  switch.dead_switch:
     emulated_hue: false
