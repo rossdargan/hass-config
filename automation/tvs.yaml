@@ -4,7 +4,7 @@
   - alias: Start Plex with Lounge TV
     trigger:
       - platform: state
-        entity_id: switch.lounge_tv_switch_6_0
+        entity_id: switch.lounge_tv_switch
         from: 'off'     
         to: 'on'
         for:
@@ -20,7 +20,7 @@
   - alias: Start Plex with Playroom TV
     trigger:
       - platform: state
-        entity_id: switch.playroom_tv_switch_5_0
+        entity_id: switch.playroom_tv_switch
         from: 'off'         
         to: 'on'
         for:
@@ -35,7 +35,7 @@
   - alias: Start Plex with Bedroom TV
     trigger:
       - platform: state
-        entity_id: switch.bedroom_tv_switch_2_0
+        entity_id: switch.bedroom_tv_switch
         from: 'off'         
         to: 'on'
         for:
