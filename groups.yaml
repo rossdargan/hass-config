@@ -29,14 +29,14 @@
       - sensor.living_room_thermostat_humidity
       - sensor.living_room_thermostat_temperature
       - binary_sensor.lounge_pir      
-      - sensor.lounge_main_light_power_13_4
+      - sensor.lounge_main_light_power_
       - group.lounge_lights
       - group.lounge_av    
       #- group.tv_roku
       #- group.tv_plex
       #- group.tv_ccaudio
       #- group.tv_cctv
-      - switch.lounge_tv_switch_6_0
+      - switch.lounge_tv_switch
       - media_player.lounge_universal
 
 
@@ -53,10 +53,10 @@
     name: Bedroom
     icon: mdi:hotel
     entities:
-      - sensor.bedroom_tv_power_2_0
-      - sensor.electric_blanket_unknown_7_0
-      - switch.bedroom_tv_switch_2_0
-      - switch.electric_blanket_switch_7_0
+      - sensor.bedroom_tv_power
+      - sensor.electric_blanket_unknown
+      - switch.bedroom_tv_switch
+      - switch.electric_blanket_switch
       - light.kath_lamp
       - light.ross_bedroom_colour_lamp
       - media_player.bedroom      
@@ -68,24 +68,24 @@
     entities:
       - media_player.playroom
       - media_player.playroom_speakers
-      - switch.playroom_tv_switch_5_0      
-      - switch.playroom_light_switch_3_0
+      - switch.playroom_tv_switch  
+      - switch.playroom_light_switch
 
 
   main_lights:
     icon: mdi:ceiling-light
     name: Lights
     entities:
-      - switch.hall_main_light_switch_8_0
-      - light.lounge_main_light_level_13_0
-      - light.kitchen_main_light_level_9_0
+      - switch.hall_main_light_switch
+      - light.lounge_main_light_level
+      - light.kitchen_main_light_level
 
   tvs:
     name: Televisions
     entities:
-      - switch.bedroom_tv_switch_2_0
-      - switch.playroom_tv_switch_5_0
-      - switch.lounge_tv_switch_6_0
+      - switch.bedroom_tv_switch
+      - switch.playroom_tv_switch
+      - switch.lounge_tv_switch
 
 
   alarm_sensors:
@@ -120,8 +120,8 @@
       - sensor.speedtest_ping
       - sensor.speedtest_download
       - sensor.speedtest_upload
-      - sensor.water_sensor_flood_12_8
-      - binary_sensor.water_sensor_sensor_12_0
+      - sensor.water_sensor_flood
+      - binary_sensor.water_sensor_sensor
       - group.power_sensors
       - sensor.ssl_certificate_expiry
       - sensor.hallway_nest_protect_battery_health
@@ -140,17 +140,17 @@
   kitchen_lights:
     name: "Kitchen Lights"
     entities:
-      - switch.kitchen_outer_lights_switch_10_0
+      - switch.kitchen_outer_lights_switch
       - light.kitchen_hue
-      - light.kitchen_main_light_level_9_0
+      - light.kitchen_main_light_level
 
   lounge_lights:
     name: "Lounge Lights"
     entities:
-      - light.lounge_main_light_level_13_0
+      - light.lounge_main_light_level
       - light.lounge_iris
       - light.lounge_lamp
-      - switch.floor_lamp_switch_7_0      
+      - switch.floor_lamp_switch
 
   lounge_av:
     name: "Receiver"
@@ -191,17 +191,17 @@
   power_sensors:
     name: "Power Usage"
     entities:
-      - sensor.hall_main_light_power_8_8
-      - sensor.kitchen_main_light_power_9_4
-      - sensor.kitchen_outer_lights_power_10_8
-      - sensor.lounge_main_light_power_13_4
-      - sensor.hall_main_light_power_8_8
-      - sensor.bedroom_tv_power_2_8
-      - sensor.lounge_tv_power_6_8
-      - sensor.playroom_tv_power_5_8
-      - sensor.garage_light_power_3_8
-      - sensor.floor_lamp_power_7_8
-      - sensor.playroom_light_power_3_8
+      - sensor.hall_main_light_power
+      - sensor.kitchen_main_light_power
+      - sensor.kitchen_outer_lights_power
+      - sensor.lounge_main_light_power
+      - sensor.hall_main_light_power
+      - sensor.bedroom_tv_power
+      - sensor.lounge_tv_power
+      - sensor.playroom_tv_power
+      - sensor.garage_light_power
+      - sensor.floor_lamp_power
+      - sensor.playroom_light_power
 
  
   
