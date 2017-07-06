@@ -6,7 +6,7 @@
   trigger:
     - platform: state
       entity_id:
-        - switch.hall_main_light_switch_8_0
+        - switch.hall_main_light_switch
       from: 'off'
       to: 'on'
       for: '00:05:00'
@@ -15,7 +15,7 @@
   action:
     - service: switch.turn_off
       data:
-        entity_id: switch.hall_main_light_switch_8_0
+        entity_id: switch.hall_main_light_switch
 
 
 ########################################################
@@ -37,4 +37,4 @@
   action:
     service: switch.turn_on
     data:
-      entity_id: switch.hall_main_light_switch_8_0
+      entity_id: switch.hall_main_light_switch
