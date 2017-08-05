@@ -287,14 +287,14 @@ media_player:
       - "iPod (USB)"
     source_names:
       HDMI4: "Xbox"
-      HDMI1: "Roku"
+      HDMI1: "Shield"
       HDMI3: "Chromecast"
       AUDIO1: "CC Audio"
       NET RADIO: "Radio"    
   - platform: universal
     name: Lounge Universal
     children:    
-      - media_player.plex_4757684ab9e2dac8d888fcb9cc38a38d
+      - media_player.plex_d46e7ce32731388a_com_plexapp_android
    #   - media_player.lounge
       - media_player.living_room_home
       - media_player.lounge_2
