@@ -49,7 +49,7 @@
   - alias: Lounge TV playing
     trigger:
       - platform: state
-        entity_id: media_player.plex_4757684ab9e2dac8d888fcb9cc38a38d
+        entity_id: media_player.plex_d46e7ce32731388a_com_plexapp_android
         from: 'paused'
         to: 'playing'
     action:
@@ -59,7 +59,7 @@
   - alias: Lounge TV Paused
     trigger:
       - platform: state
-        entity_id: media_player.plex_4757684ab9e2dac8d888fcb9cc38a38d
+        entity_id: media_player.plex_d46e7ce32731388a_com_plexapp_android
         from: 'playing'
         to: 'paused'
     action:
