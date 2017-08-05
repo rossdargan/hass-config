@@ -367,6 +367,9 @@ notify:
    platform: html5
    gcm_api_key: !secret gcm_api_key
    gcm_sender_id: !secret gcm_sender_id
+ - platform: nfandroidtv
+   name: Lounge
+   host: 192.168.1.134
     
 zwave:
   usb_path: /dev/ttyUSB0
