@@ -12,3 +12,6 @@
         data:
           entity_id: media_player.dining_room
           message: "Mummys Home. Time to behave!"
+      - service: notify.Lounge
+        data: 
+          message: "Mummy is home!"
