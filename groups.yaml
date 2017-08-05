@@ -39,6 +39,7 @@
       - switch.lounge_tv_switch
       - media_player.shield
       - media_player.lounge_universal
+      - media_player.plex_d46e7ce32731388a_com_plexapp_android
 
 
   kitchen:
