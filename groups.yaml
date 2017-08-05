@@ -37,6 +37,7 @@
       #- group.tv_ccaudio
       #- group.tv_cctv
       - switch.lounge_tv_switch
+      - media_player.shield
       - media_player.lounge_universal
 
 
