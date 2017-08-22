@@ -101,7 +101,7 @@ ring:
 sensor:
   - platform: glances
     name: docker4
-    host: 192.168.1.53
+    host: 192.168.86.53
     port: 61208
     resources:
       - 'disk_use_percent'
@@ -120,7 +120,7 @@ sensor:
       - 'process_sleeping'  
   - platform: glances
     name: docker1
-    host: 192.168.1.50
+    host: 192.168.86.50
     port: 61208
     resources:
       - 'disk_use_percent'
@@ -139,7 +139,7 @@ sensor:
       - 'process_sleeping'
   - platform: glances
     name: docker3
-    host: 192.168.1.52
+    host: 192.168.86.52
     port: 61208
     resources:
       - 'disk_use_percent'
@@ -187,7 +187,7 @@ sensor:
     name: "Alarm Events"
     state_topic: "alarm/events"
   - platform: plex
-    host: 192.168.1.50
+    host: 192.168.86.51
     username: !secret plex_username
     password: !secret plex_password
   - platform: yr
@@ -207,7 +207,7 @@ sensor:
         - dewpointTemperature
   - platform: sonarr
     api_key: !secret sonarr_api_key
-    host: 192.168.1.50
+    host: 192.168.86.51
     port: 8989
     monitored_conditions:
       - upcoming
@@ -242,7 +242,7 @@ sensor:
       units: imperial 
 
 mqtt:
-  broker: 192.168.1.53
+  broker: 192.168.86.54
   port: 1883
   client_id: home-assistant-1
   keepalive: 60
@@ -263,7 +263,7 @@ media_player:
     use_custom_entity_ids: true
     use_episode_art: true
   - platform: yamaha
-    host: 192.168.1.26
+    host: 192.168.86.26
     name: "Yamaha Reciever"
     source_ignore:     
       - "AUDIO2"
@@ -369,7 +369,7 @@ notify:
    gcm_sender_id: !secret gcm_sender_id
  - platform: nfandroidtv
    name: Lounge
-   host: 192.168.1.134
+   host: 192.168.86.134
     
 zwave:
   usb_path: /dev/ttyUSB0
