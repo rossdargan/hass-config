@@ -353,7 +353,7 @@ device_tracker:
 
 camera:
   - platform: generic
-    still_image_url: https://live.streamdays.com/bespoke-hosting/durhamcouncil/camera08.jpg?
+    still_image_url: https://liveimages.networkwebcams.co.uk/sd_durhamcouncil08.jpg?
     name: A1
 
 
@@ -369,7 +369,7 @@ notify:
    gcm_sender_id: !secret gcm_sender_id
  - platform: nfandroidtv
    name: Lounge
-   host: 192.168.86.134
+   host: 192.168.86.24
     
 zwave:
   usb_path: /dev/ttyUSB0
