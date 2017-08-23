@@ -99,9 +99,10 @@ ring:
   password: !secret ring_password
 
 sensor:
+  - platform: google_wifi
   - platform: glances
     name: docker4
-    host: 192.168.86.53
+    host: 192.168.86.54
     port: 61208
     resources:
       - 'disk_use_percent'
@@ -120,7 +121,7 @@ sensor:
       - 'process_sleeping'  
   - platform: glances
     name: docker1
-    host: 192.168.86.50
+    host: 192.168.86.51
     port: 61208
     resources:
       - 'disk_use_percent'
@@ -139,7 +140,7 @@ sensor:
       - 'process_sleeping'
   - platform: glances
     name: docker3
-    host: 192.168.86.52
+    host: 192.168.86.53
     port: 61208
     resources:
       - 'disk_use_percent'
