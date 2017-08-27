@@ -119,6 +119,7 @@
     name: admin
     icon: mdi:settings
     entities:
+      - sensor.plex
       - sensor.speedtest_ping
       - sensor.speedtest_download
       - sensor.speedtest_upload
@@ -138,6 +139,7 @@
       - switch.office_torch
       - sensor.office_motion
       - sensor.office_light_level
+      - group.google_wifi
 
   kitchen_lights:
     name: "Kitchen Lights"
@@ -204,6 +206,11 @@
       - sensor.garage_light_power
       - sensor.floor_lamp_power
       - sensor.playroom_light_power
-
- 
-  
+  c
+    name: "Google Wifi
+    entities:  
+      - sensor.google_wifi_current_version
+      - sensor.google_wifi_last_restart
+      - sensor.google_wifi_new_version
+      - sensor.google_wifi_status
+      - sensor.google_wifi_uptime
