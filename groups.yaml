@@ -206,7 +206,7 @@
       - sensor.garage_light_power
       - sensor.floor_lamp_power
       - sensor.playroom_light_power
-  c
+  google_wifi:
     name: "Google Wifi
     entities:  
       - sensor.google_wifi_current_version
