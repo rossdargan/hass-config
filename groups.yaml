@@ -207,7 +207,7 @@
       - sensor.floor_lamp_power
       - sensor.playroom_light_power
   google_wifi:
-    name: "Google Wifi
+    name: "Google Wifi"
     entities:  
       - sensor.google_wifi_current_version
       - sensor.google_wifi_last_restart
