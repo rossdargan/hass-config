@@ -5,6 +5,7 @@ alarm_messages:
     data_template:
       message: 'Alarm put in {{ action }} by {{ name }}'
   - service: notify.ios_kaths_iphone
+    data_template:
       title: 'Alarm {{action}}'
       message: 'Alarm put in {{ action }} by {{ name }}'
   - service: notify.html5
