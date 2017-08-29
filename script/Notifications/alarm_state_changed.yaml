@@ -4,6 +4,9 @@ alarm_messages:
   - service: notify.slackbot
     data_template:
       message: 'Alarm put in {{ action }} by {{ name }}'
+  - service: notify.ios_kaths_iphone
+      title: 'Alarm {{action}}'
+      message: 'Alarm put in {{ action }} by {{ name }}'
   - service: notify.html5
     data_template:
       title: 'Alarm {{action}}'
