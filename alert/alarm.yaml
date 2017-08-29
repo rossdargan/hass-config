@@ -6,4 +6,6 @@
     can_acknowledge: True
     skip_first: False
     notifiers:
-      - slackbot      
+      - slackbot
+      - ios_kaths_iphone
+      - html5_ross_phone
