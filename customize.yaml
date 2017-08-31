@@ -45,12 +45,12 @@
     icon: mdi:lamp
     friendly_name: "Ross Lamp"
     emulated_hue: false
-  switch.playroom_light_switch:
+  switch.dining_room_floor_lamp_switch:
+    friendly_name: "Dining Room Floor Lamp"
+    icon: mdi:lamp    
+  switch.loung_floor_lamp_switch:
     icon: mdi:lamp
-    emulated_hue: false
-  switch.floor_lamp_switch:
-    icon: mdi:lamp
-    friendly_name: "Floor Lamp"
+    friendly_name: "Lounge Floor Lamp"
   light.garage:
     icon: mdi:lamp
     friendly_name: "Garage Light"
