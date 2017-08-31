@@ -71,9 +71,7 @@
     entities:
       - media_player.playroom
       - media_player.playroom_speakers
-      - switch.playroom_tv_switch  
-      - switch.playroom_light_switch
-
+      - switch.playroom_tv_switch 
 
   main_lights:
     icon: mdi:ceiling-light
@@ -142,6 +140,12 @@
       - sensor.office_light_level
       - group.google_wifi
 
+  dining_room:
+    view: yes
+    name: "Dining Room"
+    entities:
+      - switch.dining_room_floor_lamp_switch
+      - light.dining_room_lamp
   kitchen_lights:
     name: "Kitchen Lights"
     entities:
@@ -155,7 +159,7 @@
       - light.lounge_main_light_level
       - light.lounge_iris
       - light.lounge_lamp
-      - switch.floor_lamp_switch
+      - switch.lounge_floor_lamp_switch
 
   lounge_av:
     name: "Receiver"
@@ -205,8 +209,8 @@
       - sensor.lounge_tv_power
       - sensor.playroom_tv_power
       - sensor.garage_light_power
-      - sensor.floor_lamp_power
-      - sensor.playroom_light_power
+      - sensor.lounge_floor_lamp_power
+      - sensor.dining_room_floor_lamp_power
   google_wifi:
     name: "Google Wifi"
     entities:  
