@@ -146,6 +146,7 @@
     entities:
       - switch.dining_room_floor_lamp_switch
       - light.dining_room_lamp
+      - media_player.dining_room
   kitchen_lights:
     name: "Kitchen Lights"
     entities:
