@@ -255,6 +255,7 @@ mqtt:
 media_player:
   - platform: philips_js
     host: 192.168.86.118
+    name: PhilipsTv
   - platform: roku
   - platform: spotify
     client_id: !secret spotify_clientid
