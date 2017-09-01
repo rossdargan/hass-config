@@ -10,6 +10,7 @@
       - alarm_control_panel.alarm
       - group.work_sensors
       - device_tracker.kathsiphone
+      - device_tracker.kaths_iphone
       - device_tracker.rossdargan_rossphone
       - climate.living_room
       - sensor.greenhouse_temperature
