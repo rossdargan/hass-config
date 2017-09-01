@@ -41,7 +41,7 @@
       - media_player.shield
       - media_player.lounge_universal
       - media_player.plex_d46e7ce32731388a_com_plexapp_android
-      - media_player.lounge_tv
+      - media_player.philipstv
 
 
   kitchen:
