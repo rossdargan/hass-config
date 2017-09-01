@@ -48,7 +48,7 @@
   switch.dining_room_floor_lamp_switch:
     friendly_name: "Dining Room Floor Lamp"
     icon: mdi:lamp    
-  switch.loung_floor_lamp_switch:
+  switch.lounge_floor_lamp_switch:
     icon: mdi:lamp
     friendly_name: "Lounge Floor Lamp"
   light.garage:
