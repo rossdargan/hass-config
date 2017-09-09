@@ -13,4 +13,4 @@ spotifydemo:
     - service: media_player.select_source
       data_template:
         entity_id: media_player.spotify
-        source:"Kitchen Echo Dot"
+        source: "Kitchen Echo Dot"
