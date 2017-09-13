@@ -20,6 +20,7 @@
       - media_player.spotify
       - group.lounge
       - camera.office
+      - sensor.ross_monzo
 
   lounge:
     view: yes
