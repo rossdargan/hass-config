@@ -229,7 +229,7 @@ class MonzoSensor(Entity):
         self._account_id = None
 
     def refresh_monzo_instance(self):
-        from monzo.monzo import Monzo # Import Monzo Class
+        import monzo.monzo  # Import Monzo Class
         """Fetch a new monzo instance."""        
         token_refreshed = False
         need_token = (self._token_info is None or
@@ -246,7 +246,7 @@ class MonzoSensor(Entity):
             token_refreshed = True
         if self._client is None or token_refreshed:
             self._client = \
-                Monzo(self._token_info.get('access_token'))
+                monzo.Monzo(self._token_info.get('access_token'))
             self._account_id = self._client.get_first_account()['id']
 
     @property
