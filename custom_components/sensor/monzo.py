@@ -219,7 +219,7 @@ class MonzoAuthCallbackView(HomeAssistantView):
 
 class MonzoSensor(Entity):
     """Representation of a Sensor."""
-    import monzo.monzo
+    import Monzo
     
     def __init__(self, oauth, name):
         self._name = name
@@ -247,7 +247,7 @@ class MonzoSensor(Entity):
             token_refreshed = True
         if self._client is None or token_refreshed:
             self._client = \
-                monzo.Monzo(self._token_info.get('access_token'))
+                Monzo(self._token_info.get('access_token'))
             self._account_id = self._client.get_first_account()['id']
 
     @property
