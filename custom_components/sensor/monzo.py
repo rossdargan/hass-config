@@ -53,6 +53,7 @@ def request_configuration(hass, config, add_devices, request_url):
 
 
 def setup_platform(hass, config, add_devices, device_discovery=None):
+    from monzo.monzo import Monzo # Import Monzo Class
     """Setup the monzo platform."""
     client_id = config.get(CONF_CLIENT_ID)
     client_secret = config.get(CONF_CLIENT_SECRET)
