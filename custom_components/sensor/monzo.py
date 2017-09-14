@@ -219,7 +219,7 @@ class MonzoAuthCallbackView(HomeAssistantView):
 
 class MonzoSensor(Entity):
     """Representation of a Sensor."""
-    import Monzo
+    from monzo.monzo import Monzo # Import Monzo Class
     
     def __init__(self, oauth, name):
         self._name = name
