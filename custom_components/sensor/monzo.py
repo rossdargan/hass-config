@@ -14,7 +14,6 @@ import urllib.parse
 import random
 
 REQUIREMENTS = ['monzo==0.5.3']
-#REQUIREMENTS = ['oauth2==1.9.0.post1']
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -53,7 +52,6 @@ def request_configuration(hass, config, add_devices, request_url):
 
 
 def setup_platform(hass, config, add_devices, device_discovery=None):
-    from monzo.monzo import Monzo # Import Monzo Class
     """Setup the monzo platform."""
     client_id = config.get(CONF_CLIENT_ID)
     client_secret = config.get(CONF_CLIENT_SECRET)
@@ -220,8 +218,7 @@ class MonzoAuthCallbackView(HomeAssistantView):
 
 class MonzoSensor(Entity):
     """Representation of a Sensor."""
-    from monzo.monzo import Monzo # Import Monzo Class
-    
+   
     def __init__(self, oauth, name):
         self._name = name
         self._oauth = oauth
@@ -232,6 +229,7 @@ class MonzoSensor(Entity):
         self._account_id = None
 
     def refresh_monzo_instance(self):
+        from monzo.monzo import Monzo # Import Monzo Class
         """Fetch a new monzo instance."""        
         token_refreshed = False
         need_token = (self._token_info is None or
