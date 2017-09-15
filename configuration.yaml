@@ -105,15 +105,18 @@ sensor:
     value_template: '{{ value_json.state.temperature | float / 100 }}'
     unit_of_measurement: °C
     name: 'Hall Temperature'
+    scan_interval: 2
   - platform: rest
     resource: !secret philipshue_lux
     value_template: '{{ value_json.state.lightlevel }}'
     unit_of_measurement: Lux
     name: 'Hall Lux'
+    scan_interval: 2
   - platform: rest
     resource: !secret philipshue_motion
     value_template: '{{ value_json.state.status }}'
     name: 'Hall Motion'    
+    scan_interval: 2
   - platform: monzo
     client_id: !secret monzo_client_id
     client_secret: !secret monzo_secret
