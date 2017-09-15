@@ -1,0 +1,9 @@
+- alias: Monzo Balance
+  trigger:
+    - platform: state
+      entity_id: light.adams_light
+      below: 20
+    action:
+    - service: notify.slackbot
+      data:
+        message: "Low on Monzo funds!"   
