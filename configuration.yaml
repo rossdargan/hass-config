@@ -100,6 +100,20 @@ ring:
   password: !secret ring_password
 
 sensor:
+  - platform: rest
+    resource: !secret philipshue_tempurl
+    value_template: '{{ value_json.state.temperature | float / 100 }}'
+    unit_of_measurement: °C
+    name: 'Hall Temperature'
+  - platform: rest
+    resource: !secret philipshue_lux
+    value_template: '{{ value_json.state.lightlevel }}'
+    unit_of_measurement: Lux
+    name: 'Hall Lux'
+  - platform: rest
+    resource: !secret philipshue_motion
+    value_template: '{{ value_json.state.status }}'
+    name: 'Hall Motion'    
   - platform: monzo
     client_id: !secret monzo_client_id
     client_secret: !secret monzo_secret
