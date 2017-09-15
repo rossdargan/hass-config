@@ -17,7 +17,7 @@
       - sensor.yr_dewpoint_temperature
       - sensor.hall_temperature
       - sensor.hall_lux
-      - sensor.hall_motion
+      - binary_sensor.hall_motion
       - group.main_lights
       - group.tvs
       - media_player.spotify
