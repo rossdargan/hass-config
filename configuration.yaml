@@ -98,13 +98,6 @@ ios:
 ring:
   username: !secret ring_username
   password: !secret ring_password
-
-binary_sensor:
-  - platform: rest
-    resource: !secret philipshue_motion
-    value_template: '{{ value_json.state.status }}'
-    name: 'Hall Motion'    
-    scan_interval: 2
     
 sensor:
   - platform: rest
