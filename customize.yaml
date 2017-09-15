@@ -67,3 +67,6 @@
     emulated_hue: false
   switch.dead_switch:
     emulated_hue: false
+  binary_sensor.hall_motion:
+    friendly_name: "Hall Motion"
+    device_class: motion
