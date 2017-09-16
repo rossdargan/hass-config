@@ -8,7 +8,7 @@ My continuous integration uses this [docker image](https://hub.docker.com/r/ross
 * Mosquitto docker image
 
 **Custom Sensors**
-* [Monzo sensor] (https://github.com/rossdargan/monzo-hass-sensor) *This displays the balance in one of my accounts. I get alerts when it dips below a certain level*
+* [Monzo sensor](https://github.com/rossdargan/monzo-hass-sensor) *This displays the balance in one of my accounts. I get alerts when it dips below a certain level*
 
 **Devices in use**
 
