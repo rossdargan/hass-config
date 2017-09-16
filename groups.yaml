@@ -23,6 +23,7 @@
       - camera.office
       - sensor.ross_monzo
       - sensor.philips_hue_dimmer_lounge
+      - sensor.philips_hue_dimmer_bedroom
 
   temperatures:
     entities:
