@@ -10,3 +10,6 @@
       - service: switch.turn_off
         data:
           entity_id: switch.lounge_floor_lamp_switch
+      - service: switch.turn_off
+        data:
+          entity_id: switch.dining_room_floor_lamp_switch
