@@ -63,5 +63,7 @@
       topic: alarm/events/PIR/Playroom
       payload: Close      
     service: light.turn_on
-      entity_id: light.kitchen_hue
-      transition: 10
+      entity_id: 
+      - light.kitchen_hue
+      data:
+        transition: 10
