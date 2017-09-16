@@ -10,7 +10,6 @@
       - alarm_control_panel.alarm
       - group.work_sensors
       - device_tracker.kathsiphone
-      - device_tracker.kaths_iphone
       - device_tracker.rossdargan_rossphone
       - climate.living_room
       - sensor.greenhouse_temperature
@@ -24,6 +23,7 @@
       - group.lounge
       - camera.office
       - sensor.ross_monzo
+      - sensor.philips_hue_dimmer_lounge
 
   lounge:
     view: yes
