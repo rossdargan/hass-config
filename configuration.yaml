@@ -103,7 +103,7 @@ ring:
 sensor:
   - platform: rest
     name: Philips Hue Dimmer Bedroom
-    resource: !secret philipshue_bedroomswitch:
+    resource: !secret philipshue_bedroomswitch
     # If you notice errors in your log, increase scan_interval to 2
     scan_interval: 2
     value_template: >-
