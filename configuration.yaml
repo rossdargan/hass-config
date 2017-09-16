@@ -98,8 +98,8 @@ ios:
 ring:
   username: !secret ring_username
   password: !secret ring_password
-    
-sensor:
+
+
 sensor:
   - platform: rest
     name: Philips Hue Dimmer Lounge
