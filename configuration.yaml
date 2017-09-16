@@ -117,7 +117,7 @@ sensor:
         {% set values={99: 'two buttons',43:'Off', 16:'button 1', 17:'button 2', 18:'button 3' } %}
         {% set button_pressed = 'Unkown' %}
         {% if my_test_json.state.buttonevent in values %}
-            {% set button_pressed  =  values[my_test_json.state.buttonevent] %} 
+            {% set button_pressed  =  values[value_json.state.buttonevent] %} 
         {% endif %}
         {{ button_pressed   }}
       {% endif %}
