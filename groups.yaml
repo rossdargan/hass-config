@@ -107,12 +107,6 @@
       - sensor.alarm_events
 
 
-  group:
-    name: Light
-    icon: white-balance-sunny
-    entities:
-      - sensor.hall_lux
-      - sensor.greenhouse_light
 
   work_sensors:
     name: Commute
@@ -148,7 +142,15 @@
       - sensor.office_motion
       - sensor.office_light_level
       - group.google_wifi
+      - group.light_sensors
 
+  light_sensors:
+    name: Light
+    icon: mdi:white-balance-sunny
+    entities:
+      - sensor.hall_lux
+      - sensor.greenhouse_light
+      
   dining_room:
     view: yes
     name: "Dining Room"
