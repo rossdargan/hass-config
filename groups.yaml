@@ -130,10 +130,15 @@
     name: "Dining Room"
     icon: mdi:food-variant
     entities:
-      - switch.dining_room_floor_lamp_switch
-      - light.dining_room_lamp
+      - group.dining_room_lights
       - media_player.dining_room
       
+  dining_room_lights:
+    name: Lights
+    entities:
+      - switch.dining_room_floor_lamp_switch
+      - light.dining_room_lamp
+
   admin:
     view: yes
     name: admin
