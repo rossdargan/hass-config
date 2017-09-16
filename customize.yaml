@@ -72,5 +72,5 @@
     device_class: motion
   sensor.hall_lux:
     icon: mdi:white-balance-sunny
-  sensor.greenhouse_light
+  sensor.greenhouse_light:
     icon: mdi:white-balance-sunny   
