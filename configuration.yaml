@@ -100,6 +100,27 @@ ring:
   password: !secret ring_password
     
 sensor:
+sensor:
+  - platform: rest
+    name: Philips Hue Dimmer Lounge
+    resource: !secret philipshue_loungetap
+    # If you notice errors in your log, increase scan_interval to 2
+    scan_interval: 1
+    value_template: >-
+      {# Grab the lastupdated time and convert it to a timestamp #}
+      {% set lastupdated = as_timestamp(value_json.state.lastupdated ~ '-00:00')|int %}
+      {# Compare the lastupdated against the current timestamps #}
+      {% if as_timestamp(now())|int - lastupdated > 5 %}
+        {# If no events have happened in the past 5 seconds, show 'idle' as state #}
+        idle
+      {% else %}
+        {% set values={99: 'two buttons',43:'Off', 16:'button 1', 17:'button 2', 18:'button 3' } %}
+        {% set button_pressed = 'Unkown' %}
+        {% if my_test_json.state.buttonevent in values %}
+            {% set button_pressed  =  values[my_test_json.state.buttonevent] %} 
+        {% endif %}
+        {{ button_pressed   }}
+      {% endif %}
   - platform: rest
     resource: !secret philipshue_tempurl
     value_template: '{{ value_json.state.temperature | float / 100 }}'
