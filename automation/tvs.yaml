@@ -1,22 +1,6 @@
 ##########################################################
 ###  Switch roku to plex after turning on
 ##########################################################
-  - alias: Start Plex with Lounge TV
-    trigger:
-      - platform: state
-        entity_id: switch.lounge_tv_switch
-        from: 'off'     
-        to: 'on'
-        for:
-          seconds: 30
-    action:
-      service: media_player.select_source
-      data:
-        entity_id: media_player.lounge
-        source: "Plex"
-
-
-
   - alias: Start Plex with Playroom TV
     trigger:
       - platform: state
