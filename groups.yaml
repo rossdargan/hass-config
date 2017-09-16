@@ -24,6 +24,13 @@
       - sensor.ross_monzo
       - sensor.philips_hue_dimmer_lounge
 
+  temperatures:
+    entities:
+      - sensor.greenhouse_temperature
+      - sensor.yr_dewpoint_temperature
+      - sensor.hall_temperature
+
+
   lounge:
     view: yes
     name: Lounge
@@ -49,7 +56,7 @@
 
   kitchen:
     view: yes
-    icon: mdi:food-variant
+    icon: mdi:kettle
     entities:
       - media_player.kitchen
       - group.kitchen_lights
@@ -96,6 +103,8 @@
   alarm_sensors:
     name: Alarm Sensors
     entities:
+      - binary_sensor.hall_motion
+      - binary_sensor.ring_front_door_motion
       - binary_sensor.dining_room_pir
       - binary_sensor.office_pir
       - binary_sensor.hall_pir
@@ -115,7 +124,16 @@
       - sensor.kath_work_commute
       - sensor.ross_work_commute
       - camera.a1
-
+      
+  dining_room:
+    view: yes
+    name: "Dining Room"
+    icon: mdi:food-variant
+    entities:
+      - switch.dining_room_floor_lamp_switch
+      - light.dining_room_lamp
+      - media_player.dining_room
+      
   admin:
     view: yes
     name: admin
@@ -125,8 +143,6 @@
       - sensor.speedtest_ping
       - sensor.speedtest_download
       - sensor.speedtest_upload
-      - sensor.water_sensor_flood
-      - binary_sensor.water_sensor_sensor
       - group.power_sensors
       - sensor.ssl_certificate_expiry
       - sensor.hallway_nest_protect_battery_health
@@ -151,13 +167,7 @@
       - sensor.hall_lux
       - sensor.greenhouse_light
       
-  dining_room:
-    view: yes
-    name: "Dining Room"
-    entities:
-      - switch.dining_room_floor_lamp_switch
-      - light.dining_room_lamp
-      - media_player.dining_room
+      
   kitchen_lights:
     name: "Kitchen Lights"
     entities:
