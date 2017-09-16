@@ -114,8 +114,8 @@ sensor:
         {# If no events have happened in the past 5 seconds, show 'idle' as state #}
         idle
       {% else %}
-        {% set values={99: 'two buttons',43:'Off', 16:'button 1', 17:'button 2', 18:'button 3' } %}
-        {% set button_pressed = 'Unkown' %}
+        {% set values={99: 'two buttons',34:'Off', 16:'button 1', 17:'button 2', 18:'button 3' } %}
+        {% set button_pressed = 'unkown' %}
         {% if value_json.state.buttonevent in values %}
             {% set button_pressed  =  values[value_json.state.buttonevent] %} 
         {% endif %}
