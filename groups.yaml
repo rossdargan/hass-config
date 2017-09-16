@@ -15,7 +15,6 @@
       - sensor.greenhouse_temperature
       - sensor.yr_dewpoint_temperature
       - sensor.hall_temperature
-      - sensor.hall_lux
       - binary_sensor.hall_motion
       - group.main_lights
       - group.tvs
@@ -108,7 +107,12 @@
       - sensor.alarm_events
 
 
-
+  group:
+    name: Light
+    icon: white-balance-sunny
+    entities:
+      - sensor.hall_lux
+      - sensor.greenhouse_light
 
   work_sensors:
     name: Commute
