@@ -102,6 +102,29 @@ ring:
 
 sensor:
   - platform: rest
+    name: Philips Hue Dimmer Bedroom
+    resource: !secret philipshue_bedroomswitch:
+    # If you notice errors in your log, increase scan_interval to 2
+    scan_interval: 2
+    value_template: >-
+      {# Grab the lastupdated time and convert it to a timestamp #}
+      {% set lastupdated = as_timestamp(value_json.state.lastupdated ~ '-00:00')|int %}
+      {# Compare the lastupdated against the current timestamps #}
+      {% if as_timestamp(now())|int - lastupdated > 5 %}
+        {# If no events have happened in the past 5 seconds, show 'idle' as state #}
+        idle
+      {% else %}
+        {# Get the buttonevent that was triggered #}
+        {% set buttonevent = value_json.state.buttonevent|string %}
+        {# Example button event: 4003 #}
+        {# buttonevent[0] = 4 = button number #}
+        {# buttonevent[3] = 3 = button event #}
+        {# If buttonevent[3] is even (X000 or X002), the button was clicked #}
+        {# If buttonevent[3] is odd (X001 or X003), the button was held #}
+        {# The ~ operator is used to concatenate strings #}
+        {{ ('hold' if buttonevent[3]|int is odd else 'click') ~ '_' ~ buttonevent[0] }}
+      {% endif %}
+  - platform: rest
     name: Philips Hue Dimmer Lounge
     resource: !secret philipshue_loungetap
     # If you notice errors in your log, increase scan_interval to 2
@@ -126,13 +149,11 @@ sensor:
     value_template: '{{ value_json.state.temperature | float / 100 }}'
     unit_of_measurement: °C
     name: 'Hall Temperature'
-    scan_interval: 2
   - platform: rest
     resource: !secret philipshue_lux
     value_template: '{{ value_json.state.lightlevel }}'
     unit_of_measurement: Lux
     name: 'Hall Lux'
-    scan_interval: 2
   - platform: monzo
     client_id: !secret monzo_client_id
     client_secret: !secret monzo_secret
