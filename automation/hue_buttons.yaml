@@ -1,4 +1,25 @@
-  - alias: Turn off all lounge lights
+  # Automation triggers when dimmer 1 button 4 is pressed once
+  - alias: Dimmer 1 Button 4 Clicked
+    trigger:
+      - platform: state
+        entity_id: sensor.philips_hue_dimmer_bedroom
+        to: 'click_4'
+    action:
+      - service: light.turn_off
+        data:
+          entity_id: light.bedroom_main_light_level
+
+  # Turn everything off when the bedroom dimmer button 4 is held for about 2+ seconds
+  - alias: Dimmer 1 Button 4 Held
+    trigger:
+      - platform: state
+        entity_id: sensor.philips_hue_dimmer_bedroom
+        to: 'hold_4'
+    action:
+      - service: scene.turn_on
+        entity_id: scene.everything_turned_off
+          
+- alias: Turn off all lounge lights
     trigger:
       - platform: state
         entity_id: sensor.philips_hue_dimmer_lounge
