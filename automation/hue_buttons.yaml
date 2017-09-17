@@ -1,5 +1,5 @@
   # Automation triggers when dimmer 1 button 4 is pressed once
-  - alias: Dimmer 1 Button 4 Clicked
+- alias: Dimmer 1 Button 4 Clicked
     trigger:
       - platform: state
         entity_id: sensor.philips_hue_dimmer_bedroom
@@ -10,7 +10,7 @@
           entity_id: light.bedroom_main_light_level
 
   # Turn everything off when the bedroom dimmer button 4 is held for about 2+ seconds
-  - alias: Dimmer 1 Button 4 Held
+- alias: Dimmer 1 Button 4 Held
     trigger:
       - platform: state
         entity_id: sensor.philips_hue_dimmer_bedroom
