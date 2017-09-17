@@ -74,3 +74,9 @@
     icon: mdi:white-balance-sunny
   sensor.greenhouse_light:
     icon: mdi:white-balance-sunny   
+  light.bedroom_main_light_level_2:
+    emulated_hue: false
+    hidden: true   
+  light.bedroom_main_light_level_3:
+    emulated_hue: false
+    hidden: true
