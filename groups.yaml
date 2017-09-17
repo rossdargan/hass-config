@@ -74,6 +74,7 @@
       - switch.electric_blanket_switch
       - light.kath_lamp
       - light.ross_bedroom_colour_lamp
+      - light.bedroom_main_light_level
       - media_player.bedroom      
 
   playroom:
