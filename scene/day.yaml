@@ -1,5 +1,4 @@
  - name: Day
    entities:
     switch.bedroom_tv_switch: on
-    switch.lounge_tv_switch: on
     switch.playroom_tv_switch: on
