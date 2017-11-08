@@ -247,7 +247,7 @@ sensor:
     name: "Alarm Events"
     state_topic: "alarm/events"
   - platform: plex
-    host: 192.168.86.51
+    host: 192.168.86.10
     username: !secret plex_username
     password: !secret plex_password
   - platform: yr
