@@ -16,7 +16,7 @@
     trigger:
       - platform: state
         entity_id: timer.electric_blanket
-        event: timer.finished
+        to: timer.finished
     action:
       service: switch.turn_off
       data:
