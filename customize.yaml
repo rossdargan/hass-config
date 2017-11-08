@@ -29,6 +29,8 @@
   switch.playroom_tv_switch:
     icon: mdi:television
     friendly_name: "Playroom TV"
+  switch.electric_blanket_switch:
+    icon: mdi:hotel   
   switch.lounge_tv_switch:
     icon: mdi:television
     friendly_name: "Lounge TV"
