@@ -14,7 +14,7 @@
 
   - alias: Electric blanket timer done
     trigger:
-      - platform: timer
+      - platform: state
         entity_id: timer.electric_blanket
         event: timer.finished
     action:
