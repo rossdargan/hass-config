@@ -74,6 +74,8 @@
       - switch.electric_blanket_switch
       - group.bedroom_lights
       - media_player.bedroom      
+      - sensor.electric_blanket_current
+      - switch.electric_blanket_switch
 
   bedroom_lights:
     name: Bedroom Lights
