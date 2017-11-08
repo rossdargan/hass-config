@@ -35,7 +35,6 @@ homeassistant:
 frontend:
 
 recorder:
-  purge_days: 5
 
 # Enables configuration UI
 config:
