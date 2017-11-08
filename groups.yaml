@@ -72,10 +72,9 @@
       - sensor.electric_blanket_unknown
       - switch.bedroom_tv_switch
       - switch.electric_blanket_switch
+      - sensor.electric_blanket_power
       - group.bedroom_lights
       - media_player.bedroom      
-      - sensor.electric_blanket_current
-      - switch.electric_blanket_switch
 
   bedroom_lights:
     name: Bedroom Lights
