@@ -436,7 +436,9 @@ notify:
 zwave:
   usb_path: /dev/ttyUSB0
  
-
+timer:
+  electric_blanket:
+    duration: '00:01:00'
 
 scene: !include_dir_merge_list scene
 automation: !include_dir_merge_list automation
