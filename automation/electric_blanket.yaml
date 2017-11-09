@@ -5,7 +5,7 @@
   - alias: Start Electric Blanket Timer
     trigger:
       - platform: state
-        entity_id: switch.electric_blanket
+        entity_id: switch.electric_blanket_switch
         to: 'on'
     action:
       service: timer.start
@@ -21,4 +21,4 @@
     action:
       service: switch.turn_off
       data:
-        entity_id: switch.electric_blanket
+        entity_id: switch.electric_blanket_switch
