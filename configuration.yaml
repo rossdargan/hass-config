@@ -90,7 +90,9 @@ sun:
 
 # Text to speech
 tts:
-  platform: google
+  - platform: google
+  - platform: microsoft
+      api_key: !secret microsoft_tts_key
 
 ios:
 
