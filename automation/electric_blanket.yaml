@@ -19,6 +19,13 @@
         event_data:
           entity_id: timer.electric_blanket
     action:
-      service: switch.turn_off
-      data:
-        entity_id: switch.electric_blanket_switch
+      -  service: switch.turn_off
+        data:
+          entity_id: switch.electric_blanket_switch
+      - service: tts.google_say
+        data:
+          entity_id: media_player.living_room_home
+          message: "The bed is hot!"
+      - service: notify.Lounge
+        data: 
+          message: "Electric blanket is ready!"
