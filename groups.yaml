@@ -4,7 +4,6 @@
     entities:
       - alert.burglar_alarm
       - alert.update_available
-      - alert.greenhouse
       - alert.certificate
       - alert.ring_battery
       - alarm_control_panel.alarm
@@ -52,7 +51,7 @@
       - media_player.shield
       - media_player.lounge_universal
       - media_player.plex_d46e7ce32731388a_com_plexapp_android
-      - media_player.philipstv
+      #- media_player.philipstv
 
 
   kitchen:
