@@ -92,7 +92,7 @@ sun:
 tts:
   - platform: google
   - platform: microsoft
-      api_key: !secret microsoft_tts_key
+    api_key: !secret microsoft_tts_key
 
 ios:
 
