@@ -245,6 +245,7 @@
       - sensor.garage_light_power
       - sensor.lounge_floor_lamp_power
       - sensor.dining_room_floor_lamp_power
+      - sensor.electric_blanket_power
   google_wifi:
     name: "Google Wifi"
     entities:  
