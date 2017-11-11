@@ -479,6 +479,17 @@ google_assistant:
     - light
     - group
     
+sensor:
+  - platform: transmission
+    host: seedbox.the-dargans.co.uk
+    username: !secret transmission_username
+    password: !secret transmission_password
+    monitored_variables:
+      - 'current_status'
+      - 'download_speed'
+      - 'upload_speed'
+      - 'active_torrents'
+      
 panel_iframe:
   plexpy:
       title: 'PlexPy'
