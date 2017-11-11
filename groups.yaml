@@ -152,6 +152,9 @@
     icon: mdi:settings
     entities:
       - sensor.plex
+      - sensor.transmission_active_torrents
+      - sensor.transmission_down_speed
+      - sensor.transmission_up_speed
       - sensor.speedtest_ping
       - sensor.speedtest_download
       - sensor.speedtest_upload
