@@ -470,7 +470,15 @@ emulated_hue:
 #    switches:
 #      - torch
 
-
+google_assistant:
+  project_id: homeassistant-de3c6
+  client_id: bTF5sTbZATEo3opT3h6BspxZVAvd7Ed86r5iNy0hrc9QgPKpe0NXsoabpjUwFqt8z62H1rE9zFod0aaL
+  access_token: KbFKYEmWO36dJdSE3Cj6tPPFPDPVBqSZlSV0Emc4QOMIjI7ca56ly2C8DhCCucf08FBotHQMOCv7h33K
+  exposed_domains:
+    - switch
+    - light
+    - group
+    
 panel_iframe:
   plexpy:
       title: 'PlexPy'
