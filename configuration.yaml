@@ -67,6 +67,7 @@ conversation:
 
 influxdb:
   host: 192.168.86.54
+  database: homeassistant
 
 # Enables support for tracking state changes over time.
 history:
