@@ -16,7 +16,9 @@ homeassistant:
 frontend:
 
 recorder:
-
+  purge_interval: 2
+  purge_keep_days: 5
+  
 # Enables configuration UI
 config:
 
@@ -62,6 +64,9 @@ discovery:
 
 # Allows you to issue voice commands from the frontend in enabled browsers
 conversation:
+
+influxdb:
+  host: 192.168.86.54
 
 # Enables support for tracking state changes over time.
 history:
