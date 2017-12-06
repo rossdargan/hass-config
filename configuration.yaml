@@ -438,6 +438,7 @@ notify:
     
 zwave:
   usb_path: /dev/ttyUSB0
+  network_key: !secret zwave_key
  
 timer: !include timer.yaml
 
