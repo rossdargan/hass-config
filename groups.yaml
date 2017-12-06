@@ -19,7 +19,7 @@
       - group.tvs
       - media_player.spotify
       - group.lounge
-      - camera.office
+      - camera.ring
       - sensor.ross_monzo
       - sensor.philips_hue_dimmer_lounge
       - sensor.philips_hue_dimmer_bedroom
