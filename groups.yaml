@@ -174,8 +174,7 @@
       - sensor.office_light_level
       - group.google_wifi
       - group.light_sensors
-      - sensor.pihole_ads_blocked_today
-      - 
+      - sensor.pihole_ads_blocked_today      
 
   light_sensors:
     name: Light
