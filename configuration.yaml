@@ -496,4 +496,8 @@ panel_iframe:
       title: 'Radarr'
       url: !secret radarr_url
       icon: mdi:radar
+  pi-hole:
+      title: 'Pi-hole'
+      url: pi.hole/admin
+      icon: mdi:raspberrypi
 
