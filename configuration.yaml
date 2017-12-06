@@ -422,7 +422,7 @@ camera:
   - platform: generic
     still_image_url: https://liveimages.networkwebcams.co.uk/sd_durhamcouncil08.jpg?
     name: A1
-
+  - platform: ring
 
 
 notify:
@@ -496,7 +496,7 @@ panel_iframe:
       title: 'Radarr'
       url: !secret radarr_url
       icon: mdi:radar
-  pi-hole:
+  pihole:
       title: 'Pi-hole'
       url: http://pi.hole/admin
       icon: mdi:raspberrypi
