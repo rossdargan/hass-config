@@ -498,6 +498,6 @@ panel_iframe:
       icon: mdi:radar
   pi-hole:
       title: 'Pi-hole'
-      url: pi.hole/admin
+      url: http://pi.hole/admin
       icon: mdi:raspberrypi
 
