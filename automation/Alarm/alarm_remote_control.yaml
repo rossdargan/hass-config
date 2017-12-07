@@ -1,4 +1,5 @@
   - alias: Alarm Remote Fob pressed
+    initial_state: 'on'
     trigger:
       platform: mqtt
       topic: alarm/events/Remote Control/+
@@ -13,6 +14,7 @@
  #        payload: ''
  #        retain: true  
   - alias: Alarm Triggered
+    initial_state: 'on'
     trigger:
       platform: mqtt
       topic: alarm/events
