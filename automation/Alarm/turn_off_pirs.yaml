@@ -1,4 +1,5 @@
 - alias: Lounge PIR Timeout
+  initial_state: 'on'
   trigger:
     - platform: state
       entity_id: binary_sensor.loung_pir
@@ -12,6 +13,7 @@
       payload: Close
 
 - alias: Office PIR Timeout
+  initial_state: 'on'
   trigger:
     - platform: state
       entity_id: binary_sensor.office_pir
@@ -25,6 +27,7 @@
       payload: Close
 
 - alias: Dining Room PIR Timeout
+  initial_state: 'on'
   trigger:
     - platform: state
       entity_id: binary_sensor.dining_room_pir
@@ -38,6 +41,7 @@
       payload: Close
 
 - alias: Hall PIR Timeout
+  initial_state: 'on'
   trigger:
     - platform: state
       entity_id: binary_sensor.hall_pir
@@ -51,6 +55,7 @@
       payload: Close      
 
 - alias: Kitchen PIR Timeout
+  initial_state: 'on'
   trigger:
     - platform: state
       entity_id: binary_sensor.kitchen_pir
