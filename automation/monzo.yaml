@@ -1,4 +1,5 @@
   - alias: Monzo Balance
+    initial_state: 'on'
     trigger:
       - platform: numeric_state
         entity_id: sensor.ross_monzo
