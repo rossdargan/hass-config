@@ -3,6 +3,7 @@
 ###################################################################
 
   - alias: Start Electric Blanket Timer
+    initial_state: 'on'
     trigger:
       - platform: state
         entity_id: switch.electric_blanket_switch
@@ -13,6 +14,7 @@
         entity_id: timer.electric_blanket
 
   - alias: Electric blanket timer done
+    initial_state: 'on'
     trigger:
       - platform: event
         event_type: timer.finished
