@@ -2,6 +2,7 @@
 ###  Switch roku to plex after turning on
 ##########################################################
   - alias: Start Plex with Playroom TV
+    initial_state: 'on'
     trigger:
       - platform: state
         entity_id: switch.playroom_tv_switch
@@ -17,6 +18,7 @@
 
 
   - alias: Start Plex with Bedroom TV
+    initial_state: 'on'
     trigger:
       - platform: state
         entity_id: switch.bedroom_tv_switch
@@ -31,6 +33,7 @@
         source: "Plex"
 
   - alias: Lounge TV playing
+    initial_state: 'on'
     trigger:
       - platform: state
         entity_id: media_player.plex_d46e7ce32731388a_com_plexapp_android
@@ -41,6 +44,7 @@
       entity_id: scene.living_room_media_playing
 
   - alias: Lounge TV Paused
+    initial_state: 'on'
     trigger:
       - platform: state
         entity_id: media_player.plex_d46e7ce32731388a_com_plexapp_android
