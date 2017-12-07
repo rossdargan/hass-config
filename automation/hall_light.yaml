@@ -3,6 +3,7 @@
 ########################################################
 
 - alias: Timer- Turn hall light off 
+  initial_state: 'on'
   trigger:
     - platform: state
       entity_id:
@@ -23,6 +24,7 @@
 ########################################################
 
 - alias: Front Door Opened or alarm disarmed
+  initial_state: 'on'
   trigger:
     - platform: state
       entity_id: binary_sensor.front_door
