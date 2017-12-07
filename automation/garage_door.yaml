@@ -3,6 +3,7 @@
 ###################################################################
 
   - alias: Garage Door Opened
+    initial_state: 'on'
     trigger:
       - platform: state
         entity_id: binary_sensor.garage_door
@@ -13,6 +14,7 @@
         entity_id: light.garage
 
   - alias: Garage Door Closed
+    initial_state: 'on'
     trigger:
       - platform: state
         entity_id: binary_sensor.garage_door
