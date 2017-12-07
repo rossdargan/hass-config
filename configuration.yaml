@@ -15,6 +15,8 @@ homeassistant:
 # Enables the frontend
 frontend:
 
+map:
+
 recorder:
   purge_interval: 2
   purge_keep_days: 5
