@@ -13,7 +13,6 @@
 
 #Turn it off!
   action:
-    initial_state: 'on'
     - service: light.turn_off
       data_template:
         entity_id: "{{ trigger.entity_id }}"
