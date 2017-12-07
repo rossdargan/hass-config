@@ -1,4 +1,5 @@
   - alias: Night time trigger
+    initial_state: 'on'
     trigger:
       platform: time
       at: '0:00:01'
@@ -11,6 +12,7 @@
         entity_id: scene.everything_turned_off
   
   - alias: Morning time trigger
+    initial_state: 'on'
     trigger:
       platform: time
       at: '7:00:00'
