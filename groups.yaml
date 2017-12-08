@@ -2,6 +2,7 @@
     view: yes
     icon: mdi:home
     entities:
+      - lock.frontdoor_locked
       - alert.burglar_alarm
       - alert.update_available
       - alert.certificate
