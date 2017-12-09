@@ -13,7 +13,6 @@
         entity_id: switch.christmas_tree_switch
 
   - alias: Christmas Sunset
-    automation:
     trigger:
       platform: sun
       event: sunset
