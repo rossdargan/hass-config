@@ -50,6 +50,9 @@
   switch.dining_room_floor_lamp_switch:
     friendly_name: "Dining Room Floor Lamp"
     icon: mdi:lamp    
+  switch.christmas_tree_switch:
+    friendly_name: "Christmas Tree"
+    icon: mdi:pine-tree
   switch.lounge_floor_lamp_switch:
     icon: mdi:lamp
     friendly_name: "Lounge Floor Lamp"
