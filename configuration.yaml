@@ -98,6 +98,29 @@ ring:
 sensor:
   - platform: pi_hole
     host: 192.168.86.51
+  - platform: template
+    sensors:
+      lock_status:
+        value_template: >-
+          {% if 'Jammed' in states.lock.frontdoor_lock_locked.attributes.lock_status %}
+            Jammed
+          {% elif 'Locked' in states.lock.frontdoor_lock_locked.attributes.lock_status %}
+            Locked
+          {% elif 're-lock' in states.lock.frontdoor_lock_locked.attributes.lock_status %}
+            Locked
+          {% else %}
+            Unlocked
+          {% endif %}
+        icon_template: >
+          {% if 'Jammed' in states.lock.frontdoor_lock_locked.attributes.lock_status %}
+            mdi:alert
+          {% elif 'Locked' in states.lock.frontdoor_lock_locked.attributes.lock_status %}
+            mdi:door
+          {% elif 're-lock' in states.lock.frontdoor_lock_locked.attributes.lock_status %}
+            mdi:door
+          {% else %}
+            mdi:door-open
+          {% endif %}
   - platform: transmission
     host: seedbox.the-dargans.co.uk
     username: !secret transmission_username
