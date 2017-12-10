@@ -1,0 +1,11 @@
+  - alias: Front door state change
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: lock.frontdoor_locked        
+    action:
+      - service: notify.slackbot
+        data_template:
+              message: >
+                The front door lock changed from {{ trigger.from_state.state }}
+                to {{ trigger.to_state.state }}. {{ states[trigger.to_state.domain][trigger.to_state.object_id].attributes.lock_status }}
