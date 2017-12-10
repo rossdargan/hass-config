@@ -2,7 +2,8 @@
     view: yes
     icon: mdi:home
     entities:
-    #  - lock.frontdoor_locked
+      - lock.frontdoor_locked
+      - sensor.lock_status
       - switch.christmas_tree_switch
       - alert.burglar_alarm
       - alert.update_available
