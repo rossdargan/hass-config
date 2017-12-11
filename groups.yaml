@@ -2,14 +2,10 @@
     view: yes
     icon: mdi:home
     entities:
-      - lock.frontdoor_locked
-      - sensor.lock_status
-      - switch.christmas_tree_switch
       - alert.burglar_alarm
       - alert.update_available
       - alert.certificate
       - alert.ring_battery
-      - alarm_control_panel.alarm
       - group.work_sensors
       - device_tracker.kathsiphone
       - device_tracker.rossdargan_rossphone
@@ -22,11 +18,18 @@
       - group.tvs
       - media_player.spotify
       - group.lounge
-      - camera.front_door
       - sensor.ross_monzo
       - sensor.philips_hue_dimmer_lounge
       - sensor.philips_hue_dimmer_bedroom
-
+      
+  important:
+    entities:
+      - switch.christmas_tree_switch
+      - sensor.lock_status
+      - alarm_control_panel.alarm
+      - camera.front_door
+      - lock.frontdoor_locked  
+  
   temperatures:
     entities:
       - sensor.greenhouse_temperature
