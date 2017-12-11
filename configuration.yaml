@@ -101,7 +101,7 @@ sensor:
   - platform: template
     sensors:
       lock_status:
-        name: Front Door Lock
+        friendly_name: "Front Door Lock"
         value_template: >-
           {% if 'Jammed' in states.lock.frontdoor_locked.attributes.lock_status %}
             Jammed
