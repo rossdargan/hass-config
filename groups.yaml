@@ -2,6 +2,7 @@
     view: yes
     icon: mdi:home
     entities:
+      - switch.christmas_tree_switch
       - group.important
       - alert.burglar_alarm
       - alert.update_available
@@ -22,15 +23,17 @@
       - sensor.ross_monzo
       - sensor.philips_hue_dimmer_lounge
       - sensor.philips_hue_dimmer_bedroom
-     
+      - camera.front_door
+
       
   important:
     name: Front Door
+    control: hidden
     entities:
-      - switch.christmas_tree_switch
-      - sensor.lock_status
+      
       - alarm_control_panel.alarm
-      - camera.front_door
+      - sensor.lock_status
+
       - lock.frontdoor_locked  
   
   temperatures:
