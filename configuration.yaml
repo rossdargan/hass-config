@@ -73,7 +73,7 @@ intent_script:
   Door_Locked:  # Intent type
     speech:
       text: >
-      {% if is_state("lock.frontdoor_locked", "unlocked")  -%}
+        {% if is_state("lock.frontdoor_locked", "unlocked")  -%}
 
           No, The door is currently unlocked
 
@@ -86,15 +86,15 @@ intent_script:
   Door_unlocked:  # Intent type
     speech:
       text: >
-      {% if is_state("lock.frontdoor_locked", "unlocked")  -%}
+        {% if is_state("lock.frontdoor_locked", "unlocked")  -%}
 
-        Yes, The door is currently unlocked
+          Yes, The door is currently unlocked
 
-      {%- else -%}
+        {%- else -%}
 
-      No, The door is locked
+        No, The door is locked
 
-      {%- endif %}
+        {%- endif %}
 
 # Commenting out because of the issues
 #influxdb:
