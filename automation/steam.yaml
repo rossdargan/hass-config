@@ -1,0 +1,12 @@
+  - alias: Front door state change
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: sensor.steam_76561197969133682, sensor.steam_76561198009934891   
+        to: 'online'
+    action:
+      service: light.turn_on
+      data:
+        entity_id: light.office
+    
+     
