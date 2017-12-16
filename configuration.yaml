@@ -70,11 +70,11 @@ conversation:
 alexa:
 
 intent_script:
-  DoorLocked:  # Intent type
+  Door_Locked:  # Intent type
     speech:
       text: Maybe we will see if its locked
       
-  DoorUnlocked:  # Intent type
+  Door_unlocked:  # Intent type
     speech:
       text: Maybe we will see if it's unlocked
 
