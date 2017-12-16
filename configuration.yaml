@@ -70,6 +70,12 @@ conversation:
 alexa:
 
 intent_script:
+  FindKathsPhone:
+    speech:
+      text: Ok, looking now
+    action:
+      service: script.find_kaths_phone
+    
   Door_Locked:  # Intent type
     speech:
       text: >
