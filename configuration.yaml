@@ -70,7 +70,7 @@ conversation:
 alexa:
 
 intent_script:
-  FindKathsPhone:
+  Find_Kaths_Phone:
     speech:
       text: Ok, looking now
     action:
