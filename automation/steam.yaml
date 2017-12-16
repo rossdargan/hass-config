@@ -2,7 +2,7 @@
     initial_state: 'on'
     trigger:
       - platform: state
-        entity_id: sensor.binary_sensor.friends_online  
+        entity_id: binary_sensor.friends_online  
         to: 'on'
     action:
       service: light.turn_on
@@ -14,7 +14,7 @@
     initial_state: 'on'
     trigger:
       - platform: state
-        entity_id: sensor.binary_sensor.friends_online  
+        entity_id: binary_sensor.friends_online  
         to: 'off'
     action:
       service: light.turn_off
