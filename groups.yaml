@@ -24,6 +24,7 @@
       - sensor.philips_hue_dimmer_lounge
       - sensor.philips_hue_dimmer_bedroom
       - camera.front_door
+      - group.steam
 
       
   important:
