@@ -72,11 +72,29 @@ alexa:
 intent_script:
   Door_Locked:  # Intent type
     speech:
-      text: Maybe we will see if its locked
+      text: >
+      {% if is_state("lock.frontdoor_locked", "unlocked")  -%}
+
+          No, The door is currently unlocked
+
+        {%- else -%}
+
+         Yes, The door is locked
+
+        {%- endif %}
       
   Door_unlocked:  # Intent type
     speech:
-      text: Maybe we will see if it's unlocked
+      text: >
+      {% if is_state("lock.frontdoor_locked", "unlocked")  -%}
+
+        Yes, The door is currently unlocked
+
+      {%- else -%}
+
+      No, The door is locked
+
+      {%- endif %}
 
 # Commenting out because of the issues
 #influxdb:
