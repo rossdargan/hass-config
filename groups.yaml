@@ -102,6 +102,7 @@
       - media_player.playroom
       - media_player.playroom_speakers
       - switch.playroom_tv_switch 
+      - light.playroom
 
   main_lights:
     icon: mdi:ceiling-light
@@ -156,7 +157,7 @@
     name: Lights
     entities:
       - switch.dining_room_floor_lamp_switch
-      - light.dining_room_lamp
+      - light.diningroom
 
   admin:
     view: yes
