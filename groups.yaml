@@ -273,7 +273,6 @@
       - sensor.google_wifi_status
       - sensor.google_wifi_uptime
 
-group:
   steam:
     name: Steam
     entities:
