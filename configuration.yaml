@@ -188,6 +188,7 @@ sensor:
     client_id: !secret monzo_client_id
     client_secret: !secret monzo_secret
     name: 'Ross Monzo'    
+    current_account: true
   - platform: google_wifi
   - platform: glances
     name: docker4
