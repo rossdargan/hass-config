@@ -76,7 +76,7 @@ conversation:
 history:
 
 # View all events in a logbook
-logbook:
+#logbook:
 
 # Track the sun
 sun:
