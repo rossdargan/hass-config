@@ -67,6 +67,17 @@ discovery:
 # Allows you to issue voice commands from the frontend in enabled browsers
 conversation:
 
+alexa:
+
+intent_script:
+  DoorLocked:  # Intent type
+    speech:
+      text: Maybe we will see if its locked
+      
+  DoorUnlocked:  # Intent type
+    speech:
+      text: Maybe we will see if it's unlocked
+
 # Commenting out because of the issues
 #influxdb:
 #  host: 192.168.86.54
