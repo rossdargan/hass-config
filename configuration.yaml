@@ -126,6 +126,11 @@ ring:
 
 
 sensor:
+  - platform: steam_online
+    api_key: !secret steam_api
+    accounts: 
+      - 76561197969133682
+      - 76561198009934891
   - platform: pi_hole
     host: 192.168.86.51
   - platform: template
