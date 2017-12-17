@@ -188,7 +188,8 @@
       - sensor.office_light_level
       - group.google_wifi
       - group.light_sensors
-      - sensor.pihole_ads_blocked_today      
+      - sensor.pihole_ads_blocked_today   
+      - sensor.rossdarganhassconfig_last_build_state
 
   light_sensors:
     name: Light
