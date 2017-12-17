@@ -1,7 +1,7 @@
   Who_Is_Online:
     speech:
       text: >-
-         {% for entity_id in states.group.steam.attributes.entity_id if is_state(entity_id , "Offline") %}
+         {% for entity_id in states.group.steam.attributes.entity_id if is_state(entity_id , "Online") %}
           {% set parts = entity_id.split('.') -%}
          {% set friend = states[parts[0]][parts[1]] -%}
           {%- if loop.first and loop.last %}
