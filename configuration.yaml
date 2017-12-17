@@ -69,8 +69,6 @@ conversation:
 
 alexa:
 
-shopping_list:
-
 intent_script: !include_dir_merge_named intent_script/
 
 # Commenting out because of the issues
