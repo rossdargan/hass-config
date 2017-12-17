@@ -69,41 +69,7 @@ conversation:
 
 alexa:
 
-intent_script:
-  Who_Is_Online:
-    speech:
-      text: Simon is  {{ states("sensor.steam_76561197969133682") }} and Andy is {{ states("sensor.steam_76561198009934891") }}
-  Find_Kaths_Phone:
-    speech:
-      text: Ok, looking now
-    action:
-      service: script.find_kaths_phone
-    
-  Door_Locked:  # Intent type
-    speech:
-      text: >
-        {% if is_state("lock.frontdoor_locked", "unlocked")  -%}
-
-          No, The door is currently unlocked
-
-        {%- else -%}
-
-         Yes, The door is locked
-
-        {%- endif %}
-      
-  Door_unlocked:  # Intent type
-    speech:
-      text: >
-        {% if is_state("lock.frontdoor_locked", "unlocked")  -%}
-
-          Yes, The door is currently unlocked
-
-        {%- else -%}
-
-        No, The door is locked
-
-        {%- endif %}
+intent_script: !include_dir_merge_named intent_script/
 
 # Commenting out because of the issues
 #influxdb:
