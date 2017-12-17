@@ -1,12 +1,11 @@
   Who_Is_Online:
     speech:
       text: >-
-      {% set all_friends= {'people': [
-        states.sensor.steam_76561197969133682,
-        states.sensor.steam_76561198009934891
-      ]} %}
-
-     {% for friend in all_friends.people if is_state(friend.entity_id, "Online") %}
+        {% set all_friends= {'people': [
+          states.sensor.steam_76561197969133682,
+          states.sensor.steam_76561198009934891
+        ]} %}
+        {% for friend in all_friends.people if is_state(friend.entity_id, "Online") %}
               {%- if loop.first and loop.last %}
                 {{ friend.attributes.friendly_name}} is online
               {% elif loop.length == all_friends.people|length %}
