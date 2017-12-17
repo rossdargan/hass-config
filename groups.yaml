@@ -165,6 +165,7 @@
     name: admin
     icon: mdi:settings
     entities:
+      - timer.electric_blanket
       - sensor.plex
       - sensor.transmission_active_torrents
       - sensor.transmission_down_speed
