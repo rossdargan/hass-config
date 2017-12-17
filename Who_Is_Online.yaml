@@ -1,0 +1,3 @@
+  Who_Is_Online:
+    speech:
+      text: Simon is  {{ states("sensor.steam_76561197969133682") }} and Andy is {{ states("sensor.steam_76561198009934891") }}
