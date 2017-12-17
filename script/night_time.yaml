@@ -1,0 +1,5 @@
+night_time:
+  alias: 'Night Time'
+  sequence:
+    - service: scene.turn_on
+      entity_id: scene.everything_turned_off
