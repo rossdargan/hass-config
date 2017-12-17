@@ -1,0 +1,24 @@
+ night_time:
+    speech:
+      text:           >
+          {% if is_state("lock.frontdoor_locked", "locked")  -%}      
+           {{ [
+                    "Good night, sleep tight!",
+                    "Have a great nights sleep",
+                    "Night night",
+                    "Sweet dreams",
+                    "Good Night",
+                    "Have a good night, I'll turn everything off for you!"
+                    ] | random }} 
+
+            {%- else -%}
+           {{ [
+                    "You might want to double check the door first",
+                    "Sorry, but it doesn't look like the door is locked, you might want to double check it",
+                     "I've just checked the doors and I don't think they are locked. You might want to lock it",
+                     "Sleep awaits, but you might want to lock the door first",
+                    "The door is not locked yet, you might want to fix that before going to sleep"
+                    ] | random }} 
+                  {%- endif %} 
+    action:
+      service: script.night_time
