@@ -1,0 +1,22 @@
+ Find_Kaths_Phone:
+    speech:
+      text:           >
+          {{ [
+          "OK, looking for your phone, again",
+          "seriously, again. Ok I'm looking for it.",
+          "We should probably attach a rope to it and tie it somewhere.",
+          "Done",
+          "No worries",
+          "I can do that",
+          "honestly have you even looked for it?! Ok I'll see if I can find it",
+          "Have you looked where you left it last?",
+          "I Bet it's in the kitchen.",
+          "By your command",
+          "Affirmative",
+          "Yes oh revered one",
+          "I will",
+          "As you decree, so shall it be",
+          "No Problem"
+          ] | random }} 
+    action:
+      service: script.find_kaths_phone
