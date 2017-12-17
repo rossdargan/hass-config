@@ -101,6 +101,8 @@ ring:
 
 
 sensor:
+  - platform: travisci
+    api_key: !secret travis_key 
   - platform: steam_online
     api_key: !secret steam_api
     accounts: 
