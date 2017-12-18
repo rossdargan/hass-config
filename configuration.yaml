@@ -74,7 +74,7 @@ alexa:
     traveltime:
       - title: Travel time?
         text: >
-          {% if now().hour<29  %} 
+          {% if now().hour< 9  %} 
                   {{ [
                       "Good morning",
                       "Morning",
@@ -130,7 +130,7 @@ alexa:
                      "Just light traffic on the roads" ,
                      "Nothing to worry about on the roads today."
                       ] | random }}. Ross you are looking at  {{states.sensor.ross_work_commute.state }} minutes, and Kath for you It's going to take {{ states.sensor.kath_work_commute.state }} minutes. 
-            {%- endif %} # Week day morning
+            {%- endif %}
             {%- else %}
             Enjoy the weekend!
                 {%- endif %}
