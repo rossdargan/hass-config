@@ -16,10 +16,16 @@ homeassistant:
 frontend:
 
 map:
+
 cloud:
-  alexa:
-  
-  
+
+alexa:
+  flash_briefings:
+    traveltime:
+      - title: Travel time?
+        text: >
+          It's going to take {{ states.sensor.ross_work_commute.state }} minutes for Ross to get to work, and {{ states.sensor.kath_work_commute.state }} minutes for Kath
+
 recorder:
   purge_interval: 2
   purge_keep_days: 5
