@@ -16,7 +16,6 @@ homeassistant:
 frontend:
 
 map:
-config:
 cloud:
   alexa:
   
