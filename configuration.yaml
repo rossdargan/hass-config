@@ -26,9 +26,12 @@ recorder:
 # Enables configuration UI
 config:
 
+hue:
+  bridges:
+    - host: 192.168.86.31
+    
 light:
   - platform: hue
-    host: 192.168.86.31
     allow_in_emulated_hue: false
 
 ####################
