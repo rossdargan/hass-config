@@ -1,65 +1,65 @@
 >
-{% if now().hour< 9  %} 
-        {{ [
-            "Good morning",
-            "Morning",
-            "Hello", 
-           "Top o' the mornin’ to ya!",
-           "One, two, good morning to you!",
-           "Good morning, Sunshine!",
-  "Wakey, wakey, eggs and bakey!",
-            "Mornin', good-lookin'!"
-            ] | random }} 
-  {% if now().weekday() <5 %}
+        {% if now().hour< 9  %} 
+                {{ [
+                    "Good morning",
+                    "Morning",
+                    "Hello", 
+                   "Top o' the mornin’ to ya!",
+                   "One, two, good morning to you!",
+                   "Good morning, Sunshine!",
+          "Wakey, wakey, eggs and bakey!",
+                    "Mornin', good-lookin'!"
+                    ] | random }} 
+          {% if now().weekday() <5 %}
 
-  {% set ross_slow = float( states.sensor.ross_work_commute.state) > 20 %}
-  {% set kath_slow = float( states.sensor.kath_work_commute.state) > 30 %}
+          {% set ross_slow = float( states.sensor.ross_work_commute.state) > 20 %}
+          {% set kath_slow = float( states.sensor.kath_work_commute.state) > 30 %}
 
-   {% if ross_slow and kath_slow %} 
-  {{ [
-            "The roads are pretty bad this morning, delays for both of you I'm affraid",
-            "It's going to be a slow journey for both of you today",
-            "Traffic is terrible this morning", 
-           "You both might want to just pull a sicky as the roads are pretty bad" ,
-           "It's going to be slow getting into work today"
-            ] | random }}. It's going to take Ross {{ states.sensor.ross_work_commute.state }} minutes, and it's {{states.sensor.kath_work_commute.state }} minutes for Kath
-  {% elif ross_slow  %}
-  {{ [
-            "Rubbish traffic this morning for you Ross",
-            "Looks like it's going to be slow getting in today Ross",
-            "Traffic isn't great this morning Ross", 
-           "looks like bad traffic this morning Ross" ,
-           "Might be quicker walking I'm afraid Ross"
-            ] | random }} It's going to take you {{ states.sensor.ross_work_commute.state }} minutes. {{ [
-            "Kath you have it a bit easier. it's going to take you",
-            "Not too bad for you Kath. It will take you",
-            "A bit better for you Kath, it's going to take you",         
-            ] | random }} {{states.sensor.kath_work_commute.state }} minutes
-  {% elif kath_slow %}
-  {{ [
-            "Rubbish traffic this morning for you Kath",
-            "Looks like it's going to be slow getting in today Kath",
-            "Traffic isn't great this morning Kath", 
-           "looks like bad traffic this morning Kath" ,
-           "Might be quicker walking I'm afraid Kath"
-            ] | random }} It's going to take you {{ states.sensor.kath_work_commute.state }} minutes. {{ [
-            "Ross you have it a bit easier. it's going to take you",
-            "Not too bad for you Ross. It will take you",
-            "A bit better for you Ross, it's going to take you",         
-            ] | random }} {{states.sensor.ross_work_commute.state }} minutes
-  {% else %}
-  {{ [
-            "Traffic is fine this morning",
-            "Traffic looks good for both of you this morning",
-            "Nice and easy journey today for you both", 
-           "Just light traffic on the roads" ,
-           "Nothing to worry about on the roads today."
-            ] | random }}. Ross you are looking at  {{states.sensor.ross_work_commute.state }} minutes, and Kath for you It's going to take {{ states.sensor.kath_work_commute.state }} minutes. 
-  {%- endif %}
-  {%- else %}
-  Enjoy the weekend!
-      {%- endif %}
+           {% if ross_slow and kath_slow %} 
+          {{ [
+                    "The roads are pretty bad this morning, delays for both of you I'm affraid",
+                    "It's going to be a slow journey for both of you today",
+                    "Traffic is terrible this morning", 
+                   "You both might want to just pull a sicky as the roads are pretty bad" ,
+                   "It's going to be slow getting into work today"
+                    ] | random }}. It's going to take Ross {{ states.sensor.ross_work_commute.state }} minutes, and it's {{states.sensor.kath_work_commute.state }} minutes for Kath
+          {% elif ross_slow  %}
+          {{ [
+                    "Rubbish traffic this morning for you Ross",
+                    "Looks like it's going to be slow getting in today Ross",
+                    "Traffic isn't great this morning Ross", 
+                   "looks like bad traffic this morning Ross" ,
+                   "Might be quicker walking I'm afraid Ross"
+                    ] | random }} It's going to take you {{ states.sensor.ross_work_commute.state }} minutes. {{ [
+                    "Kath you have it a bit easier. it's going to take you",
+                    "Not too bad for you Kath. It will take you",
+                    "A bit better for you Kath, it's going to take you",         
+                    ] | random }} {{states.sensor.kath_work_commute.state }} minutes
+          {% elif kath_slow %}
+          {{ [
+                    "Rubbish traffic this morning for you Kath",
+                    "Looks like it's going to be slow getting in today Kath",
+                    "Traffic isn't great this morning Kath", 
+                   "looks like bad traffic this morning Kath" ,
+                   "Might be quicker walking I'm afraid Kath"
+                    ] | random }} It's going to take you {{ states.sensor.kath_work_commute.state }} minutes. {{ [
+                    "Ross you have it a bit easier. it's going to take you",
+                    "Not too bad for you Ross. It will take you",
+                    "A bit better for you Ross, it's going to take you",         
+                    ] | random }} {{states.sensor.ross_work_commute.state }} minutes
+          {% else %}
+          {{ [
+                    "Traffic is fine this morning",
+                    "Traffic looks good for both of you this morning",
+                    "Nice and easy journey today for you both", 
+                   "Just light traffic on the roads" ,
+                   "Nothing to worry about on the roads today."
+                    ] | random }}. Ross you are looking at  {{states.sensor.ross_work_commute.state }} minutes, and Kath for you It's going to take {{ states.sensor.kath_work_commute.state }} minutes. 
+          {%- endif %}
+          {%- else %}
+          Enjoy the weekend!
+              {%- endif %}
 
-      {%- else%}
-  Enjoy the evening
-  {% endif %}
+              {%- else%}
+          Enjoy the evening
+          {% endif %}
