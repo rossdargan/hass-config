@@ -88,7 +88,7 @@ intent_script: !include_dir_merge_named intent_script/
 history:
 
 # View all events in a logbook
-#logbook:
+logbook:
 
 # Track the sun
 sun:
