@@ -15,7 +15,7 @@
       - sensor.greenhouse_temperature
       - sensor.yr_dewpoint_temperature
       - sensor.hall_temperature
-      - binary_sensor.hall_motion
+      - sensor.hall_motion_motion
       - group.main_lights
       - group.tvs
       - media_player.spotify
@@ -124,7 +124,6 @@
   alarm_sensors:
     name: Alarm Sensors
     entities:
-      - binary_sensor.hall_motion
       - binary_sensor.ring_front_door_motion
       - binary_sensor.dining_room_pir
       - binary_sensor.office_pir
