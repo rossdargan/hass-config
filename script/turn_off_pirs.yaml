@@ -3,6 +3,9 @@
    #############################################################################################
 turn_off_all_pir:
   alias: 'Turn off all the PIRs - might not be needed'
+  trigger:
+    - platform: homeassistant
+      event: start
   sequence:
   - service: mqtt.publish
     data:
