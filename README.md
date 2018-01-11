@@ -41,3 +41,8 @@ My continuous integration uses this [docker image](https://hub.docker.com/r/ross
 
 
 ... more to follow!
+
+## Good sources to look at
+- https://github.com/robwolff3/homeassistant-config
+- https://github.com/maattdiy/home-assistant-config
+- https://github.com/geekofweek/homeassistant
