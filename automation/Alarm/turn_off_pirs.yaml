@@ -1,4 +1,4 @@
-- alias: "Close" all pirs
+- alias: Close all pirs on startup
   initial_state: 'on'
   trigger:
     - platform: homeassistant
