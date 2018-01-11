@@ -1,3 +1,11 @@
+- alias: "Close" all pirs
+  initial_state: 'on'
+  trigger:
+    - platform: homeassistant
+      event: start
+  action:
+    service: script.turn_off_all_pir
+
 - alias: Lounge PIR Timeout
   initial_state: 'on'
   trigger:
