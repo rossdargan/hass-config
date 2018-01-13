@@ -70,13 +70,6 @@ discovery:
 # Allows you to issue voice commands from the frontend in enabled browsers
 conversation:
 
-alexa:
-  flash_briefings:
-    traveltime:
-      - title: Travel time?
-        text: !include configuration/alexa/flashbriefing.yaml
-
-intent_script: !include_dir_merge_named configuration/alexa/intent_script/
 
 # Commenting out because of the issues
 #influxdb:
@@ -106,9 +99,6 @@ ring:
   username: !secret ring_username
   password: !secret ring_password
 
-
-
-
 mqtt:
   broker: 192.168.86.54
   port: 1883
@@ -117,94 +107,9 @@ mqtt:
   username: !secret mqtt_username
   password: !secret mqtt_password
 
-
-media_player:
-#  - platform: philips_js
-#    host: 192.168.86.118
-#    name: PhilipsTv
-  - platform: roku
-  - platform: spotify
-    client_id: !secret spotify_clientid
-    client_secret: !secret spotify_secret
-  - platform: plex
-    entity_namespace: 'plex'
-    include_non_clients: true
-    scan_interval: 5
-    show_all_controls: false
-    use_custom_entity_ids: true
-    use_episode_art: true
-  - platform: yamaha
-    host: 192.168.86.26
-    name: "Yamaha Reciever"
-    source_ignore:     
-      - "AUDIO2"
-      - "AUX"
-      - "AV1"
-      - "AV2"
-      - "AV3"
-      - "AV4"
-      - "AirPlay"
-      - "Bluetooth"
-      - "HDMI2"
-      - "HDMI5"
-      - "HDMI6"
-      - "JUKE"
-      - "MusicCast Link"
-      - "NET RADIO"
-      - "SERVER"
-      - "Spotify"
-      - "TUNER"
-      - "USB"
-      - "iPod (USB)"
-    source_names:
-      HDMI4: "Xbox"
-      HDMI1: "Shield"
-      HDMI3: "Chromecast"
-      AUDIO1: "CC Audio"
-      NET RADIO: "Radio"    
-  - platform: universal
-    name: Lounge Universal
-    children:    
-      - media_player.plex_d46e7ce32731388a_com_plexapp_android
-   #   - media_player.lounge
-      - media_player.living_room_home
-      - media_player.lounge_2
-      - media_player.loungetv      
-    commands:
-      volume_up:
-        service: media_player.volume_up
-        data:
-          entity_id: media_player.yamaha_receiver
-      volume_down:
-        service: media_player.volume_down
-        data:
-          entity_id: media_player.yamaha_receiver
-      volume_mute:
-        service: media_player.volume_mute
-        data:
-          entity_id: media_player.yamaha_receiver
-      select_source:
-        service: media_player.select_source
-        data_template:
-          entity_id: media_player.yamaha_receiver
-          source: ''
-      volume_set:
-        service: media_player.volume_set
-        data_template:
-          entity_id: media_player.yamaha_receiver
-          volume_level: ''
-    attributes:
-      #state: switch.av
-      is_volume_muted: media_player.yamaha_receiver|is_volume_muted
-      volume_level: media_player.yamaha_receiver|volume_level
-      source: media_player.yamaha_receiver|source
-      source_list: media_player.yamaha_receiver|source_list
-
 nest:
   client_id: !secret nest_clientid
   client_secret: !secret nest_secret
-
-
 
 device_tracker:
   - platform: owntracks
@@ -219,14 +124,12 @@ camera:
     still_image_url: https://liveimages.networkwebcams.co.uk/sd_durhamcouncil08.jpg?
     name: A1
   - platform: ring
-
-
-
     
 zwave:
   usb_path: /dev/ttyUSB0
   network_key: !secret zwave_key
  
+intent_script: !include_dir_merge_named configuration/alexa/intent_script/ 
 timer: !include configuration/timer.yaml
 notify: !include configuration/notify.yaml
 scene: !include_dir_merge_list configuration/scene
@@ -237,6 +140,8 @@ group: !include configuration/groups.yaml
 binary_sensor: !include_dir_merge_list configuration/binary_sensor
 panel_iframe: !include configuration/panel_iframe.yaml
 sensor: !include_dir_merge_list configuration/sensors
+media_player: !include_dir_merge_list configuration/media_player
+alexa: !include configuration/alexa/alexa.yaml
 
 emulated_hue:
   listen_port: 80
@@ -245,7 +150,6 @@ emulated_hue:
     - switch
     - light
 
-
 google_assistant:
   project_id: homeassistant-de3c6
   client_id: bTF5sTbZATEo3opT3h6BspxZVAvd7Ed86r5iNy0hrc9QgPKpe0NXsoabpjUwFqt8z62H1rE9zFod0aaL
@@ -253,6 +157,4 @@ google_assistant:
   exposed_domains:
     - switch
     - light
-    - group
-      
-
+    - group      
