@@ -1,11 +1,11 @@
-find_adams_ipad:
-  alias: "Find Adams iPad"
+find_olivers_ipad:
+  alias: "Find Olivers iPad"
   sequence:
     - service: tts.google_say
       data:
         entity_id: media_player.dining_room
-        message: "Searching for adams ipad"
+        message: "Searching for olivers ipad"
     - service: mqtt.publish
       data:
         topic: /findphone
-        payload: "Adam's iPad"       
+        payload: "Ross Dargan’s iPad"       
