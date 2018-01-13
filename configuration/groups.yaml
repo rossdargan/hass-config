@@ -30,7 +30,7 @@
   tv_remote:
     name: TV
     entities:
-      - script.tv_source
+      - script.tv_source_xbox
   important:
     name: Front Door
     control: hidden
