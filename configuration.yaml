@@ -11,6 +11,7 @@ homeassistant:
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: Europe/London
   customize: !include configuration/customize.yaml  
+  packages: !include_dir_named configuration/packages/
   
 # Enables the frontend
 frontend:
