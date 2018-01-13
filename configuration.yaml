@@ -14,7 +14,6 @@ homeassistant:
 cloud:
 config:
 discovery:
-frontend:
 history:
 ios:
 logbook:
@@ -65,6 +64,12 @@ emulated_hue:
     - switch
     - light
 
+frontend:
+  extra_html_url:
+    - /local/custom_ui/state-card-tiles.html
+  extra_html_url_es5:
+    - /local/custom_ui/state-card-tiles.html
+    
 google_assistant:
   project_id: homeassistant-de3c6
   client_id: bTF5sTbZATEo3opT3h6BspxZVAvd7Ed86r5iNy0hrc9QgPKpe0NXsoabpjUwFqt8z62H1rE9zFod0aaL
