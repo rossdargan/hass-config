@@ -1,92 +1,54 @@
-homeassistant:
-  # Name of the location where Home Assistant is running
-  name: Home
-  # Location required to calculate the time the sun rises and sets
+homeassistant:  
+  name: Home  
   latitude: !secret latitude
-  longitude: !secret longitude
-  # Impacts weather/sunrise data (altitude above sea level in meters)
-  elevation: 30
-  # metric for Metric, imperial for Imperial
-  unit_system: metric
-  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  longitude: !secret longitude  
+  elevation: 30  
+  unit_system: metric  
   time_zone: Europe/London
   customize: !include configuration/customize.yaml  
   packages: !include_dir_named configuration/packages/
-  
-# Enables the frontend
-frontend:
 
-map:
-
+###################################################################################
+# Standard configuration
+###################################################################################
 cloud:
-
-recorder:
-  purge_interval: 2
-  purge_keep_days: 5
-  
-# Enables configuration UI
 config:
-
-hue:
-  bridges:
-    - host: 192.168.86.31
-    
-light:
-  - platform: hue
-    allow_in_emulated_hue: false
-
-http:
- api_password: !secret api_password
-
-# Checks for available updates
+discovery:
+frontend:
+history:
+ios:
+logbook:
+map:
+sun:
 updater:
 
-# Discover some devices automatically
-discovery:
+###################################################################################
+# Group configurations
+###################################################################################
+automation: !include_dir_merge_list configuration/automation
+alexa: !include configuration/alexa/alexa.yaml
+alert: !include_dir_merge_named configuration/alert
+binary_sensor: !include_dir_merge_list configuration/binary_sensor
+group: !include configuration/groups.yaml
+intent_script: !include_dir_merge_named configuration/alexa/intent_script/ 
+media_player: !include_dir_merge_list configuration/media_player
+notify: !include configuration/notify.yaml
+panel_iframe: !include configuration/panel_iframe.yaml
+scene: !include_dir_merge_list configuration/scene
+script: !include_dir_merge_named configuration/script
+sensor: !include_dir_merge_list configuration/sensors
+timer: !include configuration/timer.yaml
+zone: !include configuration/zones.yaml
 
-# Allows you to issue voice commands from the frontend in enabled browsers
-conversation:
+####################################################################################
+# Additional Configurations
+####################################################################################
 
-
-# Commenting out because of the issues
-#influxdb:
-#  host: 192.168.86.54
-#  database: homeassistant
-
-# Enables support for tracking state changes over time.
-history:
-
-# View all events in a logbook
-logbook:
-
-# Track the sun
-sun:
-
-# Weather Prediction
-
-# Text to speech
-tts:
-  - platform: google
-  - platform: microsoft
-    api_key: !secret microsoft_tts_key
-
-ios:
-
-ring:
-  username: !secret ring_username
-  password: !secret ring_password
-
-mqtt:
-  broker: 192.168.86.54
-  port: 1883
-  client_id: home-assistant-1
-  keepalive: 60
-  username: !secret mqtt_username
-  password: !secret mqtt_password
-
-nest:
-  client_id: !secret nest_clientid
-  client_secret: !secret nest_secret
+camera:
+  - platform: generic
+    still_image_url: https://liveimages.networkwebcams.co.uk/sd_durhamcouncil08.jpg?
+    name: A1
+  - platform: ring
 
 device_tracker:
   - platform: owntracks
@@ -95,32 +57,6 @@ device_tracker:
     username: !secret apple_username
     password: !secret apple_password
     account_name: Apple
-
-camera:
-  - platform: generic
-    still_image_url: https://liveimages.networkwebcams.co.uk/sd_durhamcouncil08.jpg?
-    name: A1
-  - platform: ring
-    
-zwave:
-  usb_path: /dev/ttyUSB0
-  network_key: !secret zwave_key
- 
-intent_script: !include_dir_merge_named configuration/alexa/intent_script/ 
-timer: !include configuration/timer.yaml
-notify: !include configuration/notify.yaml
-scene: !include_dir_merge_list configuration/scene
-automation: !include_dir_merge_list configuration/automation
-script: !include_dir_merge_named configuration/script
-alert: !include_dir_merge_named configuration/alert
-group: !include configuration/groups.yaml
-binary_sensor: !include_dir_merge_list configuration/binary_sensor
-panel_iframe: !include configuration/panel_iframe.yaml
-sensor: !include_dir_merge_list configuration/sensors
-media_player: !include_dir_merge_list configuration/media_player
-alexa: !include configuration/alexa/alexa.yaml
-zone: !include configuration/zones.yaml
-
 
 emulated_hue:
   listen_port: 80
@@ -136,4 +72,47 @@ google_assistant:
   exposed_domains:
     - switch
     - light
-    - group      
+    - group     
+hue:
+  bridges:
+    - host: 192.168.86.31
+http:
+ api_password: !secret api_password
+ 
+light:
+  - platform: hue
+    allow_in_emulated_hue: false
+mqtt:
+  broker: 192.168.86.54
+  port: 1883
+  client_id: home-assistant-1
+  keepalive: 60
+  username: !secret mqtt_username
+  password: !secret mqtt_password
+
+nest:
+  client_id: !secret nest_clientid
+  client_secret: !secret nest_secret
+
+recorder:
+  purge_interval: 2
+  purge_keep_days: 5 
+
+ring:
+  username: !secret ring_username
+  password: !secret ring_password
+
+tts:
+  - platform: google
+  - platform: microsoft
+    api_key: !secret microsoft_tts_key
+
+zwave:
+  usb_path: /dev/ttyUSB0
+  network_key: !secret zwave_key
+  
+  
+# Commenting out because of the issues
+#influxdb:
+#  host: 192.168.86.54
+#  database: homeassistant
