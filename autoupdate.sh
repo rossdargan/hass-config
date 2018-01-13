@@ -1,5 +1,5 @@
 #!/bin/bash
-FileYouWantToTest='/mnt/dar-dc-01/docker/Volumes/travis/scripts/update-hass.txt'
+FileYouWantToTest='/docker/global/travis/scripts/update-hass.txt'
 echo -n "Verifying if $FileYouWantToTest exist..."
 if [ -f $FileYouWantToTest ]
     then
