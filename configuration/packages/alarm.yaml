@@ -197,3 +197,26 @@ binary_sensor:
     payload_off: "Close"
     device_class: opening
     
+turn_off_all_pir:
+  alias: 'Turn off all the PIRs - might not be needed'
+  sequence:
+  - service: mqtt.publish
+    data:
+     topic: alarm/events/PIR/Office
+     payload: Close
+  - service: mqtt.publish
+    data:
+     topic: alarm/events/PIR/Lounge
+     payload: Close     
+  - service: mqtt.publish
+    data:
+     topic: alarm/events/PIR/Hall
+     payload: Close    
+  - service: mqtt.publish
+    data:
+     topic: alarm/events/PIR/Kitchen
+     payload: Close     
+  - service: mqtt.publish
+    data:
+     topic: alarm/events/PIR/Dining Room
+     payload: Close    
