@@ -76,8 +76,8 @@ alexa:
   flash_briefings:
     traveltime:
       - title: Travel time?
-        text: !include flashbriefing.yaml
-intent_script: !include_dir_merge_named intent_script/
+        text: !include configuration/alexa/flashbriefing.yaml
+intent_script: !include_dir_merge_named configuration/alexa/intent_script/
 
 # Commenting out because of the issues
 #influxdb:
