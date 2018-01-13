@@ -424,31 +424,21 @@ camera:
   - platform: ring
 
 
-notify:
- - name: slackbot
-   platform: slack
-   api_key: !secret slackbot
-   default_channel: '#home'
- - name: html5
-   platform: html5
-   gcm_api_key: !secret gcm_api_key
-   gcm_sender_id: !secret gcm_sender_id
- - platform: nfandroidtv
-   name: Lounge
-   host: 192.168.86.24
+
     
 zwave:
   usb_path: /dev/ttyUSB0
   network_key: !secret zwave_key
  
 timer: !include configuration/timer.yaml
-
+notify: !include configuration/notify.yaml
 scene: !include_dir_merge_list configuration/scene
 automation: !include_dir_merge_list configuration/automation
 script: !include_dir_merge_named configuration/script
 alert: !include_dir_merge_named configuration/alert
 group: !include configuration/groups.yaml
 binary_sensor: !include_dir_merge_list configuration/binary_sensor
+panel_iframe: !include configuration/panel_iframe.yaml
 
 emulated_hue:
   listen_port: 80
@@ -457,21 +447,6 @@ emulated_hue:
     - switch
     - light
 
-#logger:
-#  default: error
-#  logs:
-#    homeassistant.components.zwave: error
-
-#android_ip_webcam:
-#  - host: 192.168.1.124
-#    name: Office
-#    username: admin
-#    password: !secret webcam_password
-#    sensors:
-#      - light
-#      - motion
-#    switches:
-#      - torch
 
 google_assistant:
   project_id: homeassistant-de3c6
@@ -482,21 +457,4 @@ google_assistant:
     - light
     - group
       
-panel_iframe:
-  plexpy:
-      title: 'PlexPy'
-      url: !secret plexpy_url
-      icon: mdi:account-search
-  sonarr:
-      title: 'Sonarr'
-      url: !secret sonarr_url
-      icon: mdi:television
-  radarr:
-      title: 'Radarr'
-      url: !secret radarr_url
-      icon: mdi:radar
-  pihole:
-      title: 'Pi-hole'
-      url: 'http://pi.hole/admin'
-      icon: mdi:raspberrypi
 
