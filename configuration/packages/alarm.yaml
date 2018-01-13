@@ -15,6 +15,11 @@ alert:
       - ios_kaths_iphone
       - html5_ross_phone
 
+sensors:
+  - platform: mqtt
+    name: "Alarm Events"
+    state_topic: "alarm/events"
+
 alarm_messages:
   alias: '_Notify when a the alarm mode is changed'
   sequence:
