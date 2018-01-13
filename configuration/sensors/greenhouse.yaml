@@ -1,4 +1,4 @@
- - platform: rest
+  - platform: rest
     resource: !secret grenhouse_url
     value_template: '{{ value_json.temperature | round(0)}}'
     unit_of_measurement: "°C"
