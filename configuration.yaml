@@ -11,6 +11,7 @@ homeassistant:
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: Europe/London
   customize: !include configuration/customize.yaml  
+  packages: !include_dir_named configuration/packages/
   
 # Enables the frontend
 frontend:
@@ -203,15 +204,7 @@ nest:
   client_id: !secret nest_clientid
   client_secret: !secret nest_secret
 
-alarm_control_panel:
-  platform: mqtt
-  state_topic: "alarm/state"
-  command_topic: "alarm/mode"
-  name: "Alarm"
-  payload_disarm: "Disarm"
-  payload_arm_home: "Home"
-  payload_arm_away: "Away"
-  code: !secret pin
+
 
 device_tracker:
   - platform: owntracks
