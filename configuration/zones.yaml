@@ -1,0 +1,16 @@
+- name: Kids School
+  latitude: !secret kids_school_lat
+  longitude: !secret kids_school_long
+  radius: 250
+  icon: mdi:school
+
+- name: Kath Work
+  latitude: !secret kath_work_latitude
+  longitude: !secret kath_work_longitude
+  radius: 250
+  icon: mdi:worker
+
+- name: Ross Work
+  latitude: !secret ross_work_lat
+  longitude: !secret ross_work_long
+  icon: mdi:worker
