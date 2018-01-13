@@ -86,10 +86,10 @@
     emulated_hue: false
     hidden: true
 
-  script.tv_source:
+  script.tv_source_xbox:
     custom_ui_state_card: state-card-tiles
     config:
-      columns: 5
+      columns: 4
       row_height: 50px
       column_width: 62px
       gap: 15px
@@ -97,23 +97,19 @@
       color_on: '#D5D619'
       color_off: '#BBBEC2'
       entities:
-        - entity: media_player.yamaha_reciever 
-          icon: mdi:monitor #xbox
+        - entity: script.tv_source_shield 
+          icon: mdi:monitor
           column: 1
-          row: 1
-        - entity: media_player.yamaha_reciever
-          icon: mdi:volume-medium
+          row: 1          
+        - entity: script.tv_source_spotify
+          icon: mdi:spotify
           column: 2
-          row: 1            
-        - entity: media_player.yamaha_reciever
-          icon: mdi:volume-high
+          row: 1
+        - entity: script.tv_source_switch
+          icon: mdi:nintendo-switch
           column: 3
           row: 1
-        - entity: media_player.yamaha_reciever
-          icon: mdi:cast
-          column: 4
-          row: 1
-        - entity: media_player.yamaha_reciever
+        - entity: script.tv_source_xbox
           icon: mdi:xbox
-          column: 5
+          column: 4
           row: 1
