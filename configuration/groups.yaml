@@ -121,22 +121,6 @@
       - switch.lounge_tv_switch
 
 
-  alarm_sensors:
-    name: Alarm Sensors
-    entities:
-      - binary_sensor.ring_front_door_motion
-      - binary_sensor.dining_room_pir
-      - binary_sensor.office_pir
-      - binary_sensor.hall_pir
-      - binary_sensor.lounge_pir
-      - binary_sensor.kitchen_pir
-      - binary_sensor.front_door
-      - binary_sensor.playroom_door
-      - binary_sensor.garage_door
-      - sensor.alarm_events
-
-
-
   work_sensors:
     name: Commute
     icon: mdi:car
