@@ -1,7 +1,16 @@
+alarm_control_panel:
+  platform: mqtt
+  state_topic: "alarm/state"
+  command_topic: "alarm/mode"
+  name: "Alarm"
+  payload_disarm: "Disarm"
+  payload_arm_home: "Home"
+  payload_arm_away: "Away"
+  code: !secret pin
+
 ###################################################
 # Notification for the alarm going off
 ###################################################
-
 alert:
   burglar_alarm:
     name: Burglar Alarm
@@ -15,12 +24,18 @@ alert:
       - ios_kaths_iphone
       - html5_ross_phone
 
+###################################################
+# Display the last alarm state
+###################################################
 sensor:
   - platform: mqtt
     name: "Alarm Events"
     state_topic: "alarm/events"
 
 automation:
+###################################################
+# Notify when the alarm is armed/disarmed with a fob
+###################################################
   - alias: Alarm Remote Fob pressed
     initial_state: 'on'
     trigger:
@@ -31,11 +46,9 @@ automation:
         data_template:
          action: '{{ trigger.payload }}'
          name: '{{ trigger.topic.replace("alarm/events/Remote Control/","").replace(" Fob", "").replace("Kaths","Kath") }}'
- #     - service: mqtt.publish
- #       data:
- #        topic: {{ trigger.topic }}
- #        payload: ''
- #        retain: true  
+###################################################
+# Detect the alarm being triggererd
+###################################################
   - alias: Alarm Triggered
     initial_state: 'on'
     trigger:
@@ -48,7 +61,10 @@ automation:
           topic: 'alarm/state'
           payload: 'triggered'
           retain: true
-
+###################################################
+# Turn off the PIRs when HASS starts up.
+# If a PIR is on, and HASS restarts it will never be turned off.
+###################################################
   - alias: Close all pirs on startup
     initial_state: 'on'
     trigger:
@@ -57,6 +73,9 @@ automation:
     action:
       service: script.turn_off_all_pir
 
+###################################################
+# PIR time outs
+###################################################
   - alias: Lounge PIR Timeout
     initial_state: 'on'
     trigger:
@@ -127,6 +146,9 @@ automation:
           topic: alarm/events/PIR/Playroom
           payload: Close
 
+###################################################
+# The PIR sensors
+###################################################
 binary_sensor:
   - platform: mqtt
     state_topic: "alarm/events/PIR/Office"
@@ -179,7 +201,7 @@ binary_sensor:
 
 script:
  #############################################################################################
- # Need to turn of all PIRs because if it was on after a reboot it will never get turned off #
+ # Turns all the PIRs off
  #############################################################################################
   turn_off_all_pir:
     alias: 'Turn off all the PIRs - might not be needed'
@@ -204,7 +226,10 @@ script:
       data:
        topic: alarm/events/PIR/Dining Room
        payload: Close    
-       
+
+###################################################
+# Notify when the arm mode is changed
+###################################################
   alarm_messages:
     alias: '_Notify when a the alarm mode is changed'
     sequence:
