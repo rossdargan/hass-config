@@ -15,33 +15,10 @@ alert:
       - ios_kaths_iphone
       - html5_ross_phone
 
-sensors:
+sensor:
   - platform: mqtt
     name: "Alarm Events"
     state_topic: "alarm/events"
-
-alarm_messages:
-  alias: '_Notify when a the alarm mode is changed'
-  sequence:
-  - service: notify.slackbot
-    data_template:
-      message: 'Alarm put in {{ action }} by {{ name }}'
-  - service: notify.ios_kaths_iphone
-    data_template:
-      title: 'Alarm {{action}}'
-      message: 'Alarm put in {{ action }} by {{ name }}'
-  - service: notify.html5
-    data_template:
-      title: 'Alarm {{action}}'
-      message: 'Alarm put in {{ action }} by {{ name }}'
-      data:
-        icon: "https://www.the-dargans.co.uk/local/{{ name|lower }}.png"
-        tag: 'alarm'
-  - service: mqtt.publish
-    data_template:
-      topic: 'alarm/state'
-      payload_template: '{{ action.replace(" Mode", "").replace(" mode", "").replace("Disarm","disarmed").replace("Away","armed_away").replace("Home", "armed_home") }}'
-      retain: true
 
 automation:
   - alias: Alarm Remote Fob pressed
@@ -150,8 +127,6 @@ automation:
           topic: alarm/events/PIR/Playroom
           payload: Close
 
-
-
 binary_sensor:
   - platform: mqtt
     state_topic: "alarm/events/PIR/Office"
@@ -201,30 +176,54 @@ binary_sensor:
     payload_on: "Open"
     payload_off: "Close"
     device_class: opening
-    
+
+script
  #############################################################################################
  # Need to turn of all PIRs because if it was on after a reboot it will never get turned off #
  #############################################################################################
-turn_off_all_pir:
-  alias: 'Turn off all the PIRs - might not be needed'
-  sequence:
-  - service: mqtt.publish
-    data:
-     topic: alarm/events/PIR/Office
-     payload: Close
-  - service: mqtt.publish
-    data:
-     topic: alarm/events/PIR/Lounge
-     payload: Close     
-  - service: mqtt.publish
-    data:
-     topic: alarm/events/PIR/Hall
-     payload: Close    
-  - service: mqtt.publish
-    data:
-     topic: alarm/events/PIR/Kitchen
-     payload: Close     
-  - service: mqtt.publish
-    data:
-     topic: alarm/events/PIR/Dining Room
-     payload: Close    
+  turn_off_all_pir:
+    alias: 'Turn off all the PIRs - might not be needed'
+    sequence:
+    - service: mqtt.publish
+      data:
+       topic: alarm/events/PIR/Office
+       payload: Close
+    - service: mqtt.publish
+      data:
+       topic: alarm/events/PIR/Lounge
+       payload: Close     
+    - service: mqtt.publish
+      data:
+       topic: alarm/events/PIR/Hall
+       payload: Close    
+    - service: mqtt.publish
+      data:
+       topic: alarm/events/PIR/Kitchen
+       payload: Close     
+    - service: mqtt.publish
+      data:
+       topic: alarm/events/PIR/Dining Room
+       payload: Close    
+       
+  alarm_messages:
+    alias: '_Notify when a the alarm mode is changed'
+    sequence:
+    - service: notify.slackbot
+      data_template:
+        message: 'Alarm put in {{ action }} by {{ name }}'
+    - service: notify.ios_kaths_iphone
+      data_template:
+        title: 'Alarm {{action}}'
+        message: 'Alarm put in {{ action }} by {{ name }}'
+    - service: notify.html5
+      data_template:
+        title: 'Alarm {{action}}'
+        message: 'Alarm put in {{ action }} by {{ name }}'
+        data:
+          icon: "https://www.the-dargans.co.uk/local/{{ name|lower }}.png"
+          tag: 'alarm'
+    - service: mqtt.publish
+      data_template:
+        topic: 'alarm/state'
+        payload_template: '{{ action.replace(" Mode", "").replace(" mode", "").replace("Disarm","disarmed").replace("Away","armed_away").replace("Home", "armed_home") }}'
+        retain: true
