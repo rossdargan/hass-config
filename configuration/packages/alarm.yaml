@@ -197,6 +197,9 @@ binary_sensor:
     payload_off: "Close"
     device_class: opening
     
+ #############################################################################################
+ # Need to turn of all PIRs because if it was on after a reboot it will never get turned off #
+ #############################################################################################
 turn_off_all_pir:
   alias: 'Turn off all the PIRs - might not be needed'
   sequence:
