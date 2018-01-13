@@ -58,10 +58,7 @@ zone 3:
   icon: mdi:worker
 
 http:
-  # Uncomment this to add a password (recommended!)
  api_password: !secret api_password
-  # Uncomment this if you are using SSL or running in Docker etc
-# base_url: www.the-dargans.co.uk:443
 
 # Checks for available updates
 updater:
@@ -77,6 +74,7 @@ alexa:
     traveltime:
       - title: Travel time?
         text: !include configuration/alexa/flashbriefing.yaml
+
 intent_script: !include_dir_merge_named configuration/alexa/intent_script/
 
 # Commenting out because of the issues
@@ -150,7 +148,7 @@ sensor:
             mdi:door-open
           {% endif %}
   - platform: transmission
-    host: seedbox.the-dargans.co.uk
+    host: !secret seedbox
     username: !secret transmission_username
     password: !secret transmission_password
     monitored_variables:
@@ -158,59 +156,6 @@ sensor:
       - 'download_speed'
       - 'upload_speed'
       - 'active_torrents'
-  #- platform: rest
-  #  name: Philips Hue Dimmer Bedroom
-  #  resource: !secret philipshue_bedroomswitch
-  #  # If you notice errors in your log, increase scan_interval to 2
-  #  scan_interval: 2
-  #  value_template: >-
-  #    {# Grab the lastupdated time and convert it to a timestamp #}
-  #    {% set lastupdated = as_timestamp(value_json.state.lastupdated ~ '-00:00')|int %}
-  #    {# Compare the lastupdated against the current timestamps #}
-  #    {% if as_timestamp(now())|int - lastupdated > 5 %}
-  #      {# If no events have happened in the past 5 seconds, show 'idle' as state #}
-  #      idle
-  #    {% else %}
-  #      {# Get the buttonevent that was triggered #}
-  #      {% set buttonevent = value_json.state.buttonevent|string %}
-  #      {# Example button event: 4003 #}
-  #      {# buttonevent[0] = 4 = button number #}
-  #      {# buttonevent[3] = 3 = button event #}
-  #      {# If buttonevent[3] is even (X000 or X002), the button was clicked #}
-  #      {# If buttonevent[3] is odd (X001 or X003), the button was held #}
-  #      {# The ~ operator is used to concatenate strings #}
-  #      {{ ('hold' if buttonevent[3]|int is odd else 'click') ~ '_' ~ buttonevent[0] }}
-  #    {% endif %}
-  #- platform: rest
-  #  name: Philips Hue Dimmer Lounge
-  #  resource: !secret philipshue_loungetap
-  #  # If you notice errors in your log, increase scan_interval to 2
-  #  scan_interval: 1
-  #  value_template: >-
-  #    {# Grab the lastupdated time and convert it to a timestamp #}
-  #    {% set lastupdated = as_timestamp(value_json.state.lastupdated ~ '-00:00')|int %}
-  #    {# Compare the lastupdated against the current timestamps #}
-  #    {% if as_timestamp(now())|int - lastupdated > 5 %}
-  #      {# If no events have happened in the past 5 seconds, show 'idle' as state #}
-  #      idle
-  #    {% else %}
-  #      {% set values={99: 'two buttons',34:'Off', 16:'button 1', 17:'button 2', 18:'button 3' } %}
-  #      {% set button_pressed = 'unkown' %}
-  #      {% if value_json.state.buttonevent in values %}
-  #          {% set button_pressed  =  values[value_json.state.buttonevent] %} 
-  #      {% endif %}
-  #      {{ button_pressed   }}
-  #    {% endif %}
-  #- platform: rest
-  #  resource: !secret philipshue_tempurl
-  #  value_template: '{{ value_json.state.temperature | float / 100 }}'
-  #  unit_of_measurement: °C
-  #  name: 'Hall Temperature'
-  #- platform: rest
-  #  resource: !secret philipshue_lux
-  #  value_template: '{{ value_json.state.lightlevel }}'
-  #  unit_of_measurement: Lux
-  #  name: 'Hall Lux'
   - platform: monzo
     client_id: !secret monzo_client_id
     client_secret: !secret monzo_secret
@@ -343,7 +288,7 @@ sensor:
       - volume
   - platform: command_line
     name: Occasion
-    command: "python3 /config/occasion.py"
+    command: "python3 /config/configuration/python_scripts/occasion.py"
   - platform: google_travel_time
     name: Ross Work commute
     api_key: !secret google_api_key
@@ -496,14 +441,14 @@ zwave:
   usb_path: /dev/ttyUSB0
   network_key: !secret zwave_key
  
-timer: !include timer.yaml
+timer: !include configuration/timer.yaml
 
-scene: !include_dir_merge_list scene
-automation: !include_dir_merge_list automation
-script: !include_dir_merge_named script
-alert: !include_dir_merge_named alert
-group: !include groups.yaml
-binary_sensor: !include_dir_merge_list binary_sensor
+scene: !include_dir_merge_list configuration/scene
+automation: !include_dir_merge_list configuration/automation
+script: !include_dir_merge_named configuration/script
+alert: !include_dir_merge_named configuration/alert
+group: !include configuration/groups.yaml
+binary_sensor: !include_dir_merge_list configuration/binary_sensor
 
 emulated_hue:
   listen_port: 80
@@ -531,7 +476,7 @@ emulated_hue:
 google_assistant:
   project_id: homeassistant-de3c6
   client_id: bTF5sTbZATEo3opT3h6BspxZVAvd7Ed86r5iNy0hrc9QgPKpe0NXsoabpjUwFqt8z62H1rE9zFod0aaL
-  access_token: KbFKYEmWO36dJdSE3Cj6tPPFPDPVBqSZlSV0Emc4QOMIjI7ca56ly2C8DhCCucf08FBotHQMOCv7h33K
+  access_token: !secret google_access_token
   exposed_domains:
     - switch
     - light
