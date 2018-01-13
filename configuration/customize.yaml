@@ -89,7 +89,7 @@
   script.tv_source_xbox:
     custom_ui_state_card: state-card-tiles
     config:
-      columns: 4
+      columns: 5
       row_height: 50px
       column_width: 62px
       gap: 15px
@@ -97,19 +97,23 @@
       color_on: '#D5D619'
       color_off: '#BBBEC2'
       entities:
-        - entity: script.tv_source_shield 
-          icon: mdi:monitor
+        - entity: switch.lounge_tv_switch
+          icon: mdi:power
           column: 1
+          row: 1            
+        - entity: script.tv_source_shield 
+          icon: mdi:television-classic
+          column: 2
           row: 1          
         - entity: script.tv_source_spotify
           icon: mdi:spotify
-          column: 2
+          column: 3
           row: 1
         - entity: script.tv_source_switch
           icon: mdi:nintendo-switch
-          column: 3
+          column: 4
           row: 1
         - entity: script.tv_source_xbox
           icon: mdi:xbox
-          column: 4
+          column: 5
           row: 1
