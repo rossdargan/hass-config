@@ -1,0 +1,24 @@
+  - platform: template
+    sensors:
+      lock_status:
+        friendly_name: "Front Door Lock"
+        value_template: >-
+          {% if 'Jammed' in states.lock.frontdoor_locked.attributes.lock_status %}
+            Jammed
+          {% elif 'Locked' in states.lock.frontdoor_locked.attributes.lock_status %}
+            Locked
+          {% elif 're-lock' in states.lock.frontdoor_locked.attributes.lock_status %}
+            Locked
+          {% else %}
+            Unlocked
+          {% endif %}
+        icon_template: >
+          {% if 'Jammed' in states.lock.frontdoor_locked.attributes.lock_status %}
+            mdi:alert
+          {% elif 'Locked' in states.lock.frontdoor_locked.attributes.lock_status %}
+            mdi:door
+          {% elif 're-lock' in states.lock.frontdoor_locked.attributes.lock_status %}
+            mdi:door
+          {% else %}
+            mdi:door-open
+          {% endif %}

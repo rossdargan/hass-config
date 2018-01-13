@@ -1,0 +1,8 @@
+  - platform: sonarr
+    api_key: !secret sonarr_api_key
+    host: 192.168.86.51
+    port: 8989
+    monitored_conditions:
+      - upcoming
+    days: 2
+    urlbase: sonarr

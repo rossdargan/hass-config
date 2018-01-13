@@ -1,0 +1,11 @@
+ - name: slackbot
+   platform: slack
+   api_key: !secret slackbot
+   default_channel: '#home'
+ - name: html5
+   platform: html5
+   gcm_api_key: !secret gcm_api_key
+   gcm_sender_id: !secret gcm_sender_id
+ - platform: nfandroidtv
+   name: Lounge
+   host: 192.168.86.24
