@@ -1,4 +1,4 @@
   flash_briefings:
     traveltime:
       - title: Travel time?
-        text: !include configuration/alexa/flashbriefing.yaml
+        text: !include flashbriefing.yaml
