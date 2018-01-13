@@ -25,8 +25,12 @@
       - sensor.philips_hue_dimmer_bedroom
       - camera.front_door
       - group.steam
+      - group.tv_remote
 
-      
+  tv_remote:
+    name: TV
+    entities:
+      - script.tv_source
   important:
     name: Front Door
     control: hidden
