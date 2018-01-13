@@ -1,3 +1,0 @@
-  - platform: mqtt
-    name: "Alarm Events"
-    state_topic: "alarm/events"
