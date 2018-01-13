@@ -177,7 +177,7 @@ binary_sensor:
     payload_off: "Close"
     device_class: opening
 
-script
+script:
  #############################################################################################
  # Need to turn of all PIRs because if it was on after a reboot it will never get turned off #
  #############################################################################################
