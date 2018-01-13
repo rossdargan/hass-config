@@ -1,0 +1,37 @@
+  - platform: universal
+    name: Lounge Universal
+    children:    
+      - media_player.plex_d46e7ce32731388a_com_plexapp_android
+   #   - media_player.lounge
+      - media_player.living_room_home
+      - media_player.lounge_2
+      - media_player.loungetv      
+    commands:
+      volume_up:
+        service: media_player.volume_up
+        data:
+          entity_id: media_player.yamaha_receiver
+      volume_down:
+        service: media_player.volume_down
+        data:
+          entity_id: media_player.yamaha_receiver
+      volume_mute:
+        service: media_player.volume_mute
+        data:
+          entity_id: media_player.yamaha_receiver
+      select_source:
+        service: media_player.select_source
+        data_template:
+          entity_id: media_player.yamaha_receiver
+          source: ''
+      volume_set:
+        service: media_player.volume_set
+        data_template:
+          entity_id: media_player.yamaha_receiver
+          volume_level: ''
+    attributes:
+      #state: switch.av
+      is_volume_muted: media_player.yamaha_receiver|is_volume_muted
+      volume_level: media_player.yamaha_receiver|volume_level
+      source: media_player.yamaha_receiver|source
+      source_list: media_player.yamaha_receiver|source_list

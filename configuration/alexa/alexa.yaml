@@ -1,0 +1,4 @@
+  flash_briefings:
+    traveltime:
+      - title: Travel time?
+        text: !include flashbriefing.yaml
