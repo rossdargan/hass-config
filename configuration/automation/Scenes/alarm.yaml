@@ -7,8 +7,6 @@
     action:
       - service: scene.turn_on
         entity_id: scene.day
-      - service: lock.unlock
-        entity_id: lock.frontdoor_locked
 
   - alias: Change scene- alarm is Armed
     initial_state: 'on'
