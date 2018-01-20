@@ -2,9 +2,6 @@
     sensors:
       friends_online:
         friendly_name: 'Friends online'
-        entity_id:
-          - sensor.steam_76561197969133682
-          - sensor.steam_76561197969133682
         value_template: >-
           {{ is_state('sensor.steam_76561197969133682', 'Online')
              or is_state('sensor.steam_76561198009934891', 'Online') }}
