@@ -25,6 +25,7 @@
       - sensor.philips_hue_dimmer_bedroom
       - camera.front_door
       - group.steam
+      - group.xbox
       - group.tv_remote
 
   tv_remote:
@@ -267,3 +268,14 @@
     entities:
       - sensor.steam_76561197969133682
       - sensor.steam_76561198009934891
+
+  xbox:
+    name: Xbox
+    entities:
+      - sensor.alexbookie
+      - sensor.bigmikeyi
+      - sensor.clairehillier
+      - sensor.r3k0
+      - sensor.srigby1985part2
+      - sensor.xix_rufio_xix
+      - sensor.yogi27b
