@@ -41,6 +41,7 @@ sensor:
     headers: 
       content-type: application/octet-stream
     payload: '{"command":"./bin/get-mode.pl"}'
+    value_template: '{{ value_json.result | trim }}'
 
 automation:
 ###################################################
