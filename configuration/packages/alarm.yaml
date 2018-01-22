@@ -31,6 +31,13 @@ sensor:
   - platform: mqtt
     name: "Alarm Events"
     state_topic: "alarm/events"
+#######################################################
+# Display the actual alarm mode directly from the alarm
+#######################################################
+  - platform: rest
+    resource: http://192.168.86.54:8126/container/alarm-watchdog/exec
+    method: POST
+    payload: {"command":"./bin/get-mode.pl"}
 
 automation:
 ###################################################
