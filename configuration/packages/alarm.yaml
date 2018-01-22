@@ -35,9 +35,10 @@ sensor:
 # Display the actual alarm mode directly from the alarm
 #######################################################
   - platform: rest
+    name: "Alarm State"
     resource: http://192.168.86.54:8126/container/alarm-watchdog/exec
     method: POST
-    payload: {"command":"./bin/get-mode.pl"}
+    payload: '{"command":"./bin/get-mode.pl"}'
 
 automation:
 ###################################################
