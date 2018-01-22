@@ -26,6 +26,7 @@
       - camera.front_door
       - group.friends
       - group.tv_remote
+      - sensor.alarm_state
 
   tv_remote:
     name: TV
