@@ -39,7 +39,7 @@ sensor:
     resource: http://192.168.86.54:8126/container/alarm-watchdog/exec
     method: POST
     headers: 
-      - '{"content-type":"application/octet-stream"}'
+      content-type: application/octet-stream
     payload: '{"command":"./bin/get-mode.pl"}'
 
 automation:
