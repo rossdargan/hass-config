@@ -44,7 +44,7 @@
     condition:
       - condition: state
         entity_id: alarm_control_panel.alarm
-        state: 'armed away'
+        state: 'armed_away'
     action:
       - service: alarm_control_panel.alarm_disarm
         data:
@@ -56,7 +56,7 @@
     trigger:
       - platform: state
         entity_id: alarm_control_panel.alarm    
-        from: 'armed away'
+        from: 'armed_away'
         to: 'disarmed'
     condition:
       - condition: state
