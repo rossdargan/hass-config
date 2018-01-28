@@ -1,5 +1,5 @@
 #John, then Andy, then Miky
-- platform: xbox_live
+  - platform: xbox_live
     api_key: !secret xbox_api_key
     xuid:
       - 2533274800583987
