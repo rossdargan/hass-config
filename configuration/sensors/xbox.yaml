@@ -1,6 +1,7 @@
-  - platform: xbox_live
+#John, then Andy, then Miky
+- platform: xbox_live
     api_key: !secret xbox_api_key
     xuid:
-      - 2533274800583987 #john
-      - 2533274812489859 #andy
-      - 2533274828534901 #miky
+      - 2533274800583987
+      - 2533274812489859
+      - 2533274828534901
