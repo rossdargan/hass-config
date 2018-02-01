@@ -27,6 +27,7 @@
       - group.friends
       - group.tv_remote
       - sensor.alarm_state
+      - sensor.bills
 
   tv_remote:
     name: TV
