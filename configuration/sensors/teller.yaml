@@ -3,4 +3,3 @@
     resource: !secret teller_url
     headers: 
       Authorisation: !secret teller_token 
-    value_template: '{{ value_json.balance }}'
