@@ -1,4 +1,5 @@
   - platform: rest
+    name: 'Bills'
     resource: !secret teller_url
     headers: 
       authorisation: !secret teller_token 
