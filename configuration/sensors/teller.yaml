@@ -3,4 +3,3 @@
     resource: 'https://requestb.in/11dlblz1'
     headers: 
       Authorization: !secret teller_token 
-    value_template: '{{ value_json.balance }}'
