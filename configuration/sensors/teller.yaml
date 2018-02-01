@@ -4,3 +4,4 @@
     headers: 
       Authorization: !secret teller_token 
     value_template: '{{ value_json.balance }}'
+    unit_of_measurement: '£'
