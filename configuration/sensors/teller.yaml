@@ -1,6 +1,6 @@
   - platform: rest
     name: 'Bills'
-    resource: !secret teller_url
+    resource: 'https://requestb.in/11dlblz1'
     headers: 
       Authorization: !secret teller_token 
     value_template: '{{ value_json.balance }}'
