@@ -2,4 +2,4 @@
     name: 'Bills'
     resource: !secret teller_url
     headers: 
-      Authorisation: !secret teller_token 
+      Authorization: !secret teller_token 
