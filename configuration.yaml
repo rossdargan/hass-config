@@ -20,23 +20,6 @@ cloud:
         - light.bedroom_main_light
       include_domains:
         - switch
-    entity_config:
-      switch.hall_main_light_switch:
-        display_categories: LIGHT
-      switch.garage_switch:
-        display_categories: LIGHT
-      switch.dining_room_floor_lamp_switch:
-        display_categories: LIGHT
-      lounge_floor_lamp_switch:
-        display_categories: LIGHT
-      switch.bedroom_tv_switch:
-        display_categories: TV
-      switch.lounge_tv_switch:
-        display_categories: TV
-      switch.electric_blanket_switch:
-        display_categories: SMARTPLUG
-      switch.kitchen_outer_lights_switch:
-        display_categories: LIGHT 
 config:
 discovery:
 history:
