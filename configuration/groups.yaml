@@ -251,7 +251,7 @@
       - sensor.bedroom_tv_power
       - sensor.lounge_tv_power
       - sensor.playroom_tv_power
-      - sensor.garage_light_power
+      - sensor.garage_power
       - sensor.lounge_floor_lamp_power
       - sensor.dining_room_floor_lamp_power
       - sensor.electric_blanket_power

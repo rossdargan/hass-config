@@ -9,9 +9,9 @@
         entity_id: binary_sensor.garage_door
         to: 'on'
     action:
-      service: light.turn_on
+      service: switch.turn_on
       data:
-        entity_id: light.garage
+        entity_id: switch.garage_switch
 
   - alias: Garage Door Closed
     initial_state: 'on'
@@ -21,6 +21,7 @@
         to: 'off'
         for: '00:05:00'
     action:
-      service: light.turn_off
+      service: switch.turn_off
       data:
-        entity_id: light.garage
+        entity_id: switch.garage_switch
+
