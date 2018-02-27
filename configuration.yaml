@@ -43,6 +43,7 @@ cloud:
         - light.kitchen_main_light_level
         - light.lounge_main_light_level
         - light.bedroom_main_light
+        - media_player.shield
       include_domains:
         - switch
       exclude_entities:
