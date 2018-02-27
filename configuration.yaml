@@ -23,6 +23,7 @@ cloud:
     entity_config:
       switch.hall_main_light_switch:
         display_categories: 'LIGHT'
+        name: 'Hall Light'
       switch.garage_switch:
         display_categories: 'LIGHT'        
       switch.dining_room_floor_lamp_switch:
