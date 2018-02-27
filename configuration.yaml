@@ -42,7 +42,7 @@ cloud:
       include_entities:
         - light.kitchen_main_light_level
         - light.lounge_main_light_level
-        - light.bedroom_main_light
+        - light.bedroom_main_light_level
         - media_player.shield
       include_domains:
         - switch
