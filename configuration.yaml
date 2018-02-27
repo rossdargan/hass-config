@@ -45,6 +45,11 @@ cloud:
         - light.bedroom_main_light
       include_domains:
         - switch
+      exclude_entities:
+        - switch.garage_switch_2
+        - switch.dead_switch
+        - switch.dead_switch_2
+        - switch.dead_switch_3
 
 config:
 discovery:
