@@ -18,19 +18,26 @@ cloud:
         display_categories: 'LIGHT'
         name: 'Hall Light'
       switch.garage_switch:
+        name: 'Garage Light'
         display_categories: 'LIGHT'        
       switch.dining_room_floor_lamp_switch:
+        name: 'Dining room floor lamp'
         display_categories: 'LIGHT'
       lounge_floor_lamp_switch:
         display_categories: 'LIGHT'
+        name: 'Lounge floor lamp'
       switch.bedroom_tv_switch:
         display_categories: 'TV'
+        name: 'Bedroom TV'
       switch.lounge_tv_switch:
         display_categories: 'TV'
+        name: 'Lounge Tv'
       switch.electric_blanket_switch:
         display_categories: 'SMARTPLUG'
+        name: 'Electric Blanket'
       switch.kitchen_outer_lights_switch:
         display_categories: 'LIGHT'
+        name: 'Kitchen outer lights'
     filter:      
       include_entities:
         - light.kitchen_main_light_level
