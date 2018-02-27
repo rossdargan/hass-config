@@ -15,7 +15,7 @@
   switch.hall_main_light_switch:
     icon: mdi:ceiling-light
     friendly_name: "Hall Light"
-  switchs.garage_switch
+  switch.garage_switch:
     icon: mdi:ceiling-light
     friendly_name: "Garage Light"
   light.kitchen_main_light_level:
