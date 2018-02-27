@@ -23,7 +23,7 @@ cloud:
       switch.dining_room_floor_lamp_switch:
         name: 'Dining room floor lamp'
         display_categories: 'LIGHT'
-      lounge_floor_lamp_switch:
+      switch.lounge_floor_lamp_switch:
         display_categories: 'LIGHT'
         name: 'Lounge floor lamp'
       switch.bedroom_tv_switch:
