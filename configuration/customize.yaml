@@ -1,5 +1,13 @@
   script.group_visibility:   
    hidden: false
+  switch.garage_switch_2
+    hidden: true
+  switch.dead_switch
+    hidden: true
+  switch.dead_switch_2
+    hidden: true
+  switch.dead_switch_3
+    hidden: true
   sensor.kath_work_commute:
    icon: mdi:car
   sensor.ross_work_commute:
