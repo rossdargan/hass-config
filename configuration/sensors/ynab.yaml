@@ -6,11 +6,12 @@
       - kath_spending
       - ross_spending
     resource: https://api.youneedabudget.com/v1/budgets/8ab7902c-bb25-46f9-94fd-676406987be1/categories   
+    value_template: '{{ value_json.data }}'
   - platform: template
     sensors:
       kath_spending:
         friendly_name: 'Kath Spending'
-        value_template: '{% for value in states.sensor.ynab.data.category_groups %}{% if value.id == "28c911f6-c796-4ab1-bac8-e4e2bd546747"%} {{ value.categories | sum(attribute="balance") }}{% endif %}{% endfor %}'
+        value_template: '{% for value in states.sensor.ynab.category_groups %}{% if value.id == "28c911f6-c796-4ab1-bac8-e4e2bd546747"%} {{ value.categories | sum(attribute="balance") }}{% endif %}{% endfor %}'
       ross_spending:
         friendly_name: 'Ross Spending'
-        value_template: '{% for value in states.sensor.ynab.data.category_groups %}{% if value.id == "8c2bd62c-9d7e-4f20-b8ff-18c36362eea1"%} {{ value.categories | sum(attribute="balance") }}{% endif %}{% endfor %}'
+        value_template: '{% for value in states.sensor.ynab.category_groups %}{% if value.id == "8c2bd62c-9d7e-4f20-b8ff-18c36362eea1"%} {{ value.categories | sum(attribute="balance") }}{% endif %}{% endfor %}'
