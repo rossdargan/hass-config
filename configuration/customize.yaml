@@ -2,8 +2,6 @@
    hidden: false
   switch.garage_switch_2:
     hidden: true
-  switch.dead_switch:
-    hidden: true
   switch.dead_switch_2:
     hidden: true
   switch.dead_switch_3:
