@@ -4,7 +4,7 @@
   - platform: event
     event_type: roku_command
     event_data:
-      roku_usn: 5sEE3ioBPJU2m3ZR2QBHDb
+      roku_usn: R6RT3AgtAdzd24RyxHPg3D
       type: keypress
       key: Fwd
   action:
@@ -17,7 +17,7 @@
   - platform: event
     event_type: roku_command
     event_data:
-      roku_usn: 5sEE3ioBPJU2m3ZR2QBHDb
+      roku_usn: R6RT3AgtAdzd24RyxHPg3D
       type: keypress
       key: Rev
   action:
