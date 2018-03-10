@@ -1,0 +1,25 @@
+- id: turn_on_lounge_light
+  alias: Increase amplifier volume
+  trigger:
+  - platform: event
+    event_type: roku_command
+    event_data:
+      roku_usn: 5sEE3ioBPJU2m3ZR2QBHDb
+      type: keypress
+      key: Fwd
+  action:
+  - service: light.turn_on
+    entity_id: light.lounge_main_light_level
+
+- id: turn_off_lounge_light
+  alias: Increase amplifier volume
+  trigger:
+  - platform: event
+    event_type: roku_command
+    event_data:
+      roku_usn: 5sEE3ioBPJU2m3ZR2QBHDb
+      type: keypress
+      key: Rev
+  action:
+  - service: light.turn_off
+    entity_id: light.lounge_main_light_level
