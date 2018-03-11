@@ -100,14 +100,15 @@
     
 - id:  turn_on_netflix
   initial_state: 'on'
-  alias: Turn on netflix (via Roku)
+  alias: Turn on netflix (via Roku - tv off)
   trigger:
   - platform: event
     event_type: roku_command
     event_data:
       type: keypress
       key: Home
-  condition: state
+  conditions:
+  - condition: state
     entity_id: 'switch.lounge_tv_switch'
     state: 'off'      
   action:
@@ -123,6 +124,30 @@
       topic: 'tv'
       payload: 'netflix'   
 
+- id:  turn_on_netflix
+  initial_state: 'on'
+  alias: Turn on netflix (via Roku - tv on)
+  trigger:
+  - platform: event
+    event_type: roku_command
+    event_data:
+      type: keypress
+      key: Home
+  conditions:
+  - condition: state
+    entity_id: 'switch.lounge_tv_switch'
+    state: 'on'      
+  action:  
+  - service: media_player.select_source
+    entity_id: 'media_player.yamaha_reciever'
+    data:
+      source: "HDMI6"
+  - service: mqtt.publish
+    data:
+      topic: 'tv'
+      payload: 'netflix'   
+      
+      
 - id:  turn_on_plex
   initial_state: 'on'
   alias: Turn on plex (via Roku)
