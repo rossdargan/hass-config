@@ -4,5 +4,5 @@
     headers: 
       Authorization: !secret ynab_token 
     resource: https://api.youneedabudget.com/v1/budgets/8ab7902c-bb25-46f9-94fd-676406987be1/categories/0d29e961-77c2-46f5-a913-c2ac953f0cff   
-    value_template: '{{ value_json.data.category.balance | float / 100}}'
+    value_template: '{{ value_json.data.category.balance | float / 1000}}'
     unit_of_measurement: "£"
