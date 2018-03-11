@@ -107,7 +107,7 @@
     event_data:
       type: keypress
       key: Home
-  conditions:
+  condition:
   - condition: state
     entity_id: 'switch.lounge_tv_switch'
     state: 'off'      
@@ -133,7 +133,7 @@
     event_data:
       type: keypress
       key: Home
-  conditions:
+  condition:
   - condition: state
     entity_id: 'switch.lounge_tv_switch'
     state: 'on'      
