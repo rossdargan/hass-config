@@ -98,7 +98,7 @@
     entity_id: switch.lounge_tv_switch
     
     
-- id:  turn_on_netflix
+- id:  turn_on_netflix_from_off
   initial_state: 'on'
   alias: Turn on netflix (via Roku - tv off)
   trigger:
@@ -155,7 +155,7 @@
       topic: 'tv'
       payload: 'netflix'   
       
-  - id:  turn_on_plex
+  - id:  turn_on_plex_from_off
   initial_state: 'on'
   alias: Turn on plex (via Roku - tv off)
   trigger:
@@ -212,7 +212,7 @@
       topic: 'tv'
       payload: 'plex'   
     
-- id:  turn_on_youtube
+- id:  turn_on_youtube_from_off
   initial_state: 'on'
   alias: Turn on youtube (via Roku - tv off)
   trigger:
