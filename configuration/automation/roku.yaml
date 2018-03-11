@@ -18,16 +18,127 @@
 # Info: Turn on Plex
 # Back: Turn on youtube
 
-- id:  turn_on_netflix
-  alias: "Turn on netflix (via Roku)"
+
+- id: turn_on_lounge_light
+  initial_state: 'on'
+  alias: Turn on the lounge light (via roku)
   trigger:
-    platform: event
+  - platform: event
+    event_type: roku_command
+    event_data:
+      type: keypress
+      key: Up
+  action:
+  - service: light.turn_on
+    entity_id: light.lounge_main_light_level
+
+- id: turn_off_lounge_light
+  initial_state: 'on'
+  alias: Turn off the lounge light (via Roku)
+  trigger:
+  - platform: event
+    event_type: roku_command
+    event_data:
+      type: keypress
+      key: Down
+  action:
+  - service: light.turn_off
+    entity_id: light.lounge_main_light_level
+
+- id: turn_on_lounge_floor_light
+  initial_state: 'on'
+  alias: Turn on the lounge floor light (via roku)
+  trigger:
+  - platform: event
+    event_type: roku_command
+    event_data:
+      type: keypress
+      key: Rev
+  action:
+  - service: switch.turn_on
+    entity_id: switch.lounge_floor_lamp_switch
+
+- id: turn_off_lounge_floor_light
+  initial_state: 'on'
+  alias: Turn off the lounge floor light (via Roku)
+  trigger:
+  - platform: event
+    event_type: roku_command
+    event_data:
+      type: keypress
+      key: Fwd
+  action:
+  - service: switch.turn_off
+    entity_id: switch.lounge_floor_lamp_switch
+
+- id: turn_on_lounge_tv
+  initial_state: 'on'
+  alias: Turn on the lounge tv (via roku)
+  trigger:
+  - platform: event
+    event_type: roku_command
+    event_data:
+      type: keypress
+      key: Left
+  action:
+  - service: switch.turn_on
+    entity_id: switch.lounge_tv_switch
+
+- id:  turn_off_lounge_tv
+  initial_state: 'on'
+  alias: Turn off the lounge tv (via Roku)
+  trigger:
+  - platform: event
+    event_type: roku_command
+    event_data:
+      type: keypress
+      key: Right
+  action:
+  - service: switch.turn_off
+    entity_id: switch.lounge_tv_switch
+    
+    
+- id:  turn_on_netflix
+  initial_state: 'on'
+  alias: Turn on netflix (via Roku)
+  trigger:
+  - platform: event
     event_type: roku_command
     event_data:
       type: keypress
       key: Home
   action:
-    service: mqtt.publish
+  - service: mqtt.publish
     data:
       topic: 'tv'
-      payload: 'netflix'
+      payload: 'netflix'   
+
+- id:  turn_on_plex
+  initial_state: 'on'
+  alias: Turn on plex (via Roku)
+  trigger:
+  - platform: event
+    event_type: roku_command
+    event_data:
+      type: keypress
+      key: Info
+  action:
+  - service: mqtt.publish
+    data:
+      topic: 'tv'
+      payload: 'plex'   
+    
+- id:  turn_on_youtube
+  initial_state: 'on'
+  alias: Turn on youtube (via Roku)
+  trigger:
+  - platform: event
+    event_type: roku_command
+    event_data:
+      type: keypress
+      key: Back
+  action:
+  - service: mqtt.publish
+    data:
+      topic: 'tv'
+      payload: 'youtube'   
