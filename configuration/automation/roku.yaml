@@ -155,7 +155,7 @@
       topic: 'tv'
       payload: 'netflix'   
       
-  - id:  turn_on_plex_from_off
+- id:  turn_on_plex_from_off
   initial_state: 'on'
   alias: Turn on plex (via Roku - tv off)
   trigger:
