@@ -102,8 +102,9 @@
       key: Home
   action:
   - service: mqtt.publish
-    topic: 'tv'
-    payload: 'netflix'   
+    data:
+      topic: 'tv'
+      payload: 'netflix'   
 
 - id:  turn_on_plex
   alias: Turn on plex (via Roku)
@@ -115,8 +116,9 @@
       key: Info
   action:
   - service: mqtt.publish
-    topic: 'tv'
-    payload: 'plex'   
+    data:
+      topic: 'tv'
+      payload: 'plex'   
     
 - id:  turn_on_youtube
   alias: Turn on youtube (via Roku)
@@ -128,5 +130,6 @@
       key: Back
   action:
   - service: mqtt.publish
-    topic: 'tv'
-    payload: 'youtube'   
+    data:
+      topic: 'tv'
+      payload: 'youtube'   
