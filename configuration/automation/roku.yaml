@@ -155,17 +155,58 @@
       topic: 'tv'
       payload: 'netflix'   
       
-      
-- id:  turn_on_plex
+  - id:  turn_on_plex
   initial_state: 'on'
-  alias: Turn on plex (via Roku)
+  alias: Turn on plex (via Roku - tv off)
   trigger:
   - platform: event
     event_type: roku_command
     event_data:
       type: keypress
       key: Info
+  condition:
+  - condition: state
+    entity_id: 'switch.lounge_tv_switch'
+    state: 'off'      
   action:
+  - service: switch.turn_on
+    entity_id: 'switch.lounge_tv_switch'
+  - delay: 0:35
+  - service: media_player.select_source
+    entity_id: 'media_player.yamaha_reciever'
+    data:
+      source: "HDMI6"
+  - service: media_player.select_source
+    entity_id: 'media_player.av'
+    data:
+      source: "HDMI6"      
+  - service: mqtt.publish
+    data:
+      topic: 'tv'
+      payload: 'plex'   
+
+- id:  turn_on_plex
+  initial_state: 'on'
+  alias: Turn on plex (via Roku - tv on)
+  trigger:
+  - platform: event
+    event_type: roku_command
+    event_data:
+      type: keypress
+      key: Info
+  condition:
+  - condition: state
+    entity_id: 'switch.lounge_tv_switch'
+    state: 'on'      
+  action:  
+  - service: media_player.select_source
+    entity_id: 'media_player.yamaha_reciever'
+    data:
+      source: "HDMI6"
+  - service: media_player.select_source
+    entity_id: 'media_player.av'
+    data:
+      source: "HDMI6"      
   - service: mqtt.publish
     data:
       topic: 'tv'
@@ -173,14 +214,56 @@
     
 - id:  turn_on_youtube
   initial_state: 'on'
-  alias: Turn on youtube (via Roku)
+  alias: Turn on youtube (via Roku - tv off)
   trigger:
   - platform: event
     event_type: roku_command
     event_data:
       type: keypress
       key: Back
+  condition:
+  - condition: state
+    entity_id: 'switch.lounge_tv_switch'
+    state: 'off'      
   action:
+  - service: switch.turn_on
+    entity_id: 'switch.lounge_tv_switch'
+  - delay: 0:35
+  - service: media_player.select_source
+    entity_id: 'media_player.yamaha_reciever'
+    data:
+      source: "HDMI6"
+  - service: media_player.select_source
+    entity_id: 'media_player.av'
+    data:
+      source: "HDMI6"      
+  - service: mqtt.publish
+    data:
+      topic: 'tv'
+      payload: 'youtube'   
+
+- id:  turn_on_youtube
+  initial_state: 'on'
+  alias: Turn on youtube (via Roku - tv on)
+  trigger:
+  - platform: event
+    event_type: roku_command
+    event_data:
+      type: keypress
+      key: Back
+  condition:
+  - condition: state
+    entity_id: 'switch.lounge_tv_switch'
+    state: 'on'      
+  action:  
+  - service: media_player.select_source
+    entity_id: 'media_player.yamaha_reciever'
+    data:
+      source: "HDMI6"
+  - service: media_player.select_source
+    entity_id: 'media_player.av'
+    data:
+      source: "HDMI6"      
   - service: mqtt.publish
     data:
       topic: 'tv'
