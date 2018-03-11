@@ -3,5 +3,5 @@
       friends_online:
         friendly_name: 'Friends online'
         value_template: >-
-          {{ is_state('sensor.steam_76561197969133682', 'Online')
-             or is_state('sensor.steam_76561198009934891', 'Online') }}
+          {{ is_state('sensor.steam_76561197969133682', 'online')
+             or is_state('sensor.steam_76561198009934891', 'online') }}
