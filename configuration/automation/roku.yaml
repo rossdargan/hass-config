@@ -107,7 +107,17 @@
     event_data:
       type: keypress
       key: Home
+  condition: state
+    entity_id: 'switch.lounge_tv_switch'
+    state: 'off'      
   action:
+  - service: switch.turn_on
+    entity_id: 'switch.lounge_tv_switch'
+  - delay: 0:35
+  - service: media_player.select_source
+    entity_id: 'media_player.yamaha_reciever'
+    data:
+      source: "HDMI6"
   - service: mqtt.publish
     data:
       topic: 'tv'
