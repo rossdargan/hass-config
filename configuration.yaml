@@ -85,7 +85,9 @@ zone: !include configuration/zones.yaml
 ####################################################################################
 # Additional Configurations
 ####################################################################################
-
+homekit:
+  pincode: !secret homekit
+  
 camera:
   - platform: generic
     still_image_url: https://liveimages.networkwebcams.co.uk/sd_durhamcouncil08.jpg?
