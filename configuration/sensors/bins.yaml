@@ -5,5 +5,5 @@
     resource: https://arcgis.sunderland.gov.uk/arcgis/rest/services/My_Nearest_Data/BinCollections/FeatureServer/0/query
     method: POST
     payload: !secret bin_post_vals
-    value_template: '{{ value_json.features[0].attributes.GREEN1 | float / 1000 | timestamp_local }}'
+    value_template: '{{ value_json.features[0].attributes.GREEN1  }}'
     
