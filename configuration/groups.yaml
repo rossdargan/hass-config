@@ -55,7 +55,8 @@
     view: yes
     name: Lounge
     icon: mdi:sofa
-    entities:      
+    entities:     
+      - remote.harmony_hub
 #      - media_player.lounge_universal
       - sensor.living_room_thermostat_humidity
       - sensor.living_room_thermostat_temperature
