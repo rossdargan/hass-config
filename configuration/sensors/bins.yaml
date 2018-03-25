@@ -1,6 +1,9 @@
   - platform: rest
+    name: 'Green Bin'
+    headers:
+      Content-Type: "application/x-www-form-urlencoded"
     resource: https://arcgis.sunderland.gov.uk/arcgis/rest/services/My_Nearest_Data/BinCollections/FeatureServer/0/query
     method: POST
     payload: !secret bin_post_vals
-    value_template: '{{ value_json.features.attributes.GREEN1 }}'
+    value_template: '{{ value_json.features.attributes.GREEN1 | timestamp_local }}'
     
