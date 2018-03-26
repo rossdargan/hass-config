@@ -29,6 +29,7 @@
       - sensor.alarm_state
       - sensor.bills
       - sensor.food_budget
+      - group.bin_schedule
 
   tv_remote:
     name: TV
