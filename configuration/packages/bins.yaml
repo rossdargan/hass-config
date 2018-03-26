@@ -42,10 +42,13 @@ binary_sensor:
     sensors:
       recycle_day:        
         friendly_name: "Blue bin day"
-        value_template: {{  as_timestamp(now()) - as_timestamp(states('sensor.blue_bin')) >0 }}
+        value_template: >-
+          {{  as_timestamp(now()) - as_timestamp(states('sensor.blue_bin')) >0 }}
       bin_day:
         friendly_name: "Green bin day"
-        value_template: {{  as_timestamp(now()) - as_timestamp(states('sensor.green_bin')) >0 }}       
+        value_template: >-
+           {{  as_timestamp(now()) - as_timestamp(states('sensor.green_bin')) >0 }}       
       garden_day:
         friendly_name: "Garden bin day"
-        value_template: {{  as_timestamp(now()) - as_timestamp(states('sensor.brown_bin')) >0 }}            
+        value_template: >-
+           {{  as_timestamp(now()) - as_timestamp(states('sensor.brown_bin')) >0 }}            
