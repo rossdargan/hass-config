@@ -6,6 +6,7 @@ group:
       - sensor.blue_bin
       - binary_sensor.recycle_day
       - binary_sensor.garden_day
+      - binary_sensor.bin_day
       
 
 sensors:
