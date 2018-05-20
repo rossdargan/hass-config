@@ -4,6 +4,7 @@
     entities:
       - switch.christmas_tree_switch
       - group.important
+      - binary_sensor.greenhouse_resevoir
       - alert.burglar_alarm
       - alert.update_available
       - alert.certificate
