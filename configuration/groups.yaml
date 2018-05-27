@@ -11,7 +11,7 @@
       - alert.ring_battery
       - group.work_sensors
       - device_tracker.kathsiphone
-      - device_tracker.rossdargan_rossphone
+      - device_tracker.google_maps_104113982427948631716
       - climate.living_room
       - sensor.greenhouse_temperature
       - sensor.yr_dewpoint_temperature
