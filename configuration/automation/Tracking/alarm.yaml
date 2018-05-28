@@ -1,4 +1,4 @@
-- alias: Ross Home alarm notification
+  - alias: Ross Home alarm notification
     initial_state: 'on'
     trigger:
       - platform: state
@@ -16,7 +16,7 @@
         data:
           message: "Alarm disarmed because Ross is now home."
 
-- alias: Kath Home alarm notification
+  - alias: Kath Home alarm notification
     initial_state: 'on'
     trigger:
       - platform: state
