@@ -168,7 +168,7 @@ automation:
       - service: light.turn_on
         entity_id: light.hall
         xy_color: [ 0.6679, 0.3181] # red
-        transition:2
+        transition: 2
         brightness_pct: 100
       - delay: '00:00:50'
       - service: light.turn_off
@@ -185,13 +185,13 @@ automation:
       - service: light.turn_on
         entity_id: light.hall
         xy_color: [ 0.41,  0.51721] #green
-        transition:2
+        transition: 2
         brightness_pct: 100
       - delay: '00:00:10'
       - service: light.turn_on
         entity_id: light.hall
         rgb_color: [255,255,255]
-        transition:20
+        transition: 20
         brightness_pct: 100
 ###################################################
 # The PIR sensors
