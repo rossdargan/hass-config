@@ -1,0 +1,35 @@
+- alias: Ross Home alarm notification
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: device_tracker.kathsiphone
+        from: 'not_home'
+        to: 'home'
+    condition:
+      - condition: state
+        entity_id: sensor.alarm_state
+        state: 'Armed'
+        for:
+          hours: 1
+    action:
+      - service: notify.slackbot
+        data:
+          message: "Alarm disarmed because Ross is now home."
+
+- alias: Kath Home alarm notification
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: device_tracker.google_maps_104113982427948631716
+        from: 'not_home'
+        to: 'home'
+    condition:
+      - condition: state
+        entity_id: sensor.alarm_state
+        state: 'Armed'
+        for:
+          hours: 1
+    action:
+      - service: notify.slackbot
+        data:
+          message: "Alarm disarmed because Kath is now home." 
