@@ -166,13 +166,15 @@ automation:
         to: 'Armed'
     action:
       - service: light.turn_on
-        entity_id: light.hall
-        xy_color: '[ 0.6679, 0.3181]' # red
-        transition: 2
-        brightness_pct: 100
+        data:
+          entity_id: light.hall
+          xy_color: [ 0.6679, 0.3181] # red
+          transition: 2
+          brightness_pct: 100
       - delay: '00:00:50'
       - service: light.turn_off
-        entity_id: light.hall
+        data:
+          entity_id: light.hall
     
   - alias: Set lamp to green when disarmed
     initial_state: 'on'
@@ -183,16 +185,18 @@ automation:
         to: 'Disarm'
     action:
       - service: light.turn_on
-        entity_id: light.hall
-        xy_color: '[ 0.41,  0.51721]' #green
-        transition: 2
-        brightness_pct: 100
+        data:
+          entity_id: light.hall
+          xy_color: [ 0.41,  0.51721] #green
+          transition: 2
+          brightness_pct: 100
       - delay: '00:00:10'
       - service: light.turn_on
-        entity_id: light.hall
-        rgb_color: '[255,255,255]'
-        transition: 20
-        brightness_pct: 100
+        data:
+          entity_id: light.hall
+          rgb_color: [255,255,255]
+          transition: 20
+          brightness_pct: 100
 ###################################################
 # The PIR sensors
 ###################################################
