@@ -163,7 +163,7 @@ automation:
       - platform: state
         entity_id: sensor.alarm_state
         from: 'Disarm'
-        to: 'Armed'
+        to: 'Away
     action:
       - service: light.turn_on
         data:
@@ -181,7 +181,7 @@ automation:
     trigger:
       - platform: state
         entity_id: sensor.alarm_state
-        from: 'Armed'
+        from: 'Away
         to: 'Disarm'
     action:
       - service: light.turn_on
