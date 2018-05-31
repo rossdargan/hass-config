@@ -14,7 +14,7 @@
     action:
       - service: notify.slackbot
         data:
-          message: "Alarm disarmed because Ross is now home."
+          message: "Alarm disarmed because Kath is now home."
 
   - alias: Kath Home alarm notification
     initial_state: 'on'
@@ -32,4 +32,4 @@
     action:
       - service: notify.slackbot
         data:
-          message: "Alarm disarmed because Kath is now home." 
+          message: "Alarm disarmed because Ross is now home." 
