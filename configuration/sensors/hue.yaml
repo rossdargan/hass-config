@@ -1,4 +1,6 @@
   - platform: hue
+    ip_address: 192.168.86.31
+    token: !secret hue_token
 
 # Extract the temperature from the motion sensor
   - platform: template
