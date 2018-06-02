@@ -129,6 +129,8 @@ hue:
     - host: 192.168.86.31
 http:
  api_password: !secret api_password
+ ip_ban_enabled: true
+ login_attempts_threshold: 2
  
 light:
   - platform: hue
