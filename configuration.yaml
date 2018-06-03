@@ -148,7 +148,6 @@ light:
       - light.lounge_iris
       - light.lounge_main_light_level
       - light.lounge
-      - switch.lounge_floor_lamp_switch
 mqtt:
   broker: 192.168.86.54
   port: 1883
