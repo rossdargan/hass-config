@@ -29,8 +29,4 @@
                class: 'light-on'
              - state: 'off'
                class: 'light-off'
-           action:
-             domain: homeassistant   # This optional parameter allows you to use other services such as homeassistant.toggle like here.
-             service: toggle
-            
             
