@@ -12,9 +12,8 @@
       last_motion_class: last-motion
 
       groups:
-
          - name: temp_forecastio
-         entities:
-           - sensor.hall_temperature
-         text_template: '${entity.state ? Math.ceil(entity.state) + "°": "undefined"}'
-         class_template: 'return "static-temp";'
+           entities:
+             - sensor.hall_temperature
+           text_template: '${entity.state ? Math.ceil(entity.state) + "°": "undefined"}'
+           class_template: 'return "static-temp";'
