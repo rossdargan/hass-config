@@ -141,6 +141,21 @@ svg, svg * {
 .squeezebox-on {
   fill: #2baaa6 !important;
 }
+
+
+@-webkit-keyframes fadeout{
+    0%{opacity:1;visibility:visible;}
+    99%{opacity:0;}
+    100%{opacity:0;visibility: hidden;}
+}
 .layer-hidden {
-  display: none !important;
+    -webkit-animation:fadeout 1s linear;
+    visibility:hidden;
+}
+@-webkit-keyframes fadein{
+    0%{opacity:0;visibility:visible;}
+    100%{opacity:1;}
+}
+.layer-visible {
+    -webkit-animation:fadein 1s linear;
 }
