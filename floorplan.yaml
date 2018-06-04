@@ -22,11 +22,17 @@
              - light.diningroom_left
              - light.diningroom_lamp
              - light.diningroom_right
-             - group.kitchen_lights
-             - group.living_room_lights
            states:
              - state: 'on'
                class: 'light-on'
              - state: 'off'
                class: 'light-off'
-            
+         - name: Lights2
+           entities:
+             - light.lounge_lights
+           states:
+             - state: 'on'
+               class: 'layer-hidden'
+             - state: 'off'
+               class: 'layer-visible'
+                        
