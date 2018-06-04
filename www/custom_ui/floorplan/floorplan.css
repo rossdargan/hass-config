@@ -141,3 +141,6 @@ svg, svg * {
 .squeezebox-on {
   fill: #2baaa6 !important;
 }
+.layer-hidden {
+  display: none !importan;
+}
