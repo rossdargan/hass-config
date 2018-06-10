@@ -94,7 +94,9 @@ panel_custom:
 
 homekit:
   pincode: !secret homekit
-  
+  entity_config:
+    alarm_control_panel.alarm:
+      code: !secret pin
 camera:
   - platform: generic
     still_image_url: https://liveimages.networkwebcams.co.uk/sd_durhamcouncil08.jpg?
