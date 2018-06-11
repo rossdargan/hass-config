@@ -15,6 +15,11 @@
       - service: notify.slackbot
         data:
           message: "Alarm disarmed because Kath is now home."
+      - service: alarm_control_panel.alarm_disarm
+        data:
+          entity_id: alarm_control_panel.alarm
+          code: !secret pin
+     
 
   - alias: Kath Home alarm notification
     initial_state: 'on'
@@ -33,3 +38,7 @@
       - service: notify.slackbot
         data:
           message: "Alarm disarmed because Ross is now home." 
+      - service: alarm_control_panel.alarm_disarm
+        data:
+          entity_id: alarm_control_panel.alarm
+          code: !secret pin
