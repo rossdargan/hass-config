@@ -97,6 +97,9 @@ homekit:
   entity_config:
     alarm_control_panel.alarm:
       code: !secret pin
+  filter:
+    exclude_domains:
+      - automation
 camera:
   - platform: generic
     still_image_url: https://liveimages.networkwebcams.co.uk/sd_durhamcouncil08.jpg?
