@@ -128,6 +128,15 @@ frontend:
   extra_html_url_es5:
     - /local/custom_ui/state-card-tiles.html
 
+history_graph:
+  temp:
+    name: Temperature Graph
+    entities:
+      - sensor.greenhouse_temperature
+      - sensor.hall_temperature
+    hours_to_show: 48
+    refresh: 60
+    
 hue:
   bridges:
     - host: 192.168.86.31
