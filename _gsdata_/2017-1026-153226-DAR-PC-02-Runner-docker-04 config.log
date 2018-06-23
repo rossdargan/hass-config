@@ -1,0 +1,43 @@
+2017-10-26 15:32:28: Connected to \\DAR-DOCKER-04\docker\homeassistant: //DAR-DOCKER-04/docker NTFS: type=NTFS vol=docker flags=1006F
+2017-10-26 15:32:29: Connected to \\dar-dc-01\Backups\Docker\dar-docker-04: //dar-dc-01/Backups NTFS: type=NTFS vol=DrivePool flags=8500DF
+2017-10-26 15:32:29: -- Analysis Started by Periodic Timer, Under Runner
+2017-10-26 15:32:29: docker-04 config: ANALYSIS started by Periodic Timer, Under Runner on 'DAR-PC-02' (GoodSync 10.6.1.5)
+2017-10-26 15:32:29: \\DAR-DOCKER-04\docker\homeassistant (//DAR-DOCKER-04/docker/homeassistant) [TmpDest] =PropDels=> \\dar-dc-01\Backups\Docker\dar-docker-04 (//dar-dc-01/Backups/Docker/dar-docker-04) [TmpDest], SavePrevVers, CleanupPrevVers=30d, LinksCopy, ReconnectSecs=120, CopyCreateTime, CopyAttrs
+2017-10-26 15:32:29: Exclude name *._gstmp|/System Volume Information|Thumbs.db|.DS_Store 
+2017-10-26 15:32:29: Locking folder //DAR-DOCKER-04/docker/homeassistant for write
+2017-10-26 15:32:29: Give up on SetFileOwner: file=//DAR-DOCKER-04/docker/homeassistant/_gsdata_/lock.gsl smb=1 m_sSystemUserId=DAR-PC-02\Admin error=WinFileSys::SetFileOwnerIfYouCan: This security ID may not be assigned as the owner of this object.  (error 1307)
+2017-10-26 15:32:29: L: Reading State File //DAR-DOCKER-04/docker/homeassistant/_gsdata_/_file_state_v4._gs
+2017-10-26 15:32:30: L: Files: 1235 (excluded 0). Folders: 312 (excluded 1). Times (s): Folder Scan: 1.086 (1425 f/s), Compare: 0.009 ross //DAR-DOCKER-04/docker NTFS Free: 139 GB, Total: 224 GB
+2017-10-26 15:32:30: Locking folder //dar-dc-01/Backups/Docker/dar-docker-04 for write
+2017-10-26 15:32:30: R: Reading State File //dar-dc-01/Backups/Docker/dar-docker-04/_gsdata_/_file_state_v4._gs
+2017-10-26 15:32:31: R: Files: 1233 (excluded 0). Folders: 312 (excluded 1). Times (s): Folder Scan: 0.852 (1814 f/s), Compare: 0.004 administrator //dar-dc-01/Backups NTFS Free: 8.01 TB, Total: 17.2 TB
+2017-10-26 15:32:31: On disk smb://DAR-DOCKER-04/docker space required for sync is 0 bytes, you have 139 GB
+2017-10-26 15:32:31: On disk smb://dar-dc-01/Backups space required for sync is 8.60 GB, you have 8.01 TB
+2017-10-26 15:32:31: Changes: 8, Conflicts: 0, CopyTime: 0, FixState: 0, Errors: 0, All: 1566
+2017-10-26 15:32:31: Left to Right: Copy File: 8 
+2017-10-26 15:32:31: -- Analysis Complete. Time 00:00:05, Speed: 309 files/s
+2017-10-26 15:32:31: == Sync Started by Periodic Timer, Under Runner
+2017-10-26 15:32:31: docker-04 config: SYNC started by Periodic Timer, Under Runner on 'DAR-PC-02'
+2017-10-26 15:32:31: \\DAR-DOCKER-04\docker\homeassistant (//DAR-DOCKER-04/docker/homeassistant) [TmpDest] =PropDels=> \\dar-dc-01\Backups\Docker\dar-docker-04 (//dar-dc-01/Backups/Docker/dar-docker-04) [TmpDest], SavePrevVers, CleanupPrevVers=30d, LinksCopy, ReconnectSecs=120, CopyCreateTime, CopyAttrs
+2017-10-26 15:32:31: Load Recycled DB: //dar-dc-01/Backups/Docker/dar-docker-04/_gsdata_/_recycled_db._gs
+2017-10-26 15:32:31: Copy Over '//DAR-DOCKER-04/docker/homeassistant/.monzo-token-cache' -> '//dar-dc-01/Backups/Docker/dar-docker-04/.monzo-token-cache'
+2017-10-26 15:32:31: Copy Over '//DAR-DOCKER-04/docker/homeassistant/.ring_cache.pickle' -> '//dar-dc-01/Backups/Docker/dar-docker-04/.ring_cache.pickle'
+2017-10-26 15:33:37: Copy Over '//DAR-DOCKER-04/docker/homeassistant/home-assistant.log' -> '//dar-dc-01/Backups/Docker/dar-docker-04/home-assistant.log'
+2017-10-26 15:45:40: //DAR-DOCKER-04/docker/homeassistant/home-assistant_v2.db: Source file has changed between Analyze and Sync from '[file] size=7436053504 accu-time=2017-10-26 15:32:28 attr=' to 'size=7436053504 time=2017-10-26 15:33:35', noted in source file state
+2017-10-26 15:45:40: Copy Over '//DAR-DOCKER-04/docker/homeassistant/home-assistant_v2.db' -> '//dar-dc-01/Backups/Docker/dar-docker-04/home-assistant_v2.db'
+2017-10-26 15:45:40: //DAR-DOCKER-04/docker/homeassistant/home-assistant_v2.db-shm: Source file has changed between Analyze and Sync from '[file] size=32768 accu-time=2017-10-26 15:32:28 attr=' to 'size=32768 time=2017-10-26 15:45:38', noted in source file state
+2017-10-26 15:45:40: Copy New '//DAR-DOCKER-04/docker/homeassistant/home-assistant_v2.db-shm' -> '//dar-dc-01/Backups/Docker/dar-docker-04/home-assistant_v2.db-shm'
+2017-10-26 15:45:40: //DAR-DOCKER-04/docker/homeassistant/home-assistant_v2.db-wal: Source file has changed between Analyze and Sync from '[file] size=14704 accu-time=2017-10-26 15:32:28 attr=' to 'size=32 time=2017-10-26 15:45:38', noted in source file state
+2017-10-26 15:45:40: Copy New '//DAR-DOCKER-04/docker/homeassistant/home-assistant_v2.db-wal' -> '//dar-dc-01/Backups/Docker/dar-docker-04/home-assistant_v2.db-wal'
+2017-10-26 15:45:40: //DAR-DOCKER-04/docker/homeassistant/icloud/applethedarganscouk: Source file has changed between Analyze and Sync from '[file] size=488 accu-time=2017-10-26 15:31:57 attr=Archive' to 'size=488 time=2017-10-26 15:44:57', noted in source file state
+2017-10-26 15:45:40: Copy Over '//DAR-DOCKER-04/docker/homeassistant/icloud/applethedarganscouk' -> '//dar-dc-01/Backups/Docker/dar-docker-04/icloud/applethedarganscouk'
+2017-10-26 15:45:40: Close Modified Folder (mod-time, acl): /icloud
+2017-10-26 15:47:36: //DAR-DOCKER-04/docker/homeassistant/OZW_Log.txt: Source file has changed between Analyze and Sync from '[file] size=1102923149 accu-time=2017-10-26 15:32:28 attr=' to 'size=1103217479 time=2017-10-26 15:45:37', noted in source file state
+2017-10-26 15:47:36: Copy Over '//DAR-DOCKER-04/docker/homeassistant/OZW_Log.txt' -> '//dar-dc-01/Backups/Docker/dar-docker-04/OZW_Log.txt'
+2017-10-26 15:47:36: Save State File //DAR-DOCKER-04/docker/homeassistant/_gsdata_/_file_state_v4._gs
+2017-10-26 15:47:36: Save State File //dar-dc-01/Backups/Docker/dar-docker-04/_gsdata_/_file_state_v4._gs
+2017-10-26 15:47:36: Save Recycled DB: //dar-dc-01/Backups/Docker/dar-docker-04/_gsdata_/_recycled_db._gs
+2017-10-26 15:47:36: == Sync Complete. Time: 00:15:05, Speed: 9.74 MB/s, OK: 8, Errors: 0
+2017-10-26 15:47:36: Unlocking folder //DAR-DOCKER-04/docker/homeassistant/_gsdata_/lock.gsl
+2017-10-26 15:47:36: Unlocking folder //dar-dc-01/Backups/Docker/dar-docker-04/_gsdata_/lock.gsl
+2017-10-26 15:47:36: 

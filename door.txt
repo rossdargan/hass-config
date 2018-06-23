@@ -1,0 +1,253 @@
+2017-12-08 21:34:50.222 Info, Node016, Value Refresh triggered by CommandClass: COMMAND_CLASS_ALARM, Genre: 1, Instance: 1, Index: 0 for:
+2017-12-08 21:34:50.222 Info, Node016,     CommandClass: COMMAND_CLASS_DOOR_LOCK, RequestFlags: 0, Instance: 1, Index: 1
+2017-12-08 21:34:50.224 Detail, Node016, AdvanceQueries queryPending=0 queryRetries=0 queryStage=CacheLoad live=1
+2017-12-08 21:34:50.224 Detail, Node016, QueryStage_CacheLoad
+2017-12-08 21:34:50.224 Info, Node016, Node Identity Codes: 0129:0066:0000
+2017-12-08 21:34:50.224 Info, Node016, NoOperation::Set - Routing=true
+2017-12-08 21:34:50.224 Detail, Node016, Queuing (NoOp) NoOperation_Set (Node=16): 0x01, 0x09, 0x00, 0x13, 0x10, 0x02, 0x00, 0x00, 0x25, 0x16, 0xc4
+2017-12-08 21:34:50.224 Detail, Node016, Queuing (Query) Query Stage Complete (CacheLoad)
+2017-12-08 21:34:52.732 Detail, Node016, Notification: NodeAdded
+2017-12-08 21:34:52.736 Detail, Node016, Notification: NodeProtocolInfo
+2017-12-08 21:34:52.737 Detail, Node016, Notification: EssentialNodeQueriesComplete
+2017-12-08 21:34:52.737 Detail, Node016, Notification: ValueAdded
+2017-12-08 21:34:52.741 Detail, Node016, Notification: ValueAdded
+2017-12-08 21:34:52.742 Detail, Node016, Notification: ValueAdded
+2017-12-08 21:34:52.744 Detail, Node016, Notification: ValueAdded
+2017-12-08 21:34:52.748 Detail, Node016, Notification: ValueAdded
+2017-12-08 21:34:52.749 Detail, Node016, Notification: ValueAdded
+2017-12-08 21:34:52.751 Detail, Node016, Notification: ValueAdded
+2017-12-08 21:34:52.754 Detail, Node016, Notification: ValueAdded
+2017-12-08 21:34:52.757 Detail, Node016, Notification: ValueAdded
+2017-12-08 21:34:52.758 Detail, Node016, Notification: ValueAdded
+2017-12-08 21:34:52.759 Detail, Node016, Notification: ValueAdded
+2017-12-08 21:34:52.760 Detail, Node016, Notification: ValueAdded
+2017-12-08 21:34:52.766 Detail, Node016, Notification: ValueAdded
+2017-12-08 21:34:52.768 Detail, Node016, Notification: ValueAdded
+2017-12-08 21:34:52.821 Detail, Node016, Notification: ValueAdded
+2017-12-08 21:34:52.824 Detail, Node016, Notification: Group
+2017-12-08 21:34:52.825 Detail, Node016, Notification: ValueAdded
+2017-12-08 21:34:52.826 Detail, Node016, Notification: ValueAdded
+2017-12-08 21:34:52.827 Detail, Node016, Notification: ValueAdded
+2017-12-08 21:34:52.829 Detail, Node016, Notification: ValueAdded
+2017-12-08 21:34:52.831 Detail, Node016, Notification: NodeNaming
+2017-12-08 21:34:59.698 Info, Node016, Sending (NoOp) message (Callback ID=0x16, Expected Reply=0x13) - NoOperation_Set (Node=16): 0x01, 0x09, 0x00, 0x13, 0x10, 0x02, 0x00, 0x00, 0x25, 0x16, 0xc4
+2017-12-08 21:34:59.709 Detail, Node016,   Received: 0x01, 0x04, 0x01, 0x13, 0x01, 0xe8
+2017-12-08 21:34:59.709 Detail, Node016,   ZW_SEND_DATA delivered to Z-Wave stack
+2017-12-08 21:35:09.697 Error, Node016, ERROR: Dropping command, expected response not received after 1 attempt(s)
+2017-12-08 21:35:09.697 Detail, Node016, Removing current message
+2017-12-08 21:35:09.697 Detail, Node016, Notification: Notification - TimeOut
+2017-12-08 21:35:12.432 Info, Node016, Value::Set - COMMAND_CLASS_DOOR_LOCK - Locked - 0 - 1 - True
+2017-12-08 21:35:12.432 Info, Node016, Value_Lock::Set - Requesting lock to be Locked
+2017-12-08 21:35:12.432 Detail, Node016, Queuing (Send) DoorLockCmd_Set (Node=16): 0x01, 0x0a, 0x00, 0x13, 0x10, 0x03, 0x62, 0x01, 0xff, 0x25, 0x2b, 0x67
+2017-12-08 21:35:12.432 Detail, Node016, Queuing (Send) DoorLockCmd_Get (Node=16): 0x01, 0x09, 0x00, 0x13, 0x10, 0x02, 0x62, 0x02, 0x25, 0x2c, 0x9e
+2017-12-08 21:35:21.825 Info, Node016, Sending (Send) message (Callback ID=0x2b, Expected Reply=0x04) - DoorLockCmd_Set (Node=16): 0x01, 0x0a, 0x00, 0x13, 0x10, 0x03, 0x62, 0x01, 0xff, 0x25, 0x2b, 0x67
+2017-12-08 21:35:21.953 Detail, Node016,   Received: 0x01, 0x04, 0x01, 0x13, 0x01, 0xe8
+2017-12-08 21:35:21.953 Detail, Node016,   ZW_SEND_DATA delivered to Z-Wave stack
+2017-12-08 21:35:26.988 Detail, Node016,   Received: 0x01, 0x07, 0x00, 0x13, 0x2b, 0x01, 0x02, 0x04, 0xc7
+2017-12-08 21:35:26.988 Detail, Node016,   ZW_SEND_DATA Request with callback ID 0x2b received (expected 0x2b)
+2017-12-08 21:35:26.988 Info, Node016, WARNING: ZW_SEND_DATA failed. No ACK received - device may be asleep.
+2017-12-08 21:35:26.988 Warning, Node016, WARNING: Device is not a sleeping node.
+2017-12-08 21:35:31.825 Error, Node016, ERROR: Dropping command, expected response not received after 1 attempt(s)
+2017-12-08 21:35:31.825 Detail, Node016, Removing current message
+2017-12-08 21:35:31.825 Detail, Node016, Notification: Notification - TimeOut
+2017-12-08 21:35:31.826 Info, Node016, Sending (Send) message (Callback ID=0x2c, Expected Reply=0x04) - DoorLockCmd_Get (Node=16): 0x01, 0x09, 0x00, 0x13, 0x10, 0x02, 0x62, 0x02, 0x25, 0x2c, 0x9e
+2017-12-08 21:35:31.954 Detail, Node016,   Received: 0x01, 0x04, 0x01, 0x13, 0x01, 0xe8
+2017-12-08 21:35:31.954 Detail, Node016,   ZW_SEND_DATA delivered to Z-Wave stack
+2017-12-08 21:35:37.161 Detail, Node016,   Received: 0x01, 0x07, 0x00, 0x13, 0x2c, 0x00, 0x02, 0x15, 0xd0
+2017-12-08 21:35:37.161 Detail, Node016,   ZW_SEND_DATA Request with callback ID 0x2c received (expected 0x2c)
+2017-12-08 21:35:37.161 Info, Node016, Request RTT 5335 Average Request RTT 5335
+2017-12-08 21:35:41.826 Error, Node016, ERROR: Dropping command, expected response not received after 1 attempt(s)
+2017-12-08 21:35:41.826 Detail, Node016, Removing current message
+2017-12-08 21:35:41.826 Detail, Node016, Notification: Notification - TimeOut
+2017-12-08 21:35:57.849 Detail, Node016, Query Stage Complete (CacheLoad)
+2017-12-08 21:35:57.849 Detail, Node016, AdvanceQueries queryPending=0 queryRetries=0 queryStage=Associations live=1
+2017-12-08 21:35:57.849 Detail, Node016, QueryStage_Associations
+2017-12-08 21:35:57.849 Info, Node016, Number of association groups reported for node 16 is 1.
+2017-12-08 21:35:57.849 Info, Node016, Get Associations for group 1 of node 16
+2017-12-08 21:35:57.849 Detail, Node016, Queuing (Send) AssociationCmd_Get (Node=16): 0x01, 0x0a, 0x00, 0x13, 0x10, 0x03, 0x85, 0x02, 0x01, 0x25, 0x47, 0x11
+2017-12-08 21:35:57.849 Detail, Node016, Queuing (Query) Query Stage Complete (Associations)
+2017-12-08 21:35:57.849 Info, Node016, Sending (Send) message (Callback ID=0x47, Expected Reply=0x04) - AssociationCmd_Get (Node=16): 0x01, 0x0a, 0x00, 0x13, 0x10, 0x03, 0x85, 0x02, 0x01, 0x25, 0x47, 0x11
+2017-12-08 21:35:57.859 Detail, Node016,   Received: 0x01, 0x04, 0x01, 0x13, 0x01, 0xe8
+2017-12-08 21:35:57.859 Detail, Node016,   ZW_SEND_DATA delivered to Z-Wave stack
+2017-12-08 21:36:00.504 Detail, Node016,   Received: 0x01, 0x07, 0x00, 0x13, 0x47, 0x00, 0x01, 0x09, 0xa4
+2017-12-08 21:36:00.504 Detail, Node016,   ZW_SEND_DATA Request with callback ID 0x47 received (expected 0x47)
+2017-12-08 21:36:00.504 Info, Node016, Request RTT 2655 Average Request RTT 3995
+2017-12-08 21:36:07.850 Error, Node016, ERROR: Dropping command, expected response not received after 1 attempt(s)
+2017-12-08 21:36:07.850 Detail, Node016, Removing current message
+2017-12-08 21:36:07.850 Detail, Node016, Notification: Notification - TimeOut
+2017-12-08 21:36:07.911 Detail, Node016, Query Stage Complete (Associations)
+2017-12-08 21:36:07.911 Detail, Node016, AdvanceQueries queryPending=0 queryRetries=0 queryStage=Neighbors live=1
+2017-12-08 21:36:07.911 Detail, Node016, QueryStage_Neighbors
+2017-12-08 21:36:07.911 Detail, Node016, Queuing (Command) Get Routing Info (Node=16): 0x01, 0x07, 0x00, 0x80, 0x10, 0x00, 0x00, 0x03, 0x6b
+2017-12-08 21:36:07.911 Detail, Node016, Queuing (Query) Query Stage Complete (Neighbors)
+2017-12-08 21:36:07.911 Info, Node016, Sending (Command) message (Callback ID=0x00, Expected Reply=0x80) - Get Routing Info (Node=16): 0x01, 0x07, 0x00, 0x80, 0x10, 0x00, 0x00, 0x03, 0x6b
+2017-12-08 21:36:07.916 Detail, Node016,   Received: 0x01, 0x20, 0x01, 0x80, 0xc6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xea
+2017-12-08 21:36:07.917 Info, Node016, Received reply to FUNC_ID_ZW_GET_ROUTING_INFO
+2017-12-08 21:36:07.917 Info, Node016,     Neighbors of this node are:
+2017-12-08 21:36:07.917 Info, Node016,     Node 2
+2017-12-08 21:36:07.917 Info, Node016,     Node 3
+2017-12-08 21:36:07.917 Info, Node016,     Node 7
+2017-12-08 21:36:07.917 Info, Node016,     Node 8
+2017-12-08 21:36:07.917 Info, Node016,     Node 10
+2017-12-08 21:36:07.917 Info, Node016,     Node 13
+2017-12-08 21:36:07.917 Info, Node016,     Node 14
+2017-12-08 21:36:07.917 Info, Node016,     Node 15
+2017-12-08 21:36:07.917 Detail, Node016, Removing current message
+2017-12-08 21:36:12.981 Detail, Node016, Query Stage Complete (Neighbors)
+2017-12-08 21:36:12.981 Detail, Node016, AdvanceQueries queryPending=0 queryRetries=0 queryStage=Session live=1
+2017-12-08 21:36:12.981 Detail, Node016, QueryStage_Session
+2017-12-08 21:36:12.981 Detail, Node016, Queuing (Query) Query Stage Complete (Session)
+2017-12-08 21:37:17.173 Detail, Node016, Query Stage Complete (Session)
+2017-12-08 21:37:17.173 Detail, Node016, AdvanceQueries queryPending=0 queryRetries=0 queryStage=Dynamic live=1
+2017-12-08 21:37:17.173 Detail, Node016, QueryStage_Dynamic
+2017-12-08 21:37:17.173 Detail, Node016, Queuing (Send) DoorLockCmd_Get (Node=16): 0x01, 0x09, 0x00, 0x13, 0x10, 0x02, 0x62, 0x02, 0x25, 0x95, 0x27
+2017-12-08 21:37:17.173 Detail, Node016, Queuing (Send) AlarmCmd_Get (Node=16): 0x01, 0x09, 0x00, 0x13, 0x10, 0x02, 0x71, 0x04, 0x25, 0x96, 0x31
+2017-12-08 21:37:17.173 Detail, Node016, Queuing (Query) Query Stage Complete (Dynamic)
+2017-12-08 21:37:17.173 Info, Node016, Sending (Send) message (Callback ID=0x95, Expected Reply=0x04) - DoorLockCmd_Get (Node=16): 0x01, 0x09, 0x00, 0x13, 0x10, 0x02, 0x62, 0x02, 0x25, 0x95, 0x27
+2017-12-08 21:37:17.182 Detail, Node016,   Received: 0x01, 0x04, 0x01, 0x13, 0x01, 0xe8
+2017-12-08 21:37:17.182 Detail, Node016,   ZW_SEND_DATA delivered to Z-Wave stack
+2017-12-08 21:37:19.786 Detail, Node016,   Received: 0x01, 0x07, 0x00, 0x13, 0x95, 0x00, 0x01, 0x05, 0x7a
+2017-12-08 21:37:19.786 Detail, Node016,   ZW_SEND_DATA Request with callback ID 0x95 received (expected 0x95)
+2017-12-08 21:37:19.786 Info, Node016, Request RTT 2612 Average Request RTT 3303
+2017-12-08 21:37:27.174 Error, Node016, ERROR: Dropping command, expected response not received after 1 attempt(s)
+2017-12-08 21:37:27.174 Detail, Node016, Removing current message
+2017-12-08 21:37:27.174 Detail, Node016, Notification: Notification - TimeOut
+2017-12-08 21:37:27.175 Info, Node016, Sending (Send) message (Callback ID=0x96, Expected Reply=0x04) - AlarmCmd_Get (Node=16): 0x01, 0x09, 0x00, 0x13, 0x10, 0x02, 0x71, 0x04, 0x25, 0x96, 0x31
+2017-12-08 21:37:27.184 Detail, Node016,   Received: 0x01, 0x04, 0x01, 0x13, 0x01, 0xe8
+2017-12-08 21:37:27.184 Detail, Node016,   ZW_SEND_DATA delivered to Z-Wave stack
+2017-12-08 21:37:37.176 Error, Node016, ERROR: Dropping command, expected response not received after 1 attempt(s)
+2017-12-08 21:37:37.176 Detail, Node016, Removing current message
+2017-12-08 21:37:37.176 Detail, Node016, Notification: Notification - TimeOut
+2017-12-08 21:37:40.353 Detail, Node016, Query Stage Complete (Dynamic)
+2017-12-08 21:37:40.353 Detail, Node016, AdvanceQueries queryPending=0 queryRetries=0 queryStage=Configuration live=1
+2017-12-08 21:37:40.353 Detail, Node016, QueryStage_Configuration
+2017-12-08 21:37:40.353 Detail, Node016, QueryStage_Complete
+2017-12-08 21:37:40.353 Detail, Node016, Notification: NodeQueriesComplete
+2017-12-08 21:38:02.029 Info, Node016, Value::Set - COMMAND_CLASS_DOOR_LOCK - Locked - 0 - 1 - True
+2017-12-08 21:38:02.029 Info, Node016, Value_Lock::Set - Requesting lock to be Locked
+2017-12-08 21:38:02.029 Detail, Node016, Queuing (Send) DoorLockCmd_Set (Node=16): 0x01, 0x0a, 0x00, 0x13, 0x10, 0x03, 0x62, 0x01, 0xff, 0x25, 0x9f, 0xd3
+2017-12-08 21:38:02.030 Detail, Node016, Queuing (Send) DoorLockCmd_Get (Node=16): 0x01, 0x09, 0x00, 0x13, 0x10, 0x02, 0x62, 0x02, 0x25, 0xa0, 0x12
+2017-12-08 21:38:14.593 Info, Node016, Sending (Send) message (Callback ID=0x9f, Expected Reply=0x04) - DoorLockCmd_Set (Node=16): 0x01, 0x0a, 0x00, 0x13, 0x10, 0x03, 0x62, 0x01, 0xff, 0x25, 0x9f, 0xd3
+2017-12-08 21:38:14.603 Detail, Node016,   Received: 0x01, 0x04, 0x01, 0x13, 0x01, 0xe8
+2017-12-08 21:38:14.603 Detail, Node016,   ZW_SEND_DATA delivered to Z-Wave stack
+2017-12-08 21:38:16.213 Detail, Node016,   Received: 0x01, 0x07, 0x00, 0x13, 0x9f, 0x00, 0x00, 0xa2, 0xd6
+2017-12-08 21:38:16.213 Detail, Node016,   ZW_SEND_DATA Request with callback ID 0x9f received (expected 0x9f)
+2017-12-08 21:38:16.213 Info, Node016, Request RTT 1620 Average Request RTT 2461
+2017-12-08 21:38:24.594 Error, Node016, ERROR: Dropping command, expected response not received after 1 attempt(s)
+2017-12-08 21:38:24.594 Detail, Node016, Removing current message
+2017-12-08 21:38:24.594 Detail, Node016, Notification: Notification - TimeOut
+2017-12-08 21:38:24.595 Info, Node016, Sending (Send) message (Callback ID=0xa0, Expected Reply=0x04) - DoorLockCmd_Get (Node=16): 0x01, 0x09, 0x00, 0x13, 0x10, 0x02, 0x62, 0x02, 0x25, 0xa0, 0x12
+2017-12-08 21:38:24.606 Detail, Node016,   Received: 0x01, 0x04, 0x01, 0x13, 0x01, 0xe8
+2017-12-08 21:38:24.606 Detail, Node016,   ZW_SEND_DATA delivered to Z-Wave stack
+2017-12-08 21:38:25.967 Detail, Node016,   Received: 0x01, 0x07, 0x00, 0x13, 0xa0, 0x00, 0x00, 0x88, 0xc3
+2017-12-08 21:38:25.967 Detail, Node016,   ZW_SEND_DATA Request with callback ID 0xa0 received (expected 0xa0)
+2017-12-08 21:38:25.967 Info, Node016, Request RTT 1371 Average Request RTT 1916
+2017-12-08 21:38:34.596 Error, Node016, ERROR: Dropping command, expected response not received after 1 attempt(s)
+2017-12-08 21:38:34.596 Detail, Node016, Removing current message
+2017-12-08 21:38:34.596 Detail, Node016, Notification: Notification - TimeOut
+2017-12-08 21:40:42.166 Info, Node016, Value::Set - COMMAND_CLASS_DOOR_LOCK - Locked - 0 - 1 - True
+2017-12-08 21:40:42.166 Info, Node016, Value_Lock::Set - Requesting lock to be Locked
+2017-12-08 21:40:42.166 Detail, Node016, Queuing (Send) DoorLockCmd_Set (Node=16): 0x01, 0x0a, 0x00, 0x13, 0x10, 0x03, 0x62, 0x01, 0xff, 0x25, 0xaa, 0xe6
+2017-12-08 21:40:42.166 Detail, Node016, Queuing (Send) DoorLockCmd_Get (Node=16): 0x01, 0x09, 0x00, 0x13, 0x10, 0x02, 0x62, 0x02, 0x25, 0xab, 0x19
+2017-12-08 21:40:42.166 Info, Node016, Sending (Send) message (Callback ID=0xaa, Expected Reply=0x04) - DoorLockCmd_Set (Node=16): 0x01, 0x0a, 0x00, 0x13, 0x10, 0x03, 0x62, 0x01, 0xff, 0x25, 0xaa, 0xe6
+2017-12-08 21:40:42.176 Detail, Node016,   Received: 0x01, 0x04, 0x01, 0x13, 0x01, 0xe8
+2017-12-08 21:40:42.176 Detail, Node016,   ZW_SEND_DATA delivered to Z-Wave stack
+2017-12-08 21:40:43.610 Detail, Node016,   Received: 0x01, 0x07, 0x00, 0x13, 0xaa, 0x00, 0x00, 0x90, 0xd1
+2017-12-08 21:40:43.610 Detail, Node016,   ZW_SEND_DATA Request with callback ID 0xaa received (expected 0xaa)
+2017-12-08 21:40:43.610 Info, Node016, Request RTT 1443 Average Request RTT 1679
+2017-12-08 21:40:52.167 Error, Node016, ERROR: Dropping command, expected response not received after 1 attempt(s)
+2017-12-08 21:40:52.167 Detail, Node016, Removing current message
+2017-12-08 21:40:52.167 Detail, Node016, Notification: Notification - TimeOut
+2017-12-08 21:40:52.168 Info, Node016, Sending (Send) message (Callback ID=0xab, Expected Reply=0x04) - DoorLockCmd_Get (Node=16): 0x01, 0x09, 0x00, 0x13, 0x10, 0x02, 0x62, 0x02, 0x25, 0xab, 0x19
+2017-12-08 21:40:52.178 Detail, Node016,   Received: 0x01, 0x04, 0x01, 0x13, 0x01, 0xe8
+2017-12-08 21:40:52.178 Detail, Node016,   ZW_SEND_DATA delivered to Z-Wave stack
+2017-12-08 21:41:00.613 Info, Node016, Value::Set - COMMAND_CLASS_DOOR_LOCK - Locked - 0 - 1 - True
+2017-12-08 21:41:00.613 Info, Node016, Value_Lock::Set - Requesting lock to be Locked
+2017-12-08 21:41:00.613 Detail, Node016, Queuing (Send) DoorLockCmd_Set (Node=16): 0x01, 0x0a, 0x00, 0x13, 0x10, 0x03, 0x62, 0x01, 0xff, 0x25, 0xac, 0xe0
+2017-12-08 21:41:00.613 Detail, Node016, Queuing (Send) DoorLockCmd_Get (Node=16): 0x01, 0x09, 0x00, 0x13, 0x10, 0x02, 0x62, 0x02, 0x25, 0xad, 0x1f
+2017-12-08 21:41:02.169 Error, Node016, ERROR: Dropping command, expected response not received after 1 attempt(s)
+2017-12-08 21:41:02.169 Detail, Node016, Removing current message
+2017-12-08 21:41:02.169 Detail, Node016, Notification: Notification - TimeOut
+2017-12-08 21:41:02.171 Info, Node016, Sending (Send) message (Callback ID=0xac, Expected Reply=0x04) - DoorLockCmd_Set (Node=16): 0x01, 0x0a, 0x00, 0x13, 0x10, 0x03, 0x62, 0x01, 0xff, 0x25, 0xac, 0xe0
+2017-12-08 21:41:02.175 Detail, Node016,   Received: 0x01, 0x04, 0x01, 0x13, 0x00, 0xe9
+2017-12-08 21:41:02.175 Error, Node016, ERROR: ZW_SEND_DATA could not be delivered to Z-Wave stack
+2017-12-08 21:41:06.034 Detail, Node016,   Received: 0x01, 0x07, 0x00, 0x13, 0xac, 0x00, 0x01, 0x82, 0xc4
+2017-12-08 21:41:06.034 Detail, Node016,   ZW_SEND_DATA Request with callback ID 0xac received (expected 0xac)
+2017-12-08 21:41:06.034 Info, Node016, Request RTT 3863 Average Request RTT 2771
+2017-12-08 21:41:12.171 Error, Node016, ERROR: Dropping command, expected response not received after 1 attempt(s)
+2017-12-08 21:41:12.172 Detail, Node016, Removing current message
+2017-12-08 21:41:12.172 Detail, Node016, Notification: Notification - TimeOut
+2017-12-08 21:41:12.173 Info, Node016, Sending (Send) message (Callback ID=0xad, Expected Reply=0x04) - DoorLockCmd_Get (Node=16): 0x01, 0x09, 0x00, 0x13, 0x10, 0x02, 0x62, 0x02, 0x25, 0xad, 0x1f
+2017-12-08 21:41:12.182 Detail, Node016,   Received: 0x01, 0x04, 0x01, 0x13, 0x01, 0xe8
+2017-12-08 21:41:12.182 Detail, Node016,   ZW_SEND_DATA delivered to Z-Wave stack
+2017-12-08 21:41:12.294 Detail, Node016,   Received: 0x01, 0x07, 0x00, 0x13, 0xad, 0x00, 0x00, 0x0b, 0x4d
+2017-12-08 21:41:12.294 Detail, Node016,   ZW_SEND_DATA Request with callback ID 0xad received (expected 0xad)
+2017-12-08 21:41:12.294 Info, Node016, Request RTT 121 Average Request RTT 1446
+2017-12-08 21:41:22.174 Error, Node016, ERROR: Dropping command, expected response not received after 1 attempt(s)
+2017-12-08 21:41:22.174 Detail, Node016, Removing current message
+2017-12-08 21:41:22.174 Detail, Node016, Notification: Notification - TimeOut
+2017-12-08 23:10:43.984 Info, Node016, Association::Set - Adding node 1 to group 1 of node 16
+2017-12-08 23:10:43.984 Detail, Node016, Queuing (Send) AssociationCmd_Set (Node=16): 0x01, 0x0b, 0x00, 0x13, 0x10, 0x04, 0x85, 0x01, 0x01, 0x01, 0x25, 0xbe, 0xec
+2017-12-08 23:10:43.984 Info, Node016, Get Associations for group 1 of node 16
+2017-12-08 23:10:43.984 Detail, Node016, Queuing (Send) AssociationCmd_Get (Node=16): 0x01, 0x0a, 0x00, 0x13, 0x10, 0x03, 0x85, 0x02, 0x01, 0x25, 0xbf, 0xe9
+2017-12-08 23:10:43.985 Info, Node016, Sending (Send) message (Callback ID=0xbe, Expected Reply=0x13) - AssociationCmd_Set (Node=16): 0x01, 0x0b, 0x00, 0x13, 0x10, 0x04, 0x85, 0x01, 0x01, 0x01, 0x25, 0xbe, 0xec
+2017-12-08 23:10:44.000 Detail, Node016, CAN received...triggering resend
+2017-12-08 23:10:44.000 Info, Node016, Sending (Send) message (Attempt 2, Callback ID=0xc0, Expected Reply=0x13) - AssociationCmd_Set (Node=16): 0x01, 0x0b, 0x00, 0x13, 0x10, 0x04, 0x85, 0x01, 0x01, 0x01, 0x25, 0xc0, 0x92
+2017-12-08 23:10:44.009 Detail, Node016,   Received: 0x01, 0x04, 0x01, 0x13, 0x01, 0xe8
+2017-12-08 23:10:44.009 Detail, Node016,   ZW_SEND_DATA delivered to Z-Wave stack
+2017-12-08 23:10:53.985 Error, Node016, ERROR: Dropping command, expected response not received after 2 attempt(s)
+2017-12-08 23:10:53.985 Detail, Node016, Removing current message
+2017-12-08 23:10:53.985 Detail, Node016, Notification: Notification - TimeOut
+2017-12-08 23:10:53.987 Info, Node016, Sending (Send) message (Callback ID=0xbf, Expected Reply=0x04) - AssociationCmd_Get (Node=16): 0x01, 0x0a, 0x00, 0x13, 0x10, 0x03, 0x85, 0x02, 0x01, 0x25, 0xbf, 0xe9
+2017-12-08 23:10:53.996 Detail, Node016, CAN received...triggering resend
+2017-12-08 23:10:53.996 Info, Node016, Sending (Send) message (Attempt 2, Callback ID=0xc1, Expected Reply=0x04) - AssociationCmd_Get (Node=16): 0x01, 0x0a, 0x00, 0x13, 0x10, 0x03, 0x85, 0x02, 0x01, 0x25, 0xc1, 0x97
+2017-12-08 23:10:53.999 Detail, Node016,   Received: 0x01, 0x04, 0x01, 0x13, 0x00, 0xe9
+2017-12-08 23:10:53.999 Error, Node016, ERROR: ZW_SEND_DATA could not be delivered to Z-Wave stack
+2017-12-08 23:10:59.094 Detail, Node016,   Received: 0x01, 0x07, 0x00, 0x13, 0xc1, 0x00, 0x01, 0xfe, 0xd5
+2017-12-08 23:10:59.094 Detail, Node016,   ZW_SEND_DATA Request with callback ID 0xc1 received (expected 0xc1)
+2017-12-08 23:10:59.094 Info, Node016, Request RTT 5098 Average Request RTT 3272
+2017-12-08 23:11:03.987 Error, Node016, ERROR: Dropping command, expected response not received after 2 attempt(s)
+2017-12-08 23:11:03.987 Detail, Node016, Removing current message
+2017-12-08 23:11:03.987 Detail, Node016, Notification: Notification - TimeOut
+2017-12-09 00:00:00.107 Detail, Node016, Queuing (Controller) Request Node Neighbor Update
+2017-12-09 00:01:15.241 Detail, Node016, Queuing (Command) ControllerCommand_RequestNodeNeighborUpdate (Node=16): 0x01, 0x05, 0x00, 0x48, 0x10, 0x15, 0xb7
+2017-12-09 00:01:15.241 Info, Node016, Sending (Command) message (Callback ID=0x15, Expected Reply=0x48) - ControllerCommand_RequestNodeNeighborUpdate (Node=16): 0x01, 0x05, 0x00, 0x48, 0x10, 0x15, 0xb7
+2017-12-09 00:01:15.305 Detail, Node016,   Received: 0x01, 0x05, 0x00, 0x48, 0x15, 0x21, 0x86
+2017-12-09 00:01:15.305 Info, Node016, REQUEST_NEIGHBOR_UPDATE_STARTED
+2017-12-09 00:01:15.305 Detail, Node016, Removing current message
+2017-12-09 00:01:19.184 Detail, Node016, Queuing (Command) Get Routing Info (Node=16): 0x01, 0x07, 0x00, 0x80, 0x10, 0x00, 0x00, 0x03, 0x6b
+2017-12-09 00:01:19.184 Info, Node016, Sending (Command) message (Callback ID=0x00, Expected Reply=0x80) - Get Routing Info (Node=16): 0x01, 0x07, 0x00, 0x80, 0x10, 0x00, 0x00, 0x03, 0x6b
+2017-12-09 00:01:19.194 Detail, Node016,   Received: 0x01, 0x20, 0x01, 0x80, 0xe6, 0x73, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xcb
+2017-12-09 00:01:19.194 Info, Node016, Received reply to FUNC_ID_ZW_GET_ROUTING_INFO
+2017-12-09 00:01:19.194 Info, Node016,     Neighbors of this node are:
+2017-12-09 00:01:19.194 Info, Node016,     Node 2
+2017-12-09 00:01:19.194 Info, Node016,     Node 3
+2017-12-09 00:01:19.194 Info, Node016,     Node 6
+2017-12-09 00:01:19.194 Info, Node016,     Node 7
+2017-12-09 00:01:19.194 Info, Node016,     Node 8
+2017-12-09 00:01:19.194 Info, Node016,     Node 9
+2017-12-09 00:01:19.194 Info, Node016,     Node 10
+2017-12-09 00:01:19.194 Info, Node016,     Node 13
+2017-12-09 00:01:19.194 Info, Node016,     Node 14
+2017-12-09 00:01:19.194 Info, Node016,     Node 15
+2017-12-09 00:01:19.194 Detail, Node016, Removing current message
+2017-12-09 08:44:23.931 Info, Node016, Value::Set - COMMAND_CLASS_CONFIGURATION - Audio Mode - 1 - 1 - Off
+2017-12-09 08:44:23.931 Info, Node016, Configuration::Set - Parameter=1, Value=1 Size=1
+2017-12-09 08:44:23.931 Detail, Node016, Queuing (Send) ConfigurationCmd_Set (Node=16): 0x01, 0x0c, 0x00, 0x13, 0x10, 0x05, 0x70, 0x04, 0x01, 0x01, 0x01, 0x25, 0x60, 0xc5
+2017-12-09 08:44:23.931 Detail, Node016, Queuing (Send) ConfigurationCmd_Get (Node=16): 0x01, 0x0a, 0x00, 0x13, 0x10, 0x03, 0x70, 0x05, 0x01, 0x25, 0x61, 0xc5
+2017-12-09 08:44:23.931 Info, Node016, Sending (Send) message (Callback ID=0x60, Expected Reply=0x13) - ConfigurationCmd_Set (Node=16): 0x01, 0x0c, 0x00, 0x13, 0x10, 0x05, 0x70, 0x04, 0x01, 0x01, 0x01, 0x25, 0x60, 0xc5
+2017-12-09 08:44:24.062 Detail, Node016,   Received: 0x01, 0x04, 0x01, 0x13, 0x01, 0xe8
+2017-12-09 08:44:24.062 Detail, Node016,   ZW_SEND_DATA delivered to Z-Wave stack
+2017-12-09 08:44:28.979 Detail, Node016,   Received: 0x01, 0x07, 0x00, 0x13, 0x60, 0x00, 0x01, 0xf9, 0x73
+2017-12-09 08:44:28.979 Detail, Node016,   ZW_SEND_DATA Request with callback ID 0x60 received (expected 0x60)
+2017-12-09 08:44:28.979 Info, Node016, Request RTT 5047 Average Request RTT 4159
+2017-12-09 08:44:28.979 Detail, Node016, Removing current message
+2017-12-09 08:44:28.979 Info, Node016, Sending (Send) message (Callback ID=0x61, Expected Reply=0x04) - ConfigurationCmd_Get (Node=16): 0x01, 0x0a, 0x00, 0x13, 0x10, 0x03, 0x70, 0x05, 0x01, 0x25, 0x61, 0xc5
+2017-12-09 08:44:28.989 Detail, Node016,   Received: 0x01, 0x04, 0x01, 0x13, 0x01, 0xe8
+2017-12-09 08:44:28.989 Detail, Node016,   ZW_SEND_DATA delivered to Z-Wave stack
+2017-12-09 08:44:29.177 Detail, Node016,   Received: 0x01, 0x07, 0x00, 0x13, 0x61, 0x00, 0x00, 0x13, 0x99
+2017-12-09 08:44:29.177 Detail, Node016,   ZW_SEND_DATA Request with callback ID 0x61 received (expected 0x61)
+2017-12-09 08:44:29.177 Info, Node016, Request RTT 198 Average Request RTT 2178
+2017-12-09 08:44:38.979 Error, Node016, ERROR: Dropping command, expected response not received after 1 attempt(s)
+2017-12-09 08:44:38.980 Detail, Node016, Removing current message
+2017-12-09 08:44:38.980 Detail, Node016, Notification: Notification - TimeOut
