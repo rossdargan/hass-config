@@ -166,6 +166,14 @@ nest:
   client_id: !secret nest_clientid
   client_secret: !secret nest_secret
 
+plant:
+  chillies:
+    sensors:
+      temperature: sensor.greenhouse_temperature
+      brightness: sensor.greenhouse_light
+    min_temperature: 5
+    
+    
 recorder:
   purge_interval: 2
   purge_keep_days: 5 
