@@ -127,15 +127,7 @@ frontend:
     - /local/custom_ui/state-card-tiles.html
   extra_html_url_es5:
     - /local/custom_ui/state-card-tiles.html
-    
-google_assistant:
-  project_id: homeassistant-de3c6
-  client_id: bTF5sTbZATEo3opT3h6BspxZVAvd7Ed86r5iNy0hrc9QgPKpe0NXsoabpjUwFqt8z62H1rE9zFod0aaL
-  access_token: !secret google_access_token
-  exposed_domains:
-    - switch
-    - light
-    - group     
+
 hue:
   bridges:
     - host: 192.168.86.31
