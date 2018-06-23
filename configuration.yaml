@@ -230,7 +230,10 @@ tts:
 zwave:
   usb_path: /dev/ttyUSB0
   network_key: !secret zwave_key
-  
+
+weather:
+  - platform: darksky
+    api_key: !secret darksky
   
 # Commenting out because of the issues
 #influxdb:
