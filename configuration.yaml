@@ -101,7 +101,7 @@ homekit:
     exclude_domains:
       - automation
     exclude_entities:
-      - exclude_entities
+      - binary_sensor.greenhouse_resevoir
 camera:
   - platform: generic
     still_image_url: https://liveimages.networkwebcams.co.uk/sd_durhamcouncil08.jpg?
