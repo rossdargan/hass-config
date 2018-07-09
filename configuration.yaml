@@ -107,6 +107,7 @@ android_ip_webcam:
     port: 8000
     username: admin
     password: !secret webcam_password
+    name: Front
     sensors:
       - audio_connections
       - battery_level
