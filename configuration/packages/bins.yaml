@@ -9,7 +9,7 @@ group:
       - binary_sensor.bin_day
       
 
-sensors:
+sensor:
   - platform: rest
     name: 'Green Bin'
     headers:
@@ -38,3 +38,19 @@ sensors:
     payload: !secret bin_post_vals
     value_template: '{{ (value_json.features[0].attributes.BLUE1 | int / 1000 ) | round | timestamp_utc  }}'
     
+
+binary_sensor:
+  - platform: template
+    sensors:
+      recycle_day:        
+        friendly_name: "Blue bin day"
+        value_template: >-
+          {{  as_timestamp(now()) - as_timestamp(states('sensor.blue_bin')) >0 }}
+      bin_day:
+        friendly_name: "Green bin day"
+        value_template: >-
+           {{  as_timestamp(now()) - as_timestamp(states('sensor.green_bin')) >0 }}       
+      garden_day:
+        friendly_name: "Garden bin day"
+        value_template: >-
+           {{  as_timestamp(now()) - as_timestamp(states('sensor.brown_bin')) >0 }}            
