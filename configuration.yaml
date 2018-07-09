@@ -281,7 +281,7 @@ weather:
   - platform: darksky
     api_key: !secret darksky
   
-# Commenting out because of the issues
-#influxdb:
-#  host: 192.168.86.54
-#  database: homeassistant
+
+influxdb:
+  host: 192.168.86.54
+  database: homeassistant
