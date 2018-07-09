@@ -4,6 +4,7 @@ group:
     entities:
       - sensor.green_bin
       - sensor.blue_bin
+      - sensor.brown_bin
       - binary_sensor.recycle_day
       - binary_sensor.garden_day
       - binary_sensor.bin_day
@@ -45,12 +46,12 @@ binary_sensor:
       recycle_day:        
         friendly_name: "Blue bin day"
         value_template: >-
-          {{  as_timestamp(now()) - as_timestamp(states('sensor.blue_bin')) >0 }}
+          {{  as_timestamp(now()) - as_timestamp(states('sensor.blue_bin')) <0 }}
       bin_day:
         friendly_name: "Green bin day"
         value_template: >-
-           {{  as_timestamp(now()) - as_timestamp(states('sensor.green_bin')) >0 }}       
+           {{  as_timestamp(now()) - as_timestamp(states('sensor.green_bin')) <0 }}       
       garden_day:
         friendly_name: "Garden bin day"
         value_template: >-
-           {{  as_timestamp(now()) - as_timestamp(states('sensor.brown_bin')) >0 }}            
+           {{  as_timestamp(now()) - as_timestamp(states('sensor.brown_bin')) <0 }}            
