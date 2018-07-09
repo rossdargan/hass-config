@@ -104,7 +104,7 @@ homekit:
       - binary_sensor.greenhouse_resevoir
 android_ip_webcam:
   - host: 192.168.86.34
-    port: 8000
+    port: 8080
     username: admin
     password: !secret webcam_password
     name: Front
