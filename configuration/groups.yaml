@@ -10,6 +10,7 @@
       - alert.certificate
       - alert.ring_battery
       - group.work_sensors
+      - camera.front
       - device_tracker.kathsiphone
       - device_tracker.google_maps_104113982427948631716
       - climate.living_room
