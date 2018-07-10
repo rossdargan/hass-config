@@ -45,9 +45,7 @@
     entities:
       
       - alarm_control_panel.alarm
-      - sensor.lock_status
 
-      - lock.frontdoor_locked  
   
   temperatures:
     entities:
