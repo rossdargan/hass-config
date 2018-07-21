@@ -7,6 +7,10 @@ homeassistant:
   time_zone: Europe/London
   customize: !include configuration/customize.yaml  
   packages: !include_dir_named configuration/packages/
+  auth_providers:
+   - type: homeassistant  
+   - type: legacy_api_password
+
 
 ###################################################################################
 # Standard configuration
@@ -63,6 +67,7 @@ logbook:
 map:
 sun:
 updater:
+auth:
 
 ###################################################################################
 # Group configurations
