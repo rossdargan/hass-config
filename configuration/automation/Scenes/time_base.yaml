@@ -1,8 +1,8 @@
-  - alias: Night time trigger
+  - alias: Night time trigger - 2 am
     initial_state: 'on'
     trigger:
       platform: time
-      at: '0:00:01'
+      at: '2:00:01'
     condition:
       condition: state
       entity_id: alarm_control_panel.alarm
