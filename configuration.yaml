@@ -139,7 +139,11 @@ camera:
     still_image_url: https://liveimages.networkwebcams.co.uk/sd_durhamcouncil08.jpg?
     name: A1
   - platform: ring
-
+  
+custom_updater:
+  component_urls:
+  - https://raw.githubusercontent.com/robmarkcole/Hue-sensors-HASS/master/custom_updater.json
+  
 device_tracker:
 #  - platform: owntracks
 #    secret: !secret owntracks
