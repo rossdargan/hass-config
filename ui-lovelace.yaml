@@ -1,4 +1,7 @@
 name: My Awesome Home
+resources:
+  - url: /local/tracker-card.js?v=0
+    type: js
 views:
     # The name of a view will be used as tab title.
     # Might be used for other things in the future.
@@ -15,6 +18,11 @@ views:
           - binary_sensor.dining_room_pir
           - switch.dining_room_floor_lamp_switch
           - light.diningroom
+      - type: custom:tracker-card
+        title:
+        trackers:
+          - sensor.custom_card_tracker
+          - sensor.custom_component_tracker
       - type: entity-picture
         image: /local/diningroom.jpg
         entity: light.diningroom
