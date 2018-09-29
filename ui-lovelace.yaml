@@ -1,4 +1,7 @@
 name: My Awesome Home
+resources:
+  - url: /local/tracker-card.js?v=0
+    type: js
 views:
     # The name of a view will be used as tab title.
     # Might be used for other things in the future.
