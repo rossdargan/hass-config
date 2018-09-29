@@ -15,7 +15,7 @@ views:
           - binary_sensor.dining_room_pir
           - switch.dining_room_floor_lamp_switch
           - light.diningroom
-      - type: entity-picture
+      - type: picture-entity
         image: /local/diningroom.jpg
         entity: light.diningroom
         title: Dining Room
@@ -26,15 +26,20 @@ views:
         # The entities here will be shown in the same order as specified.
         entities:
           - alarm_control_panel.alarm
-          - binary_sensor.greenhouse_resevoir
-          - input_boolean.switch_tv
+          - binary_sensor.greenhouse_resevoir          
           - sensor.ross_monzo
           - camera.front_door
           - plant.chillies
       - type: plant-status
         entity: plant.chillies
-      - type: camera-preview
-        entity: camera.front_door
+      - type: picture-glance
+        entities: 
+         - camera.front_door
+        camera_image: camera.front_door
+      - type: picture-glance
+        entities: 
+         - camera.garden
+        camera_image: camera.garden
       - type: glance
         entities:
           - alarm_control_panel.alarm
@@ -43,11 +48,20 @@ views:
           - sensor.ross_monzo
           - camera.front_door
       - type: history-graph
-        entity: history-graph.temperature_graph
+        entities: 
+          - history_graph.temperature_graph
       - type: media-control
         entity: media_player.spotify
       - type: weather-forecast
         entity: weather.dark_sky
+      - type: map
+        aspect_ratio: 100%
+        entities:         
+          - device_tracker.google_maps_104113982427948631716
+          - device_tracker.google_maps_kathduffield
+
+
+
 
     # Specify a tab_icon if you want the view tab to be an icon.
   - tab_icon: mdi:home-assistant
