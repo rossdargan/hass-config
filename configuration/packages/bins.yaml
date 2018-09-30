@@ -55,3 +55,49 @@ binary_sensor:
         friendly_name: "Garden bin day"
         value_template: >-
            {{  as_timestamp(now()) - as_timestamp(states('sensor.brown_bin')) > -86400 }}            
+
+ - alias: Blue bin todoist
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id:  binary_sensor.recycle_day
+        to: 'on'
+        from: 'off'
+    action:
+      service: calendar.todoist_new_task
+      data:
+        content: 'Put out the blue bin'
+        project: 'Personal'
+        priority: 1
+        due_date_string: 'Today'
+        
+- alias: Green bin todoist
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id:  binary_sensor.bin_day
+        to: 'on'
+        from: 'off'
+    action:
+      service: calendar.todoist_new_task
+      data:
+        content: 'Put out the green bin'
+        project: 'Personal'
+        priority: 1
+        due_date_string: 'Today'
+        
+- alias: Brown bin todoist
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id:  binary_sensor.garden_day
+        to: 'on'
+        from: 'off'
+    action:
+      service: calendar.todoist_new_task
+      data:
+        content: 'Put out the brown bin'
+        project: 'Personal'
+        priority: 1
+        due_date_string: 'Today'
+        
