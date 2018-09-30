@@ -52,7 +52,7 @@ binary_sensor:
         friendly_name: "Garden bin day"
         value_template: >-
            {{  as_timestamp(now()) - as_timestamp(states('sensor.brown_bin')) > -86400 }}            
-
+automation:
  - alias: Blue bin todoist
     initial_state: 'on'
     trigger:
