@@ -53,7 +53,7 @@ binary_sensor:
         value_template: >-
            {{  as_timestamp(now()) - as_timestamp(states('sensor.brown_bin')) > -86400 }}            
 automation:
- - alias: Blue bin todoist
+  - alias: Blue bin todoist
     initial_state: 'on'
     trigger:
       - platform: state
@@ -68,7 +68,7 @@ automation:
         priority: 1
         due_date_string: 'Today'
         
-- alias: Green bin todoist
+  - alias: Green bin todoist
     initial_state: 'on'
     trigger:
       - platform: state
@@ -83,7 +83,7 @@ automation:
         priority: 1
         due_date_string: 'Today'
         
-- alias: Brown bin todoist
+  - alias: Brown bin todoist
     initial_state: 'on'
     trigger:
       - platform: state
