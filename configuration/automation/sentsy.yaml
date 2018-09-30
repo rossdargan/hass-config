@@ -12,8 +12,19 @@
       service: timer.start
       data:
         entity_id: timer.lounge_sentsy
+        
+  - alias: Start sentsy Timer
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: switch.lounge_sentsy_switch
+        to: 'off'
+    action:
+      service: timer.stop
+      data:
+        entity_id: timer.lounge_sentsy        
 
-  - alias: Electric blanket timer done
+  - alias: Sentsy timer done
     initial_state: 'on'
     trigger:
       - platform: event
@@ -24,3 +35,20 @@
       - service: switch.turn_off
         data:
           entity_id: switch.lounge_sentsy_switch   
+
+## Turn on sentsy when Kath leaves work
+
+  - alias: Kath leaving work
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: device_tracker.kathsiphone
+        from: 'work'
+        to: 'not_home'
+    condition:
+      - condition: time
+        after: '16:00:00'      # after 4 pm
+    action:
+      - service: switch.turn_on
+        data:
+          entity_id: switch.lounge_sentsy_switch 
