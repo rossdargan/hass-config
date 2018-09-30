@@ -11,6 +11,11 @@ views:
     theme: dark-mode
     # The cards to show on this view.
     cards:
+      - type: custom:tracker-card
+       title:
+        trackers:
+          - sensor.custom_card_tracker
+          - sensor.custom_component_tracker
       - type: picture-glance
         image: /local/diningroom.jpg
         title: Dining Room
