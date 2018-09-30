@@ -12,4 +12,4 @@
         project: 'Personal'
         labels: 'hass'
         priority: 1
-        due_date_strong: 'Today'
+        due_date_string: 'Today'
