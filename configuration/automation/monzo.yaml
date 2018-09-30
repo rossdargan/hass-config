@@ -8,3 +8,10 @@
       - service: notify.slackbot
         data:
           message: "You have less than £150 in monzo!"   
+      - service: calendar.todoist_new_task
+        data:
+          content: 'Top up monzo'
+          project: 'Personal'
+          labels: 'hass'
+          priority: 1
+          due_date_string: 'Today'
