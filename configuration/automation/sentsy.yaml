@@ -12,8 +12,19 @@
       service: timer.start
       data:
         entity_id: timer.lounge_sentsy
+        
+  - alias: Start sentsy Timer
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: switch.lounge_sentsy_switch
+        to: 'off'
+    action:
+      service: timer.stop
+      data:
+        entity_id: timer.lounge_sentsy        
 
-  - alias: Electric blanket timer done
+  - alias: Sentsy timer done
     initial_state: 'on'
     trigger:
       - platform: event
