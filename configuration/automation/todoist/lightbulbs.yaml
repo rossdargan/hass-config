@@ -1,0 +1,15 @@
+  - alias: Replace Lounge Light bulb
+    initial_state: 'on'
+    trigger:
+      - platform: numeric_state
+        entity_id: sensor.lounge_main_light_power
+        above: 1
+        below: 65
+    action:
+      service: calendar.todoist_new_task
+      data:
+        content: 'Replace bulb in lounge'
+        project: 'Personal'
+        labels: 'hass'
+        priority: 3
+        due_date_strong: 'Today'
