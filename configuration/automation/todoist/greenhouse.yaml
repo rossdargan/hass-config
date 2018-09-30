@@ -1,0 +1,15 @@
+  - alias: Greenhouse Resevoir Low
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.greenhouse_resevoir
+        to: 'off'
+        from: 'on'
+    action:
+      service: calendar.todoist_new_task
+      data:
+        content: 'Fill up the greenhouse resvoir'
+        project: 'Personal'
+        labels: 'hass'
+        priority: 3
+        due_date_strong: 'Today'
