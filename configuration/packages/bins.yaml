@@ -2,9 +2,6 @@ group:
   Bin Schedule:
     control: hidden
     entities:
-      - sensor.green_bin
-      - sensor.blue_bin
-      - sensor.brown_bin
       - binary_sensor.recycle_day
       - binary_sensor.garden_day
       - binary_sensor.bin_day
