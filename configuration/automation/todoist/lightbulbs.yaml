@@ -10,6 +10,5 @@
       data:
         content: 'Replace bulb in lounge'
         project: 'Personal'
-        labels: 'hass'
         priority: 3
         due_date_string: 'Today'

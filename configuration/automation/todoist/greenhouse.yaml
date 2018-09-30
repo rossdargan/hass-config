@@ -10,6 +10,5 @@
       data:
         content: 'Fill up the greenhouse resvoir'
         project: 'Personal'
-        labels: 'hass'
         priority: 3
         due_date_string: 'Today'
