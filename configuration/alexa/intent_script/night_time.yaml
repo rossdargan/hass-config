@@ -1,7 +1,7 @@
  night_time:
     speech:
       text:           >
-          {% if is_state("lock.frontdoor_locked", "locked")  -%}      
+          {% if is_state("lock.front_door_locked", "locked")  -%}      
            {{ [
                     "Good night, sleep tight!",
                     "Have a great nights sleep",
