@@ -2,6 +2,14 @@ name: My Awesome Home
 resources:
   - url: /local/tracker-card.js?v=0.1.5
     type: js
+  - url: /local/custom-lovelace/upcoming-media-card/upcoming-media-card.js
+    type: js    
+  - url: /local/custom-lovelace/monster-card/monster-card.js
+    type: js        
+  - url: /local/custom-lovelace/alarm_control_panel-card/alarm_control_panel-card.js
+    type: js         
+  - url: /local/custom-lovelace/thermostat-card/thermostat-card.js?v=1
+    type: module    
 views:
     # The name of a view will be used as tab title.
     # Might be used for other things in the future.
@@ -17,6 +25,29 @@ views:
           - binary_sensor.dining_room_pir
           - switch.dining_room_floor_lamp_switch
           - light.diningroom
+      - type: custom:thermostat-card
+        title: Lounge
+        entity:  climate.living_room     
+      - type: custom:monster-card
+        show_empty: false
+        card:
+          type: entities
+          title: Lights On
+        filter:
+          include:
+            - domain: light
+              state: 'on'        
+      # - type: custom:alarm_control_panel-card
+      #   entity: alarm_control_panel.alarm
+      #   show_keypad: true
+      #   title: My Alarm
+      #   # auto_enter: true
+      #   # code_length: 4
+      #   # arm_action: arm_away
+      #   states:
+      #     - arm_home
+      #     - arm_away
+      #     - arm_night         
       - type: picture-entity
         image: /local/diningroom.jpg
         entity: light.diningroom
@@ -60,9 +91,14 @@ views:
         aspect_ratio: 100%
         entities:         
           - device_tracker.google_maps_104113982427948631716
-          - device_tracker.google_maps_kathduffield
+          - device_tracker.kathsiphone
 
-
+  - tab_icon: mdi:home-assistant
+    # Name of the view. Will be used as the tooltip for tab icon
+    title: Media
+    cards:
+      - type: custom:upcoming-media-card
+        service: sonarr  
 
 
     # Specify a tab_icon if you want the view tab to be an icon.
@@ -70,9 +106,8 @@ views:
     # Name of the view. Will be used as the tooltip for tab icon
     title: Settings
     cards:
-
       - type: custom:tracker-card
         title: test
         trackers:
           - sensor.custom_card_tracker
-          - sensor.custom_component_tracker
+          - sensor.custom_component_tracker          
