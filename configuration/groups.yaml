@@ -43,7 +43,7 @@
     name: Front Door
     control: hidden
     entities:
-      
+      - template.lock_status
       - alarm_control_panel.alarm
       - lock.front_door_locked
   
