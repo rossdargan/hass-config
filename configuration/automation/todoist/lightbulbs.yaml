@@ -56,7 +56,7 @@
     trigger:
       - platform: numeric_state
         entity_id: sensor.bedroom_main_light_power
-        above: 1
+        above: 40
         below: 90
         for:      
           minutes: 5            
