@@ -144,6 +144,7 @@ camera:
 custom_updater:
   component_urls:
   - https://raw.githubusercontent.com/robmarkcole/Hue-sensors-HASS/master/custom_updater.json
+  - https://github.com/custom-components/information/blob/master/repos.json
   
 calendar:
   - platform: todoist
