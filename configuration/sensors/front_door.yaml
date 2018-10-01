@@ -1,6 +1,6 @@
   - platform: template
     sensors:
-      front_door_batter:
+      front_door_battery:
         friendly_name: "Front Door Battery"
         value_template:  "{{ states.zwave.front_door.attributes.battery_level }}"
         device_class: battery
