@@ -50,10 +50,10 @@ cloud:
         - light.kitchen_main_light_level
         - light.lounge_main_light_level
         - light.bedroom_main_light_level
-        - media_player.shield
-        - lock.front_door_lock
+        - media_player.shield        
       include_domains:
         - switch
+        - lock
       exclude_entities:
         - switch.garage_switch_2
         - switch.dead_switch
