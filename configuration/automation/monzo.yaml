@@ -12,6 +12,5 @@
         data:
           content: 'Top up monzo'
           project: 'Personal'
-          labels: 'hass'
           priority: 1
           due_date_string: 'Today'
