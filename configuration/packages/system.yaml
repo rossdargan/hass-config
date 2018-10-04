@@ -10,7 +10,7 @@ sensor:
 ### Installed HASS Version
 ###################################################################
   -  platform: command_line
-     command: "/usr/local/bin/hass --version"
+     command: python -m homeassistant --version
      name: Installed HASS Version
 
 ##################################################################
