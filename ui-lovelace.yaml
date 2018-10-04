@@ -10,6 +10,8 @@ resources:
     type: js         
   - url: /local/custom-lovelace/thermostat-card/thermostat-card.js?v=1
     type: module    
+  - url: /local/custom-lovelace/mini-graph-card.js
+    type: module
 views:
     # The name of a view will be used as tab title.
     # Might be used for other things in the future.
@@ -25,6 +27,11 @@ views:
           - binary_sensor.dining_room_pir
           - switch.dining_room_floor_lamp_switch
           - light.diningroom
+      - type: custom:mini-graph-card
+        entity: sensor.front_door_battery
+        height: 100
+        line_width: 4
+        color: '#3498db'          
       - type: custom:thermostat-card
         title: Lounge
         entity:  climate.living_room     
