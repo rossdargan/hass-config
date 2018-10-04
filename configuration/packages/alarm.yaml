@@ -244,9 +244,6 @@ script:
   alarm_messages:
     alias: '_Notify when a the alarm mode is changed'
     sequence:
-    - service: notify.slackbot
-      data_template:
-        message: 'Alarm put in {{ action }} by {{ name }}'
     - service: notify.ios_kaths_iphone
       data_template:
         title: 'Alarm {{action}}'
