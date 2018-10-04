@@ -5,38 +5,14 @@
         entity_id: lock.front_door_locked       
         from: 'locked'
         to: 'unlocked'
-    condition:
-        condition: template
-        value_template: "{{ state_attr('lock.front_door_locked', 'lock_status').startswith('Unlocked by NFC') }}"
+#    condition:
+#        condition: template
+#        value_template: "{{ state_attr('lock.front_door_locked', 'lock_status').startswith('Unlocked by NFC') }}"
     action:
       - service: notify.slackbot
         data_template:
               message: >
                 The front door was unlocked by {{ states.lock.front_door_locked.attributes.lock_status.replace('Unlocked by NFC Tag or Card by ','').replace('user 1','Ross').replace('user 6','Ross') }}
-
-  - alias: TEST alarm state
-    initial_state: 'on'
-    trigger:
-      - platform: state
-        entity_id: sensor.front_door_alarm_type       
-    action:
-      - service: notify.slackbot
-        data_template:
-              message: >
-                The front door alarm type changed from {{ trigger.from_state.state }}
-                to {{ trigger.to_state.state }}. 
-
-  - alias: TEST alarm level
-    initial_state: 'on'
-    trigger:
-      - platform: state
-        entity_id: sensor.front_door_alarm_level      
-    action:
-      - service: notify.slackbot
-        data_template:
-              message: >
-                The front door alarm level changed from {{ trigger.from_state.state }}
-                to {{ trigger.to_state.state }}. 
 
   - alias: Front unlocked
     initial_state: 'on'
