@@ -144,6 +144,7 @@ custom_updater:
   component_urls:
   - https://raw.githubusercontent.com/robmarkcole/Hue-sensors-HASS/master/custom_updater.json
   - https://raw.githubusercontent.com/custom-components/information/master/repos.json
+  - https://raw.githubusercontent.com/kalkih/mini-graph-card/master/tracker.json
   
 calendar:
   - platform: todoist
