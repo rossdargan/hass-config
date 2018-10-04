@@ -1,3 +1,5 @@
+## A lot of sensors borrowed from here: https://github.com/bl0rp/Home-AssistantConfig/blob/master/packages/systeminfo.yaml#L295
+
 sensor:
 ##################################################################
 ### Current HASS Version
@@ -26,7 +28,20 @@ sensor:
           {%- else -%}
              No
           {%- endif -%}
-
+          
+###### CUSTOM HA/Version
+  - platform: template
+    sensors:
+      ha_version:
+        value_template: "{%- if states.sensor.ha_release.state == states.sensor.ha_release_local.state-%} Ja! {% else %}{{states.sensor.ha_release.state}} verfügbar! {% endif%}"
+        icon_template: >-
+          {% if states.sensor.ha_release.state == states.sensor.ha_release_local.state %}
+            mdi:checkbox-marked
+          {% else %}
+            mdi:checkbox-blank-outline
+          {% endif %}
+          
+          
 ##################################################################
 ### Uptime for the server
 ###################################################################
@@ -68,7 +83,6 @@ sensor:
            
 ###### HASS MySQL DB Size
   - platform: sql
-    db_url: !secret mysql_db_path_local
     queries:
       - name: mysql_ha_size
         query: 'SELECT table_schema "database", Round(Sum(data_length + index_length) / 1024 / 1024, 1) "value" FROM information_schema.tables WHERE table_schema="ha" GROUP BY table_schema;'
@@ -87,7 +101,7 @@ automation:
     action:
       service: calendar.todoist_new_task
       data:
-        content: "Upgrade Home assistant"
+        content: "Upgrade Home assistant {{ states.sensor.current_hass_version.state }}"
         project: 'Personal'
         priority: 3
         due_date_string: 'Today'
