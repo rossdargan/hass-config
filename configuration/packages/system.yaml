@@ -67,28 +67,19 @@ sensor:
              } -%}
              {%- set week = second // intervals.week -%}
              {%- set second = second % intervals.week -%}
-             {{- comma() ~ week ~ ' Woche' ~ ('n' if week != 1) if week -}}
+             {{- comma() ~ week ~ ' Week' ~ ('n' if week != 1) if week -}}
              {%- set day = second // intervals.day -%}
              {%- set second = second % intervals.day -%}
-             {{- comma() ~ day ~ ' Tag' ~ ('e' if day != 1) if day -}}
+             {{- comma() ~ day ~ ' Day' ~ ('e' if day != 1) if day -}}
              {%- set hour = second // intervals.hour -%}
              {%- set second = second % intervals.hour -%}
-             {{- comma() ~ hour ~ ' Stunde' ~ ('n' if hour != 1) if hour -}}
+             {{- comma() ~ hour ~ ' Hour' ~ ('n' if hour != 1) if hour -}}
              {%- set minute = second // intervals.minute -%}
              {{- comma() ~ minute ~ ' Minute' ~ ('n' if minute != 1) if minute -}}
              {%- set second = second % intervals.minute -%}
-             {{- comma() ~ second ~ ' Sekunde' ~ ('n' if second != 1) if second -}}
+             {{- comma() ~ second ~ ' Second' ~ ('n' if second != 1) if second -}}
            {%- endmacro %}
-           {{ human_time(states.sensor.host_uptime_in_seconds.state | int ) }}
-           
-###### HASS MySQL DB Size
-  - platform: sql
-    queries:
-      - name: mysql_ha_size
-        query: 'SELECT table_schema "database", Round(Sum(data_length + index_length) / 1024 / 1024, 1) "value" FROM information_schema.tables WHERE table_schema="ha" GROUP BY table_schema;'
-        column: 'value'
-        unit_of_measurement: MiB
-        
+           {{ human_time(states.sensor.host_uptime_in_seconds.state | int ) }}       
         
 automation:
   - alias: New version available
