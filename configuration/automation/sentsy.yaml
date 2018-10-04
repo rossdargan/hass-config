@@ -43,7 +43,7 @@
     trigger:
       - platform: state
         entity_id: device_tracker.kathsiphone
-        from: 'work'
+        from: 'kath_work'
         to: 'not_home'
     condition:
       - condition: time
