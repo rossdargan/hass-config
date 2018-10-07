@@ -67,6 +67,7 @@ automation:
         project: 'Personal'
         priority: 1
         due_date_string: 'Today'
+        labels: 'hass'
         
   - alias: Green bin todoist
     initial_state: 'on'
@@ -82,6 +83,7 @@ automation:
         project: 'Personal'
         priority: 1
         due_date_string: 'Today'
+        labels: 'hass'
         
   - alias: Brown bin todoist
     initial_state: 'on'
@@ -97,4 +99,5 @@ automation:
         project: 'Personal'
         priority: 1
         due_date_string: 'Today'
+        labels: 'hass'
         
