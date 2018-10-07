@@ -11,4 +11,5 @@
         content: 'Fill up the greenhouse resvoir'
         project: 'Personal'
         priority: 3
+        labels: 'hass'
         due_date_string: 'Today'
