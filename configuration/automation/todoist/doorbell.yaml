@@ -11,4 +11,5 @@
         content: 'Recharge Ring Doorbell'
         project: 'Personal'
         priority: 1
+        labels: 'hass'
         due_date_string: 'Today'
