@@ -14,6 +14,7 @@
         project: 'Personal'
         priority: 3
         due_date_string: 'Today'
+        labels: 'hass'
 
 
   - alias: Replace Kitchen Light bulb
@@ -32,6 +33,7 @@
         project: 'Personal'
         priority: 3
         due_date_string: 'Today'
+        labels: 'hass'
         
         
   - alias: Replace Kitchen Outer Light bulb
@@ -50,6 +52,7 @@
         project: 'Personal'
         priority: 3
         due_date_string: 'Today'
+        labels: 'hass'
         
   - alias: Replace bedroom Light bulb
     initial_state: 'on'
@@ -67,6 +70,7 @@
         project: 'Personal'
         priority: 3
         due_date_string: 'Today'
+        labels: 'hass'
         
   - alias: Replace hall Light bulb
     initial_state: 'on'
@@ -84,4 +88,5 @@
         project: 'Personal'
         priority: 3
         due_date_string: 'Today'
+        labels: 'hass'
         
