@@ -41,10 +41,10 @@
   - alias: Kath leaving work
     initial_state: 'on'
     trigger:
-      - platform: state
+      - platform: zone
+        event: leave
+        zone: zone.kath_work
         entity_id: device_tracker.kathsiphone
-        from: 'Kath Work'
-        to: 'not_home'
     condition:
       - condition: time
         after: '16:00:00'      # after 4 pm
