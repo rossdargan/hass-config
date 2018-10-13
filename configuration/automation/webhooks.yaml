@@ -1,0 +1,9 @@
+- alias: Plex Webhook
+  initial_state: 'on'
+  trigger:
+    platform: webhook
+    webhook_id: !secret plex_webhook
+  action:
+    service_template: notify.slackbot
+    data_template: 
+      message: "Webhook has triggered this event: {{ trigger.event }}"
