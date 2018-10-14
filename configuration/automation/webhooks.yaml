@@ -4,7 +4,6 @@
     platform: webhook
     webhook_id: !secret plex_webhook
   action:
-    service: input_text.set_value
+    service_template: notify.slackbot
     data_template: 
-      value: "{{ (trigger.data['payload'] | string)[12:][:-2] }}"
-      entity_id: input_text.plex_state
+      message: "{{ (trigger.json }}"
