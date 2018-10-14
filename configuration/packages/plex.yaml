@@ -9,6 +9,9 @@ automation:
        data_template:
          topic: 'plex/update'
          payload_template: "{{ (trigger.data['payload'] | string)[12:][:-2] }}"
+     - service: notify.slackbot
+        data_template:
+          message: "Original: {{ (trigger.data['payload'] | string)[12:][:-2] }}"
 
   - alias: Plex Webhook As Json
     initial_state: 'on'
@@ -16,6 +19,17 @@ automation:
       platform: mqtt
       topic: 'plex/update'
     action:
-      - service: notify.slackbot
+      - service: script.process_plex_message
         data_template:
-          message: "Plex event: {{ trigger.payload_json.event }} - {{ trigger.payload_json.Player.title }} - {{ trigger.payload_json.Account.title }}"
+          event: "{{ trigger.payload_json.event }}"
+          player: "{{ trigger.payload_json.Player.title }}"
+          account: "{{ trigger.payload_json.Account.title }}"
+
+
+script:
+  process_plex_message:
+    sequence:
+      - service: notify.pushover
+        data_template:    
+          message: "Plex event: {{ event }} - {{ account }} - {{ player }}"
+
