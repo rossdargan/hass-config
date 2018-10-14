@@ -28,7 +28,7 @@ automation:
       - service: mqtt.publish
         data_template:
           topic: 'plex/update/office'
-          payload_template: "{{ trigger.payload_json }}"
+          payload_template: "{{ trigger.payload }}"
 
   - alias: Plex Webhook As Json
     initial_state: 'on'
