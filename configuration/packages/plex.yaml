@@ -21,8 +21,14 @@ automation:
       platform: mqtt
       topic: 'plex/update'
     condition:
-      condition: template
-      value_template: "{{trigger.payload_json.Player.title == 'dar-pc-01'}}"
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{trigger.payload_json.Player.title == 'dar-pc-01'}}"
+        - condition: template        
+          value_template: "{{trigger.payload_json.event != 'media.scrobble'}}"          
+        - condition: template
+          value_template: "{{trigger.payload_json.event != 'media.rate'}}"                    
     action:
       - service: mqtt.publish
         data_template:
