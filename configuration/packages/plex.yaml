@@ -23,7 +23,7 @@ automation:
       topic: 'plex/update'
     condition:
       condition: template
-      value_template: "{{trigger.payload_json.Player.title == "dar-pc-01}}"
+      value_template: "{{trigger.payload_json.Player.title == 'dar-pc-01'}}"
     action:
       - service: mqtt.publish
         data_template:
