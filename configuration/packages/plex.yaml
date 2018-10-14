@@ -35,20 +35,20 @@ automation:
           topic: 'plex/update/office'
           retain: true
           payload_template: >
-           { 
+           '{ 
               "Event":"{{ trigger.payload_json.event }}", 
               "Account":"{{ trigger.payload_json.Account.title }}", 
               "Title":"{{ trigger.payload_json.Metadata.grandparentTitle }}", 
               "Type":"{{ trigger.payload_json.Metadata.librarySectionType }}", 
               "Image":"{{ trigger.payload_json.Metadata.thumb }}"
-           }
+           }'
 
           
 sensor:
   - platform: mqtt
     name: "Office Plex"
     state_topic: "plex/update/office"    
-    value_template: "{{ value_json.Event == "media.resume" or value_json.Event == "media.play" }}"    
+    value_template: '{{ value_json.Event == "media.resume" or value_json.Event == "media.play" }}'  
     json_attributes:
       - Account
       - Title
