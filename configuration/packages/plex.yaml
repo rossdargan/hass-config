@@ -27,7 +27,14 @@ automation:
       - service: mqtt.publish
         data_template:
           topic: 'plex/update/office'
-          payload_template: '{ "event":"{{ trigger.payload_json.event }}", "account":"{{ trigger.payload_json.Account.title }}", "title":"{{ trigger.payload_json.Metadata.parentTitle }}", "type":"{{ trigger.payload_json.Metadata.librarySectionType }}", "image":"{{ trigger.payload_json.Metadata.thumb }}"}'
+          payload_template: >
+           { 
+              "event":"{{ trigger.payload_json.event }}", 
+              "account":"{{ trigger.payload_json.Account.title }}", 
+              "title":"{{ trigger.payload_json.Metadata.grandparentTitle }}", 
+              "type":"{{ trigger.payload_json.Metadata.librarySectionType }}", 
+              "image":"{{ trigger.payload_json.Metadata.thumb }}"
+           }
 
   - alias: Plex Webhook As Json
     initial_state: 'on'
