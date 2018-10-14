@@ -27,43 +27,49 @@ automation:
       - service: mqtt.publish
         data_template:
           topic: 'plex/update/office'
+          retain: true
           payload_template: >
            { 
-              "event":"{{ trigger.payload_json.event }}", 
-              "account":"{{ trigger.payload_json.Account.title }}", 
-              "title":"{{ trigger.payload_json.Metadata.grandparentTitle }}", 
-              "type":"{{ trigger.payload_json.Metadata.librarySectionType }}", 
-              "image":"{{ trigger.payload_json.Metadata.thumb }}"
+              "Event":"{{ trigger.payload_json.event }}", 
+              "Account":"{{ trigger.payload_json.Account.title }}", 
+              "Title":"{{ trigger.payload_json.Metadata.grandparentTitle }}", 
+              "Type":"{{ trigger.payload_json.Metadata.librarySectionType }}", 
+              "Image":"{{ trigger.payload_json.Metadata.thumb }}"
            }
 
-  - alias: Plex Webhook As Json
-    initial_state: 'on'
-    trigger:
-      platform: mqtt
-      topic: 'plex/update'
-    action:
-      - service: script.process_plex_message
-        data_template:
-          event: "{{ trigger.payload_json.event }}"
-          player: "{{ trigger.payload_json.Player.title }}"
-          account: "{{ trigger.payload_json.Account.title }}"
           
 sensor:
   - platform: mqtt
     name: "Office Plex"
     state_topic: "plex/update/office"    
-    value_template: "{{ value_json.event }}"
+    value_template: "{{ value_json.Event == "media.resume" or value_json.Event == "media.play" }}"    
     json_attributes:
-      - account
-      - title
-      - type
-      - image
+      - Account
+      - Title
+      - Type
+      - Image
+      - Event
     
     
-script:
-  process_plex_message:
-    sequence:
-      - service: notify.slackbot
-        data_template:    
-          message: "Plex event: {{ event }} - {{ account }} - {{ player }}"
+    
+
+#  - alias: Plex Webhook As Json
+#    initial_state: 'on'
+#    trigger:
+#      platform: mqtt
+#      topic: 'plex/update'
+#    action:
+#      - service: script.process_plex_message
+#        data_template:
+#          event: "{{ trigger.payload_json.event }}"
+#          player: "{{ trigger.payload_json.Player.title }}"
+#          account: "{{ trigger.payload_json.Account.title }}"
+          
+          
+#script:
+#  process_plex_message:
+#    sequence:
+#      - service: notify.slackbot
+#        data_template:    
+#          message: "Plex event: {{ event }} - {{ account }} - {{ player }}"
 
