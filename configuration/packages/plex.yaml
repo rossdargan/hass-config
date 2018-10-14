@@ -47,7 +47,7 @@ sensor:
     state_topic: "plex/update/office"    
     value_template: "{{ value_json.event }}"
     json_attributes:
-      - Account.title
+      - Account
     
     
 script:
