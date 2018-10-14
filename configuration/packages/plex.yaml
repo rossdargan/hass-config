@@ -18,4 +18,4 @@ automation:
     action:
       - service: notify.slackbot
         data_template:
-          message: "Plex event: {{ value_json.event }} - {{ value_json.Player.title }} - {{ value_json.Account.title }}"
+          message: "Plex event: {{ trigger.payload_json.event }} - {{ trigger.payload_json.Player.title }} - {{ trigger.payload_json.Account.title }}"
