@@ -35,13 +35,11 @@ automation:
           topic: 'plex/update/office'
           retain: true
           payload_template: >
-           '{ 
-              "Event":"{{ trigger.payload_json.event }}", 
+           {  "Event":"{{ trigger.payload_json.event }}", 
               "Account":"{{ trigger.payload_json.Account.title }}", 
               "Title":"{{ trigger.payload_json.Metadata.grandparentTitle }}", 
               "Type":"{{ trigger.payload_json.Metadata.librarySectionType }}", 
-              "Image":"{{ trigger.payload_json.Metadata.thumb }}"
-           }'
+              "Image":"{{ trigger.payload_json.Metadata.thumb }}" }
 
           
 sensor:
