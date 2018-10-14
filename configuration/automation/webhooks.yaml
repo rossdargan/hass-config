@@ -6,4 +6,4 @@
   action:
     service_template: notify.slackbot
     data_template: 
-      message: "{{ (trigger.json }}"
+      message: "{{ trigger.json }}"
