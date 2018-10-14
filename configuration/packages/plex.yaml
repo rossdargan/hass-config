@@ -42,7 +42,12 @@ automation:
           player: "{{ trigger.payload_json.Player.title }}"
           account: "{{ trigger.payload_json.Account.title }}"
           
-
+sensor:
+  - platform: mqtt
+    name: "Office Plex"
+    state_topic: "plex/update/office"    
+    value_template: "{{ trigger.payload_json.event }}"
+    
 script:
   process_plex_message:
     sequence:
