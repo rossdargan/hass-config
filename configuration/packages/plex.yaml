@@ -29,7 +29,7 @@ automation:
 script:
   process_plex_message:
     sequence:
-      - service: notify.pushover
+      - service: notify.slackbot
         data_template:    
           message: "Plex event: {{ event }} - {{ account }} - {{ player }}"
 
