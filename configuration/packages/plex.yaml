@@ -27,7 +27,7 @@ automation:
       - service: mqtt.publish
         data_template:
           topic: 'plex/update/office'
-          payload_template: "{{ trigger.payload }}"
+          payload_template: '{ "event:"{{ trigger.payload.event }}", "account":"{{ trigger.Account.title }}"}'
 
   - alias: Plex Webhook As Json
     initial_state: 'on'
@@ -47,7 +47,7 @@ sensor:
     state_topic: "plex/update/office"    
     value_template: "{{ value_json.event }}"
     json_attributes:
-      - Account
+      - account
     
     
 script:
