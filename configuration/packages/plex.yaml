@@ -36,7 +36,7 @@ automation:
 sensor:
   - platform: mqtt
     state_topic: "plex/update"
-    value_template: "{{ trigger.payload_json.event }}"
+    value_template: "{{ value_json.event }}"
     json_attributes:
       - Account.title
       - Player.title
