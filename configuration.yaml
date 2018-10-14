@@ -97,11 +97,6 @@ panel_custom:
     url_path: floorplan
     config: !include floorplan.yaml
 
-input_text:
-  plex_state:
-    name: Plex State
-    max: 100000
-
 homekit:
   pincode: !secret homekit
   entity_config:
