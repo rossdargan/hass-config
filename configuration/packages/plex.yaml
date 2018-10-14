@@ -9,7 +9,7 @@ automation:
        data_template:
          topic: 'plex/update'
          payload_template: >
-           {{ (trigger.data['payload'] | string)[12:][:-2] }}
+           {{ (trigger.data['payload'] | string)[12:][:-2] | replace ("\\\\", "\\") | replace ("\'", "'") }}
  
      - service: notify.slackbot
        data_template:
