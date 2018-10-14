@@ -6,9 +6,9 @@ automation:
       webhook_id: !secret plex_webhook
     action:
      - service: mqtt.publish
-        data_template:
-          topic: 'plex/update'
-          payload_template: "{{ (trigger.data['payload'] | string)[12:][:-2] }}"
+       data_template:
+         topic: 'plex/update'
+         payload_template: "{{ (trigger.data['payload'] | string)[12:][:-2] }}"
 
   - alias: Plex Webhook As Json
     initial_state: 'on'
