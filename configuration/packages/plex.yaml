@@ -1,0 +1,21 @@
+automation:
+  - alias: Plex Webhook
+    initial_state: 'on'
+    trigger:
+      platform: webhook
+      webhook_id: !secret plex_webhook
+    action:
+     - service: mqtt.publish
+        data_template:
+          topic: 'plex/update'
+          payload_template: "{{ (trigger.data['payload'] | string)[12:][:-2] }}"
+
+  - alias: Plex Webhook As Json
+    initial_state: 'on'
+    trigger:
+      platform: mqtt
+      topic: 'plex/update'
+    action:
+      - service: notify.slackbot
+        data_template:
+          message: "Plex event: {{ value_json.event }} - {{ value_json.Player.title }} - {{ value_json.Account.title }}"
