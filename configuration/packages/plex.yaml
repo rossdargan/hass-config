@@ -22,12 +22,24 @@ automation:
       platform: mqtt
       topic: 'plex/update'
     action:
+      - service: mqtt.publish
+        data_template:
+          topic: 'plex/update'
+          payload_template: 
       - service: script.process_plex_message
         data_template:
           event: "{{ trigger.payload_json.event }}"
           player: "{{ trigger.payload_json.Player.title }}"
           account: "{{ trigger.payload_json.Account.title }}"
-
+          
+          
+sensor:
+  - platform: mqtt
+    state_topic: "plex/update"
+    value_template: "{{ trigger.payload_json.event }}"
+    json_attributes:
+      - Account.title
+      - Player.title
 
 script:
   process_plex_message:
