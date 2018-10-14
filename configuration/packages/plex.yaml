@@ -10,7 +10,6 @@ automation:
          topic: 'plex/update'
          payload_template: >
            {{ (trigger.data['payload'] | string)[12:][:-2] | replace ("\\\\", "\\") | replace ("\\\'", "'") | replace ("\\x","?") }}
- 
   #   - service: notify.slackbot
   #     data_template:
   #       message: >
@@ -47,6 +46,9 @@ sensor:
     name: "Office Plex"
     state_topic: "plex/update/office"    
     value_template: "{{ value_json.event }}"
+    json_attributes:
+      - Account.title
+    
     
 script:
   process_plex_message:
