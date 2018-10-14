@@ -6,4 +6,4 @@
   action:
     service_template: notify.slackbot
     data_template: 
-      message: "{{ ((trigger.data['payload'] | string)[12:][:-2]|tojson).event }}"
+      message: "{{ (trigger.data['payload'] | string)[12:][:-2] }}"
