@@ -8,10 +8,10 @@ automation:
      - service: mqtt.publish
        data_template:
          topic: 'plex/update'
-         payload_template: "{{ (trigger.data['payload'] | string)[12:][:-2] |replace("\\\"","") | replace("\'","")  }}"
+         payload_template: "{{ (trigger.data['payload'] | string)[12:][:-2] |replace('\\\"','') | replace('\'','')  }}"
      - service: notify.slackbot
        data_template:
-         message: "Original: {{ (trigger.data['payload'] | string)[12:][:-2] |replace("\\\"","") | replace("\'","") }}"
+         message: "Original: {{ (trigger.data['payload'] | string)[12:][:-2] |replace('\\\"','') | replace('\'','') }}"
 
   - alias: Plex Webhook As Json
     initial_state: 'on'
