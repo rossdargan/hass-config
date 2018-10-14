@@ -10,8 +10,8 @@ automation:
          topic: 'plex/update'
          payload_template: "{{ (trigger.data['payload'] | string)[12:][:-2] }}"
      - service: notify.slackbot
-        data_template:
-          message: "Original: {{ (trigger.data['payload'] | string)[12:][:-2] }}"
+       data_template:
+         message: "Original: {{ (trigger.data['payload'] | string)[12:][:-2] }}"
 
   - alias: Plex Webhook As Json
     initial_state: 'on'
