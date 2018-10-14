@@ -16,6 +16,20 @@ automation:
   #       message: >
   #        Original: {{ (trigger.data['payload'] | string)[12:][:-2]| replace ("\\\\", "\\") | replace ("\\\'", "'") | replace ("\\x","?")}}
 
+  - alias: Plex Office
+    initial_state: 'on'
+    trigger:
+      platform: mqtt
+      topic: 'plex/update'
+    condition:
+      condition: template
+      value_template: "{{trigger.payload_json.Player.title == "dar-pc-01}}"
+    action:
+      - service: mqtt.publish
+        data_template:
+          topic: 'plex/update/office'
+          payload_template: {{ trigger.payload_json }}
+
   - alias: Plex Webhook As Json
     initial_state: 'on'
     trigger:
@@ -32,14 +46,6 @@ automation:
           player: "{{ trigger.payload_json.Player.title }}"
           account: "{{ trigger.payload_json.Account.title }}"
           
-          
-sensor:
-  - platform: mqtt
-    state_topic: "plex/update/office"
-    value_template: "{{ value_json.event }}"
-    json_attributes:
-      - Account.title
-      - Player.title
 
 script:
   process_plex_message:
