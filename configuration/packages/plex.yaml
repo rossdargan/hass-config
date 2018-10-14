@@ -9,11 +9,8 @@ automation:
        data_template:
          topic: 'plex/update'
          payload_template: >
-           {{ (trigger.data['payload'] | string)[12:][:-2] | replace("\"","") | replace ("\'","") | replace ("\\\\,"") }}
-     - service: notify.slackbot
-       data_template:
-         message: >
-          Updated: {{ (trigger.data['payload'] | string)[12:][:-2]  | replace("\"","") | replace ("\'","") | replace ("\\\\,"")  }}           
+           {{ (trigger.data['payload'] | string)[12:][:-2] }}
+ 
      - service: notify.slackbot
        data_template:
          message: >
