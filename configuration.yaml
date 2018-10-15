@@ -217,7 +217,6 @@ plant:
     
 recorder:  
   purge_keep_days: 2 
-  purge_interval: 3
 #  db_url: !secret sql
 ring:
   username: !secret ring_username
