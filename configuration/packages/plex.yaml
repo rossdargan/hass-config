@@ -41,7 +41,32 @@ automation:
               "Type":"{{ trigger.payload_json.Metadata.librarySectionType }}", 
               "Image":"{{ trigger.payload_json.Metadata.thumb }}" }
 
-          
+  - alias: Plex Lounge
+    initial_state: 'on'
+    trigger:
+      platform: mqtt
+      topic: 'plex/update'
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{trigger.payload_json.Player.title == 'SHIELD Android TV'}}"
+        - condition: template        
+          value_template: "{{trigger.payload_json.event != 'media.scrobble'}}"          
+        - condition: template
+          value_template: "{{trigger.payload_json.event != 'media.rate'}}"                    
+    action:
+      - service: mqtt.publish
+        data_template:
+          topic: 'plex/update/lounge'
+          retain: true
+          payload_template: >
+           {  "Event":"{{ trigger.payload_json.event }}", 
+              "Account":"{{ trigger.payload_json.Account.title }}", 
+              "Title":"{{ trigger.payload_json.Metadata.grandparentTitle }}", 
+              "Type":"{{ trigger.payload_json.Metadata.librarySectionType }}", 
+              "Image":"{{ trigger.payload_json.Metadata.thumb }}" }
+
 sensor:
   - platform: mqtt
     name: "Office Plex"
@@ -54,7 +79,17 @@ sensor:
       - Image
       - Event
     
-    
+  - platform: mqtt
+    name: "Lounge Plex"
+    state_topic: "plex/update/lounge"    
+    value_template: '{{ value_json.Event == "media.resume" or value_json.Event == "media.play" }}'  
+    json_attributes:
+      - Account
+      - Title
+      - Type
+      - Image
+      - Event
+        
     
 
 #  - alias: Plex Webhook As Json
