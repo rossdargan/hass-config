@@ -91,7 +91,8 @@
   light.bedroom_main_light_level_3:
     emulated_hue: false
     hidden: true
-
+  switch.lounge_sentsy_switch:
+    icon: mdi:spray
   script.tv_source_xbox:
     custom_ui_state_card: state-card-tiles
     config:
