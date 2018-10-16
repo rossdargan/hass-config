@@ -10,31 +10,107 @@ resources:
     type: js         
   - url: /local/custom-lovelace/thermostat-card/thermostat-card.js?v=1
     type: module    
-  - url: /local/custom-lovelace/mini-graph-card.js
+  - url: /local/custom-lovelace/mini-graph-card/mini-graph-card.js
     type: module
 views:
-    # The name of a view will be used as tab title.
-    # Might be used for other things in the future.
-  - tab_icon: mdi:home
-    title: Home
-    # Each view can have a different theme applied. Theme should be defined in the frontend.
-    theme: dark-mode
+  - icon: mdi:home
+    id: home
     cards:
+      - type: picture-glance
+        image: /local/lounge.jpg
+        title: Lounge
+        navigation_path: lounge
+        entities:
+          - binary_sensor.lounge_pir
+          - light.lounge_main_light_level
+          - light.lounge_iris
+          - light.lounge_lamp
+          - switch.lounge_floor_lamp_switch      
+          - switch.lounge_tv_switch    
+          - switch.lounge_sentsy_switch          
       - type: picture-glance
         image: /local/diningroom.jpg
         title: Dining Room
         entities:
           - binary_sensor.dining_room_pir
           - switch.dining_room_floor_lamp_switch
-          - light.diningroom
-      - type: custom:mini-graph-card
-        entity: sensor.front_door_battery
-        height: 100
-        line_width: 4
-        color: '#3498db'          
+          - light.diningroom          
+      - type: picture-glance      
+        image: /local/kitchen.jpg
+        title: Kitchen      
+        entities:
+          - binary_sensor.kitchen_pir
+      - type: picture-glance
+        image: /local/office.jpg
+        title: Office
+        entities:
+          - binary_sensor.office_pir        
+      - type: picture-glance
+        image: /local/playroom.jpg
+        title: Playroom         
+        entities:
+          - binary_sensor.playroom_pir                     
+  - icon: mdi:sofa
+    id: lounge
+    title: Lounge
+    cards:            
+      - type: media-control
+        entity: media_player.spotify    
+      - type: media-control      
+        entity: media_player.yamaha_reciever
+      - type: media-control
+        entity: media_player.shield
+      - type: media-control
+        entity: media_player.plex_d46e7ce32731388a_com_plexapp_android                
+      - type: entities
+        title: Lights
+        show_header_toggle: true
+        entities:
+          - light.lounge_main_light_level
+          - light.lounge_iris
+          - light.lounge_lamp
+          - switch.lounge_floor_lamp_switch
       - type: custom:thermostat-card
-        title: Lounge
-        entity:  climate.living_room     
+        entity:  climate.living_room    
+      - type: picture-entity
+        entity: switch.lounge_sentsy_switch
+        image: /local/scentsy.png
+        tap_action: toggle
+        name: Sentsy
+ 
+
+    # The name of a view will be used as tab title.
+    # Might be used for other things in the future.
+  - tab_icon: mdi:home
+    title: Batteries
+    cards:
+      - type: gauge
+        entity: sensor.front_door_battery
+        title: Front Door
+        unit_of_measurement: '%'
+        severity:
+          green: 50
+          yellow: 25
+          red: 0
+      - type: gauge
+        entity: sensor.ring_front_door_battery
+        title: Doorbell
+        unit_of_measurement: '%'
+        severity:
+          green: 50
+          yellow: 25
+          red: 0          
+  - tab_icon: mdi:home
+    title: Home
+    # Each view can have a different theme applied. Theme should be defined in the frontend.
+    theme: dark-mode
+    cards:
+      
+      - type: sensor
+        entity: sensor.speedtest_download
+        line_width: 4
+        color: '#3498db'             
+
       - type: custom:monster-card
         show_empty: false
         card:
