@@ -60,7 +60,7 @@
     friendly_name: "Christmas Tree"
     icon: mdi:pine-tree
   switch.lounge_floor_lamp_switch:
-    icon: floor-lamp
+    icon: mdi:floor-lamp
     friendly_name: "Lounge Floor Lamp"
   light.garage:
     icon: mdi:lamp
