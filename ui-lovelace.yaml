@@ -49,7 +49,12 @@ views:
         image: /local/playroom.jpg
         title: Playroom         
         entities:
-          - binary_sensor.playroom_pir                     
+          - binary_sensor.playroom_pir      
+      - type: picture-glance
+        image: /local/hall.jpg
+        title: Hall         
+        entities:
+          - binary_sensor.hall_pir                            
   - icon: mdi:sofa
     id: lounge
     title: Lounge
