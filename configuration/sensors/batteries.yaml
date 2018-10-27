@@ -5,7 +5,7 @@
         value_template:  "{{ states.zwave.front_door.attributes.battery_level }}"
         device_class: battery
         
-      ross_phone_battery:
+      ross_phone_battery_pixel:
         friendly_name: "Ross Phone Battery"
         value_template:  "{{ states.device_tracker.google_maps_104113982427948631716.attributes.battery_level | int }}"
         device_class: battery      
