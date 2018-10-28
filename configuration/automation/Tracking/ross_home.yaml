@@ -1,0 +1,25 @@
+
+  - alias: Ross on wifi
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: device_tracker.ross_phone
+        from: 'not_home'
+        to: 'home'
+    action:
+      - service: notify.slackbot
+        data:
+          message: "Ross on wifi!"        
+          
+
+  - alias: Kath on wifi
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: device_tracker.kathsiphone_2
+        from: 'not_home'
+        to: 'home'
+    action:
+      - service: notify.slackbot
+        data:
+          message: "kath on wifi"               
