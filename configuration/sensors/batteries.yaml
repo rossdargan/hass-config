@@ -9,3 +9,4 @@
         friendly_name: "Ross Phone Battery"
         value_template:  "{{ states.device_tracker.google_maps_104113982427948631716.attributes.battery_level | int }}"
         device_class: battery      
+        unit_of_measurement: '%'
