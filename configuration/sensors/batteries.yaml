@@ -3,7 +3,8 @@
       front_door_battery:
         friendly_name: "Front Door Battery"
         value_template:  "{{ states.zwave.front_door.attributes.battery_level }}"
-        device_class: battery
+        device_class: battery    
+        unit_of_measurement: '%'
         
       ross_phone_battery_pixel:
         friendly_name: "Ross Phone Battery"
