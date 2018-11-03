@@ -1,8 +1,8 @@
-  - alias: Ross Home alarm notification
+  - alias: Kath Home alarm notification
     initial_state: 'on'
     trigger:
       - platform: state
-        entity_id: device_tracker.kathsiphone
+        entity_id: device_tracker.kathsiphone_2
         from: 'not_home'
         to: 'home'
     condition:
@@ -21,11 +21,11 @@
           code: !secret pin
      
 
-  - alias: Kath Home alarm notification
+  - alias: Ross Home alarm notification
     initial_state: 'on'
     trigger:
       - platform: state
-        entity_id: device_tracker.google_maps_104113982427948631716
+        entity_id: device_tracker.ross_phone
         from: 'not_home'
         to: 'home'
     condition:
