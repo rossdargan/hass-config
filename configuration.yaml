@@ -168,6 +168,7 @@ device_tracker:
     devices:
       -  'KATHS-IPHONE'
       -  'Ross Phone'
+      -  'Dad Phone'
 
 frontend:
   extra_html_url:
