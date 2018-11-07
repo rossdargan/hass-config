@@ -42,3 +42,25 @@
         data:
           entity_id: alarm_control_panel.alarm
           code: !secret pin
+
+  - alias: Dad alarm notification
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: device_tracker.dad_phone
+        from: 'not_home'
+        to: 'home'
+    condition:
+      - condition: state
+        entity_id: sensor.alarm_state
+        state: 'Away'
+        for:
+          hours: 1
+    action:
+      - service: notify.slackbot
+        data:
+          message: "Alarm disarmed because Dad is now home." 
+      - service: alarm_control_panel.alarm_disarm
+        data:
+          entity_id: alarm_control_panel.alarm
+          code: !secret pin
