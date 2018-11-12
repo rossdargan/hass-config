@@ -185,9 +185,6 @@ history_graph:
     hours_to_show: 48
     refresh: 60
     
-hue:
-  bridges:
-    - host: 192.168.86.31
 http:
  api_password: !secret api_password
  ip_ban_enabled: true
