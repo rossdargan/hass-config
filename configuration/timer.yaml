@@ -2,3 +2,5 @@ electric_blanket:
   duration: '00:10:00'
 lounge_sentsy:
   duration: '01:00:00'
+kitchen_sentsy:
+  duration: '01:00:00'  
