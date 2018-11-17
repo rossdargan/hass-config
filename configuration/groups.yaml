@@ -61,7 +61,7 @@
     icon: mdi:sofa
     entities:     
       - remote.harmony_hub
-      - switch.lounge_sentsy
+      - switch.lounge_sentsy_switch
 #      - media_player.lounge_universal
       - sensor.living_room_thermostat_humidity
       - sensor.living_room_thermostat_temperature
@@ -86,6 +86,7 @@
     entities:
       - media_player.kitchen
       - group.kitchen_lights
+      - switch.kitchen_sentsy_switch
 
 
   bedroom:
