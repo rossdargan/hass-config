@@ -2,7 +2,7 @@ homeassistant:
   name: Home  
   latitude: !secret latitude
   longitude: !secret longitude  
-  elevation: 30  
+  elevation: 30
   unit_system: metric  
   time_zone: Europe/London
   customize: !include configuration/customize.yaml  
@@ -223,7 +223,7 @@ plant:
     
 recorder:  
   purge_keep_days: 2 
-#  db_url: !secret sql
+  db_url: !secret sql
 ring:
   username: !secret ring_username
   password: !secret ring_password
