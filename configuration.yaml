@@ -169,6 +169,7 @@ device_tracker:
       -  'KATHS-IPHONE'
       -  'Ross Phone'
       -  'Dad Phone'
+      -  'AlarmCom'
 
 frontend:
   extra_html_url:
