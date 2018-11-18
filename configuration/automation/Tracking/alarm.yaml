@@ -1,3 +1,22 @@
+  - alias: Alarm disconnected from the network
+    initial_state: 'on'
+    trigger:
+     - platform: state
+       entity_id: device_tracker.alarmcom
+       from: 'home'
+       to: 'not_home;
+    action:
+      - service: notify.slackbot
+        data:
+          message: "Alarm has disconnected from the network."   
+      - service: calendar.todoist_new_task
+        data:
+          content: 'Investigate why the alarm is off the network'
+          project: 'Personal'
+          priority: 1
+          due_date_string: 'Today'
+          labels: 'hass'
+
   - alias: Kath Home alarm notification
     initial_state: 'on'
     trigger:
