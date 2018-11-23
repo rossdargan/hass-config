@@ -69,7 +69,7 @@
       key: Fwd
   action:
   - service: switch.turn_off
-    entity_id: switch.lounge_floor_lamp_switch
+    entity_id: switch.lounge_floor_lamp
 
 - id: turn_on_lounge_tv
   initial_state: 'on'
