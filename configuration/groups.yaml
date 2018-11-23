@@ -204,7 +204,7 @@
       - light.lounge_main_light_level
       - light.lounge_iris
       - light.lounge_lamp
-      - switch.lounge_floor_lamp_switch
+      - switch.lounge_floor_lamp
 
   lounge_av:
     name: "Receiver"
