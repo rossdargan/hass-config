@@ -4,7 +4,7 @@
      - platform: state
        entity_id: device_tracker.alarmcom
        from: 'home'
-       to: 'not_home;
+       to: 'not_home'
     action:
       - service: notify.slackbot
         data:
