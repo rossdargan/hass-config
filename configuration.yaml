@@ -236,7 +236,7 @@ switch:
     host: 192.168.86.201
   - platform: tplink
     host: 192.168.86.202
-   - platform: tplink
+  - platform: tplink
     host: 192.168.86.203
     
 #switch:
