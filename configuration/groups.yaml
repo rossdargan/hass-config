@@ -2,7 +2,7 @@
     view: yes
     icon: mdi:home
     entities:
-      - switch.christmas_tree_switch
+      - switch.christmas_tree
       - group.important
       - binary_sensor.greenhouse_resevoir
       - alert.burglar_alarm
