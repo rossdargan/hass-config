@@ -56,7 +56,7 @@
     icon: mdi:lamp
     friendly_name: "Ross Lamp"
     emulated_hue: false
-  switch.christmas_tree_switch:
+  switch.christmas_tree:
     friendly_name: "Christmas Tree"
     icon: mdi:pine-tree
   switch.lounge_floor_lamp:
