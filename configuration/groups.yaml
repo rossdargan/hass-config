@@ -116,7 +116,7 @@
     entities:
       - media_player.playroom
       - media_player.playroom_speakers
-      - switch.playroom_tv_switch 
+      - switch.playroom_tv_2_switch 
       - light.playroom
 
   main_lights:
@@ -131,7 +131,7 @@
     name: Televisions
     entities:
       - switch.bedroom_tv_switch
-      - switch.playroom_tv_switch
+      - switch.playroom_tv_2_switch
       - switch.lounge_tv_switch
 
 
