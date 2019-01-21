@@ -78,7 +78,7 @@
       - platform: numeric_state
         entity_id: sensor.hall_main_light_power
         above: 1
-        below: 225
+        below: 120
         for:      
           minutes: 5            
     action:
