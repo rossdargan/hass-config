@@ -72,13 +72,13 @@ sensor:
     name: "Office Plex"
     state_topic: "plex/update/office"    
     value_template: '{{ value_json.Event == "media.resume" or value_json.Event == "media.play" }}'  
-    json_attributes_topic: "Account": "Account", "Title":"Title", "Type":"Type", "Image":"Image", "Event":"Event"}
+    json_attributes_topic: "plex/update/office"     
     
   - platform: mqtt
     name: "Lounge Plex"
     state_topic: "plex/update/lounge"    
     value_template: '{{ value_json.Event == "media.resume" or value_json.Event == "media.play" }}'  
-    json_attributes_topic: {"Account": "Account", "Title":"Title", "Type":"Type", "Image":"Image", "Event":"Event"}        
+    json_attributes_topic: "plex/update/lounge"       
     
 
 #  - alias: Plex Webhook As Json
