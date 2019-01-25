@@ -13,6 +13,6 @@
         data:
           entity_id: media_player.dining_room
           message: "Mummys Home. Time to behave!"
-      - service: notify.Lounge
+      - service: notify.lounge
         data: 
           message: "Mummy is home!"
