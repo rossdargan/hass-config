@@ -28,6 +28,6 @@
         data:
           entity_id: media_player.living_room_home
           message: "The bed is hot!"
-      - service: notify.Lounge
+      - service: notify.lounge
         data: 
           message: "Electric blanket is ready!"
