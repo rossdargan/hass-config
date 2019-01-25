@@ -66,7 +66,7 @@
       - sensor.living_room_thermostat_humidity
       - sensor.living_room_thermostat_temperature
       - binary_sensor.lounge_pir      
-      - sensor.lounge_main_light_power_
+      - sensor.lounge_main_light_power
       - group.lounge_lights
       - group.lounge_av    
       #- group.tv_roku
