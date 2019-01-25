@@ -73,22 +73,22 @@ sensor:
     state_topic: "plex/update/office"    
     value_template: '{{ value_json.Event == "media.resume" or value_json.Event == "media.play" }}'  
     json_attributes_topic:
-      - Account
-      - Title
-      - Type
-      - Image
-      - Event
+      - 'Account'
+      - 'Title'
+      - 'Type'
+      - 'Image'
+      - 'Event'
     
   - platform: mqtt
     name: "Lounge Plex"
     state_topic: "plex/update/lounge"    
     value_template: '{{ value_json.Event == "media.resume" or value_json.Event == "media.play" }}'  
     json_attributes_topic:
-      - Account
-      - Title
-      - Type
-      - Image
-      - Event
+      - 'Account'
+      - 'Title'
+      - 'Type'
+      - 'Image'
+      - 'Event'
         
     
 
