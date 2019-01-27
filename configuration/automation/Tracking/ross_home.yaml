@@ -2,10 +2,8 @@
   - alias: Ross on wifi
     initial_state: 'on'
     trigger:
-      - platform: state
-        entity_id: device_tracker.ross_phone
-        from: 'not_home'
-        to: 'home'
+      - platform:  webhook
+        webhook_id: !secret ross_home_webhook
     action:
       - service: notify.slackbot
         data:
@@ -15,10 +13,8 @@
   - alias: Kath on wifi
     initial_state: 'on'
     trigger:
-      - platform: state
-        entity_id: device_tracker.kathsiphone_2
-        from: 'not_home'
-        to: 'home'
+      - platform:  webhook
+        webhook_id: !secret kath_home_webhook
     action:
       - service: notify.slackbot
         data:

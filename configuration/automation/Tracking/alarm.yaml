@@ -20,10 +20,8 @@
   - alias: Kath Home alarm notification
     initial_state: 'on'
     trigger:
-      - platform: state
-        entity_id: device_tracker.kathsiphone_2
-        from: 'not_home'
-        to: 'home'
+      - platform:  webhook
+        webhook_id: !secret kath_home_webhook
     condition:
       - condition: state
         entity_id: sensor.alarm_state
@@ -43,10 +41,8 @@
   - alias: Ross Home alarm notification
     initial_state: 'on'
     trigger:
-      - platform: state
-        entity_id: device_tracker.ross_phone
-        from: 'not_home'
-        to: 'home'
+      - platform:  webhook
+        webhook_id: !secret ross_home_webhook
     condition:
       - condition: state
         entity_id: sensor.alarm_state
@@ -65,10 +61,8 @@
   - alias: Dad alarm notification
     initial_state: 'on'
     trigger:
-      - platform: state
-        entity_id: device_tracker.dad_phone
-        from: 'not_home'
-        to: 'home'
+      - platform:  webhook
+        webhook_id: !secret dad_home_webhook
     condition:
       - condition: state
         entity_id: sensor.alarm_state
