@@ -160,16 +160,6 @@ device_tracker:
   - platform: google_maps
     username: !secret google_username
     password: !secret google_password
-  - platform: netgear
-    username: !secret netgear_username
-    password: !secret netgear_password
-    accesspoints:
-      -  '14:59:C0:95:7F:3C'
-    devices:
-      -  'KATHS-IPHONE'
-      -  'Ross Phone'
-      -  'Dad Phone'
-      -  'AlarmCom'
 
 frontend:
   extra_html_url:
