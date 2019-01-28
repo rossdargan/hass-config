@@ -138,9 +138,12 @@ camera:
   - platform: generic
     still_image_url: https://liveimages.networkwebcams.co.uk/sd_durhamcouncil08.jpg?
     name: A1
-   - platform: generic
+  - platform: generic
     still_image_url: https://liveimages.networkwebcams.co.uk/sd_durhamcouncil13.jpg?
     name: 'Sniperley Roundabout'
+  - platform: generic
+    still_image_url: https://liveimages.networkwebcams.co.uk/sd_durhamcouncil12.jpg?  
+    name: 'Dryburn Park'    
   - platform: ring
   
 custom_updater:
