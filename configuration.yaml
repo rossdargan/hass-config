@@ -138,6 +138,9 @@ camera:
   - platform: generic
     still_image_url: https://liveimages.networkwebcams.co.uk/sd_durhamcouncil08.jpg?
     name: A1
+   - platform: generic
+    still_image_url: https://liveimages.networkwebcams.co.uk/sd_durhamcouncil13.jpg?
+    name: 'Sniperley Roundabout'
   - platform: ring
   
 custom_updater:
