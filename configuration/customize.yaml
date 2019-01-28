@@ -1,5 +1,3 @@
-  script.group_visibility:   
-   hidden: false
   switch.garage_switch_2:
     hidden: true
   switch.dead_switch_2:
