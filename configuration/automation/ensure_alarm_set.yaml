@@ -1,33 +1,33 @@
-  - alias: Ensure Alarm is set and doors locked
-    initial_state: 'on'
-    trigger:
-      platform: state
-      entity_id: climate.living_room
-      value_template: "{{ climate.living_room.attributes.away_mode }}"
-      from: 'off'
-      to: 'on'
-   condition:
-      condition: state
-      entity_id: 'group.all_locks'
-      state: 'locked'
-    action:
-      - service: notify.slackbot
-        data:
-          message: "Nest has detected nobody is home, and the front door is not locked"
-          
-  - alias: Ensure Alarm is set and alarm is on
-    initial_state: 'on'
-    trigger:
-      platform: state
-      entity_id: climate.living_room
-      value_template: "{{ climate.living_room.attributes.away_mode }}"
-      from: 'off'
-      to: 'on'
-   condition:
-      condition: state
-      entity_id: 'sensor.alarm_state'
-      state: 'Away'
-    action:
-      - service: notify.slackbot
-        data:
-          message: "Nest has detected nobody is home, and the alarm isn't set (or the sensor is broken)"          
+  alias: Ensure Alarm is set and doors locked
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: climate.living_room
+    value_template: "{{ climate.living_room.attributes.away_mode }}"
+    from: 'off'
+    to: 'on'
+ condition:
+    condition: state
+    entity_id: 'group.all_locks'
+    state: 'locked'
+  action:
+    - service: notify.slackbot
+      data:
+        message: "Nest has detected nobody is home, and the front door is not locked"
+
+  alias: Ensure Alarm is set and alarm is on
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: climate.living_room
+    value_template: "{{ climate.living_room.attributes.away_mode }}"
+    from: 'off'
+    to: 'on'
+ condition:
+    condition: state
+    entity_id: 'sensor.alarm_state'
+    state: 'Away'
+  action:
+    - service: notify.slackbot
+      data:
+        message: "Nest has detected nobody is home, and the alarm isn't set (or the sensor is broken)"          
