@@ -1,4 +1,4 @@
- -  alias: Ensure Alarm is set and doors locked
+  - alias: Ensure Alarm is set and doors locked
     initial_state: 'on'
     trigger:
       platform: state
@@ -15,7 +15,7 @@
         data:
           message: "Nest has detected nobody is home, and the front door is not locked"
 
- -  alias: Ensure Alarm is set and alarm is on
+  - alias: Ensure Alarm is set and alarm is on
     initial_state: 'on'
     trigger:
       platform: state
