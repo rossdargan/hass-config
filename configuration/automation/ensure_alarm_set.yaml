@@ -2,8 +2,7 @@
     initial_state: 'on'
     trigger:
       platform: template
-      entity_id: climate.living_room
-      value_template: "{% if is_state('climate.living_room.attributes.away_mode', 'on') %}true{% endif %}"
+      value_template: "{% if states.climate.living_room.attributes.away_mode=='on' %}true{% endif %}"
     condition:
       condition: state
       entity_id: 'group.all_locks'
@@ -17,8 +16,7 @@
     initial_state: 'on'
     trigger:
       platform: template
-      entity_id: climate.living_room
-      value_template: "{% if is_state('climate.living_room.attributes.away_mode', 'on') %}true{% endif %}"
+      value_template: "{% if states.climate.living_room.attributes.away_mode=='on' %}true{% endif %}"
     condition:
       condition: state
       entity_id: 'sensor.alarm_state'
