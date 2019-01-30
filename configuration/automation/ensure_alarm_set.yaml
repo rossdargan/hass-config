@@ -6,7 +6,7 @@
       value_template: "{{ climate.living_room.attributes.away_mode }}"
       from: 'off'
       to: 'on'
-   condition:
+    condition:
       condition: state
       entity_id: 'group.all_locks'
       state: 'locked'
@@ -23,7 +23,7 @@
       value_template: "{{ climate.living_room.attributes.away_mode }}"
       from: 'off'
       to: 'on'
-   condition:
+    condition:
       condition: state
       entity_id: 'sensor.alarm_state'
       state: 'Away'
