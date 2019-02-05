@@ -3,8 +3,7 @@
     trigger:
      - platform: state
        entity_id: device_tracker.alarmcom
-       from: 'home'
-       to: 'not_home'
+       to: 'No response received'
     action:
       - service: notify.slackbot
         data:
