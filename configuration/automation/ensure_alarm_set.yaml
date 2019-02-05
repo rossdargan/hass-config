@@ -6,7 +6,7 @@
     condition:
       condition: state
       entity_id: 'group.all_locks'
-      state: 'locked'
+      state: 'unlocked'
     action:
       - service: notify.slackbot
         data:
@@ -20,7 +20,7 @@
     condition:
       condition: state
       entity_id: 'sensor.alarm_state'
-      state: 'Away'
+      state: 'Home'
     action:
       - service: notify.slackbot
         data:
