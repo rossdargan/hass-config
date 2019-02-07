@@ -291,7 +291,16 @@ switch:
 #    body_off: '{"state": "stop"}'
 #    is_on_template: '{{ value_json is not none and value_json.state == "running" }}'
 
-
+transmission:
+  host: !secret seedbox
+  username: !secret transmission_username
+  password: !secret transmission_password
+  monitored_conditions:
+    - 'current_status'
+    - 'download_speed'
+    - 'upload_speed'
+    - 'active_torrents'
+    
 tts:
   - platform: google
   - platform: microsoft
