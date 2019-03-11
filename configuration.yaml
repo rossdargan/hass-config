@@ -220,7 +220,15 @@ recorder:
 ring:
   username: !secret ring_username
   password: !secret ring_password
-
+  
+speedtestdotnet:
+  scan_interval:
+    minutes: 30
+  monitored_conditions:
+    - ping
+    - download
+    - upload
+    
 system_health:
 
 switch:
