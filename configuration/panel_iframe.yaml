@@ -14,10 +14,6 @@
       title: 'Pi-hole'
       url: 'http://pi.hole/admin'
       icon: mdi:raspberrypi
-  docker04:
-      title: 'dar-docker-04'
-      url: 'http://192.168.86.54:61208/'
-      icon: mdi:speedometer
   docker01:
       title: 'dar-docker-01'
       url: 'http://192.168.86.51:61208/'
