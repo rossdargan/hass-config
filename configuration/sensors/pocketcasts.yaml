@@ -1,3 +1,0 @@
-  - platform: pocketcasts
-    username: !secret pocketcast_username
-    password: !secret pocketcast_password
