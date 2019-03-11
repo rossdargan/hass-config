@@ -181,8 +181,7 @@ history_graph:
 http:
  api_password: !secret api_password
  ip_ban_enabled: true
- login_attempts_threshold: 2
- trusted_proxies: 192.168.86.51
+ login_attempts_threshold: 2 
  use_x_forwarded_for: true
  
 light:
@@ -215,7 +214,6 @@ plant:
     
     
 recorder:  
-  purge_keep_days: 2 
   db_url: !secret sql
 ring:
   username: !secret ring_username
