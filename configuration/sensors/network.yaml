@@ -1,23 +1,4 @@
-  - platform: google_wifi
-  - platform: glances
-    name: docker4
-    host: 192.168.86.54
-    port: 61208
-    resources:
-      - 'disk_use_percent'
-      - 'disk_use'
-      - 'disk_free'
-      - 'memory_use_percent'
-      - 'memory_use'
-      - 'memory_free'
-      - 'swap_use_percent'
-      - 'swap_use'
-      - 'swap_free'
-      - 'processor_load'
-      - 'process_running'
-      - 'process_total'
-      - 'process_thread'
-      - 'process_sleeping'  
+  - platform: google_wifi 
   - platform: glances
     name: docker1
     host: 192.168.86.51
