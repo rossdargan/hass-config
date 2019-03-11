@@ -56,8 +56,3 @@
 #      - 'process_total'
 #      - 'process_thread'
 #      - 'process_sleeping'
-  - platform: speedtest
-    monitored_conditions:
-      - ping
-      - download
-      - upload
