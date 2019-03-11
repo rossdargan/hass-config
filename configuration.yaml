@@ -11,8 +11,8 @@ homeassistant:
 ###################################################################################
 # Standard configuration
 ###################################################################################
-emulated_roku:
-  host_ip: 192.168.86.10 # should be set to Home Assistant's address
+#emulated_roku:
+#  host_ip: 192.168.86.10 # should be set to Home Assistant's address
 
 cloud:
   alexa:
