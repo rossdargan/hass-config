@@ -1,11 +1,11 @@
-  - platform: hue
-    ip_address: 192.168.86.31
-    token: !secret hue_token
+  #- platform: hue
+  #  ip_address: 192.168.86.31
+  #  token: !secret hue_token
 
 # Extract the temperature from the motion sensor
-  - platform: template
-    sensors:
-      hall_temperature:
-        friendly_name: 'Hall temperature'
-        value_template: '{{states.sensor.hall_motion_motion.attributes.temperature}}'
-        unit_of_measurement: °C
+  #- platform: template
+  #  sensors:
+  #    hall_temperature:
+  #      friendly_name: 'Hall temperature'
+  #      value_template: '{{states.sensor.hall_motion_motion.attributes.temperature}}'
+  #      unit_of_measurement: °C
