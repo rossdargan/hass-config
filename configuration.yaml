@@ -195,7 +195,7 @@ light:
       - light.lounge_main_light_level
       - light.lounge
 mqtt:
-  broker: 192.168.86.10
+  broker: 192.168.86.51
   port: 1883
   client_id: home-assistant-1
   keepalive: 60
@@ -314,5 +314,5 @@ weather:
   
 
 influxdb:
-  host: 192.168.86.10
+  host: 192.168.86.51
   database: homeassistant
