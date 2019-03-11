@@ -20,7 +20,7 @@
         entity_id: switch.lounge_sentsy_switch
         to: 'off'
     action:
-      service: timer.stop
+      service: timer.cancel
       data:
         entity_id: timer.lounge_sentsy        
 
@@ -55,7 +55,7 @@
         entity_id: switch.kitchen_sentsy_switch
         to: 'off'
     action:
-      service: timer.stop
+      service: timer.cancel
       data:
         entity_id: timer.kitchen_sentsy        
 
