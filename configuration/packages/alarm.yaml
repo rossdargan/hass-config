@@ -36,7 +36,7 @@ sensor:
 #######################################################
   - platform: rest
     name: "Alarm State"
-    resource: http://192.168.86.54:8126/container/alarm-watchdog/exec
+    resource: http://192.168.86.51:8126/container/alarm-watchdog/exec
     method: POST
     headers: 
       content-type: application/octet-stream
