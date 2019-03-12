@@ -13,6 +13,7 @@ homeassistant:
 ###################################################################################
 #emulated_roku:
 #  host_ip: 192.168.86.10 # should be set to Home Assistant's address
+default_configuration:
 
 cloud:
   alexa:
@@ -231,16 +232,16 @@ speedtestdotnet:
     
 system_health:
 
-switch:
-  - platform: tplink
-    host: 192.168.86.200
-  - platform: tplink
-    host: 192.168.86.201
-  - platform: tplink
-    host: 192.168.86.202
-  - platform: tplink
-    host: 192.168.86.203
-    
+#switch:
+#  - platform: tplink
+#    host: 192.168.86.200
+#  - platform: tplink
+#    host: 192.168.86.201
+#  - platform: tplink
+#    host: 192.168.86.202
+#  - platform: tplink
+#    host: 192.168.86.203
+tplink:    
 #switch:
 #  - platform: rest
 #    resource: http://192.168.86.54:8126/container/grafana
