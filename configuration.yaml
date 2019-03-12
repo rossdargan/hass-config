@@ -56,14 +56,7 @@ cloud:
         - switch.dead_switch
         - switch.dead_switch_2
         - switch.dead_switch_3
-
-config:
-discovery:
-history:
 ios:
-logbook:
-map:
-sun:
 auth:
 
 ###################################################################################
@@ -230,8 +223,6 @@ speedtestdotnet:
     - download
     - upload
     
-system_health:
-
 #switch:
 #  - platform: tplink
 #    host: 192.168.86.200
