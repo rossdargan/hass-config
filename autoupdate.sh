@@ -4,7 +4,7 @@ echo -n "Verifying if $FileYouWantToTest exist..."
 if [ -f $FileYouWantToTest ]
     then
         rm -f $FileYouWantToTest
-        ./pull.sh
+    #    ./pull.sh
 	
 	cd /docker/homeassistant
 	echo -n "Pulling from Git"
