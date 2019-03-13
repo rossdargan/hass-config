@@ -16,5 +16,9 @@
       icon: mdi:raspberrypi
   docker01:
       title: 'dar-docker-01'
-      url: 'http://192.168.86.51:61208/'
-      icon: mdi:speedometer      
+      url: !secret glances_url
+      icon: mdi:gauge      
+  portainer:
+      title: 'portainer'
+      url: !secret portainer_url
+      icon: mdi:docker      
