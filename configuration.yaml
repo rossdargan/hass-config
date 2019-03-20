@@ -197,6 +197,8 @@ speedtestdotnet:
     - download
     - upload
 
+stream:
+
 tplink:    
 #switch:
 #  - platform: rest
