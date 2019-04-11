@@ -2,7 +2,7 @@
     initial_state: 'on'
     trigger:
       - platform: state
-        entity_id: lock.front_door_locked       
+        entity_id: lock.front_door  
         from: 'locked'
         to: 'unlocked'
 #    condition:
@@ -18,7 +18,7 @@
     initial_state: 'on'
     trigger:
       - platform: state
-        entity_id: lock.front_door_locked     
+        entity_id: lock.front_door
         from: 'locked'
         to: 'unlocked'
     condition:
@@ -40,7 +40,7 @@
         to: 'disarmed'
     condition:
       - condition: state
-        entity_id: lock.front_door_locked
+        entity_id: lock.front_door
         state: 'locked'
     action:
       - service: lock.unlock
