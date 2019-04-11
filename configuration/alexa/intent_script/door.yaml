@@ -1,7 +1,7 @@
   Door_Locked:  # Intent type
     speech:
       text: >
-        {% if is_state("lock.front_door_locked", "unlocked")  -%}
+        {% if is_state("lock.front_door", "unlocked")  -%}
 
           No, The door is currently unlocked
 
@@ -14,7 +14,7 @@
   Door_unlocked:  # Intent type
     speech:
       text: >
-        {% if is_state("lock.front_door_locked", "unlocked")  -%}
+        {% if is_state("lock.front_door", "unlocked")  -%}
 
           Yes, The door is currently unlocked
 
