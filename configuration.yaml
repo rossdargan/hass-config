@@ -33,6 +33,9 @@ cloud:
       switch.bedroom_tv_switch:
         display_categories: 'TV'
         name: 'Bedroom TV'
+      switch.playroom_tv_switch:
+        display_categories: 'TV'
+        name: 'Playroom TV'        
       switch.lounge_tv_switch:
         display_categories: 'TV'
         name: 'Lounge Tv'
@@ -48,14 +51,14 @@ cloud:
         - light.lounge_main_light_level
         - light.bedroom_main_light_level
         - media_player.shield        
+        - group.all_locks
+        - binary_sensor.front_door
       include_domains:
         - switch
         - lock
+        - alert
       exclude_entities:
         - switch.garage_switch_2
-        - switch.dead_switch
-        - switch.dead_switch_2
-        - switch.dead_switch_3
 ios:
 auth:
 
