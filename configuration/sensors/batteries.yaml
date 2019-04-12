@@ -14,7 +14,7 @@
         
       office_door_battery:
         friendly_name: "Office Door Battery"
-        value_template:  "{{ states.zwave.office_door.attributes.battery_level }}"
+        value_template:  "{{ states.zwave.officeroom_door.attributes.battery_level }}"
         device_class: battery    
         unit_of_measurement: '%'
         
