@@ -1,0 +1,13 @@
+  - platform: template
+    sensors:
+      front_door_lock_state:
+        friendly_name: "Front Door Lock Status"
+        value_template:  "{{ states.lock.front_door.attributes.lock_status }}"
+        
+      office_door_lock_state:
+        friendly_name: "Office Door Lock Status"
+        value_template:  "{{ states.lock.offce_door.attributes.lock_status }}"
+       
+      playroom_door_lock_state:
+        friendly_name: "Playroom Door Lock Status"
+        value_template:  "{{ states.lock.playroom_door.attributes.lock_status }}"       
