@@ -94,9 +94,9 @@
     emulated_hue: false
     hidden: true
   person.ross:
-    icon: /local/ross.png
+    entity_picture: /local/ross.png
   person.kath:
-    icon: /local/kath.png    
+    entity_picture: /local/kath.png    
   switch.kitchen_sentsy:
     icon: mdi:spray    
   switch.lounge_sentsy_switch:
