@@ -6,6 +6,18 @@
         device_class: battery    
         unit_of_measurement: '%'
         
+      playroom_door_battery:
+        friendly_name: "Playroom Door Battery"
+        value_template:  "{{ states.zwave.playroom_door.attributes.battery_level }}"
+        device_class: battery    
+        unit_of_measurement: '%'        
+        
+      office_door_battery:
+        friendly_name: "Office Door Battery"
+        value_template:  "{{ states.zwave.office_door.attributes.battery_level }}"
+        device_class: battery    
+        unit_of_measurement: '%'
+        
       ross_phone_battery_pixel:
         friendly_name: "Ross Phone Battery"
         value_template:  "{{ states.device_tracker.google_maps_104113982427948631716.attributes.battery_level | int }}"
