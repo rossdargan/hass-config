@@ -1,7 +1,7 @@
  night_time:
     speech:
       text:           >
-          {% if is_state("lock.front_door", "locked")  -%}      
+          {% if is_state("house_locks", "locked")  -%}      
            {{ [
                     "Good night, sleep tight!",
                     "Have a great nights sleep",
@@ -12,13 +12,16 @@
                     ] | random }} 
 
             {%- else -%}
+              {%- for entity_id in states.group.all_locks.attributes.entity_id if states(entity_id) == 'locked' -%}
+                        {% set parts = entity_id.split('.') -%}
+                        {%- if loop.first %} The {% elif loop.last %} and {% else %}, {% endif -%}{{ states[parts[0]][parts[1]].name }}
+                      {%- endfor %}
            {{ [
-                    "You might want to double check the door first",
-                    "Sorry, but it doesn't look like the door is locked, you might want to double check it",
-                     "I've just checked the doors and I don't think they are locked. You might want to lock it",
-                     "Sleep awaits, but you might want to lock the door first",
-                    "The door is not locked yet, you might want to fix that before going to sleep"
-                    ] | random }} 
+                    "are not locked! Please check the doors before going to sleep!",
+                    "haven't been locked, you might want to double check it",
+                    "are still unlocked. You might want to lock them first!",
+                    "haven't been locked. Sleep awaits, but lock up first!"                    
+                    ] | random }}          
                   {%- endif %} 
     action:
       service: script.night_time

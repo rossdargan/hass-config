@@ -1,25 +1,30 @@
   Door_Locked:  # Intent type
     speech:
       text: >
-        {% if is_state("lock.front_door", "unlocked")  -%}
-
-          No, The door is currently unlocked
+        {% if is_state("house_locks", "unlocked")  -%}          
+          {%- for entity_id in states.group.all_locks.attributes.entity_id if states(entity_id) == 'unlocked' -%}
+            {% set parts = entity_id.split('.') -%}
+            {%- if loop.first %} {% elif loop.last %} and the {% else %}, the {% endif -%}{{ states[parts[0]][parts[1]].name }}
+          {%- endfor %} are currently unlocked
 
         {%- else -%}
 
-         Yes, The door is locked
+         Yes, all the doors are locked
 
         {%- endif %}
       
   Door_unlocked:  # Intent type
     speech:
       text: >
-        {% if is_state("lock.front_door", "unlocked")  -%}
+        {% if is_state("house_locks", "locked")  -%}
 
-          Yes, The door is currently unlocked
+         Yes, all the doors are locked
 
         {%- else -%}
 
-        No, The door is locked
+                {%- for entity_id in states.group.all_locks.attributes.entity_id if states(entity_id) == 'unlocked' -%}
+          {% set parts = entity_id.split('.') -%}
+          {%- if loop.first %} {% elif loop.last %} and the {% else %}, the {% endif -%}{{ states[parts[0]][parts[1]].name }}
+        {%- endfor %} are currently unlocked
 
         {%- endif %}

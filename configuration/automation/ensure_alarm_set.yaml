@@ -5,12 +5,12 @@
       value_template: "{% if states.climate.living_room.attributes.away_mode=='on' %}true{% endif %}"
     condition:
       condition: state
-      entity_id: 'group.all_locks'
+      entity_id: 'group.house_locks'
       state: 'unlocked'
     action:
       - service: notify.slackbot
         data:
-          message: "Nest has detected nobody is home, and the front door is not locked"
+          message: "Nest has detected nobody is home, and there is a door not locked"
 
   - alias: Ensure Alarm is set and alarm is on
     initial_state: 'on'
