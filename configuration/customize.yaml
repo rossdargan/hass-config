@@ -16,6 +16,8 @@
     hidden: false
   group.all_switches:
     hidden: false
+  group.kitchen_lights:
+    icon: mdi:ceiling-light
   switch.hall_main_light_switch:
     icon: mdi:ceiling-light
     friendly_name: "Hall Light"
@@ -57,6 +59,8 @@
   switch.christmas_tree:
     friendly_name: "Christmas Tree"
     icon: mdi:pine-tree
+  switch.diningroom_floor_lamp:
+    icon: mdi:floor-lamp
   switch.lounge_floor_lamp:
     icon: mdi:floor-lamp
     friendly_name: "Lounge Floor Lamp"
