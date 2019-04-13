@@ -4,8 +4,8 @@
         {% if is_state("group.house_locks", "unlocked")  -%}          
           {%- for entity_id in states.group.all_locks.attributes.entity_id if states(entity_id) == 'unlocked' -%}
             {% set parts = entity_id.split('.') -%}
-            {%- if loop.first %} {% elif loop.last %} and the {% else %}, the {% endif -%}{{ states[parts[0]][parts[1]].name }}
-          {%- endfor %} are currently unlocked
+          {%- if loop.first %} the {% elif loop.last %} , {% else %} and the {% endif -%}{{ states[parts[0]][parts[1]].name }}
+          {%- endfor %} is currently unlocked
 
         {%- else -%}
 
@@ -24,7 +24,7 @@
 
                 {%- for entity_id in states.group.all_locks.attributes.entity_id if states(entity_id) == 'unlocked' -%}
           {% set parts = entity_id.split('.') -%}
-          {%- if loop.first %} {% elif loop.last %} and the {% else %}, the {% endif -%}{{ states[parts[0]][parts[1]].name }}
-        {%- endfor %} are currently unlocked
+          {%- if loop.first %} the {% elif loop.last %} , {% else %} and the {% endif -%}{{ states[parts[0]][parts[1]].name }}
+        {%- endfor %} is currently unlocked
 
         {%- endif %}
