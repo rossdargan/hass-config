@@ -45,7 +45,7 @@ cloud:
       switch.kitchen_outer_lights_switch:
         display_categories: 'LIGHT'
         name: 'Kitchen outer lights'
-      group.all_locks:
+      group.house_locks:
         display_categories: 'LOCK'
         name: 'House Locks'
     filter:      
