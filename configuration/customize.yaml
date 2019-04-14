@@ -67,6 +67,10 @@
   light.garage:
     icon: mdi:lamp
     friendly_name: "Garage Light"
+  light.office_4:    
+    icon: mdi:ceiling-light      
+  light.playroom:    
+    icon: mdi:lamp
   switch.kitchen_outer_lights_switch:
     icon: mdi:ceiling-light    
     friendly_name: "Kitchen Outer Lights"
