@@ -9,3 +9,5 @@
   #      friendly_name: 'Hall temperature'
   #      value_template: '{{states.sensor.hall_motion_motion.attributes.temperature}}'
   #      unit_of_measurement: °C
+
+  - platform: huesensor
