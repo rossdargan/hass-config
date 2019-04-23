@@ -136,6 +136,7 @@ device_tracker:
   - platform: google_maps
     username: !secret google_username
     password: !secret google_password
+  - platform: huesensor
 
 frontend:
   extra_html_url:
