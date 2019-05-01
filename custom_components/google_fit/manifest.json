@@ -1,0 +1,8 @@
+{
+    "domain": "https://github.com/hemantkamalakar/haconfigs/tree/master/custom_components/google_fit",
+    "name": "Google Fit",
+    "documentation": "https://github.com/hemantkamalakar/haconfigs/tree/master/custom_components/google_fit",
+    "dependencies": [],
+    "codeowners": ["@hemantkamalakar"],
+    "requirements": []
+  }
