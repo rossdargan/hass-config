@@ -255,6 +255,9 @@ script:
         data:
           icon: "https://www.the-dargans.co.uk/local/{{ name|lower }}.png"
           tag: 'alarm'
+    - service: notify.slackbot    
+      data_template: 
+        message: 'Alarm put in {{ action }} by {{ name }}'
     - service: mqtt.publish
       data_template:
         topic: 'alarm/state'
