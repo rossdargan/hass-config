@@ -248,13 +248,13 @@ script:
       data_template:
         title: 'Alarm {{action}}'
         message: 'Alarm put in {{ action }} by {{ name }}'
-    - service: notify.html5
-      data_template:
-        title: 'Alarm {{action}}'
-        message: 'Alarm put in {{ action }} by {{ name }}'
-        data:
-          icon: "https://www.the-dargans.co.uk/local/{{ name|lower }}.png"
-          tag: 'alarm'
+#    - service: notify.html5
+#      data_template:
+#        title: 'Alarm {{action}}'
+#        message: 'Alarm put in {{ action }} by {{ name }}'
+#        data:
+#          icon: "https://www.the-dargans.co.uk/local/{{ name|lower }}.png"
+#          tag: 'alarm'
     - service: notify.slackbot    
       data_template: 
         message: 'Alarm put in {{ action }} by {{ name }}'
