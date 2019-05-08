@@ -22,7 +22,7 @@ alert:
     notifiers:
       - slackbot
       - ios_kaths_iphone
-      - html5_ross_phone
+    #  - html5_ross_phone
 
 ###################################################
 # Display the last alarm state
