@@ -160,8 +160,6 @@ http:
  use_x_forwarded_for: true
  
 light:
-  - platform: hue
-    allow_in_emulated_hue: false
   - platform: group
     name: Lounge Lights
     entities:
