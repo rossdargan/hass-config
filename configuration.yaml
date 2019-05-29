@@ -273,7 +273,6 @@ transmission:
     - 'active_torrents'
     
 tts:
-  - platform: google
   - platform: microsoft
     api_key: !secret microsoft_tts_key
 
