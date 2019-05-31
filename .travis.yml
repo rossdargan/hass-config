@@ -14,6 +14,7 @@ before_install:
 - sudo add-apt-repository ppa:jonathonf/ffmpeg-3 -y
 - sudo apt-get update
 - sudo apt-get install ffmpeg
+- ffmpeg -version
 
 install:
 - pip3 install homeassistant
