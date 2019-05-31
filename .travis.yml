@@ -11,7 +11,7 @@ before_install:
 #- ./configure --disable-static --enable-shared --disable-doc
 #- make
 #- sudo make install
-- sudo add-apt-repository ppa:jonathonf/ffmpeg-4
+- sudo add-apt-repository ppa:jonathonf/ffmpeg-4 -y
 - sudo apt-get update
 - sudo apt-get install ffmpeg
 
