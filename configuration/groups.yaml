@@ -12,7 +12,7 @@
       - group.work_sensors
       - binary_sensor.seedbox
       - binary_sensor.home
-      - device_tracker.kathsiphone
+      - device_tracker.iphone
       - device_tracker.google_maps_104113982427948631716
       - climate.living_room
       - sensor.greenhouse_temperature

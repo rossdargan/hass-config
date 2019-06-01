@@ -8,4 +8,4 @@ find_kaths_phone:
     - service: mqtt.publish
       data:
         topic: /findphone
-        payload: "Kath's iPhone"       
+        payload: "iPhone"       

@@ -21,7 +21,6 @@ alert:
     skip_first: False
     notifiers:
       - slackbot
-      - ios_kaths_iphone
     #  - html5_ross_phone
 
 ###################################################
@@ -244,7 +243,7 @@ script:
   alarm_messages:
     alias: '_Notify when a the alarm mode is changed'
     sequence:
-    - service: notify.ios_kaths_iphone
+    - service: notify.iphone
       data_template:
         title: 'Alarm {{action}}'
         message: 'Alarm put in {{ action }} by {{ name }}'

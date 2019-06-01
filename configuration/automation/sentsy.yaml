@@ -80,7 +80,7 @@
       - platform: zone
         event: leave
         zone: zone.kath_work
-        entity_id: device_tracker.kathsiphone
+        entity_id: device_tracker.iphone
     condition:
       - condition: time
         after: '16:00:00'      # after 4 pm

@@ -179,7 +179,7 @@ views:
         aspect_ratio: 100%
         entities:         
           - device_tracker.google_maps_104113982427948631716
-          - device_tracker.kathsiphone
+          - device_tracker.iphone
 
   - tab_icon: mdi:home-assistant
     # Name of the view. Will be used as the tooltip for tab icon
