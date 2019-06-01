@@ -131,7 +131,7 @@
     name: Televisions
     entities:
       - switch.bedroom_tv_switch
-      - switch.playroom_tv_2_switch
+      - switch.playroom_tv_switch
       - switch.lounge_tv_switch
 
 
