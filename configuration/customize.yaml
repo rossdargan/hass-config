@@ -35,7 +35,7 @@
   switch.bedroom_tv_switch:
     icon: mdi:television
     friendly_name: "Bedroom TV"
-  switch.playroom_tv_2_switch:
+  switch.playroom_tv_switch:
     icon: mdi:television
     friendly_name: "Playroom TV"
   switch.electric_blanket_switch:
