@@ -12,7 +12,7 @@
       - condition: template
         value_template: "{{ trigger.to_state.state != 'None' }}"
     action:
-      - service: notify.slackbot
+      - service: notify.html5
         data_template:
           title: "{{ states.persistent_notification.httplogin.attributes.message }}"
           message: 'url: https://whatismyipaddress.com/ip/{{ states.persistent_notification.httplogin.attributes.message.split ("from ") [1]}}'

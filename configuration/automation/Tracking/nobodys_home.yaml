@@ -1,4 +1,4 @@
-  - alias: Kath Home notification
+  - alias: Everyonrs out, alarm not set
     initial_state: 'on'
     trigger:
       - platform: state
@@ -10,7 +10,7 @@
         entity_id: alarm_control_panel.alarm
         state: 'disarmed'
     action:
-      - service: notify.slackbot
+      - service: notify.html5_rossphone
         data:
           message: "Everyones out - and alarms not set!"      
 

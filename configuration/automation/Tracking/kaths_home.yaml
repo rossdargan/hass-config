@@ -6,7 +6,7 @@
         from: 'not_home'
         to: 'home'
     action:
-      - service: notify.slackbot
+      - service: notify.html5_rossphone
         data:
           message: "Kaths Home!"
       - service: tts.google_say

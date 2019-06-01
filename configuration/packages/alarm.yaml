@@ -21,6 +21,7 @@ alert:
     skip_first: False
     notifiers:
       - slackbot
+      - html5
     #  - html5_ross_phone
 
 ###################################################
@@ -247,16 +248,13 @@ script:
       data_template:
         title: 'Alarm {{action}}'
         message: 'Alarm put in {{ action }} by {{ name }}'
-#    - service: notify.html5
-#      data_template:
-#        title: 'Alarm {{action}}'
-#        message: 'Alarm put in {{ action }} by {{ name }}'
-#        data:
-#          icon: "https://www.the-dargans.co.uk/local/{{ name|lower }}.png"
-#          tag: 'alarm'
-    - service: notify.slackbot    
-      data_template: 
+    - service: notify.html5
+      data_template:
+        title: 'Alarm {{action}}'
         message: 'Alarm put in {{ action }} by {{ name }}'
+        data:
+          icon: "https://www.the-dargans.co.uk/local/{{ name|lower }}.png"
+          tag: 'alarm'   
     - service: mqtt.publish
       data_template:
         topic: 'alarm/state'

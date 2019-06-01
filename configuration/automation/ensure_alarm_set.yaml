@@ -8,7 +8,7 @@
       entity_id: 'group.house_locks'
       state: 'unlocked'
     action:
-      - service: notify.slackbot
+      - service: notify.html5
         data:
           message: "Nest has detected nobody is home, and there is a door not locked"
 
@@ -22,6 +22,6 @@
       entity_id: 'sensor.alarm_state'
       state: 'Home'
     action:
-      - service: notify.slackbot
+      - service: notify.html5
         data:
           message: "Nest has detected nobody is home, and the alarm isn't set (or the sensor is broken)"          
