@@ -244,10 +244,15 @@ script:
   alarm_messages:
     alias: '_Notify when a the alarm mode is changed'
     sequence:
-    - service: notify.iphone
+    - service: mqtt.publish
       data_template:
-        title: 'Alarm {{action}}'
-        message: 'Alarm put in {{ action }} by {{ name }}'
+        topic: 'alarm/state'
+        payload_template: '{{ action.replace(" Mode", "").replace(" mode", "").replace("Disarm","disarmed").replace("Away","armed_away").replace("Home", "armed_home") }}'
+        retain: true    
+   # - service: notify.iphone
+   #   data_template:
+   #     title: 'Alarm {{action}}'
+   #     message: 'Alarm put in {{ action }} by {{ name }}'
     - service: notify.html5
       data_template:
         title: 'Alarm {{action}}'
@@ -255,11 +260,7 @@ script:
         data:
           icon: "https://www.the-dargans.co.uk/local/{{ name|lower }}.png"
           tag: 'alarm'   
-    - service: mqtt.publish
-      data_template:
-        topic: 'alarm/state'
-        payload_template: '{{ action.replace(" Mode", "").replace(" mode", "").replace("Disarm","disarmed").replace("Away","armed_away").replace("Home", "armed_home") }}'
-        retain: true
+
 
 ###################################################
 # Alarm sensor groups
