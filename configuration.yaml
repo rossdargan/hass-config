@@ -16,52 +16,6 @@ homeassistant:
 default_config:
 
 cloud:
-  alexa:
-    entity_config:
-      switch.hall_main_light_switch:
-        display_categories: 'LIGHT'
-        name: 'Hall Light'
-      switch.garage_switch:
-        name: 'Garage Light'
-        display_categories: 'LIGHT'        
-      switch.dining_room_floor_lamp_switch:
-        name: 'Dining room floor lamp'
-        display_categories: 'LIGHT'
-      switch.lounge_floor_lamp:
-        display_categories: 'LIGHT'
-        name: 'Lounge floor lamp'
-      switch.bedroom_tv_switch:
-        display_categories: 'TV'
-        name: 'Bedroom TV'
-      switch.playroom_tv_switch:
-        display_categories: 'TV'
-        name: 'Playroom TV'        
-      switch.lounge_tv_switch:
-        display_categories: 'TV'
-        name: 'Lounge Tv'
-      switch.electric_blanket_switch:
-        display_categories: 'SMARTPLUG'
-        name: 'Electric Blanket'
-      switch.kitchen_outer_lights_switch:
-        display_categories: 'LIGHT'
-        name: 'Kitchen outer lights'
-      group.house_locks:
-        display_categories: 'LOCK'
-        name: 'House Locks'
-    filter:      
-      include_entities:
-        - light.kitchen_main_light_level
-        - light.lounge_main_light_level
-        - light.bedroom_main_light_level
-        - media_player.shield        
-        - group.all_locks
-        - binary_sensor.front_door
-      include_domains:
-        - switch
-        - lock
-        - alert
-      exclude_entities:
-        - switch.garage_switch_2
 ios:
 auth:
 
