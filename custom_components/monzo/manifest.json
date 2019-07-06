@@ -1,5 +1,5 @@
 {
-  "domain": "https://github.com/rossdargan/hass-config",
+  "domain": "monzo",
   "name": "Monzo",
   "documentation": "https://github.com/rossdargan/hass-config",
   "dependencies": [],
