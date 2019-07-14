@@ -7,7 +7,7 @@
     action:
       service: light.turn_on
       data:
-        entity_id: light.office
+        entity_id: light.office_lightstrip
     
      
   - alias: Front door state change (off)
@@ -19,5 +19,5 @@
     action:
       service: light.turn_off
       data:
-        entity_id: light.office
+        entity_id: light.office_lightstrip
     
