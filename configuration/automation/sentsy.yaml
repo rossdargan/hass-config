@@ -41,7 +41,7 @@
     initial_state: 'on'
     trigger:
       - platform: state
-        entity_id: switch.kitchen_sentsy_switch
+        entity_id: switch.kitchen_sentsy
         to: 'on'
     action:
       service: timer.start
@@ -52,7 +52,7 @@
     initial_state: 'on'
     trigger:
       - platform: state
-        entity_id: switch.kitchen_sentsy_switch
+        entity_id: switch.kitchen_sentsy
         to: 'off'
     action:
       service: timer.cancel
@@ -69,7 +69,7 @@
     action:
       - service: switch.turn_off
         data:
-          entity_id: switch.kitchen_sentsy_switch   
+          entity_id: switch.kitchen_sentsy   
 
 
 ## Turn on sentsy when Kath leaves work
