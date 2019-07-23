@@ -22,7 +22,3 @@
       title: 'portainer'
       url: !secret portainer_url
       icon: mdi:docker      
-  custom_components:
-      title: 'custom'
-      url: !secret custom_components
-      icon: mdi:store
