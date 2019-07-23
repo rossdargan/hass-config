@@ -1,0 +1,10 @@
+  platform: hadockermon
+  host: 192.168.86.51
+  port: 8126
+  stats: true
+  name: hadockermon
+  containers:
+    - 'openvpn'
+    - 'home-assistant'
+    - 'alarm-watchdog'
+    - 'alarm-mqtt'
