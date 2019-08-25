@@ -25,6 +25,7 @@ automation:
 ####################################################
 ###      Alarm triggerd notifications            ###
 ####################################################
+automation:
   - alias: 'Send notification when alarm triggered'
     trigger:
       - platform: state
@@ -39,6 +40,7 @@ automation:
 
 
 #################### Disarm actions ######################
+automation:
   - alias: Front unlocked
     initial_state: 'on'
     trigger:
