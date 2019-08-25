@@ -14,3 +14,6 @@
  - platform: nfandroidtv
    name: Lounge
    host: 192.168.86.24
+
+ - platform: twilio_call
+   from_number: !secret twillio_from_number
