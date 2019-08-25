@@ -72,6 +72,8 @@ automation:
           topic: 'alarm/state'
           payload: 'triggered'
           retain: true
+      - service: alarm_control_panel.alarm_trigger # trigger the manual alarm now...
+        entity_id: alarm_control_panel.ha_alarm
 ###################################################
 # Turn off the PIRs when HASS starts up.
 # If a PIR is on, and HASS restarts it will never be turned off.
