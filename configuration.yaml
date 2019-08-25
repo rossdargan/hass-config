@@ -91,7 +91,6 @@ device_tracker:
     account_name: Apple
   - platform: google_maps
     username: !secret google_username
-    password: !secret google_password  
 
 frontend:
   extra_html_url:
