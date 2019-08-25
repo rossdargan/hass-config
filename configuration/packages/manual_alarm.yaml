@@ -25,43 +25,41 @@ automation:
 ####################################################
 ###      Alarm triggerd notifications            ###
 ####################################################
-automation:
-  - alias: 'Send notification when alarm triggered'
-    trigger:
-      - platform: state
-        entity_id: alarm_control_panel.ha_alarm
-        to: 'triggered'
-    action:
-      - service: notify.twilio
-        data:
-          message: "ALARM! The alarm has been triggered"
-          target: !secret ross_mobile_number
+- alias: 'Send notification when alarm triggered'
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.ha_alarm
+      to: 'triggered'
+  action:
+    - service: notify.twilio
+      data:
+        message: "ALARM! The alarm has been triggered"
+        target: !secret ross_mobile_number
 
 
 
 #################### Disarm actions ######################
-automation:
-  - alias: Front unlocked
-    initial_state: 'on'
-    trigger:
-      - platform: state
-        entity_id: lock.front_door
-        from: 'locked'
-        to: 'unlocked'
-      - platform: state
-        entity_id: lock.office_door
-        from: 'locked'
-        to: 'unlocked'
-      - platform: state
-        entity_id: lock.playroom_door
-        from: 'locked'
-        to: 'unlocked'                
-    condition:
-      - condition: state
-        entity_id: alarm_control_panel.ha_alarm
-        state: 'armed_away'
-    action:
-      - service: alarm_control_panel.alarm_disarm
-        data:
-           entity_id: alarm_control_panel.ha_alarm
-           code: !secret pin
+- alias: Front unlocked
+  initial_state: 'on'
+  trigger:
+    - platform: state
+      entity_id: lock.front_door
+      from: 'locked'
+      to: 'unlocked'
+    - platform: state
+      entity_id: lock.office_door
+      from: 'locked'
+      to: 'unlocked'
+    - platform: state
+      entity_id: lock.playroom_door
+      from: 'locked'
+      to: 'unlocked'                
+  condition:
+    - condition: state
+      entity_id: alarm_control_panel.ha_alarm
+      state: 'armed_away'
+  action:
+    - service: alarm_control_panel.alarm_disarm
+      data:
+          entity_id: alarm_control_panel.ha_alarm
+          code: !secret pin
