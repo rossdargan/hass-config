@@ -172,10 +172,10 @@ tts:
   - platform: microsoft
     api_key: !secret microsoft_tts_key
 
-twillio:
-  account_sid: !secret twillio_account_sid
-  auth_token: !secret twillio_auth_token
-  
+twilio:
+  account_sid: !secret twilio_account_sid
+  auth_token: !secret twilio_auth_token
+
 zwave:
   usb_path: /dev/ttyUSB0
   network_key: !secret zwave_key
