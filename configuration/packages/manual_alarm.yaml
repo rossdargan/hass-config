@@ -3,7 +3,14 @@ alarm_control_panel:
     state_topic: home/alarm
     command_topic: home/alarm/set
     code: !secret pin
+    delay_time: 20 #20 seconds to disarm the alarm
     code_arm_required: false    
+
+input_boolean:
+  test_mode:
+    name: Put the alarm into test mode
+    initial: off
+    icon: mdi:mdi-volume-off
 
 #################################################
 ###               Triggers                    ###
@@ -30,12 +37,18 @@ automation:
     - platform: state
       entity_id: alarm_control_panel.ha_alarm
       to: 'triggered'
+  condition:
+    - condition: state
+      entity_id: input_boolean.test_mode
+      state: 'off'     
   action:
     - service: notify.twilio
       data:
         message: "ALARM! The alarm has been triggered"
-        target: !secret ross_mobile_number
-
+        target: !secret ross_mobile_number   
+    - service: notify.html5
+      data:
+        message: "ALARM! The alarm has been triggered"
 
 
 #################### Disarm actions ######################
@@ -63,3 +76,61 @@ automation:
       data:
           entity_id: alarm_control_panel.ha_alarm
           code: !secret pin
+
+
+###################Notify when alarm goes off script########
+script:
+  flash_lights:
+    sequence:
+      - condition: state
+        entity_id: alarm_control_panel.ha_alarm
+        state: 'triggered'
+      - service: light.turn_on
+        entity_id: group.all_lights
+        color_name: "red"
+      - delay: '00:00:1'
+      - condition: state
+        entity_id: alarm_control_panel.ha_alarm
+        state: 'triggered'      
+      - service: light.turn_off
+        entity_id: group.all_lights      
+      - delay: '00:00:1'        
+  alarm_triggered:
+    sequence:
+      - service: notify.twilio
+        data:
+          message: "ALARM! The alarm has been triggered"
+          target: !secret ross_mobile_number
+      - service: notify.html5
+        data:
+          message: "ALARM! The alarm has been triggered"          
+      - service: script.flash_lights
+      - service: script.flash_lights
+      - service: script.flash_lights
+      - service: script.flash_lights
+      - service: script.flash_lights
+      - service: script.flash_lights
+      - service: script.flash_lights
+      - service: script.flash_lights
+      - service: script.flash_lights
+      - service: script.flash_lights
+      - service: script.flash_lights
+      - service: script.flash_lights
+      - service: script.flash_lights
+      - service: script.flash_lights
+      - service: script.flash_lights
+      - service: script.flash_lights
+      - service: script.flash_lights
+      - service: script.flash_lights
+      - service: script.flash_lights
+      - service: script.flash_lights
+      - service: script.flash_lights
+      - service: script.flash_lights
+      - service: script.flash_lights
+      - service: script.flash_lights
+      - service: script.flash_lights
+      - service: script.flash_lights
+      - service: script.flash_lights
+      - service: script.flash_lights
+      - service: script.flash_lights
+      - service: script.flash_lights                                                                                                                                                                              
