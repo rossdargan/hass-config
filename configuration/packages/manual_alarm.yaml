@@ -3,8 +3,14 @@ alarm_control_panel:
     state_topic: home/alarm
     command_topic: home/alarm/set
     code: !secret pin
-    delay_time: 20 #20 seconds to disarm the alarm
     code_arm_required: false    
+    armed_away:
+      delay_time: 20 # 20 seconds to disarm the alarm
+      pending_time: 10 # 10 seconds to leave...
+    armed_home:
+      delay_time: 60 # 60 seconds trigger when at home
+    triggered:
+      pending_time: 0 # no pending time when the alarm is triggered - use the delay time
 
 input_boolean:
   test_mode:
@@ -42,7 +48,7 @@ automation:
     entity_id: alarm_control_panel.ha_alarm
 
 ####################################################
-###      Alarm triggerd notifications            ###
+###      Alarm triggered notifications            ###
 ####################################################
 - alias: 'Send notification when alarm triggered'
   trigger:
@@ -56,6 +62,19 @@ automation:
   action:
     - service: script.alarm_triggered
 
+#########################################################
+###                   Alarm set                       ###
+#########################################################
+- alias: 'Send notification when alarm is set'
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.home_alarm
+      from: 'disarmed'
+      to: 'pending'
+  action:
+    - service: mqtt.publish
+      topic: 'alarmpanel/command'
+      payload_template: '{"speak":"Alarm is setting, all the doors are locked"}'
 
 #################### Disarm actions ######################
 - alias: Door unlocked
@@ -97,8 +116,6 @@ script:
         state: 'triggered'
       - service: light.turn_on
         entity_id: all
-        data:
-          color_name: "red"
       - delay: '00:00:1'
       - condition: state
         entity_id: alarm_control_panel.ha_alarm
@@ -115,33 +132,8 @@ script:
       - service: notify.html5
         data:
           message: "ALARM! The alarm has been triggered"          
-      - service: script.flash_lights
-      - service: script.flash_lights
-      - service: script.flash_lights
-      - service: script.flash_lights
-      - service: script.flash_lights
-      - service: script.flash_lights
-      - service: script.flash_lights
-      - service: script.flash_lights
-      - service: script.flash_lights
-      - service: script.flash_lights
-      - service: script.flash_lights
-      - service: script.flash_lights
-      - service: script.flash_lights
-      - service: script.flash_lights
-      - service: script.flash_lights
-      - service: script.flash_lights
-      - service: script.flash_lights
-      - service: script.flash_lights
-      - service: script.flash_lights
-      - service: script.flash_lights
-      - service: script.flash_lights
-      - service: script.flash_lights
-      - service: script.flash_lights
-      - service: script.flash_lights
-      - service: script.flash_lights
-      - service: script.flash_lights
-      - service: script.flash_lights
-      - service: script.flash_lights
-      - service: script.flash_lights
-      - service: script.flash_lights                                                                                                                                                                              
+      - service: light.turn_on
+        entity_id: all
+        data:
+          color_name: "red"          
+      - service: script.flash_lights                                                                                                                                                                
