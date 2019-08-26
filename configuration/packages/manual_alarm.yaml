@@ -47,9 +47,9 @@ automation:
     service: alarm_control_panel.alarm_trigger
     entity_id: alarm_control_panel.ha_alarm
 
-####################################################
+#####################################################
 ###      Alarm triggered notifications            ###
-####################################################
+#####################################################
 - alias: 'Send notification when alarm triggered'
   trigger:
     - platform: state
@@ -65,7 +65,7 @@ automation:
 #########################################################
 ###                   Alarm set                       ###
 #########################################################
-- alias: 'Send notification when alarm is set'
+- alias: 'Alarm Arming'
   trigger:
     - platform: state
       entity_id: alarm_control_panel.ha_alarm
@@ -94,8 +94,25 @@ automation:
       data:
         color_name: "red"          
         transition: 30
+    - service: light.turn_on
+      entity_id: light.hall
+      data:        
+        brightness: 30        
 
-- alias: 'Send notification when alarm is set'
+- alias: 'Alarm Armed'
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.ha_alarm
+      from: 'pending'
+      to: 'armed_away'
+  action:
+    - service: light.turn_on
+      entity_id: light.hall
+      data:        
+        color_name: "red"          
+        brightness: 30        
+
+- alias: 'Alarm Deactivated'
   trigger:
     - platform: state
       entity_id: alarm_control_panel.ha_alarm
@@ -105,7 +122,12 @@ automation:
       entity_id: light.hall
       data:
         color_name: "green"  
-
+    - delay:
+        seconds: 10
+    - service: light.turn_on
+      entity_id: light.hall
+      data:
+        color_name: "green"  
 
 #################### Disarm actions ######################
 - alias: Door unlocked
