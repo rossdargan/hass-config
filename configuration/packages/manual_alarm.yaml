@@ -80,7 +80,7 @@ automation:
       data:
         topic: 'alarmpanel/command'
         payload_template: >
-          '{"speak":"{% if is_state("lock.office_door", "locked") and is_state("lock.playroom_door", "locked")   -%}
+          {"speak":"{% if is_state("lock.office_door", "locked") and is_state("lock.playroom_door", "locked")   -%}
           Yes, all the doors are locked
           {%- elif is_state("lock.office_door", "unlocked") and is_state("lock.playroom_door", "unlocked")  -%}
           All the back doors are not locked
@@ -88,7 +88,7 @@ automation:
           The office door is not locked
           {%- else -%}
           The playroom door is not locked
-          {%- endif %}"}'
+          {%- endif %}"}#" This is just needed to correct vs code...
     - service: light.turn_on
       entity_id: light.hall
       data:
