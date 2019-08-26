@@ -33,7 +33,7 @@
           message: "Alarm disarmed because Kath is now home."
       - service: alarm_control_panel.alarm_disarm
         data:
-          entity_id: alarm_control_panel.alarm
+          entity_id: alarm_control_panel.ha_alarm
           code: !secret pin
      
 
@@ -54,7 +54,7 @@
           message: "Alarm disarmed because Ross is now home." 
       - service: alarm_control_panel.alarm_disarm
         data:
-          entity_id: alarm_control_panel.alarm
+          entity_id: alarm_control_panel.ha_alarm
           code: !secret pin
 
   - alias: Dad alarm notification
@@ -74,5 +74,5 @@
           message: "Alarm disarmed because Dad is now home." 
       - service: alarm_control_panel.alarm_disarm
         data:
-          entity_id: alarm_control_panel.alarm
+          entity_id: alarm_control_panel.ha_alarm
           code: !secret pin

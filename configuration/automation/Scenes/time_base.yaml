@@ -5,7 +5,7 @@
       at: '2:00:01'
     condition:
       condition: state
-      entity_id: alarm_control_panel.alarm
+      entity_id: alarm_control_panel.ha_alarm
       state: 'disarmed'
     action:
       - service: scene.turn_on
@@ -18,7 +18,7 @@
       at: '7:00:00'
     condition:
       condition: state
-      entity_id: alarm_control_panel.alarm
+      entity_id: alarm_control_panel.ha_alarm
       state: 'disarmed'
     action:
       - service: scene.turn_on

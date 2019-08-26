@@ -30,7 +30,7 @@
       entity_id: binary_sensor.front_door
       to: 'on'
     - platform: state
-      entity_id: alarm_control_panel.alarm
+      entity_id: alarm_control_panel.ha_alarm
       to: 'disarmed'
   condition:  
     - condition: sun

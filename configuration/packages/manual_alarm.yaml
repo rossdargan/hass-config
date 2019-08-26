@@ -63,7 +63,7 @@ automation:
     - service: script.alarm_triggered
 
 #########################################################
-###                   Alarm set                       ###
+###                 Alarm Modes Changed               ###
 #########################################################
 - alias: 'Alarm Arming'
   trigger:
@@ -73,9 +73,10 @@ automation:
       to: 'pending'
   action:
     - service: light.turn_on
-      entity_id: light.hall
+      entity_id: light.hall      
       data:
         color_name: "orange"        
+        brightness: 255        
     - service: mqtt.publish
       data:
         topic: 'alarmpanel/command'
@@ -94,10 +95,7 @@ automation:
       data:
         color_name: "red"          
         transition: 30
-    - service: light.turn_on
-      entity_id: light.hall
-      data:        
-        brightness: 30        
+        brightness: 255            
 
 - alias: 'Alarm Armed'
   trigger:
@@ -110,7 +108,10 @@ automation:
       entity_id: light.hall
       data:        
         color_name: "red"          
-        brightness: 30        
+        brightness: 30      
+    - delay: '00:00:50'
+    - service: scene.turn_on
+      entity_id: scene.everything_turned_off          
 
 - alias: 'Alarm Deactivated'
   trigger:
@@ -122,12 +123,10 @@ automation:
       entity_id: light.hall
       data:
         color_name: "green"  
-    - delay:
-        seconds: 10
-    - service: light.turn_on
-      entity_id: light.hall
-      data:
-        color_name: "green"  
+        brightness: 255
+    - delay: '00:00:10'
+    - service: scene.turn_on
+      entity_id: scene.day        
 
 #################### Disarm actions ######################
 - alias: Door unlocked

@@ -7,7 +7,7 @@
         to: 'not_home'
     condition:
       - condition: state        
-        entity_id: alarm_control_panel.alarm
+        entity_id: alarm_control_panel.ha_alarm
         state: 'disarmed'
     action:
       - service: notify.html5_rossphone
