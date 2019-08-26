@@ -68,7 +68,7 @@ automation:
 - alias: 'Send notification when alarm is set'
   trigger:
     - platform: state
-      entity_id: alarm_control_panel.home_alarm
+      entity_id: alarm_control_panel.ha_alarm
       from: 'disarmed'
       to: 'pending'
   action:
@@ -109,27 +109,9 @@ script:
   arm_alarm:
     sequence:
       - service: alarm_control_panel.alarm_arm_away
-        entity_id: alarm_control_panel.ha_alarm
-  flash_lights:
-    sequence:
-      - condition: state
-        entity_id: alarm_control_panel.ha_alarm
-        state: 'triggered'
-      - service: light.turn_on
-        entity_id: all
-      - delay: '00:00:1'
-      - condition: state
-        entity_id: alarm_control_panel.ha_alarm
-        state: 'triggered'      
-      - service: light.turn_off
-        entity_id: all     
-      - delay: '00:00:1'        
+        entity_id: alarm_control_panel.ha_alarm 
   alarm_triggered:
     sequence:
-      - service: notify.twilio
-        data:
-          message: "ALARM! The alarm has been triggered"
-          target: !secret ross_mobile_number
       - service: notify.html5
         data:
           message: "ALARM! The alarm has been triggered"          
@@ -137,4 +119,8 @@ script:
         entity_id: all
         data:
           color_name: "red"          
-      - service: script.flash_lights                                                                                                                                                                
+          flash: "long"                                                                                                                                             
+      - service: notify.twilio
+        data:
+          message: "ALARM! The alarm has been triggered"
+          target: !secret ross_mobile_number          
