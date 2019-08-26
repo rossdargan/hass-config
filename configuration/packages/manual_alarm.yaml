@@ -115,12 +115,14 @@ script:
       - service: notify.html5
         data:
           message: "ALARM! The alarm has been triggered"          
-      - service: light.turn_on
+      - service: light.turn_off
         entity_id: all
+      - service: light.turn_on
+        entity_id: light.downstairs
         data:
           color_name: "red"          
           flash: "long"                                                                                                                                             
       - service: notify.twilio
         data:
-          message: "ALARM! The alarm has been triggered"
+          message: "The alarm has been triggered"
           target: !secret ross_mobile_number          
