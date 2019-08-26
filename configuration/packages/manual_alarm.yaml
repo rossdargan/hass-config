@@ -97,7 +97,8 @@ script:
         state: 'triggered'
       - service: light.turn_on
         entity_id: all
-        color_name: "red"
+        data:
+          color_name: "red"
       - delay: '00:00:1'
       - condition: state
         entity_id: alarm_control_panel.ha_alarm
