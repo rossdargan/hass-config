@@ -6,7 +6,7 @@ alarm_control_panel:
     code_arm_required: false    
     armed_away:
       delay_time: 20 # 20 seconds to disarm the alarm
-      pending_time: 10 # 10 seconds to leave...
+      pending_time: 30 # 10 seconds to leave...
     armed_home:
       delay_time: 60 # 60 seconds trigger when at home
     triggered:
@@ -72,10 +72,40 @@ automation:
       from: 'disarmed'
       to: 'pending'
   action:
+    - service: light.turn_on
+      entity_id: light.hall
+      data:
+        color_name: "orange"        
     - service: mqtt.publish
       data:
         topic: 'alarmpanel/command'
-        payload: '{"speak":"Alarm is setting, all the doors are locked"}'
+        payload_template: >
+          '{"speak":"{% if is_state("lock.office_door", "locked") and is_state("lock.playroom_door", "locked")   -%}
+          Yes, all the doors are locked
+          {%- elif is_state("lock.office_door", "unlocked") and is_state("lock.playroom_door", "unlocked")  -%}
+          All the back doors are not locked
+          {%- elif is_state("lock.office_door", "unlocked") %}
+          The office door is not locked
+          {%- else -%}
+          The playroom door is not locked
+          {%- endif %}"}'
+    - service: light.turn_on
+      entity_id: light.hall
+      data:
+        color_name: "red"          
+        transition: 30
+
+- alias: 'Send notification when alarm is set'
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.ha_alarm
+      to: 'disarmed'
+  action:
+    - service: light.turn_on
+      entity_id: light.hall
+      data:
+        color_name: "green"  
+
 
 #################### Disarm actions ######################
 - alias: Door unlocked
