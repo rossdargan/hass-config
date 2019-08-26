@@ -73,8 +73,9 @@ automation:
       to: 'pending'
   action:
     - service: mqtt.publish
-      topic: 'alarmpanel/command'
-      payload: '{"speak":"Alarm is setting, all the doors are locked"}'
+      data:
+        topic: 'alarmpanel/command'
+        payload: '{"speak":"Alarm is setting, all the doors are locked"}'
 
 #################### Disarm actions ######################
 - alias: Door unlocked
