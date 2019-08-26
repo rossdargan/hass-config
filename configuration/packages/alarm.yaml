@@ -53,6 +53,8 @@ automation:
       platform: mqtt
       topic: alarm/events/Remote Control/+
     action:
+      - service: alarm_control_panel.alarm_arm_away
+        entity_id: alarm_control_panel.ha_alarm 
       - service: script.alarm_messages
         data_template:
          action: '{{ trigger.payload }}'
