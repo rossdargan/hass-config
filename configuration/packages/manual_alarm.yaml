@@ -54,13 +54,7 @@ automation:
       entity_id: input_boolean.test_mode
       state: 'off'     
   action:
-    - service: notify.twilio
-      data:
-        message: "ALARM! The alarm has been triggered"
-        target: !secret ross_mobile_number   
-    - service: notify.html5
-      data:
-        message: "ALARM! The alarm has been triggered"
+    - service: script.alarm_triggered
 
 
 #################### Disarm actions ######################
@@ -92,6 +86,10 @@ automation:
 
 ###################Notify when alarm goes off script########
 script:
+  arm_alarm:
+    sequence:
+      - service: alarm_control_panel.alarm_arm_away
+        entity_id: alarm_control_panel.ha_alarm
   flash_lights:
     sequence:
       - condition: state
