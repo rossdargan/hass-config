@@ -1,0 +1,21 @@
+- alias: MQTT Weather
+  trigger:
+  - minutes: /30
+    platform: time_pattern  
+  action:
+  - data:
+      payload_template: "{'weather':{{states.weather.dark_sky.attributes}}}"
+      retain: true
+      topic: alarmpanel/command
+    service: mqtt.publish
+
+- alias: MQTT Sun
+  trigger:
+    platform: time_pattern
+    minutes: '/30'      
+  action:
+    service: mqtt.publish
+    data:
+      payload_template: "{'sun':'{{states('sun.sun')}}'}"
+      retain: true
+      topic: alarmpanel/command
