@@ -87,6 +87,10 @@
   binary_sensor.hall_motion:
     friendly_name: "Hall Motion"
     device_class: motion
+  binary_sensor.office_motion_sensor:
+    device_class: motion
+  binary_sensor.lounge_motion_sensor:
+    device_class: motion
   binary_sensor.garage_motion_sensor:
     device_class: motion
   sensor.hall_lux:
