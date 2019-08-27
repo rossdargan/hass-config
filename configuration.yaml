@@ -192,3 +192,8 @@ influxdb:
 hacs:
   token: !secret git_token
   
+alexa_media:
+  accounts:
+    - email: !secret amazon_user
+      password: !secret amazon_password
+      url: amazon.co.uk  
