@@ -50,3 +50,26 @@
                 {{ states('sensor.lounge_motion_battery') }}
             {%- endif %}
         device_class: battery        
+
+      playroom_motion_battery:
+        friendly_name: Playroom Motion Battery
+        unit_of_measurement: '%'
+        value_template: >-
+            {%- if state_attr('binary_sensor.playroom_motion_sensor', 'battery_level') %}
+                {{ state_attr('binary_sensor.playroom_motion_sensor', 'battery_level')|round }}
+            {% else %}
+                {{ states('sensor.playroom_motion_battery') }}
+            {%- endif %}
+        device_class: battery        
+
+
+      kitchen_motion_battery:
+        friendly_name: Kitchen Motion Battery
+        unit_of_measurement: '%'
+        value_template: >-
+            {%- if state_attr('binary_sensor.kitchen_motion_sensor', 'battery_level') %}
+                {{ state_attr('binary_sensor.kitchen_motion_sensor', 'battery_level')|round }}
+            {% else %}
+                {{ states('sensor.kitchen_motion_battery') }}
+            {%- endif %}
+        device_class: battery        

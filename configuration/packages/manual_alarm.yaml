@@ -30,6 +30,8 @@ automation:
         - binary_sensor.garage_motion_sensor
         - binary_sensor.office_motion_sensor
         - binary_sensor.lounge_motion_sensor
+        - binary_sensor.kitchen_motion_sensor
+        - binary_sensor.playroom_motion_sensor
         - binary_sensor.front_door
         - binary_sensor.garage_door
         - binary_sensor.playroom_door
@@ -171,4 +173,21 @@ script:
       - service: notify.twilio
         data:
           message: "The alarm has been triggered"
-          target: !secret ross_mobile_number          
+          target: !secret ross_mobile_number       
+      - service: notify.alexa_media
+        data:
+          data:
+            type: announce
+          target: 
+            - media_player.dining_room_2
+            - media_player.garage
+            - media_player.kitchen_2
+            - media_player.office_2
+            - media_player.playroom_echo
+            - media_player.lounge
+          message: 'The Alarm has been activated, and the police have been called.'             
+      - service: media_player.play_media
+        entity_id: media_player.guest_room 
+        data:
+          media_content_id: "Warning Alarm Siren 3"
+          media_content_type: !secret AMAZON_MUSIC         
