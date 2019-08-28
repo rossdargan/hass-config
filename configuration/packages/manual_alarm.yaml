@@ -187,7 +187,7 @@ script:
             - media_player.lounge
           message: 'The Alarm has been activated, and the police have been called.'             
       - service: media_player.play_media
-        entity_id: media_player.guest_room 
+        entity_id: media_player.kitchen_2 
         data:
           media_content_id: "Warning Alarm Siren 3"
-          media_content_type: !secret AMAZON_MUSIC         
+          media_content_type: AMAZON_MUSIC         
