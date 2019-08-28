@@ -18,8 +18,35 @@
         device_class: battery    
         unit_of_measurement: '%'
         
-      ross_phone_battery_pixel:
-        friendly_name: "Ross Phone Battery"
-        value_template:  "{{ states.device_tracker.google_maps_104113982427948631716.attributes.battery_level | int }}"
-        device_class: battery      
+      hall_motion_battery:
+        friendly_name: Hall Motion Battery
         unit_of_measurement: '%'
+        value_template: >-
+            {%- if state_attr('binary_sensor.hall_motion_motion', 'battery') %}
+                {{ state_attr('binary_sensor.hall_motion_motion', 'battery')|round }}
+            {% else %}
+                {{ states('sensor.hall_motion_battery') }}
+            {%- endif %}
+        device_class: battery
+        
+      office_motion_battery:
+        friendly_name: Hall Motion Battery
+        unit_of_measurement: '%'
+        value_template: >-
+            {%- if state_attr('binary_sensor.office_motion_sensor', 'battery') %}
+                {{ state_attr('binary_sensor.office_motion_sensor', 'battery')|round }}
+            {% else %}
+                {{ states('sensor.office_motion_battery') }}
+            {%- endif %}
+        device_class: battery
+        
+      lounge_motion_battery:
+        friendly_name: Lounge Motion Battery
+        unit_of_measurement: '%'
+        value_template: >-
+            {%- if state_attr('binary_sensor.lounge_motion_sensor', 'battery') %}
+                {{ state_attr('binary_sensor.lounge_motion_sensor', 'battery')|round }}
+            {% else %}
+                {{ states('sensor.lounge_motion_battery') }}
+            {%- endif %}
+        device_class: battery        
