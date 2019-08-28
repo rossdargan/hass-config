@@ -9,7 +9,7 @@
           'Kath: Keys',
           'Shared Card',
           'Kath: Card' ] %}
-          {% set unlockStatus = state_attr('lock.playroom_door', 'lock_status') %}
+          {% set unlockStatus = state_attr('lock.office_door', 'lock_status') %}
           {% if "Unlocked by" in unlockStatus  %}
           {% if "Unlocked by NFC Tag or Card by user " in unlockStatus  %}
           {% set user = unlockStatus | replace("Unlocked by NFC Tag or Card by user ", "") |int %}
@@ -19,7 +19,7 @@
           {% endif %}          
           {% endif %}          
 
-      office_door_unlocked:
+      front_door_unlocked:
         entity_id: lock.front_door
         value_template: >-
           {% set users= 
@@ -30,7 +30,7 @@
           '5',
           '6',
           '7' ] %}
-          {% set unlockStatus = state_attr('lock.playroom_door', 'lock_status') %}
+          {% set unlockStatus = state_attr('lock.front_door', 'lock_status') %}
           {% if "Unlocked by" in unlockStatus  %}
           {% if "Unlocked by NFC Tag or Card by user " in unlockStatus  %}
           {% set user = unlockStatus | replace("Unlocked by NFC Tag or Card by user ", "") |int %}
