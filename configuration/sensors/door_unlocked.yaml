@@ -1,0 +1,24 @@
+  - platform: template
+    sensors:
+      office_door_unlocked:
+        entity_id: lock.office_door
+        value_template: >-
+          {% set users= 
+          [ 'Ross: Keys', 
+          'Ross: Wallet',
+          'Kath: Keys',
+          'Shared Card',
+          'Kath: Card' ] %}
+          {% set unlockedBy = 'Unknown' %}
+
+          {% if "Unlocked by" in state_attr('lock.office_door', 'lock_status') %}
+
+          {% if "Unlocked by NFC Tag or Card by user " in state_attr('lock.office_door', 'lock_status') %}
+
+          {% set user = state_attr('lock.office_door', 'lock_status') | replace("Unlocked by NFC Tag or Card by user ", "") |int %}
+          {% set unlockedBy = users[user-1] %}
+          {% elif 'Unlocked by Bluetooth' in state_attr('lock.office_door', 'lock_status') %}
+          {% set unlockedBy  = 'Phone' %}
+          {% endif %}
+          Unlocked by {{ unlockedBy }}
+          {% endif %}
