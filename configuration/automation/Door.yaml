@@ -14,6 +14,91 @@
               message: >
                 The front door was unlocked by {{ states.lock.front_door_locked.attributes.lock_status.replace('Unlocked by NFC Tag or Card by ','').replace('user 1','Ross').replace('user 6','Ross') }}
 
+  - alias: Front door unlocked
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: sensor.front_door_unlocked
+        from: ''    
+    condition:
+       condition: template
+       value_template: "{% if not is_state('sensor.front_door_unlocked', '') %}true{% endif %}"
+    action:
+      - service: notify.html5
+        data_template:
+          title: 'Front door unlocked'
+          message: >-
+            {% set user= states.sensor.front_door_unlocked.state %}
+            {% if user.split(":")|length > 1 %}
+            Door unlocked by {{ user.split(":")[0] }} using their {{ users.split(":")[1] }}
+            {% else %}
+            Door unlocked by {{ user }}
+            {% endif %}
+          data:
+            icon: >-
+              {% set users= states.sensor.front_door_unlocked.state %}
+              {% if users.split(":")|length > 1 %}
+              https://www.the-dargans.co.uk/local/{{ users.split(":")[0]|lower }}.png
+              {% endif %}
+            tag: 'door'   
+
+  - alias: Office door unlocked
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: sensor.office_door_unlocked
+        from: ''    
+    condition:
+       condition: template
+       value_template: "{% if not is_state('sensor.office_door_unlocked', '') %}true{% endif %}"
+    action:
+      - service: notify.html5
+        data_template:
+          title: 'Office door unlocked'
+          message: >-
+            {% set user= states.sensor.office_door_unlocked.state %}
+            {% if user.split(":")|length > 1 %}
+            Door unlocked by {{ user.split(":")[0] }} using their {{ users.split(":")[1] }}
+            {% else %}
+            Door unlocked by {{ user }}
+            {% endif %}
+          data:
+            icon: >-
+              {% set users= states.sensor.office_door_unlocked.state %}
+              {% if users.split(":")|length > 1 %}
+              https://www.the-dargans.co.uk/local/{{ users.split(":")[0]|lower }}.png
+              {% endif %}
+            tag: 'door'   
+
+  - alias: Playroom door unlocked
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: sensor.playroom_door_unlocked
+        from: ''    
+    condition:
+       condition: template
+       value_template: "{% if not is_state('sensor.playroom_door_unlocked', '') %}true{% endif %}"
+    action:
+      - service: notify.html5
+        data_template:
+          title: 'Playroom door unlocked'
+          message: >-
+            {% set user= states.sensor.playroom_door_unlocked.state %}
+            {% if user.split(":")|length > 1 %}
+            Door unlocked by {{ user.split(":")[0] }} using their {{ users.split(":")[1] }}
+            {% else %}
+            Door unlocked by {{ user }}
+            {% endif %}
+          data:
+            icon: >-
+              {% set users= states.sensor.playroom_door_unlocked.state %}
+              {% if users.split(":")|length > 1 %}
+              https://www.the-dargans.co.uk/local/{{ users.split(":")[0]|lower }}.png
+              {% endif %}
+            tag: 'door'            
+
+
   - alias: Front unlocked
     initial_state: 'on'
     trigger:
