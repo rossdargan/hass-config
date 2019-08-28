@@ -18,18 +18,18 @@
           {{ 'Phone' }}
           {% endif %}          
           {% endif %}          
-
+#kim, dad, kath card
       front_door_unlocked:
         entity_id: lock.front_door
         value_template: >-
           {% set users= 
-          [ '1', 
+          [ 'Ross: Keys', 
           '2',
           '3',
-          '4',
+          'Kath: Keys',
           '5',
-          '6',
-          '7' ] %}
+          'Ross: Wallet',
+          'Shared Card' ] %}
           {% set unlockStatus = state_attr('lock.front_door', 'lock_status') %}
           {% if "Unlocked by" in unlockStatus  %}
           {% if "Unlocked by NFC Tag or Card by user " in unlockStatus  %}
@@ -44,11 +44,11 @@
         entity_id: lock.playroom_door
         value_template: >-
           {% set users= 
-          [ '1', 
-          '2',
-          '3',
-          '4',
-          '5'] %}
+          [ 'Ross: Keys', 
+          'Ross: Wallet',
+          'Kath: Keys',
+          'Shared Card',
+          'Adam: Epi Pen'] %}
           {% set unlockStatus = state_attr('lock.playroom_door', 'lock_status') %}
           {% if "Unlocked by" in unlockStatus  %}
           {% if "Unlocked by NFC Tag or Card by user " in unlockStatus  %}
