@@ -30,15 +30,15 @@
           message: >-
             {% set user= states.sensor.front_door_unlocked.state %}
             {% if user.split(":")|length > 1 %}
-            Door unlocked by {{ user.split(":")[0] }} using their {{ users.split(":")[1] }}
+            Door unlocked by {{ user.split(":")[0] }} using their {{ user.split(":")[1] }}
             {% else %}
             Door unlocked by {{ user }}
             {% endif %}
           data:
             icon: >-
-              {% set users= states.sensor.front_door_unlocked.state %}
-              {% if users.split(":")|length > 1 %}
-              https://www.the-dargans.co.uk/local/{{ users.split(":")[0]|lower }}.png
+              {% set user= states.sensor.front_door_unlocked.state %}
+              {% if user.split(":")|length > 1 %}
+              https://www.the-dargans.co.uk/local/{{ user.split(":")[0]|lower }}.png
               {% endif %}
             tag: 'door'   
 
@@ -58,15 +58,15 @@
           message: >-
             {% set user= states.sensor.office_door_unlocked.state %}
             {% if user.split(":")|length > 1 %}
-            Door unlocked by {{ user.split(":")[0] }} using their {{ users.split(":")[1] }}
+            Door unlocked by {{ user.split(":")[0] }} using their {{ user.split(":")[1] }}
             {% else %}
             Door unlocked by {{ user }}
             {% endif %}
           data:
             icon: >-
-              {% set users= states.sensor.office_door_unlocked.state %}
-              {% if users.split(":")|length > 1 %}
-              https://www.the-dargans.co.uk/local/{{ users.split(":")[0]|lower }}.png
+              {% set user= states.sensor.office_door_unlocked.state %}
+              {% if user.split(":")|length > 1 %}
+              https://www.the-dargans.co.uk/local/{{ user.split(":")[0]|lower }}.png
               {% endif %}
             tag: 'door'   
 
@@ -86,15 +86,15 @@
           message: >-
             {% set user= states.sensor.playroom_door_unlocked.state %}
             {% if user.split(":")|length > 1 %}
-            Door unlocked by {{ user.split(":")[0] }} using their {{ users.split(":")[1] }}
+            Door unlocked by {{ user.split(":")[0] }} using their {{ user.split(":")[1] }}
             {% else %}
             Door unlocked by {{ user }}
             {% endif %}
           data:
             icon: >-
-              {% set users= states.sensor.playroom_door_unlocked.state %}
-              {% if users.split(":")|length > 1 %}
-              https://www.the-dargans.co.uk/local/{{ users.split(":")[0]|lower }}.png
+              {% set user= states.sensor.playroom_door_unlocked.state %}
+              {% if user.split(":")|length > 1 %}
+              https://www.the-dargans.co.uk/local/{{ user.split(":")[0]|lower }}.png
               {% endif %}
             tag: 'door'            
 
