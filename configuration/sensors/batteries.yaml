@@ -30,7 +30,7 @@
         device_class: battery
         
       office_motion_battery:
-        friendly_name: Hall Motion Battery
+        friendly_name: Office Motion Battery
         unit_of_measurement: '%'
         value_template: >-
             {%- if state_attr('binary_sensor.office_motion_sensor', 'battery_level') %}
