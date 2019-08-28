@@ -9,16 +9,53 @@
           'Kath: Keys',
           'Shared Card',
           'Kath: Card' ] %}
-          {% set unlockedBy = 'Unknown' %}
+          {% set unlockStatus = state_attr('lock.playroom_door', 'lock_status') %}
+          {% if "Unlocked by" in unlockStatus  %}
+          {% if "Unlocked by NFC Tag or Card by user " in unlockStatus  %}
+          {% set user = unlockStatus | replace("Unlocked by NFC Tag or Card by user ", "") |int %}
+          {{ users[user-1] }}
+          {% elif 'Unlocked by Bluetooth' in unlockStatus  %}
+          {{ 'Phone' }}
+          {% endif %}          
+          {% endif %}          
 
-          {% if "Unlocked by" in state_attr('lock.office_door', 'lock_status') %}
+      office_door_unlocked:
+        entity_id: lock.front_door
+        value_template: >-
+          {% set users= 
+          [ '1', 
+          '2',
+          '3',
+          '4',
+          '5',
+          '6',
+          '7' ] %}
+          {% set unlockStatus = state_attr('lock.playroom_door', 'lock_status') %}
+          {% if "Unlocked by" in unlockStatus  %}
+          {% if "Unlocked by NFC Tag or Card by user " in unlockStatus  %}
+          {% set user = unlockStatus | replace("Unlocked by NFC Tag or Card by user ", "") |int %}
+          {{ users[user-1] }}
+          {% elif 'Unlocked by Bluetooth' in unlockStatus  %}
+          {{ 'Phone' }}
+          {% endif %}          
+          {% endif %}          
 
-          {% if "Unlocked by NFC Tag or Card by user " in state_attr('lock.office_door', 'lock_status') %}
-
-          {% set user = state_attr('lock.office_door', 'lock_status') | replace("Unlocked by NFC Tag or Card by user ", "") |int %}
-          {% set unlockedBy = users[user-1] %}
-          {% elif 'Unlocked by Bluetooth' in state_attr('lock.office_door', 'lock_status') %}
-          {% set unlockedBy  = 'Phone' %}
-          {% endif %}
-          Unlocked by {{ unlockedBy }}
-          {% endif %}
+      playroom_door_unlocked:
+        entity_id: lock.playroom_door
+        value_template: >-
+          {% set users= 
+          [ '1', 
+          '2',
+          '3',
+          '4',
+          '5'] %}
+          {% set unlockStatus = state_attr('lock.playroom_door', 'lock_status') %}
+          {% if "Unlocked by" in unlockStatus  %}
+          {% if "Unlocked by NFC Tag or Card by user " in unlockStatus  %}
+          {% set user = unlockStatus | replace("Unlocked by NFC Tag or Card by user ", "") |int %}
+          {{ users[user-1] }}
+          {% elif 'Unlocked by Bluetooth' in unlockStatus  %}
+          {{ 'Phone' }}
+          {% endif %}          
+          {% endif %}          
+                    
