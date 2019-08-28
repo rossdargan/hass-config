@@ -10,7 +10,7 @@
     name: 'Average Daily Temperature'
     duration:
       days: 1
-     entities:
+    entities:
       - sensor.office_temperature
       - sensor.lounge_temperature
       - sensor.hall_motion_temperature
