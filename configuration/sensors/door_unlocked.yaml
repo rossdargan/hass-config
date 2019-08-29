@@ -23,10 +23,10 @@
         entity_id: lock.front_door
         value_template: >-
           {% set users= 
-          [ 'Ross:Keys', 
-          '2',
+          [ 'Ross:Key', 
+          'Dad:Key',
           '3',
-          'Kath:Keys',
+          'Kath:Key',
           '5',
           'Ross:Wallet',
           'Shared Card' ] %}
