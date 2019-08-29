@@ -192,6 +192,11 @@ influxdb:
 hacs:
   token: !secret git_token
   
+switch:
+    - platform: ring
+light:
+    - platform: ring
+    
 alexa_media:
   accounts:
     - email: !secret amazon_user
