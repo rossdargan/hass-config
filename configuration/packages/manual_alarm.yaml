@@ -160,6 +160,10 @@ script:
         entity_id: alarm_control_panel.ha_alarm 
   alarm_triggered:
     sequence:
+      - service: switch.turn_on
+        entity_id: 
+          - switch.garden_siren
+          - switch.living_room_siren
       - service: notify.html5
         data:
           message: "ALARM! The alarm has been triggered"          
