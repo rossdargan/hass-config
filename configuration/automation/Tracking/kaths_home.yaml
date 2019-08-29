@@ -9,6 +9,7 @@
       - service: notify.html5_rossphone
         data:
           message: "Kaths Home!"
+          priority: high        
       - service: tts.google_say
         data:
           entity_id: media_player.dining_room

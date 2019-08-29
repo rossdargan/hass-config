@@ -41,6 +41,7 @@
               https://www.the-dargans.co.uk/local/{{ user.split(":")[0]|lower }}.png
               {% endif %}
             tag: 'door'   
+            priority: high
 
   - alias: Office door unlocked
     initial_state: 'on'
@@ -69,6 +70,8 @@
               https://www.the-dargans.co.uk/local/{{ user.split(":")[0]|lower }}.png
               {% endif %}
             tag: 'door'   
+            priority: high
+
 
   - alias: Playroom door unlocked
     initial_state: 'on'
@@ -96,7 +99,9 @@
               {% if user.split(":")|length > 1 %}
               https://www.the-dargans.co.uk/local/{{ user.split(":")[0]|lower }}.png
               {% endif %}
-            tag: 'door'            
+            tag: 'door'        
+            priority: high
+
 
 
   - alias: Front unlocked

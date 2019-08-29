@@ -13,4 +13,5 @@
       - service: notify.html5_rossphone
         data:
           message: "Everyones out - and alarms not set!"      
+          priority: high        
 
