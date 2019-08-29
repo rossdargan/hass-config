@@ -3,6 +3,7 @@
       office_door_unlocked:
         entity_id: lock.office_door
         value_template: >-
+          {% if states.lock.office_door.state %}
           {% set users= 
           [ 'Ross:Key', 
           'Ross:Wallet',
@@ -17,11 +18,14 @@
           {% elif 'Unlocked by Bluetooth' in unlockStatus  %}
           {{ 'Phone' }}
           {% endif %}          
+          {% endif %}  
           {% endif %}          
 #kim, dad, kath card
       front_door_unlocked:
         entity_id: lock.front_door
         value_template: >-
+          {% if states.lock.front_door.state %}
+
           {% set users= 
           [ 'Ross:Key', 
           'Dad:Key',
@@ -38,11 +42,14 @@
           {% elif 'Unlocked by Bluetooth' in unlockStatus  %}
           {{ 'Phone' }}
           {% endif %}          
+          {% endif %}   
           {% endif %}          
+
 
       playroom_door_unlocked:
         entity_id: lock.playroom_door
         value_template: >-
+          {% if states.lock.playroom_door.state %}
           {% set users= 
           [ 'Ross:Key', 
           'Ross:Wallet',
@@ -58,4 +65,5 @@
           {{ 'Phone' }}
           {% endif %}          
           {% endif %}          
+          {% endif %}   
                     
