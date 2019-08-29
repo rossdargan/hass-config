@@ -115,6 +115,7 @@ http:
  use_x_forwarded_for: true
  
 light:
+  - platform: ring
   - platform: group
     name: Lounge Lights
     entities:
@@ -193,8 +194,6 @@ hacs:
   token: !secret git_token
   
 switch:
-    - platform: ring
-light:
     - platform: ring
     
 alexa_media:
