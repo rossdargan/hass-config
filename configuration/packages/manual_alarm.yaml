@@ -12,12 +12,6 @@ alarm_control_panel:
     triggered:
       pending_time: 0 # no pending time when the alarm is triggered - use the delay time
 
-input_boolean:
-  test_mode:
-    name: Put the alarm into test mode
-    initial: off
-    icon: mdi:mdi-volume-off
-
 #################################################
 ###               Triggers                    ###
 #################################################
@@ -52,10 +46,6 @@ automation:
     - platform: state
       entity_id: alarm_control_panel.ha_alarm
       to: 'triggered'
-  condition:
-    - condition: state
-      entity_id: input_boolean.test_mode
-      state: 'off'     
   action:
     - service: script.alarm_triggered
 
