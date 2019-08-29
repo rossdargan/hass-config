@@ -206,12 +206,19 @@ script:
         data:
           message: "The alarm has been triggered"
           target: !secret ross_mobile_number       
-      - service: media_player.play_media
-        entity_id: media_player.kitchen_2 
+      - service: notify.alexa_media
         data:
-          media_content_id: "Warning Alarm Siren 3"
-          media_content_type: AMAZON_MUSIC         
-      - service: notify.volume_set
+          data:
+            type: announce
+          target: 
+            - media_player.dining_room_2
+            - media_player.garage
+            - media_player.kitchen_2
+            - media_player.office_2
+            - media_player.playroom_echo
+            - media_player.lounge
+          message: 'The Alarm has been activated, and the police have been called.'         
+      - service: media_player.volume_set
         entity_id: media_player.kitchen_2
         data:
           volume_level: 1           
