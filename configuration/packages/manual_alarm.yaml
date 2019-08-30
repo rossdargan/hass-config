@@ -13,7 +13,7 @@ alarm_control_panel:
       pending_time: 0 # no pending time when the alarm is triggered - use the delay time
 
 group:
-  pir-sensors:
+  pir_sensors:
     name: "PIR Sensors"
     entities:
       - binary_sensor.hall_motion_motion
@@ -22,12 +22,12 @@ group:
       - binary_sensor.lounge_motion_sensor
       - binary_sensor.kitchen_motion_sensor
       - binary_sensor.playroom_motion_sensor
-    door-sensors:
-      name: "Door Sensors"
-      entities:
-        - binary_sensor.front_door
-        - binary_sensor.garage_door
-        - binary_sensor.playroom_door      
+  door_sensors:
+    name: "Door Sensors"
+    entities:
+      - binary_sensor.front_door
+      - binary_sensor.garage_door
+      - binary_sensor.playroom_door      
 
 input_boolean:
   test_mode:
@@ -44,8 +44,8 @@ automation:
   trigger:
     - platform: state
       entity_id: 
-        - group.pir-sensors
-        - group.door-sensors
+        - group.pir_sensors
+        - group.door_sensors
       to: 'on' 
   condition:
     - condition: state

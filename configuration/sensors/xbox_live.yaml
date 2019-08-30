@@ -1,7 +1,0 @@
-  - platform: xbox_live
-    api_key: !secret xbox_api_key
-    scan_interval: 180
-    xuid:
-      - 2533274812489859 #andy
-      - 2533274808746376 #mick
-      - 2533274800583987 #john
