@@ -12,6 +12,20 @@ alarm_control_panel:
     triggered:
       pending_time: 0 # no pending time when the alarm is triggered - use the delay time
 
+group:
+  alarm-sensors:
+    name: "Alarm Sensors"
+    entities:
+      - binary_sensor.hall_motion_motion
+      - binary_sensor.garage_motion_sensor
+      - binary_sensor.office_motion_sensor
+      - binary_sensor.lounge_motion_sensor
+      - binary_sensor.kitchen_motion_sensor
+      - binary_sensor.playroom_motion_sensor
+      - binary_sensor.front_door
+      - binary_sensor.garage_door
+      - binary_sensor.playroom_door      
+
 input_boolean:
   test_mode:
     name: Put the alarm into test mode
@@ -27,15 +41,7 @@ automation:
   trigger:
     - platform: state
       entity_id: 
-        - binary_sensor.hall_motion_motion
-        - binary_sensor.garage_motion_sensor
-        - binary_sensor.office_motion_sensor
-        - binary_sensor.lounge_motion_sensor
-        - binary_sensor.kitchen_motion_sensor
-        - binary_sensor.playroom_motion_sensor
-        - binary_sensor.front_door
-        - binary_sensor.garage_door
-        - binary_sensor.playroom_door
+        - group.alarm-sensors
       to: 'on' 
   condition:
     - condition: state
