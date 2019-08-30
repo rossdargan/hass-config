@@ -30,7 +30,7 @@ group:
       - binary_sensor.playroom_door      
 
 binary_sensor:
-  - playroom: template
+  - platform: template
     sensors:
       pir_sensors:
         friendly_name: "PIR Sensors"
