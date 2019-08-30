@@ -11,7 +11,8 @@
       - service: notify.html5
         data:
           message: "Nest has detected nobody is home, and there is a door not locked"
-          priority: high  
+          data:
+            priority: high  
 
   - alias: Ensure Alarm is set and alarm is on
     initial_state: 'on'
@@ -26,4 +27,5 @@
       - service: notify.html5
         data:
           message: "Nest has detected nobody is home, and the alarm isn't set (or the sensor is broken)"        
-          priority: high              
+          data:
+            priority: high              

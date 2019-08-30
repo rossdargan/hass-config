@@ -31,7 +31,8 @@
       - service: notify.html5_rossphone
         data:
           message: "Alarm disarmed because Kath is now home."
-          priority: high        
+          data:
+            priority: high        
       - service: alarm_control_panel.alarm_disarm
         data:
           entity_id: alarm_control_panel.ha_alarm
@@ -53,7 +54,8 @@
       - service: notify.html5_rossphone
         data:
           message: "Alarm disarmed because Ross is now home." 
-          priority: high        
+          data:
+            priority: high        
       - service: alarm_control_panel.alarm_disarm
         data:
           entity_id: alarm_control_panel.ha_alarm
@@ -74,7 +76,8 @@
       - service: notify.html5_rossphone
         data:
           message: "Alarm disarmed because Dad is now home." 
-          priority: high        
+          data:
+            priority: high        
       - service: alarm_control_panel.alarm_disarm
         data:
           entity_id: alarm_control_panel.ha_alarm

@@ -8,7 +8,8 @@
       - service: notify.html5
         data:
           message: "You have less than £150 in monzo!"   
-          priority: high        
+          data:
+            priority: high        
       - service: calendar.todoist_new_task
         data:
           content: 'Top up monzo'
