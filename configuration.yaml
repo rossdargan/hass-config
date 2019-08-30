@@ -47,6 +47,18 @@ panel_custom:
     url_path: floorplan
     config: !include floorplan.yaml
 
+azure_event_hub:
+  event_hub_namespace: !secret event_hub_namespace
+  event_hub_instance_name: !secret event_hub_instance_name
+  event_hub_sas_policy: !secret event_hub_sas_policy
+  event_hub_sas_key: !secret event_hub_sas_key
+  filter:
+    include_domains:
+    - switch
+    - light
+    - sensor
+    - binary_sensor
+
 homekit:
   pincode: !secret homekit
   entity_config:
