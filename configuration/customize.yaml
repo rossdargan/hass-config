@@ -85,9 +85,7 @@
   switch.dead_switch:
     emulated_hue: false  
   binary_sensor.garage_motion_sensor:
-    device_class: motion
-  group.pir_sensors:
-    device_class: motion    
+    device_class: motion 
   sensor.hall_lux:
     icon: mdi:white-balance-sunny
   sensor.greenhouse_light:

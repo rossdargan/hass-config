@@ -29,6 +29,15 @@ group:
       - binary_sensor.garage_door
       - binary_sensor.playroom_door      
 
+binary_sensor:
+  - playroom: template
+    sensors:
+      pir_sensors:
+        friendly_name: "PIR Sensors"
+        device_class: motion
+        value_template:  "{{ is_state('group.pir_sensors', 'on') }}"
+
+
 input_boolean:
   test_mode:
     name: Put the alarm into test mode
