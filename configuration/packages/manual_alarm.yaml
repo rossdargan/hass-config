@@ -157,6 +157,20 @@ automation:
     - service: scene.turn_on
       entity_id: scene.day        
 
+- alias: 'Alarm Deactivated after trigger'
+  initial_state: 'on'
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.ha_alarm      
+      from: 'triggered'
+      to: 'disarmed'
+  action:
+      - service: switch.turn_off
+        entity_id: switch.garden_siren
+      - service: switch.turn_off
+        entity_id: switch.living_room_siren     
+      - service: media_player.media_stop
+        entity_id: media_player.kitchen_2         
 #################### Disarm actions ######################
 - alias: Door unlocked
   initial_state: 'on'
@@ -216,6 +230,15 @@ script:
         data:
           message: "The alarm has been triggered"
           target: !secret ross_mobile_number       
+      - service: media_player.volume_set
+        entity_id: media_player.kitchen_2
+        data:
+          volume_level: 1                 
+      - service: media_player.play_media
+        entity_id: media_player.kitchen_2 
+        data:
+          media_content_id: "Warning Alarm Siren 3"
+          media_content_type: AMAZON_MUSIC         
       - service: notify.alexa_media
         data:
           data:
@@ -223,17 +246,7 @@ script:
           target: 
             - media_player.dining_room_2
             - media_player.garage
-            - media_player.kitchen_2
             - media_player.office_2
             - media_player.playroom_echo
             - media_player.lounge
-          message: 'The Alarm has been activated, and the police have been called.'         
-      - service: media_player.volume_set
-        entity_id: media_player.kitchen_2
-        data:
-          volume_level: 1           
-      - service: media_player.play_media
-        entity_id: media_player.kitchen_2 
-        data:
-          media_content_id: "Warning Alarm Siren 3"
-          media_content_type: AMAZON_MUSIC         
+          message: 'The Alarm has been activated, and the police have been called.'            
