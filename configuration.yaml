@@ -129,6 +129,8 @@ mqtt:
   keepalive: 60
   username: !secret mqtt_username
   password: !secret mqtt_password
+  discovery: true
+  discovery_prefix: homeassistant
 
 nest:
   client_id: !secret nest_clientid
