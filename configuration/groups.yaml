@@ -173,7 +173,6 @@
       - group.all_scripts
       - group.all_switches
       - group.all_lights
-      - group.alarm_sensors
       - group.glances
       - switch.office_torch
       - sensor.office_motion
