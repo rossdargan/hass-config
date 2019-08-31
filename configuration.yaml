@@ -91,6 +91,9 @@ device_tracker:
     account_name: Apple
   - platform: google_maps
     username: !secret google_username
+  - platform: tile
+    username: !secret tile_username
+    password: !secret tile_password
 
 frontend:
   extra_html_url:
