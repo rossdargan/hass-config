@@ -91,7 +91,6 @@ automation:
 #############################################################################
 # Triggers the alarm when you are home (only triggers when a door opens...) #
 #############################################################################
-automation:
 - alias: 'Trigger alarm while armed home'
   initial_state: 'on'
   trigger:
