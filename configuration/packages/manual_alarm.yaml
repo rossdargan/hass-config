@@ -164,7 +164,9 @@ automation:
       data:
         color_name: "red"          
         transition: 30
-        brightness: 255            
+        brightness: 255   
+    - service: scene.turn_on
+      entity_id: scene.everything_turned_off                    
 
 - alias: 'Alarm Armed'
   initial_state: 'on'
@@ -173,7 +175,7 @@ automation:
       entity_id: alarm_control_panel.ha_alarm
       from: 'pending'
       to: 'armed_away'
-  action:
+  action:  
     - service: notify.html5
       data_template:
         title: 'Alarm Armed'
@@ -216,15 +218,12 @@ automation:
           tag: 'alarm'   
           priority: high        
           url: /lovelace/alarm-test
-
     - service: light.turn_on
       entity_id: light.hall
       data:        
         color_name: "red"          
-        brightness: 30      
-    - delay: '00:00:50'
-    - service: scene.turn_on
-      entity_id: scene.everything_turned_off          
+        brightness: 30          
+       
 
 - alias: 'Alarm Deactivated'
   initial_state: 'on'
