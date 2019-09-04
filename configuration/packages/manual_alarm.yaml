@@ -142,8 +142,7 @@ automation:
       data:
         topic: 'alarmpanel/command'
         payload_template: >
-          {"speak":"{% if is_state("lock.office_door", "locked") and is_state("lock.playroom_door", "locked")   -%}            
-          # need to detect if we are going out or staying in
+          {"speak":"{% if is_state("lock.office_door", "locked") and is_state("lock.playroom_door", "locked")   -%}                      
           {{ [
                     "All the doors are locked, have a good trip",
                     "See you later",
