@@ -21,7 +21,7 @@ group:
     name: "PIR Sensors"
     entities:
       - binary_sensor.hall_motion_motion
-      - binary_sensor.garage_motion_sensor
+#      - binary_sensor.garage_motion_sensor
       - binary_sensor.office_motion_sensor
       - binary_sensor.lounge_motion_sensor
       - binary_sensor.kitchen_motion_sensor
@@ -58,7 +58,7 @@ automation:
     - platform: state
       entity_id: 
         - binary_sensor.hall_motion_motion
-        - binary_sensor.garage_motion_sensor
+#        - binary_sensor.garage_motion_sensor
         - binary_sensor.office_motion_sensor
         - binary_sensor.lounge_motion_sensor
         - binary_sensor.kitchen_motion_sensor
