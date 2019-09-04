@@ -33,7 +33,8 @@
           'Kath:Key',
           '5',
           'Ross:Wallet',
-          'Shared Card' ] %}
+          'Shared Card',
+          "Lisa:Key" ] %}
           {% set unlockStatus = state_attr('lock.front_door', 'lock_status') %}
           {% if "Unlocked by" in unlockStatus  %}
           {% if "Unlocked by NFC Tag or Card by user " in unlockStatus  %}
