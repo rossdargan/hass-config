@@ -28,7 +28,7 @@
           {% if is_state('sensor.office_door_unlocked', '') %}         
             {{ states.sensor.office_door_last_unlocked.state }}
           {%else %}        
-            {{ states.sensor.office_door_unlocked.state }}
+            {{ states.sensor.office_door_unlocked.state }} {{ now().strftime('%Y-%m-%d %H:%M') }}
           {% endif %}   
 
       front_door_unlocked:
@@ -61,7 +61,7 @@
           {% if is_state('sensor.front_door_last_unlocked', '') %}         
             {{ states.sensor.office_door_last_unlocked.state }}
           {%else %}        
-            {{ states.sensor.front_door_unlocked.state }}
+            {{ states.sensor.front_door_unlocked.state }} {{ now().strftime('%Y-%m-%d %H:%M') }}
           {% endif %}   
 
 
@@ -93,5 +93,5 @@
           {% if is_state('sensor.playroom_door_last_unlocked', '') %}         
             {{ states.sensor.playroom_door_last_unlocked.state }}
           {%else %}        
-            {{ states.sensor.playroom_door_unlocked.state }}
+            {{ states.sensor.playroom_door_unlocked.state }} {{ now().strftime('%Y-%m-%d %H:%M') }}
           {% endif %}   
