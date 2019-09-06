@@ -20,13 +20,21 @@
           {{ 'Phone' }}
           {% endif %}          
           {% endif %}  
-          {% endif %}          
-#kim, dad, kath card
+          {% endif %}   
+
+     office_door_last_unlocked:
+        entity_id: sensor.office_door_unlocked
+        value_template: >-
+          {% if is_state('sensor.office_door_unlocked', '') %}         
+            {{ states.sensor.office_door_last_unlocked.state }}
+          {%else %}        
+            {{ states.sensor.office_door_unlocked.state }}
+          {% endif %}   
+
       front_door_unlocked:
         entity_id: lock.front_door
         value_template: >-
           {% if states.lock.front_door.state %}
-
           {% set users= 
           [ 'Ross:Key', 
           'Dad:Key',
@@ -46,6 +54,15 @@
           {% endif %}          
           {% endif %}   
           {% endif %}          
+
+     front_door_last_unlocked:
+        entity_id: sensor.front_door_unlocked
+        value_template: >-
+          {% if is_state('sensor.front_door_last_unlocked', '') %}         
+            {{ states.sensor.office_door_last_unlocked.state }}
+          {%else %}        
+            {{ states.sensor.front_door_unlocked.state }}
+          {% endif %}   
 
 
       playroom_door_unlocked:
@@ -69,4 +86,12 @@
           {% endif %}          
           {% endif %}          
           {% endif %}   
-                    
+
+     playroom_door_last_unlocked:
+        entity_id: sensor.playroom_door_unlocked
+        value_template: >-
+          {% if is_state('sensor.playroom_door_last_unlocked', '') %}         
+            {{ states.sensor.playroom_door_last_unlocked.state }}
+          {%else %}        
+            {{ states.sensor.playroom_door_unlocked.state }}
+          {% endif %}   
