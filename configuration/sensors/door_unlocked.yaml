@@ -22,7 +22,7 @@
           {% endif %}  
           {% endif %}   
 
-     office_door_last_unlocked:
+      office_door_last_unlocked:
         entity_id: sensor.office_door_unlocked
         value_template: >-
           {% if is_state('sensor.office_door_unlocked', '') %}         
@@ -55,7 +55,7 @@
           {% endif %}   
           {% endif %}          
 
-     front_door_last_unlocked:
+      front_door_last_unlocked:
         entity_id: sensor.front_door_unlocked
         value_template: >-
           {% if is_state('sensor.front_door_last_unlocked', '') %}         
@@ -87,7 +87,7 @@
           {% endif %}          
           {% endif %}   
 
-     playroom_door_last_unlocked:
+      playroom_door_last_unlocked:
         entity_id: sensor.playroom_door_unlocked
         value_template: >-
           {% if is_state('sensor.playroom_door_last_unlocked', '') %}         
