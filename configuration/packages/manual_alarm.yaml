@@ -51,7 +51,24 @@ input_boolean:
 #################################################
 ###               Triggers                    ###
 #################################################
-automation:
+# automation:
+# - alias: 'Nobody home, alert alarm not on'
+#   initial_state: 'on'
+#   trigger:
+#     - platform: state
+#       entity_id:
+#         - binary_sensor.pir_sensors
+#       from: 'on'
+#       to: 'off'
+#       for:
+#         minutes: '30'
+#   condition:
+#     condition: and
+#     conditions:
+#       - condition: state
+#         entity_id: 'alarm_control_panel.ha_alarm'
+#         state: 'disarmed'
+
 - alias: 'Trigger alarm while armed away'
   initial_state: 'on'
   trigger:

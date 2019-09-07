@@ -1,6 +1,7 @@
   - platform: template
     sensors:
       office_door_unlocked:
+        friendly_name: 'Office door unlocked by'
         entity_id: lock.office_door
         value_template: >-
           {% if states.lock.office_door.state %}
@@ -23,6 +24,7 @@
           {% endif %}   
 
       office_door_last_unlocked:
+        friendly_name: 'Last unlocked office door'
         entity_id: sensor.office_door_unlocked
         value_template: >-
           {% if is_state('sensor.office_door_unlocked', '') %}         
@@ -33,6 +35,7 @@
 
       front_door_unlocked:
         entity_id: lock.front_door
+        friendly_name: 'Front door unlocked by'
         value_template: >-
           {% if states.lock.front_door.state %}
           {% set users= 
@@ -56,6 +59,7 @@
           {% endif %}          
 
       front_door_last_unlocked:
+        friendly_name: 'Last unlocked front door'
         entity_id: sensor.front_door_unlocked
         value_template: >-
           {% if is_state('sensor.front_door_last_unlocked', '') %}         
@@ -66,6 +70,7 @@
 
 
       playroom_door_unlocked:
+        friendly_name: 'Playroom door unlocked by'
         entity_id: lock.playroom_door
         value_template: >-
           {% if states.lock.playroom_door.state %}
@@ -88,6 +93,7 @@
           {% endif %}   
 
       playroom_door_last_unlocked:
+        friendly_name: 'Last unlocked playroom door'
         entity_id: sensor.playroom_door_unlocked
         value_template: >-
           {% if is_state('sensor.playroom_door_last_unlocked', '') %}         
