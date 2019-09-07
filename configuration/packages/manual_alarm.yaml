@@ -6,7 +6,7 @@ alarm_control_panel:
     code_arm_required: false    
     armed_away:
       delay_time: 20 # 20 seconds to disarm the alarm
-      pending_time: 30 # 10 seconds to leave...
+      pending_time: 60 # 60 seconds to leave...
     armed_night:
       delay_time: 0 # Alarm arms immediately
       pending_time: 0 # No disarm time
@@ -341,3 +341,5 @@ script:
             - media_player.playroom_echo
             - media_player.lounge
           message: 'The Alarm has been activated, and the police have been called.'            
+
+
