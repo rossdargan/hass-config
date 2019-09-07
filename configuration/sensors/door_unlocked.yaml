@@ -5,10 +5,10 @@
         value_template: >-
           {% if states.lock.office_door.state %}
           {% set users= 
-          [ 'Ross:Key', 
-          'Ross:Wallet',
+          [ 'Ross:OldFob', 
+          'Ross:Key',
           'Kath:Key',
-          'Shared Card',
+          'Ross:Wallet',
           'Kath:Card',
           "Lisa:Key"  ] %}
           {% set unlockStatus = state_attr('lock.office_door', 'lock_status') %}
@@ -36,13 +36,13 @@
         value_template: >-
           {% if states.lock.front_door.state %}
           {% set users= 
-          [ 'Ross:Key', 
+          [ 'Ross:OldFob', 
           'Dad:Key',
           '3',
           'Kath:Key',
           '5',
+          'Ross:Key',
           'Ross:Wallet',
-          'Shared Card',
           "Lisa:Key" ] %}
           {% set unlockStatus = state_attr('lock.front_door', 'lock_status') %}
           {% if "Unlocked by" in unlockStatus  %}
@@ -70,10 +70,10 @@
         value_template: >-
           {% if states.lock.playroom_door.state %}
           {% set users= 
-          [ 'Ross:Key', 
-          'Ross:Wallet',
+          [ 'Ross:OldFob', 
+          'Ross:Key',
           'Kath:Key',
-          'Shared Card',
+          'Ross:Wallet',
           'Adam:Epi Pen',
           "Lisa:Key" ] %}
           {% set unlockStatus = state_attr('lock.playroom_door', 'lock_status') %}
