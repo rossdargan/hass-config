@@ -51,7 +51,7 @@ input_boolean:
 #################################################
 ###               Triggers                    ###
 #################################################
-# automation:
+automation:
 # - alias: 'Nobody home, alert alarm not on'
 #   initial_state: 'on'
 #   trigger:
@@ -68,6 +68,31 @@ input_boolean:
 #       - condition: state
 #         entity_id: 'alarm_control_panel.ha_alarm'
 #         state: 'disarmed'
+
+- alias: 'Low battery warning'
+  initial_state: 'on'
+  trigger:
+    - platform: numeric_state
+      entity_id: 
+        - sensor.ring_front_door_battery
+        - sensor.front_door_battery
+        - sensor.office_door_battery
+        - sensor.playroom_door_battery
+        - sensor.hall_motion_battery
+        - sensor.lounge_motion_battery
+        - sensor.office_motion_battery
+        - sensor.kitchen_motion_battery
+        - sensor.playroom_motion_battery
+      below: 35
+  action:
+    - service: notify.html5
+      data_template:
+        title: 'Low Battery'
+        message: '{{ trigger.to_state.attributes.friendly_name }} has a low battery'         
+        data:           
+          tag: 'battery'   
+          priority: high        
+          url: /lovelace/info
 
 - alias: 'Trigger alarm while armed away'
   initial_state: 'on'
