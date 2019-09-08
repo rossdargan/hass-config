@@ -96,8 +96,9 @@ device_tracker:
     username: !secret google_username
   - platform: nmap_tracker
     home_interval: 10
-    hosts: 192.168.86.23 # Me
-    hosts: 192.168.86.22 # Kath
+    hosts: 
+      - 192.168.86.23 # Me
+      - 192.168.86.22 # Kath
 
 
 frontend:
