@@ -2,6 +2,6 @@
     sensors:
       someone_in_garage:
         value_template: "{{  is_state('binary_sensor.garage_door', 'on') or  is_state('binary_sensor.garage_motion_sensor', 'on')  }}"
-        friendly_name: 'Certificate has nearly expired'
+        friendly_name: 'Garage Door'
         delay_off: '00:05:00'
         device_class: motion
