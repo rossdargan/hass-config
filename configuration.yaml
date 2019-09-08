@@ -94,6 +94,11 @@ device_tracker:
     account_name: Apple
   - platform: google_maps
     username: !secret google_username
+  - platform: nmap_tracker
+    home_interval: 10
+    hosts: 192.168.86.23 # Me
+    hosts: 192.168.86.22 # Kath
+
 
 frontend:
   extra_html_url:
