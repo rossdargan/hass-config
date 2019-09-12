@@ -87,7 +87,7 @@
   binary_sensor.garage_motion_sensor:
     device_class: motion 
   binary_sensor.front_door_sensor:
-    device_class: motion 
+    device_class: door 
   sensor.hall_lux:
     icon: mdi:white-balance-sunny
   sensor.greenhouse_light:
