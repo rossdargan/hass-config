@@ -49,6 +49,9 @@
   light.kath_lamp:
     icon: mdi:lamp
     emulated_hue: false
+  light.hall_lamp:
+    icon: mdi:lamp
+    emulated_hue: false    
   light.lounge_lamp:
     icon: mdi:lamp
     emulated_hue: false
