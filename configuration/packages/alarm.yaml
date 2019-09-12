@@ -203,7 +203,7 @@ binary_sensor:
     device_class: opening
   - platform: mqtt
     state_topic: "alarm/events/Door Switch/Front Door"
-    name: "Front Door"    
+    name: "Front Door OLD"    
     payload_on: "Open"
     payload_off: "Close"
     device_class: opening

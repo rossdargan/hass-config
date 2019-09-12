@@ -86,6 +86,8 @@
     emulated_hue: false  
   binary_sensor.garage_motion_sensor:
     device_class: motion 
+  binary_sensor.front_door_sensor:
+    device_class: motion 
   sensor.hall_lux:
     icon: mdi:white-balance-sunny
   sensor.greenhouse_light:
