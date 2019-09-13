@@ -55,22 +55,36 @@ input_boolean:
 ###               Triggers                    ###
 #################################################
 automation:
-# - alias: 'Nobody home, alert alarm not on'
-#   initial_state: 'on'
-#   trigger:
-#     - platform: state
-#       entity_id:
-#         - binary_sensor.pir_sensors
-#       from: 'on'
-#       to: 'off'
-#       for:
-#         minutes: '30'
-#   condition:
-#     condition: and
-#     conditions:
-#       - condition: state
-#         entity_id: 'alarm_control_panel.ha_alarm'
-#         state: 'disarmed'
+- alias: 'Nobody home, alert alarm not on'
+  initial_state: 'on'
+  trigger:
+    - platform: state
+      entity_id:
+        - binary_sensor.front_door_sensor
+      from: 'on'
+      to: 'off'
+      for:
+        minutes: '5'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: 'alarm_control_panel.ha_alarm'
+        state: 'disarmed'
+      - condition: template
+        value_template: '{{ (as_timestamp(now())-as_timestamp(states.binary_sensor.pir_sensors.last_changed))  > 240 }}'
+  action:
+    - service: notify.html5
+      data_template:
+        title: 'Alarm not set'
+        message: 'It looks like you have gone out without turning the alarm on'         
+        data:           
+          tag: 'door'   
+          priority: high        
+          url: /lovelace/alarm
+          icon:  https://www.the-dargans.co.uk/local/Alert.png
+
+
 
 - alias: 'Trigger alarm while armed away'
   initial_state: 'on'
@@ -105,7 +119,7 @@ automation:
         data:           
           tag: 'alarm'   
           priority: high        
-          url: /lovelace/alarm-test
+          url: /lovelace/alarm
 
 #############################################################################
 # Triggers the alarm when you are home (only triggers when a door opens...) #
@@ -201,7 +215,7 @@ automation:
         data:           
           tag: 'alarm'   
           priority: high        
-          url: /lovelace/alarm-test
+          url: /lovelace/alarm
 
 - alias: 'Alarm Armed'
   initial_state: 'on'
@@ -218,7 +232,7 @@ automation:
         data:           
           tag: 'alarm'   
           priority: high        
-          url: /lovelace/alarm-test
+          url: /lovelace/alarm
 
 - alias: 'Alarm Armed'
   initial_state: 'on'
@@ -235,7 +249,7 @@ automation:
         data:           
           tag: 'alarm'   
           priority: high        
-          url: /lovelace/alarm-test
+          url: /lovelace/alarm
     - service: light.turn_on
       entity_id: light.hall
       data:        
@@ -256,7 +270,7 @@ automation:
         message: 'The alarm has been disarmed'           
         data:           
           tag: 'alarm'   
-          url: /lovelace/alarm-test
+          url: /lovelace/alarm
           priority: high        
     - service: light.turn_on
       entity_id: light.hall
@@ -366,7 +380,7 @@ script:
           data:           
             tag: 'alarm'     
             priority: high  
-            url: /lovelace/alarm-test
+            url: /lovelace/alarm
             icon:  https://www.the-dargans.co.uk/local/Alert.png
       - service: light.turn_off
         entity_id: all
