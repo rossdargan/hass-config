@@ -45,13 +45,10 @@
     friendly_name: "Lounge TV"
   light.dining_room_lamp:
     icon: mdi:lamp
-    emulated_hue: false
   light.kath_lamp:
     icon: mdi:lamp
-    emulated_hue: false
-  light.hall_lamp:
+  light.hall:
     icon: mdi:lamp
-    emulated_hue: false    
   light.lounge_lamp:
     icon: mdi:lamp
     emulated_hue: false
@@ -77,16 +74,6 @@
   switch.kitchen_outer_lights_switch:
     icon: mdi:ceiling-light    
     friendly_name: "Kitchen Outer Lights"
-  light.lounge_iris:
-    emulated_hue: false
-  light.kitchen_hue:
-    emulated_hue: false
-  light.office:
-    emulated_hue: false
-  light.adams_light:
-    emulated_hue: false
-  switch.dead_switch:
-    emulated_hue: false  
   binary_sensor.garage_motion_sensor:
     device_class: motion 
   binary_sensor.front_door_sensor:
@@ -96,10 +83,8 @@
   sensor.greenhouse_light:
     icon: mdi:white-balance-sunny   
   light.bedroom_main_light_level_2:
-    emulated_hue: false
     hidden: true   
   light.bedroom_main_light_level_3:
-    emulated_hue: false
     hidden: true
   person.ross:
     entity_picture: /local/ross.png
