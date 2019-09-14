@@ -71,8 +71,11 @@ automation:
       - condition: state
         entity_id: 'alarm_control_panel.ha_alarm'
         state: 'disarmed'
+      - condition: state
+        entity_id: 'binary_sensor.pir_sensors'
+        state: 'off'        
       - condition: template
-        value_template: '{{ (as_timestamp(now())-as_timestamp(states.binary_sensor.pir_sensors.last_changed))  > 240 }}'
+        value_template: '{{ (as_timestamp(utcnow())-as_timestamp(states.binary_sensor.pir_sensors.last_changed))  > 240 }}'
   action:
     - service: notify.html5
       data_template:
@@ -83,7 +86,24 @@ automation:
           priority: high        
           url: /lovelace/alarm
           icon:  https://www.the-dargans.co.uk/local/Alert.png
+          actions:
+            - action: alarm_on
+              title: "Turn On Alarm"          
 
+- alias: 'Activate Alarm via notification'
+  trigger:
+    platform: event
+    event_type: html5_notification.clicked
+    event_data:
+      action: "alarm_on"
+  condition: 
+      condition: state
+      entity_id: 'alarm_control_panel.ha_alarm'
+      state: 'disarmed'      
+  action:
+    - service: alarm_control_panel.alarm_arm_away
+      entity_id: alarm_control_panel.ha_alarm    
+  
 
 
 - alias: 'Trigger alarm while armed away'
