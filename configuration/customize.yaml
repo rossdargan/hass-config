@@ -88,8 +88,10 @@
     hidden: true
   person.ross:
     entity_picture: /local/ross.png
-  person.kath:
+  person.kath:  
     entity_picture: /local/kath.png    
+  person.adam:
+    entity_picture: /local/adam.png        
   switch.kitchen_sentsy:
     icon: mdi:spray    
   switch.lounge_sentsy_switch:
