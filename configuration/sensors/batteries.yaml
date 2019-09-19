@@ -85,3 +85,15 @@
                 {{ states('sensor.front_door_window_sensor_battery') }}
             {%- endif %}
         device_class: battery        
+
+
+      adam_phone_battery:
+        friendly_name: Adam Phone Battery
+        unit_of_measurement: '%'
+        value_template: >-
+            {%- if state_attr('device_tracker.adam_adamphone', 'battery_level') %}
+                {{ state_attr('device_tracker.adam_adamphone', 'battery_level')|round }}
+            {% else %}
+                {{ states('sensor.adam_phone_battery') }}
+            {%- endif %}
+        device_class: battery        
