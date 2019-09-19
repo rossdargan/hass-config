@@ -99,6 +99,7 @@ device_tracker:
     hosts: 
       - 192.168.86.23 # Me
       - 192.168.86.22 # Kath
+      - 192.168.86.60 # Adam
 
 
 frontend:
