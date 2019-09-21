@@ -76,6 +76,12 @@ automation:
         state: 'off'        
       - condition: template
         value_template: '{{ (as_timestamp(utcnow())-as_timestamp(states.binary_sensor.pir_sensors.last_changed))  > 240 }}'
+      - condition: state    #me
+        entity_id: 'device_tracker.98_e7_f5_8f_43_5b'
+        state: 'not_home'             
+      - condition: state #kath
+        entity_id: 'device_tracker.9c_64_8b_2e_95_c5'
+        state: 'not_home'           
   action:
     - service: notify.html5
       data_template:
