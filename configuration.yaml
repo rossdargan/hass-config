@@ -123,6 +123,7 @@ http:
  login_attempts_threshold: 2
  trusted_proxies: 192.168.86.51
  use_x_forwarded_for: true
+ base_url: !secret base_url
  
 light:
   - platform: ring
