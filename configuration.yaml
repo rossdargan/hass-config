@@ -211,3 +211,10 @@ alexa_media:
     - email: !secret amazon_user
       password: !secret amazon_password
       url: amazon.co.uk  
+
+withings:
+  client_id: !secret withings_client_id
+  client_secret: !secrtet withings_client_secret
+  profiles:
+    - Ross
+    - Kath
