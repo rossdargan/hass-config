@@ -1,4 +1,4 @@
  - name: Everything Turned Off
    entities:
     group.all_lights: off
-    group.all_switches: off
+    group.switches: off
