@@ -81,9 +81,6 @@ camera:
 calendar:
   - platform: todoist
     token: !secret todoist
-    custom_projects:      
-      - name: 'Due Today'
-        due_date_days: 0    
     
 device_tracker:
 #  - platform: owntracks
