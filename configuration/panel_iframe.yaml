@@ -10,10 +10,6 @@
       title: 'Radarr'
       url: !secret radarr_url
       icon: mdi:radar
-  pihole:
-      title: 'Pi-hole'
-      url: 'http://pi.hole/admin'
-      icon: mdi:raspberrypi
   docker01:
       title: 'dar-docker-01'
       url: !secret glances_url
@@ -22,3 +18,11 @@
       title: 'portainer'
       url: !secret portainer_url
       icon: mdi:docker      
+  nodered:
+      title: 'nodered'
+      url: !secret nodered_url
+      icon: mdi:sitemap
+  adguard:
+      title: 'Ad Guard'
+      url: !secret adguard_url
+      icon: mdi:shield-check-outline
