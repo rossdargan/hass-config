@@ -19,7 +19,7 @@
       url: !secret portainer_url
       icon: mdi:docker      
   nodered:
-      title: 'nodered'
+      title: 'Node Red'
       url: !secret nodered_url
       icon: mdi:sitemap
   adguard:
