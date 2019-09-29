@@ -216,3 +216,11 @@ withings:
   profiles:
     - Ross
     - Kath
+
+input_number:
+  kitchen_light_level:
+    name: Slider
+    initial: 30
+    min: 0
+    max: 150
+    step: 1    
