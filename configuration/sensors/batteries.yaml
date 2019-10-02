@@ -84,7 +84,18 @@
             {% else %}
                 {{ states('sensor.front_door_window_sensor_battery') }}
             {%- endif %}
-        device_class: battery        
+        device_class: battery       
+
+      garage_door_window_sensor_battery:
+        friendly_name: Garage Door Sensor Battery
+        unit_of_measurement: '%'
+        value_template: >-
+            {%- if state_attr('zwave.garage_door_window_sensor', 'battery_level') %}
+                {{ state_attr('zwave.garage_door_window_sensor', 'battery_level')|round }}
+            {% else %}
+                {{ states('sensor.garage_door_window_sensor_battery') }}
+            {%- endif %}
+        device_class: battery                
 
 
       adam_phone_battery:
