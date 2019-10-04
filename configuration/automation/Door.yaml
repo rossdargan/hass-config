@@ -103,36 +103,3 @@
             priority: high
 
 
-
-  - alias: Front unlocked
-    initial_state: 'on'
-    trigger:
-      - platform: state
-        entity_id: lock.front_door
-        from: 'locked'
-        to: 'unlocked'
-    condition:
-      - condition: state
-        entity_id: alarm_control_panel.alarm
-        state: 'armed_away'
-    action:
-      - service: alarm_control_panel.alarm_disarm
-        data:
-           entity_id: alarm_control_panel.alarm
-           code: !secret pin
-           
-  - alias: Alarm Disarmed
-    initial_state: 'on'
-    trigger:
-      - platform: state
-        entity_id: alarm_control_panel.alarm    
-        from: 'armed_away'
-        to: 'disarmed'
-    condition:
-      - condition: state
-        entity_id: lock.front_door
-        state: 'locked'
-    action:
-      - service: lock.unlock
-        data:
-           entity_id: lock.front_door_locked

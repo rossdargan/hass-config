@@ -3,7 +3,6 @@
     icon: mdi:home
     entities:
       - switch.christmas_tree
-      - group.important
       - binary_sensor.greenhouse_resevoir
       - alert.burglar_alarm
       - alert.update_available
@@ -39,14 +38,6 @@
     name: TV
     entities:
       - script.tv_source_xbox
-  important:
-    name: Front Door
-    control: hidden
-    entities:
-      - sensor.lock_status
-      - alarm_control_panel.alarm
-      - lock.front_door_locked
-      - sensor.front_door_battery
   
   temperatures:
     entities:
