@@ -64,8 +64,7 @@
       - switch.lounge_sentsy_switch
 #      - media_player.lounge_universal
       - sensor.living_room_thermostat_humidity
-      - sensor.living_room_thermostat_temperature
-      - binary_sensor.lounge_pir      
+      - sensor.living_room_thermostat_temperature         
       - sensor.lounge_main_light_power
       - group.lounge_lights
       - group.lounge_av    

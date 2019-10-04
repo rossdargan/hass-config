@@ -47,7 +47,8 @@ group:
     name: "Door Sensors"
     entities:
       - binary_sensor.front_door_sensor
-      - binary_sensor.garage_door
+  
+      - binary_sensor.garage_door_sensor
 
 binary_sensor:
   - platform: template
@@ -165,7 +166,7 @@ automation:
         - binary_sensor.kitchen_motion_sensor
         - binary_sensor.playroom_motion_sensor
         - binary_sensor.front_door_sensor
-        - binary_sensor.garage_door
+        - binary_sensor.garage_door_sensor
       to: 'on' 
   condition:
     condition: or
