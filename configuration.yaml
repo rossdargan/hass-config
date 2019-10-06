@@ -124,11 +124,14 @@ http:
  
 light:
   - platform: ring
+  - platform: switch
+    name: Kitchen Outer Lights
+    entity_id: switch.kitchen_outer_lights_switch
   - platform: group
     name: Kitchen Lights
     entities:
       - light.kitchen_main_lights
-      - switch.kitchen_outer_lights_switch
+      - light.kitchen_outer_lights
   - platform: group
     name: Lounge Lights
     entities:
