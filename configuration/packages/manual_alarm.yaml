@@ -14,24 +14,7 @@ alarm_control_panel:
       delay_time: 0 # Alarm arms immediately
       pending_time: 0 # No disarm time
     triggered:
-      pending_time: 0 # no pending time when the alarm is triggered - use the delay time
-  - platform: manual_mqtt
-    state_topic: home2/alarm
-    command_topic: home2/alarm/set
-    name: test_alarm
-    code: !secret pin
-    code_arm_required: false    
-    armed_away:
-      delay_time: 20 # 20 seconds to disarm the alarm
-      pending_time: 60 # 60 seconds to leave...
-    armed_night:
-      delay_time: 0 # Alarm arms immediately
-      pending_time: 0 # No disarm time
-    armed_home:
-      delay_time: 0 # Alarm arms immediately
-      pending_time: 0 # No disarm time
-    triggered:
-      pending_time: 0 # no pending time when the alarm is triggered - use the delay time      
+      pending_time: 0 # no pending time when the alarm is triggered - use the delay time  
 
 group:
   pir_sensors:
@@ -46,8 +29,7 @@ group:
   door_sensors:
     name: "Door Sensors"
     entities:
-      - binary_sensor.front_door_sensor
-  
+      - binary_sensor.front_door_sensor  
       - binary_sensor.garage_door_sensor
 
 binary_sensor:
@@ -58,62 +40,10 @@ binary_sensor:
         device_class: motion
         value_template:  "{{ is_state('group.pir_sensors', 'on') }}"
 
-
-input_boolean:
-  test_mode:
-    name: Put the alarm into test mode
-    initial: off
-    icon: mdi:mdi-volume-off
-  alarm:
-    name: Turn on the alarm
-    initial: off
-    icon: mdi:alarm-bell    
-
 #################################################
 ###               Triggers                    ###
 #################################################
 automation:
-- alias: 'Nobody home, alert alarm not on'
-  initial_state: 'on'
-  trigger:
-    - platform: state
-      entity_id:
-        - binary_sensor.front_door_sensor
-      from: 'on'
-      to: 'off'
-      for:
-        minutes: '5'
-  condition:
-    condition: and
-    conditions:
-      - condition: state
-        entity_id: 'alarm_control_panel.ha_alarm'
-        state: 'disarmed'
-      - condition: state
-        entity_id: 'binary_sensor.pir_sensors'
-        state: 'off'        
-      - condition: template
-        value_template: '{{ (as_timestamp(utcnow())-as_timestamp(states.binary_sensor.pir_sensors.last_changed))  > 240 }}'
-      - condition: state    #me
-        entity_id: 'device_tracker.98_e7_f5_8f_43_5b'
-        state: 'not_home'             
-      - condition: state #kath
-        entity_id: 'device_tracker.9c_64_8b_2e_95_c5'
-        state: 'not_home'           
-  action:
-    - service: notify.html5
-      data_template:
-        title: 'Alarm not set'
-        message: 'It looks like you have gone out without turning the alarm on'         
-        data:           
-          tag: 'door'   
-          priority: high        
-          url: /lovelace/alarm
-          icon:  https://www.the-dargans.co.uk/local/Alert.png
-          actions:
-            - action: alarm_on
-              title: "Turn On Alarm"          
-
 - alias: 'Activate Alarm via notification'
   trigger:
     platform: event
@@ -127,278 +57,323 @@ automation:
   action:
     - service: alarm_control_panel.alarm_arm_away
       entity_id: alarm_control_panel.ha_alarm    
+
+
+
+# - alias: 'Nobody home, alert alarm not on'
+#   initial_state: 'off'
+#   trigger:
+#     - platform: state
+#       entity_id:
+#         - binary_sensor.front_door_sensor
+#       from: 'on'
+#       to: 'off'
+#       for:
+#         minutes: '5'
+#   condition:
+#     condition: and
+#     conditions:
+#       - condition: state
+#         entity_id: 'alarm_control_panel.ha_alarm'
+#         state: 'disarmed'
+#       - condition: state
+#         entity_id: 'binary_sensor.pir_sensors'
+#         state: 'off'        
+#       - condition: template
+#         value_template: '{{ (as_timestamp(utcnow())-as_timestamp(states.binary_sensor.pir_sensors.last_changed))  > 240 }}'
+#       - condition: state    #me
+#         entity_id: 'device_tracker.98_e7_f5_8f_43_5b'
+#         state: 'not_home'             
+#       - condition: state #kath
+#         entity_id: 'device_tracker.9c_64_8b_2e_95_c5'
+#         state: 'not_home'           
+#   action:
+#     - service: notify.html5
+#       data_template:
+#         title: 'Alarm not set'
+#         message: 'It looks like you have gone out without turning the alarm on'         
+#         data:           
+#           tag: 'door'   
+#           priority: high        
+#           url: /lovelace/alarm
+#           icon:  https://www.the-dargans.co.uk/local/Alert.png
+#           actions:
+#             - action: alarm_on
+#               title: "Turn On Alarm"          
+
+
   
   #It sometimes takes a few seconds for the door to notify it has been unlocked. This allows the alarm to stay in the armed mode for just a little longer
-- alias: 'Trigger alarm while armed away (front door)'
-  initial_state: 'on'
-  trigger:
-    - platform: state
-      entity_id: 
-        - binary_sensor.front_door_sensor
-      to: 'on' 
-      for:
-        seconds: '3'
-  condition:
-      condition: state
-      entity_id: alarm_control_panel.ha_alarm
-      state: armed_away     
-  action:
-    - service: alarm_control_panel.alarm_trigger
-      entity_id: alarm_control_panel.ha_alarm
-    - service: notify.html5
-      data_template:
-        title: 'Alarm Triggered by front door'
-        message: '{{ trigger.to_state.attributes.friendly_name }} opened'         
-        data:           
-          tag: 'alarm'   
-          priority: high        
-          url: /lovelace/alarm
+# - alias: 'Trigger alarm while armed away (front door)'
+#   initial_state: 'on'
+#   trigger:
+#     - platform: state
+#       entity_id: 
+#         - binary_sensor.front_door_sensor
+#       to: 'on' 
+#       for:
+#         seconds: '3'
+#   condition:
+#       condition: state
+#       entity_id: alarm_control_panel.ha_alarm
+#       state: armed_away     
+#   action:
+#     - service: alarm_control_panel.alarm_trigger
+#       entity_id: alarm_control_panel.ha_alarm
+#     - service: notify.html5
+#       data_template:
+#         title: 'Alarm Triggered by front door'
+#         message: '{{ trigger.to_state.attributes.friendly_name }} opened'         
+#         data:           
+#           tag: 'alarm'   
+#           priority: high        
+#           url: /lovelace/alarm
 
-- alias: 'Trigger alarm while armed away'
-  initial_state: 'on'
-  trigger:
-    - platform: state
-      entity_id: 
-        - binary_sensor.hall_motion_motion
-#        - binary_sensor.garage_motion_sensor
-        - binary_sensor.office_motion_sensor
-        - binary_sensor.lounge_motion_sensor
-        - binary_sensor.kitchen_motion_sensor
-        - binary_sensor.playroom_motion_sensor
-        - binary_sensor.front_door_sensor
-        - binary_sensor.garage_door_sensor
-      to: 'on' 
-  condition:
-    condition: or
-    conditions:
-      - condition: state
-        entity_id: alarm_control_panel.ha_alarm
-        state: armed_away
-      - condition: state
-        entity_id: alarm_control_panel.ha_alarm
-        state: armed_night        
-  action:
-    - service: alarm_control_panel.alarm_trigger
-      entity_id: alarm_control_panel.ha_alarm
-    - service: notify.html5
-      data_template:
-        title: 'Alarm Triggered'
-        message: '{{ trigger.to_state.attributes.friendly_name }} opened'         
-        data:           
-          tag: 'alarm'   
-          priority: high        
-          url: /lovelace/alarm
+# - alias: 'Trigger alarm while armed away'
+#   initial_state: 'on'
+#   trigger:
+#     - platform: state
+#       entity_id: 
+#         - binary_sensor.hall_motion_motion
+# #        - binary_sensor.garage_motion_sensor
+#         - binary_sensor.office_motion_sensor
+#         - binary_sensor.lounge_motion_sensor
+#         - binary_sensor.kitchen_motion_sensor
+#         - binary_sensor.playroom_motion_sensor
+#         - binary_sensor.front_door_sensor
+#         - binary_sensor.garage_door_sensor
+#       to: 'on' 
+#   condition:
+#     condition: or
+#     conditions:
+#       - condition: state
+#         entity_id: alarm_control_panel.ha_alarm
+#         state: armed_away
+#       - condition: state
+#         entity_id: alarm_control_panel.ha_alarm
+#         state: armed_night        
+#   action:
+#     - service: alarm_control_panel.alarm_trigger
+#       entity_id: alarm_control_panel.ha_alarm
+#     - service: notify.html5
+#       data_template:
+#         title: 'Alarm Triggered'
+#         message: '{{ trigger.to_state.attributes.friendly_name }} opened'         
+#         data:           
+#           tag: 'alarm'   
+#           priority: high        
+#           url: /lovelace/alarm
 
 #############################################################################
 # Triggers the alarm when you are home (only triggers when a door opens...) #
 #############################################################################
-- alias: 'Trigger alarm while armed home'
-  initial_state: 'on'
-  trigger:
-    - platform: state
-      entity_id:         
-        - group.door_sensors
-      to: 'on' 
-  condition:
-    - condition: state
-      entity_id: alarm_control_panel.ha_alarm
-      state: armed_home
-  action:
-    service: alarm_control_panel.alarm_trigger
-    entity_id: alarm_control_panel.ha_alarm    
+# - alias: 'Trigger alarm while armed home'
+#   initial_state: 'on'
+#   trigger:
+#     - platform: state
+#       entity_id:         
+#         - group.door_sensors
+#       to: 'on' 
+#   condition:
+#     - condition: state
+#       entity_id: alarm_control_panel.ha_alarm
+#       state: armed_home
+#   action:
+#     service: alarm_control_panel.alarm_trigger
+#     entity_id: alarm_control_panel.ha_alarm    
 
 #####################################################
 ###      Alarm triggered notifications            ###
 #####################################################
-- alias: 'Send notification when alarm triggered'
-  initial_state: 'on'
-  trigger:
-    - platform: state
-      entity_id: alarm_control_panel.ha_alarm
-      to: 'triggered'
-  condition:
-    - condition: state
-      entity_id: input_boolean.test_mode
-      state: 'off'     
-  action:
-    - service: script.alarm_triggered
+# - alias: 'Send notification when alarm triggered'
+#   initial_state: 'on'
+#   trigger:
+#     - platform: state
+#       entity_id: alarm_control_panel.ha_alarm
+#       to: 'triggered'
+#   condition:
+#     - condition: state
+#       entity_id: input_boolean.test_mode
+#       state: 'off'     
+#   action:
+#     - service: script.alarm_triggered
 
 #########################################################
 ###                 Alarm Modes Changed               ###
 #########################################################
-- alias: 'Alarm Arming'
-  initial_state: 'on'
-  trigger:
-    - platform: state
-      entity_id: alarm_control_panel.ha_alarm
-      from: 'disarmed'
-      to: 'pending'
-  action:
-    - service: light.turn_on
-      entity_id: light.hall      
-      data:
-        color_name: "orange"        
-        brightness: 255        
-    - service: mqtt.publish
-      data:
-        topic: 'alarmpanel/command'
-        payload_template: >
-          {"speak":"{% if is_state("lock.office_door", "locked") and is_state("lock.playroom_door", "locked")   -%}                      
-          {{ [
-                    "All the doors are locked, have a good trip",
-                    "See you later",
-                    "Thanks for remembering to turn me on! I'll miss you",
-                    "See you later, I'll keep everything safe",
-                    "Bye bye!",
-                    "Hope you are off to do something nice!"
-                    ] | random }} 
-          {%- elif is_state("lock.office_door", "unlocked") and is_state("lock.playroom_door", "unlocked")  -%}
-          All the back doors are not locked
-          {%- elif is_state("lock.office_door", "unlocked") %}
-          The office door is not locked
-          {%- else -%}
-          The playroom door is not locked
-          {%- endif %}"}#" This is just needed to correct vs code...
-    - service: light.turn_on
-      entity_id: light.hall
-      data:
-        color_name: "red"          
-        transition: 30
-        brightness: 255   
-    - service: scene.turn_on
-      entity_id: scene.everything_turned_off                    
+# - alias: 'Alarm Arming'
+#   initial_state: 'on'
+#   trigger:
+#     - platform: state
+#       entity_id: alarm_control_panel.ha_alarm
+#       from: 'disarmed'
+#       to: 'pending'
+#   action:
+#     - service: light.turn_on
+#       entity_id: light.hall      
+#       data:
+#         color_name: "orange"        
+#         brightness: 255        
+#     - service: mqtt.publish
+#       data:
+#         topic: 'alarmpanel/command'
+#         payload_template: >
+#           {"speak":"{% if is_state("lock.office_door", "locked") and is_state("lock.playroom_door", "locked")   -%}                      
+#           {{ [
+#                     "All the doors are locked, have a good trip",
+#                     "See you later",
+#                     "Thanks for remembering to turn me on! I'll miss you",
+#                     "See you later, I'll keep everything safe",
+#                     "Bye bye!",
+#                     "Hope you are off to do something nice!"
+#                     ] | random }} 
+#           {%- elif is_state("lock.office_door", "unlocked") and is_state("lock.playroom_door", "unlocked")  -%}
+#           All the back doors are not locked
+#           {%- elif is_state("lock.office_door", "unlocked") %}
+#           The office door is not locked
+#           {%- else -%}
+#           The playroom door is not locked
+#           {%- endif %}"}#" This is just needed to correct vs code...
+#     - service: light.turn_on
+#       entity_id: light.hall
+#       data:
+#         color_name: "red"          
+#         transition: 30
+#         brightness: 255   
+#     - service: scene.turn_on
+#       entity_id: scene.everything_turned_off                    
 
-- alias: 'Alarm Armed'
-  initial_state: 'on'
-  trigger:
-    - platform: state
-      entity_id: alarm_control_panel.ha_alarm
-      from: 'pending'
-      to: 'armed_away'
-  action:  
-    - service: notify.html5
-      data_template:
-        title: 'Alarm Armed'
-        message: 'The alarm has been armed'           
-        data:           
-          tag: 'alarm'   
-          priority: high        
-          url: /lovelace/alarm
+# - alias: 'Alarm Armed'
+#   initial_state: 'on'
+#   trigger:
+#     - platform: state
+#       entity_id: alarm_control_panel.ha_alarm
+#       from: 'pending'
+#       to: 'armed_away'
+#   action:  
+#     - service: notify.html5
+#       data_template:
+#         title: 'Alarm Armed'
+#         message: 'The alarm has been armed'           
+#         data:           
+#           tag: 'alarm'   
+#           priority: high        
+#           url: /lovelace/alarm
 
-- alias: 'Alarm Armed'
-  initial_state: 'on'
-  trigger:
-    - platform: state
-      entity_id: alarm_control_panel.ha_alarm
-      from: 'pending'
-      to: 'armed_night'
-  action:
-    - service: notify.html5
-      data_template:
-        title: 'Alarm Armed'
-        message: 'The alarm has been armed for night mode'           
-        data:           
-          tag: 'alarm'   
-          priority: high        
-          url: /lovelace/alarm
+# - alias: 'Alarm Armed'
+#   initial_state: 'on'
+#   trigger:
+#     - platform: state
+#       entity_id: alarm_control_panel.ha_alarm
+#       from: 'pending'
+#       to: 'armed_night'
+#   action:
+#     - service: notify.html5
+#       data_template:
+#         title: 'Alarm Armed'
+#         message: 'The alarm has been armed for night mode'           
+#         data:           
+#           tag: 'alarm'   
+#           priority: high        
+#           url: /lovelace/alarm
 
-- alias: 'Alarm Armed'
-  initial_state: 'on'
-  trigger:
-    - platform: state
-      entity_id: alarm_control_panel.ha_alarm
-      from: 'pending'
-      to: 'armed_home'
-  action:
-    - service: notify.html5
-      data_template:
-        title: 'Alarm Armed'
-        message: 'The alarm has been armed for home mode'           
-        data:           
-          tag: 'alarm'   
-          priority: high        
-          url: /lovelace/alarm
-    - service: light.turn_on
-      entity_id: light.hall
-      data:        
-        color_name: "red"          
-        brightness: 30          
+# - alias: 'Alarm Armed'
+#   initial_state: 'on'
+#   trigger:
+#     - platform: state
+#       entity_id: alarm_control_panel.ha_alarm
+#       from: 'pending'
+#       to: 'armed_home'
+#   action:
+#     - service: notify.html5
+#       data_template:
+#         title: 'Alarm Armed'
+#         message: 'The alarm has been armed for home mode'           
+#         data:           
+#           tag: 'alarm'   
+#           priority: high        
+#           url: /lovelace/alarm
+#     - service: light.turn_on
+#       entity_id: light.hall
+#       data:        
+#         color_name: "red"          
+#         brightness: 30          
        
 
-- alias: 'Alarm Deactivated'
-  initial_state: 'on'
-  trigger:
-    - platform: state
-      entity_id: alarm_control_panel.ha_alarm
-      to: 'disarmed'
-  action:
-    - service: notify.html5
-      data_template:
-        title: 'Alarm Disarmed'
-        message: 'The alarm has been disarmed'           
-        data:           
-          tag: 'alarm'   
-          url: /lovelace/alarm
-          priority: high        
-    - service: light.turn_on
-      entity_id: light.hall
-      data:
-        color_name: "green"  
-        brightness: 255
-    - delay: '00:00:10'
-    - service: scene.turn_on
-      entity_id: scene.day        
+# - alias: 'Alarm Deactivated'
+#   initial_state: 'on'
+#   trigger:
+#     - platform: state
+#       entity_id: alarm_control_panel.ha_alarm
+#       to: 'disarmed'
+#   action:
+#     - service: notify.html5
+#       data_template:
+#         title: 'Alarm Disarmed'
+#         message: 'The alarm has been disarmed'           
+#         data:           
+#           tag: 'alarm'   
+#           url: /lovelace/alarm
+#           priority: high        
+#     - service: light.turn_on
+#       entity_id: light.hall
+#       data:
+#         color_name: "green"  
+#         brightness: 255
+#     - delay: '00:00:10'
+#     - service: scene.turn_on
+#       entity_id: scene.day        
 
-- alias: 'Alarm Deactivated after trigger'
-  initial_state: 'on'
-  trigger:
-    - platform: state
-      entity_id: alarm_control_panel.ha_alarm      
-      from: 'triggered'
-      to: 'disarmed'
-  action:
-      - service: switch.turn_off
-        entity_id: switch.garden_siren
-      - service: switch.turn_off
-        entity_id: switch.living_room_siren     
-      - service: media_player.media_stop
-        entity_id: media_player.kitchen_2         
+# - alias: 'Alarm Deactivated after trigger'
+#   initial_state: 'on'
+#   trigger:
+#     - platform: state
+#       entity_id: alarm_control_panel.ha_alarm      
+#       from: 'triggered'
+#       to: 'disarmed'
+#   action:
+#       - service: switch.turn_off
+#         entity_id: switch.garden_siren
+#       - service: switch.turn_off
+#         entity_id: switch.living_room_siren     
+#       - service: media_player.media_stop
+#         entity_id: media_player.kitchen_2         
         
 ###############################################
 #             Turn alarm off                  #
 ###############################################
-- alias: Door unlocked
-  initial_state: 'on'
-  trigger:
-    - platform: state
-      entity_id: lock.front_door
-      from: 'locked'
-      to: 'unlocked'
-    - platform: state
-      entity_id: lock.office_door
-      from: 'locked'
-      to: 'unlocked'
-    - platform: state
-      entity_id: lock.playroom_door
-      from: 'locked'
-      to: 'unlocked'                
-  condition:
-    condition: or
-    conditions:
-      - condition: state
-        entity_id: alarm_control_panel.ha_alarm
-        state: 'armed_away'
-      - condition: state
-        entity_id: alarm_control_panel.ha_alarm
-        state: 'pending'   
-      - condition: state
-        entity_id: alarm_control_panel.ha_alarm
-        state: 'pending'                
-  action:
-    - service: alarm_control_panel.alarm_disarm
-      data:
-          entity_id: alarm_control_panel.ha_alarm
-          code: !secret pin
+# - alias: Door unlocked
+#   initial_state: 'on'
+#   trigger:
+#     - platform: state
+#       entity_id: lock.front_door
+#       from: 'locked'
+#       to: 'unlocked'
+#     - platform: state
+#       entity_id: lock.office_door
+#       from: 'locked'
+#       to: 'unlocked'
+#     - platform: state
+#       entity_id: lock.playroom_door
+#       from: 'locked'
+#       to: 'unlocked'                
+#   condition:
+#     condition: or
+#     conditions:
+#       - condition: state
+#         entity_id: alarm_control_panel.ha_alarm
+#         state: 'armed_away'
+#       - condition: state
+#         entity_id: alarm_control_panel.ha_alarm
+#         state: 'pending'   
+#       - condition: state
+#         entity_id: alarm_control_panel.ha_alarm
+#         state: 'pending'                
+#   action:
+#     - service: alarm_control_panel.alarm_disarm
+#       data:
+#           entity_id: alarm_control_panel.ha_alarm
+#           code: !secret pin
 
 ###############################################
 #               Low battery warnings          #
@@ -429,17 +404,17 @@ automation:
           priority: high        
           url: /lovelace/info
 
-- alias: 'Alarm turned on via switch'
-  initial_state: 'on'
-  trigger:
-    - platform: state
-      entity_id: input_boolean.alarm
-      to: 'on'
-  action:
-    - service: alarm_control_panel.alarm_arm_away
-      entity_id: alarm_control_panel.ha_alarm 
-    - service: input_boolean.turn_off       
-      entity_id: input_boolean.alarm      
+# - alias: 'Alarm turned on via switch'
+#   initial_state: 'on'
+#   trigger:
+#     - platform: state
+#       entity_id: input_boolean.alarm
+#       to: 'on'
+#   action:
+#     - service: alarm_control_panel.alarm_arm_away
+#       entity_id: alarm_control_panel.ha_alarm 
+#     - service: input_boolean.turn_off       
+#       entity_id: input_boolean.alarm      
 
 ###################Notify when alarm goes off script########
 script:
