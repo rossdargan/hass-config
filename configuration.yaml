@@ -124,6 +124,11 @@ http:
  
 light:
   - platform: ring
+  - platform: kitchen
+    name: Kitchen Lights
+    entities:
+      - light.kitchen_main_lights
+      - light.kitchen_outer_lights
   - platform: group
     name: Lounge Lights
     entities:
