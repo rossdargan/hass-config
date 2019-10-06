@@ -128,7 +128,7 @@ light:
     name: Kitchen Lights
     entities:
       - light.kitchen_main_lights
-      - light.kitchen_outer_lights
+      - switch.kitchen_outer_lights_switch
   - platform: group
     name: Lounge Lights
     entities:

@@ -185,7 +185,7 @@
     entities:
       - switch.kitchen_outer_lights_switch
       - light.kitchen_hue
-      - light.kitchen_main_light_level
+      - light.kitchen_main_light
 
   lounge_lights:
     name: "Lounge Lights"
