@@ -288,7 +288,6 @@
       - switch.playroom_tv_switch
       - switch.diningroom_floor_lamp
       - switch.garage_switch
-      - switch.garage_switch_2
       - switch.lounge_floor_lamp
       - switch.pac_man
       - switch.xbox
