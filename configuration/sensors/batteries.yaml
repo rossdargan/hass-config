@@ -1,23 +1,5 @@
   - platform: template
     sensors:
-      front_door_battery:
-        friendly_name: "Front Door Battery"
-        value_template:  "{{ states.zwave.front_door.attributes.battery_level }}"
-        device_class: battery    
-        unit_of_measurement: '%'
-        
-      playroom_door_battery:
-        friendly_name: "Playroom Door Battery"
-        value_template:  "{{ states.zwave.playroom_door.attributes.battery_level }}"
-        device_class: battery    
-        unit_of_measurement: '%'        
-        
-      office_door_battery:
-        friendly_name: "Office Door Battery"
-        value_template:  "{{ states.zwave.officeroom_door.attributes.battery_level }}"
-        device_class: battery    
-        unit_of_measurement: '%'
-        
       hall_motion_battery:
         friendly_name: Hall Motion Battery
         unit_of_measurement: '%'
@@ -74,28 +56,6 @@
             {%- endif %}
         device_class: battery        
 
-
-      front_door_window_sensor_battery:
-        friendly_name: Front Door Sensor Battery
-        unit_of_measurement: '%'
-        value_template: >-
-            {%- if state_attr('zwave.front_door_window_sensor', 'battery_level') %}
-                {{ state_attr('zwave.front_door_window_sensor', 'battery_level')|round }}
-            {% else %}
-                {{ states('sensor.front_door_window_sensor_battery') }}
-            {%- endif %}
-        device_class: battery       
-
-      garage_door_window_sensor_battery:
-        friendly_name: Garage Door Sensor Battery
-        unit_of_measurement: '%'
-        value_template: >-
-            {%- if state_attr('zwave.garage_door_window_sensor', 'battery_level') %}
-                {{ state_attr('zwave.garage_door_window_sensor', 'battery_level')|round }}
-            {% else %}
-                {{ states('sensor.garage_door_window_sensor_battery') }}
-            {%- endif %}
-        device_class: battery                
 
 
       adam_phone_battery:
