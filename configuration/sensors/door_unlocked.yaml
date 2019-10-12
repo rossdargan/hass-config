@@ -71,9 +71,9 @@
 
       playroom_door_unlocked:
         friendly_name: 'Playroom door unlocked by'
-        entity_id: lock.playroom_door
+        entity_id: lock.playroom_door_lock
         value_template: >-
-          {% if states.lock.playroom_door.state %}
+          {% if states.lock.playroom_door_lock.state %}
           {% set users= 
           [ 'Ross:OldFob', 
           'Ross:Key',
@@ -81,7 +81,7 @@
           'Ross:Wallet',
           'Adam:Epi Pen',
           "Lisa:Key" ] %}
-          {% set unlockStatus = state_attr('lock.playroom_door', 'lock_status') %}
+          {% set unlockStatus = state_attr('lock.playroom_door_lock', 'lock_status') %}
           {% if "Unlocked by" in unlockStatus  %}
           {% if "Unlocked by NFC Tag or Card by user " in unlockStatus  %}
           {% set user = unlockStatus | replace("Unlocked by NFC Tag or Card by user ", "") |int %}
