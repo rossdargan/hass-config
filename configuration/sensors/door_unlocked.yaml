@@ -5,32 +5,22 @@
         entity_id: lock.office_door
         value_template: >-
           {% if states.lock.office_door.state %}
-          {% set users= 
-          [ 'Ross:OldFob', 
-          'Ross:Key',
-          'Kath:Key',
-          'Ross:Wallet',
-          'Kath:Card',
-          "Lisa:Key"  ] %}
+          # {% set users= 
+          # [ 'Ross:OldFob', 
+          # 'Ross:Wallet',
+          # 'Kath:Key',
+          # 'Ross:Wallet',
+          # 'Kath:Card',
+          # "Lisa:Key"  ] %}
           {% set unlockStatus = state_attr('lock.office_door', 'lock_status') %}
           {% if "Unlocked by" in unlockStatus  %}
           {% if "Unlocked by NFC Tag or Card by user " in unlockStatus  %}
           {% set user = unlockStatus | replace("Unlocked by NFC Tag or Card by user ", "") |int %}
-          {{ users[user-1] }}
+          {{ user }}
           {% elif 'Unlocked by Bluetooth' in unlockStatus  %}
-          {{ 'Phone' }}
+          {{ 0 }}
           {% endif %}          
           {% endif %}  
-          {% endif %}   
-
-      office_door_last_unlocked:
-        friendly_name: 'Last unlocked office door'
-        entity_id: sensor.office_door_unlocked
-        value_template: >-
-          {% if is_state('sensor.office_door_unlocked', '') %}         
-            {{ states.sensor.office_door_last_unlocked.state }}
-          {%else %}        
-            {{ states.sensor.office_door_unlocked.state }} {{ now().strftime('%Y-%m-%d %H:%M') }}
           {% endif %}   
 
       front_door_unlocked:
@@ -38,66 +28,55 @@
         friendly_name: 'Front door unlocked by'
         value_template: >-
           {% if states.lock.front_door.state %}
-          {% set users= 
-          [ 'Ross:OldFob', 
-          'Dad:Key',
-          '3',
-          'Kath:Key',
-          'Kim:Key',
-          'Ross:Key',
-          'Ross:Wallet',
-          "Lisa:Key" ] %}
+          # {% set users= 
+          # [ 'Ross:OldFob', 
+          # 'Dad:Key',
+          # '3',
+          # 'Kath:Key',
+          # 'Kim:Key',
+          # 'Ross:Key',
+          # 'Ross:Wallet',
+          # "Lisa:Key" ] %}
           {% set unlockStatus = state_attr('lock.front_door', 'lock_status') %}
           {% if "Unlocked by" in unlockStatus  %}
           {% if "Unlocked by NFC Tag or Card by user " in unlockStatus  %}
           {% set user = unlockStatus | replace("Unlocked by NFC Tag or Card by user ", "") |int %}
-          {{ users[user-1] }}
+          {{ user }}
           {% elif 'Unlocked by Bluetooth' in unlockStatus  %}
-          {{ 'Phone' }}
+          {{ 0 }}
           {% endif %}          
           {% endif %}   
           {% endif %}          
-
-      front_door_last_unlocked:
-        friendly_name: 'Last unlocked front door'
-        entity_id: sensor.front_door_unlocked
-        value_template: >-
-          {% if is_state('sensor.front_door_last_unlocked', '') %}         
-            {{ states.sensor.office_door_last_unlocked.state }}
-          {%else %}        
-            {{ states.sensor.front_door_unlocked.state }} {{ now().strftime('%Y-%m-%d %H:%M') }}
-          {% endif %}   
-
 
       playroom_door_unlocked:
         friendly_name: 'Playroom door unlocked by'
         entity_id: lock.playroom_door_lock
         value_template: >-
           {% if states.lock.playroom_door_lock.state %}
-          {% set users= 
-          [ 'Ross:OldFob', 
-          'Ross:Key',
-          'Kath:Key',
-          'Ross:Wallet',
-          'Adam:Epi Pen',
-          "Lisa:Key" ] %}
+          # {% set users= 
+          # [ 'Ross:OldFob', 
+          # 'Ross:Key',
+          # 'Kath:Key',
+          # 'Ross:Wallet',
+          # 'Lisa:Key',
+          # "Adam:Epi Pen" ] %}
           {% set unlockStatus = state_attr('lock.playroom_door_lock', 'lock_status') %}
           {% if "Unlocked by" in unlockStatus  %}
           {% if "Unlocked by NFC Tag or Card by user " in unlockStatus  %}
           {% set user = unlockStatus | replace("Unlocked by NFC Tag or Card by user ", "") |int %}
-          {{ users[user-1] }}
+          {{ user] }}
           {% elif 'Unlocked by Bluetooth' in unlockStatus  %}
-          {{ 'Phone' }}
+          {{ 0 }}
           {% endif %}          
           {% endif %}          
           {% endif %}   
 
-      playroom_door_last_unlocked:
-        friendly_name: 'Last unlocked playroom door'
-        entity_id: sensor.playroom_door_unlocked
-        value_template: >-
-          {% if is_state('sensor.playroom_door_last_unlocked', '') %}         
-            {{ states.sensor.playroom_door_last_unlocked.state }}
-          {%else %}        
-            {{ states.sensor.playroom_door_unlocked.state }} {{ now().strftime('%Y-%m-%d %H:%M') }}
-          {% endif %}   
+      # playroom_door_last_unlocked:
+      #   friendly_name: 'Last unlocked playroom door'
+      #   entity_id: sensor.playroom_door_unlocked
+      #   value_template: >-
+      #     {% if is_state('sensor.playroom_door_last_unlocked', '') %}         
+      #       {{ states.sensor.playroom_door_last_unlocked.state }}
+      #     {%else %}        
+      #       {{ states.sensor.playroom_door_unlocked.state }} {{ now().strftime('%Y-%m-%d %H:%M') }}
+      #     {% endif %}   
