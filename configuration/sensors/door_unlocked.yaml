@@ -11,7 +11,7 @@
           {% set user = unlockStatus | replace("Unlocked by NFC Tag or Card by user ", "") |int %}
           {{ user }}
           {% elif 'Unlocked by Bluetooth' in unlockStatus  %}
-          {{ 0 }}
+          {{ phone }}
           {% endif %}          
           {% endif %}  
           {% endif %}   
@@ -27,7 +27,7 @@
           {% set user = unlockStatus | replace("Unlocked by NFC Tag or Card by user ", "") |int %}
           {{ user }}
           {% elif 'Unlocked by Bluetooth' in unlockStatus  %}
-          {{ 0 }}
+          {{ phone }}
           {% endif %}          
           {% endif %}   
           {% endif %}          
@@ -43,7 +43,7 @@
           {% set user = unlockStatus | replace("Unlocked by NFC Tag or Card by user ", "") |int %}
           {{ user }}
           {% elif 'Unlocked by Bluetooth' in unlockStatus  %}
-          {{ 0 }}
+          {{ phone }}
           {% endif %}          
           {% endif %}          
           {% endif %}   
