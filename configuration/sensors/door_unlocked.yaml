@@ -5,13 +5,6 @@
         entity_id: lock.office_door
         value_template: >-
           {% if states.lock.office_door.state %}
-          # {% set users= 
-          # [ 'Ross:OldFob', 
-          # 'Ross:Wallet',
-          # 'Kath:Key',
-          # 'Ross:Wallet',
-          # 'Kath:Card',
-          # "Lisa:Key"  ] %}
           {% set unlockStatus = state_attr('lock.office_door', 'lock_status') %}
           {% if "Unlocked by" in unlockStatus  %}
           {% if "Unlocked by NFC Tag or Card by user " in unlockStatus  %}
@@ -27,16 +20,7 @@
         entity_id: lock.front_door
         friendly_name: 'Front door unlocked by'
         value_template: >-
-          {% if states.lock.front_door.state %}
-          # {% set users= 
-          # [ 'Ross:OldFob', 
-          # 'Dad:Key',
-          # '3',
-          # 'Kath:Key',
-          # 'Kim:Key',
-          # 'Ross:Key',
-          # 'Ross:Wallet',
-          # "Lisa:Key" ] %}
+          {% if states.lock.front_door.state %}       
           {% set unlockStatus = state_attr('lock.front_door', 'lock_status') %}
           {% if "Unlocked by" in unlockStatus  %}
           {% if "Unlocked by NFC Tag or Card by user " in unlockStatus  %}
@@ -52,14 +36,7 @@
         friendly_name: 'Playroom door unlocked by'
         entity_id: lock.playroom_door_lock
         value_template: >-
-          {% if states.lock.playroom_door_lock.state %}
-          # {% set users= 
-          # [ 'Ross:OldFob', 
-          # 'Ross:Key',
-          # 'Kath:Key',
-          # 'Ross:Wallet',
-          # 'Lisa:Key',
-          # "Adam:Epi Pen" ] %}
+          {% if states.lock.playroom_door_lock.state %}        
           {% set unlockStatus = state_attr('lock.playroom_door_lock', 'lock_status') %}
           {% if "Unlocked by" in unlockStatus  %}
           {% if "Unlocked by NFC Tag or Card by user " in unlockStatus  %}
