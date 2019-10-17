@@ -218,7 +218,13 @@ withings:
   profiles:
     - Ross
     - Kath
-
+    
+input_boolean:
+  winter:
+    name: Disable the greenhouse alerts in the winter
+    initial: off
+    icon: mdi:thermometer-chevron-down
+    
 input_number:
   kitchen_light_level:
     name: Kitchen light level
@@ -226,3 +232,9 @@ input_number:
     max: 150
     step: 1    
     unit_of_measurement: 'lx'
+  hall_light_level:
+    name: Hall light level
+    min: 0
+    max: 150
+    step: 1    
+    unit_of_measurement: 'lx'    
