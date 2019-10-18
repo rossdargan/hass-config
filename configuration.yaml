@@ -222,7 +222,6 @@ withings:
 input_boolean:
   winter:
     name: Disable the greenhouse alerts in the winter
-    initial: off
     icon: mdi:thermometer-chevron-down
     
 input_number:
