@@ -113,8 +113,7 @@ history_graph:
     hours_to_show: 48
     refresh: 60
     
-http:
- api_password: !secret api_password
+http: 
  ip_ban_enabled: true
  login_attempts_threshold: 2
  trusted_proxies: 192.168.86.51
