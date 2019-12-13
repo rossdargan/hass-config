@@ -99,7 +99,6 @@
   switch.lounge_sentsy_switch:
     icon: mdi:spray
   script.tv_source_xbox:
-    custom_ui_state_card: state-card-tiles
     config:
       columns: 5
       row_height: 50px
