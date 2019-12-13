@@ -98,7 +98,7 @@ automation:
         to: 'Yes'
         from: 'No'
     action:
-      service: calendar.todoist_new_task
+      service: todoist.new_task
       data:
         content: "Upgrade Home assistant"
         project: 'Personal'

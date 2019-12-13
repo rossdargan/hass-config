@@ -61,7 +61,7 @@ automation:
         to: 'on'
         from: 'off'
     action:
-      service: calendar.todoist_new_task
+      service: todoist.new_task
       data:
         content: 'Put out the blue bin'
         project: 'Personal'
@@ -77,7 +77,7 @@ automation:
         to: 'on'
         from: 'off'
     action:
-      service: calendar.todoist_new_task
+      service: todoist.new_task
       data:
         content: 'Put out the green bin'
         project: 'Personal'
@@ -93,7 +93,7 @@ automation:
         to: 'on'
         from: 'off'
     action:
-      service: calendar.todoist_new_task
+      service: todoist.new_task
       data:
         content: 'Put out the brown bin'
         project: 'Personal'
