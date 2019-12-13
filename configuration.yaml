@@ -70,9 +70,10 @@ camera:
 #  - https://raw.githubusercontent.com/custom-components/information/master/repos.json
 #  - https://raw.githubusercontent.com/kalkih/mini-graph-card/master/tracker.json
   
-calendar:
-  - platform: todoist
-    token: !secret todoist
+## Awaiting fix to this issue https://github.com/home-assistant/home-assistant/issues/29876
+# calendar:
+#   - platform: todoist
+#     token: !secret todoist
     
 device_tracker:
 #  - platform: owntracks
