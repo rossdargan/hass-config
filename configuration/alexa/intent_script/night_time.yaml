@@ -12,7 +12,7 @@
                     ] | random }} 
 
             {%- else -%}
-              {%- for entity_id in states.group.all_locks.attributes.entity_id if states(entity_id) == 'unlocked' -%}
+              {%- for entity_id in states.group.house_locks.attributes.entity_id if states(entity_id) == 'unlocked' -%}
                         {% set parts = entity_id.split('.') -%}
                         {%- if loop.first %} The {% elif loop.last %} and {% else %}, {% endif -%}{{ states[parts[0]][parts[1]].name }}
                       {%- endfor %}
