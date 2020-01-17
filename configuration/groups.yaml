@@ -268,7 +268,7 @@
     entities:
       - lock.front_door
       - lock.office_door
-      - lock.playroom_door
+      - lock.playroom_door_lock
 
   switches:
     name: Transitive Switches
