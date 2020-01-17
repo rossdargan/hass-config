@@ -147,9 +147,6 @@ plant:
 recorder:  
   purge_keep_days: 2 
   db_url: !secret sql
-ring:
-  username: !secret ring_username
-  password: !secret ring_password
   
 speedtestdotnet:
   scan_interval:
