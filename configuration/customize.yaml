@@ -8,14 +8,6 @@
    icon: mdi:car
   sensor.ross_work_commute:
    icon: mdi:car  
-  group.all_automations:
-   hidden: false
-  group.all_lights:
-    hidden: false
-  group.all_scripts:
-    hidden: false
-  group.all_switches:
-    hidden: false
   group.kitchen_lights:
     icon: mdi:ceiling-light
   switch.hall_main_light_switch:
