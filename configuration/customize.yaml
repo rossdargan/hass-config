@@ -79,9 +79,7 @@
   light.bedroom_main_light_level_3:
     hidden: true
   person.ross:
-    entity_picture: /local/ross.png
-  person.kath:  
-    entity_picture: /local/kath.png    
+    entity_picture: /local/ross.png 
   person.adam:
     entity_picture: /local/adam.png        
   switch.kitchen_sentsy:
