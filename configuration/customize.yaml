@@ -4,8 +4,6 @@
     hidden: true
   switch.dead_switch_3:
     hidden: true
-  sensor.kath_work_commute:
-   icon: mdi:car
   sensor.ross_work_commute:
    icon: mdi:car  
   group.kitchen_lights:
@@ -37,14 +35,14 @@
     friendly_name: "Lounge TV"
   light.dining_room_lamp:
     icon: mdi:lamp
-  light.kath_lamp:
+  light.left_lamp:
     icon: mdi:lamp
   light.hall:
     icon: mdi:lamp
   light.lounge_lamp:
     icon: mdi:lamp
     emulated_hue: false
-  light.ross_bedroom_colour_lamp:
+  light.right_lamp:
     icon: mdi:lamp
     friendly_name: "Ross Lamp"
     emulated_hue: false
