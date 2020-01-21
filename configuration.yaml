@@ -19,10 +19,6 @@ cloud:
 ios:
 auth:
 
-logger:
-  logs:
-    homeassistant.components.http.ban: warning
-
 ###################################################################################
 # Group configurations
 ###################################################################################
@@ -108,7 +104,7 @@ history_graph:
 http: 
  ip_ban_enabled: true
  login_attempts_threshold: 2
- trusted_proxies: 192.168.86.51
+ trusted_proxies: 172.28.0.6
  use_x_forwarded_for: true
  base_url: !secret base_url
  
