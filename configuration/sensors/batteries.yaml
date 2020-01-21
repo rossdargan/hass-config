@@ -81,13 +81,13 @@
             {%- endif %}
         device_class: battery       
 
-      kath_phone_battery:
-        friendly_name: Kath Phone Battery
-        unit_of_measurement: '%'
-        value_template: >-
-            {%- if state_attr('device_tracker.iphone', 'battery_level') %}
-                {{ state_attr('device_tracker.iphone', 'battery_level')|round }}
-            {% else %}
-                {{ states('sensor.kath_phone_battery') }}
-            {%- endif %}
-        device_class: battery      
+   #   kath_phone_battery:
+   #     friendly_name: Kath Phone Battery
+   #     unit_of_measurement: '%'
+   #     value_template: >-
+   #         {%- if state_attr('device_tracker.iphone', 'battery_level') %}
+   #             {{ state_attr('device_tracker.iphone', 'battery_level')|round }}
+   #         {% else %}
+   #             {{ states('sensor.kath_phone_battery') }}
+   #         {%- endif %}
+   #     device_class: battery      
