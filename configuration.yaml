@@ -113,7 +113,6 @@ http:
  base_url: !secret base_url
  
 light:
-  - platform: ring
   - platform: switch
     name: Kitchen Outer Light
     entity_id: switch.kitchen_outer_lights_switch
