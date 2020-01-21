@@ -95,8 +95,8 @@
   bedroom_lights:
     name: Bedroom Lights
     entities:
-      - light.kath_lamp
-      - light.ross_lamp
+      - light.left_lamp
+      - light.right_lamp
       - light.bedroom_main_light_level   
       
   playroom:
