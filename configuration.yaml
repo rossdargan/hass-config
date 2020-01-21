@@ -69,11 +69,10 @@ camera:
 #  - https://raw.githubusercontent.com/robmarkcole/Hue-sensors-HASS/master/custom_updater.json
 #  - https://raw.githubusercontent.com/custom-components/information/master/repos.json
 #  - https://raw.githubusercontent.com/kalkih/mini-graph-card/master/tracker.json
-  
-## Awaiting fix to this issue https://github.com/home-assistant/home-assistant/issues/29876
-# calendar:
-#   - platform: todoist
-#     token: !secret todoist
+
+calendar:
+  - platform: todoist
+    token: !secret todoist
     
 device_tracker:
 #  - platform: owntracks
