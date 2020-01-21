@@ -88,7 +88,6 @@ device_tracker:
     home_interval: 10
     hosts: 
       - 192.168.86.23 # Me
-      - 192.168.86.22 # Kath
       - 192.168.86.60 # Adam
 
 
@@ -203,7 +202,6 @@ withings:
   client_secret: !secret withings_client_secret
   profiles:
     - Ross
-    - Kath
     
 input_boolean:
   winter:
