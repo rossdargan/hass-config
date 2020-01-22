@@ -189,12 +189,6 @@ switch:
 
 sentry:
   dsn: !secret sentry
-    
-alexa_media:
-  accounts:
-    - email: !secret amazon_user
-      password: !secret amazon_password
-      url: amazon.co.uk  
 
 withings:
   client_id: !secret withings_client_id
