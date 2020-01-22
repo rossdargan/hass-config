@@ -2,7 +2,7 @@
   api_key: !secret sonarr_api_key
   host: !secret sonarr_host
   urlbase: sonarr
-  port: 443
+  port: 8989
   days: 2
-  ssl: true
+  ssl: false
   max: 10
