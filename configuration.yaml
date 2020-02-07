@@ -75,6 +75,7 @@ calendar:
     token: !secret todoist
     
 device_tracker:
+  - platform: huesensor
 #  - platform: owntracks
 #    secret: !secret owntracks
   - platform: icloud
@@ -144,7 +145,10 @@ plant:
 recorder:  
   purge_keep_days: 2 
   db_url: !secret sql
-  
+
+remote:
+  - platform: huesensor
+
 speedtestdotnet:
   scan_interval:
     minutes: 30
