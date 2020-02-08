@@ -61,8 +61,7 @@ camera:
     name: 'Sniperley Roundabout'
   - platform: generic
     still_image_url: https://liveimages.networkwebcams.co.uk/sd_durhamcouncil12.jpg?  
-    name: 'Dryburn Park'    
-  - platform: ring
+    name: 'Dryburn Park' 
   
 #custom_updater:
 #  component_urls:
@@ -82,24 +81,12 @@ device_tracker:
     username: !secret apple_username
     password: !secret apple_password
     account_name: Apple
-  - platform: google_maps
-    username: !secret google_username
   - platform: nmap_tracker
     home_interval: 10
     hosts: 
       - 192.168.86.23 # Me
       - 192.168.86.60 # Adam
-
-
-history_graph:
-  temp:
-    name: Temperature Graph
-    entities:
-      - sensor.greenhouse_temperature
-      - sensor.hall_temperature
-    hours_to_show: 48
-    refresh: 60
-    
+   
 http: 
  ip_ban_enabled: true
  login_attempts_threshold: 2
@@ -187,9 +174,6 @@ influxdb:
 
 hacs:
   token: !secret git_token
-  
-switch:
-    - platform: ring
 
 sentry:
   dsn: !secret sentry

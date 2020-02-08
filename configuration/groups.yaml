@@ -1,39 +1,3 @@
-  default_view:
-    view: yes
-    icon: mdi:home
-    entities:
-      - switch.christmas_tree
-      - binary_sensor.greenhouse_resevoir
-      - alert.burglar_alarm
-      - alert.update_available
-      - alert.certificate
-      - alert.ring_battery
-      - group.work_sensors
-      - binary_sensor.seedbox
-      - binary_sensor.home
-      - device_tracker.iphone
-      - device_tracker.google_maps_104113982427948631716
-      - climate.living_room
-      - sensor.greenhouse_temperature
-      - sensor.yr_dewpoint_temperature
-      - sensor.hall_temperature
-      - sensor.hall_motion_motion
-      - group.main_lights
-      - group.tvs
-      - media_player.spotify
-      - group.lounge
-      - sensor.ross_monzo
-      - sensor.philips_hue_dimmer_lounge
-      - sensor.philips_hue_dimmer_bedroom
-      - camera.front_door
-      - camera.garden
-      - group.friends
-      - group.tv_remote
-      - sensor.alarm_state
-      - sensor.bills
-      - sensor.food_budget
-      - group.bin_schedule
-
   tv_remote:
     name: TV
     entities:
@@ -45,69 +9,12 @@
       - sensor.yr_dewpoint_temperature
       - sensor.hall_temperature
 
-
-  lounge:
-    view: yes
-    name: Lounge
-    icon: mdi:sofa
-    entities:     
-      - remote.harmony_hub
-      - switch.lounge_sentsy_switch
-#      - media_player.lounge_universal
-      - sensor.living_room_thermostat_humidity
-      - sensor.living_room_thermostat_temperature         
-      - sensor.lounge_main_light_power
-      - group.lounge_lights
-      - group.lounge_av    
-      #- group.tv_roku
-      #- group.tv_plex
-      #- group.tv_ccaudio
-      #- group.tv_cctv
-      - switch.lounge_tv_switch
-      - media_player.shield
-      - media_player.lounge_universal
-      - media_player.plex_d46e7ce32731388a_com_plexapp_android
-      #- media_player.philipstv
-
-
-  kitchen:
-    view: yes
-    icon: mdi:kettle
-    entities:
-      - media_player.kitchen
-      - group.kitchen_lights
-      - switch.kitchen_sentsy_switch
-
-
-  bedroom:
-    view: yes
-    name: Bedroom
-    icon: mdi:hotel
-    entities:
-      - sensor.bedroom_tv_power
-      - sensor.electric_blanket_unknown
-      - switch.bedroom_tv_switch
-      - switch.electric_blanket_switch
-      - sensor.electric_blanket_power
-      - group.bedroom_lights
-      - media_player.bedroom      
-
   bedroom_lights:
     name: Bedroom Lights
     entities:
       - light.left_lamp
       - light.right_lamp
       - light.bedroom_main_light_level   
-      
-  playroom:
-    view: yes
-    name: playroom
-    icon: mdi:gamepad-variant
-    entities:
-      - media_player.playroom
-      - media_player.playroom_speakers
-      - switch.playroom_tv_2_switch 
-      - light.playroom
 
   main_lights:
     icon: mdi:ceiling-light
@@ -132,40 +39,6 @@
       - sensor.kath_work_commute
       - sensor.ross_work_commute
       - camera.a1
-      
-  dining_room:
-    view: yes
-    name: "Dining Room"
-    icon: mdi:food-variant
-    entities:
-      - light.diningroom
-      - media_player.dining_room
-      
-  admin:
-    view: yes
-    name: admin
-    icon: mdi:settings
-    entities:
-      - sensor.plex
-      - sensor.transmission_active_torrents
-      - sensor.transmission_down_speed
-      - sensor.transmission_up_speed
-      - sensor.speedtest_ping
-      - sensor.speedtest_download
-      - sensor.speedtest_upload
-      - group.power_sensors
-      - sensor.ssl_certificate_expiry
-      - sensor.hallway_nest_protect_battery_health
-      - sensor.upstairs_nest_protect_battery_health
-      - sensor.ring_front_door_battery
-      - group.glances
-      - switch.office_torch
-      - sensor.office_motion
-      - sensor.office_light_level
-      - group.google_wifi
-      - group.light_sensors
-      - sensor.pihole_ads_blocked_today   
-      - sensor.rossdarganhassconfig_last_build_state
 
   light_sensors:
     name: Light
