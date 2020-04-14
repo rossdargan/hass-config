@@ -212,4 +212,4 @@ input_number:
 
 
 shell_command:
-  update_ha: "echo '/home/ross/up.sh' > cmdpipe"
+  update_ha: "echo '/docker/homeassistant/up.sh' > cmdpipe"
