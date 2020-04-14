@@ -209,3 +209,7 @@ input_number:
     max: 150
     step: 1    
     unit_of_measurement: 'lx'    
+
+
+shell_command:
+  update_ha: "echo '/home/ross/up.sh' > cmdpipe"
