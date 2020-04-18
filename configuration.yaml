@@ -100,6 +100,9 @@ light:
   - platform: switch
     name: Kitchen Outer Light
     entity_id: switch.kitchen_outer_lights_switch
+  - platform: switch
+    name: Playroom Main Light
+    entity_id: switch.playroom_main_light
   - platform: group
     name: Kitchen Lights
     entities:
