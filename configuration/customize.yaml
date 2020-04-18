@@ -64,6 +64,8 @@
   switch.kitchen_outer_lights_switch:
     icon: mdi:ceiling-light    
     friendly_name: "Kitchen Outer Lights"
+  light.playroom_main_light:
+    icon: mdi:ceiling-light    
   binary_sensor.garage_motion_sensor:
     device_class: motion 
   binary_sensor.front_door_sensor:
