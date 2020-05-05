@@ -103,6 +103,9 @@ light:
   - platform: switch
     name: Playroom Main Light
     entity_id: switch.playroom_main_light
+  - platform: switch
+    name: Landing Light
+    entity_id: switch.landing_light
   - platform: group
     name: Kitchen Lights
     entities:
