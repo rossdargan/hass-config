@@ -6,15 +6,15 @@ alarm_control_panel:
     code_arm_required: false    
     armed_away:
       delay_time: 20 # 20 seconds to disarm the alarm
-      arming_time: 60 # 60 seconds to leave...
+      pending_time: 60 # 60 seconds to leave...
     armed_night:
       delay_time: 0 # Alarm arms immediately
-      arming_time: 20 # No disarm time
+      pending_time: 20 # No disarm time
     armed_home:
       delay_time: 0 # Alarm arms immediately
-      arming_time: 0 # No disarm time
+      pending_time: 0 # No disarm time
     triggered:
-      arming_time: 0 # no pending time when the alarm is triggered - use the delay time  
+      pending_time: 0 # no pending time when the alarm is triggered - use the delay time  
 
 group:
   pir_sensors:
