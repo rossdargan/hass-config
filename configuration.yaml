@@ -94,7 +94,6 @@ http:
  login_attempts_threshold: 2
  trusted_proxies: 172.28.0.6
  use_x_forwarded_for: true
- base_url: !secret base_url
  
 light:
   - platform: switch
@@ -237,3 +236,6 @@ ynab:
   categories:
     - "🥕 Food"
   
+logger:
+  logs:
+    custom_components.ynab: debug
