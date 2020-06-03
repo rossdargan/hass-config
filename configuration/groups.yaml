@@ -159,3 +159,10 @@
       - switch.lounge_floor_lamp
       - switch.pac_man
       - switch.xbox
+
+  garage:
+    name: Garage Presence
+    entities:
+      - binary_sensor.garage_external_door
+      - binary_sensor.garage_pir_sensor
+      - binary_sensor.garage_door_sensor
