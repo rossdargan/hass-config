@@ -94,7 +94,6 @@ http:
  login_attempts_threshold: 2
  trusted_proxies: 172.28.0.6
  use_x_forwarded_for: true
- base_url: !secret base_url
  
 light:
   - platform: switch
@@ -228,3 +227,15 @@ shell_command:
 google:
   client_id: !secret google_client_id
   client_secret: !secret google_client_secret
+  
+ynab:
+  api_key: !secret ynab_token 
+  name: "My YNAB Budget"
+  budget: "https://api.youneedabudget.com/v1/budgets/8ab7902c-bb25-46f9-94fd-676406987be1"
+  currency: "£"
+  categories:
+    - "🥕 Food"
+  
+logger:
+  logs:
+    custom_components.ynab: debug
