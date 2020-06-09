@@ -79,15 +79,12 @@ device_tracker:
   - platform: huesensor
 #  - platform: owntracks
 #    secret: !secret owntracks
-  - platform: icloud
-    username: !secret apple_username
-    password: !secret apple_password
-    account_name: Apple
   - platform: nmap_tracker
     home_interval: 10
     hosts: 
       - 192.168.86.23 # Me
       - 192.168.86.60 # Adam
+      - 192.168.86.247 # Josh
    
 http: 
  ip_ban_enabled: true
@@ -223,6 +220,7 @@ input_text:
 
 shell_command:
   update_ha: "echo '/docker/homeassistant/up.sh' > cmdpipe"
+  restart_ha: "echo 'docker restart home-assistantW' > cmdpipe"
 
 google:
   client_id: !secret google_client_id
