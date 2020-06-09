@@ -86,6 +86,8 @@
     entity_picture: /local/ross.png 
   person.adam:
     entity_picture: /local/adam.png        
+  person.josh:
+    entity_picture: /local/josh.png        
   switch.kitchen_sentsy:
     icon: mdi:spray    
   switch.lounge_sentsy_switch:
