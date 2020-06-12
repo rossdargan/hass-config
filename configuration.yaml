@@ -226,13 +226,6 @@ google:
   client_id: !secret google_client_id
   client_secret: !secret google_client_secret
   
-ynab:
-  api_key: !secret ynab_token 
-  name: "My YNAB Budget"
-  budget: "https://api.youneedabudget.com/v1/budgets/8ab7902c-bb25-46f9-94fd-676406987be1"
-  currency: "£"
-  categories:
-    - "🥕 Food"
   
 logger:
   logs:
