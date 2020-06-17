@@ -132,7 +132,13 @@ plant:
       brightness: sensor.greenhouse_light
     min_temperature: 5
     
-    
+proximity:
+  home:    
+    devices:
+        - device_tracker.lya_l09
+    tolerance: 50
+    unit_of_measurement: mi
+              
 recorder:  
   purge_keep_days: 2 
   db_url: !secret sql
