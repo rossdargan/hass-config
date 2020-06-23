@@ -2,7 +2,7 @@ alarm_control_panel:
   - platform: manual_mqtt
     state_topic: home/alarm
     command_topic: home/alarm/set
-    code: !secret pin
+#    code: !secret pin
     code_arm_required: false    
     armed_away:
       delay_time: 20 # 20 seconds to disarm the alarm
