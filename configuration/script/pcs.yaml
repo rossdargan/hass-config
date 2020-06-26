@@ -1,4 +1,4 @@
-  my_computer_shutdown:
+  playroom_computer_shutdown:
     alias: "Playroom - Shutdown"
     sequence:
       - service: mqtt.publish
