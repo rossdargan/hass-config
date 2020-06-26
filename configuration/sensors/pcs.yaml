@@ -8,3 +8,15 @@
     payload_available: "ON"
     payload_not_available: "OFF"
     qos: 1
+
+
+  - platform: mqtt
+    name: "Playroom - Current User"
+    state_topic: "iotlink/workgroup/dar-josh-01/windows-monitor/stats/system/current-user"
+    unit_of_measurement: ''
+    icon: mdi:account
+    value_template: "{{ value }}"
+    availability_topic: "iotlink/workgroup/dar-josh-01/lwt"
+    payload_available: "ON"
+    payload_not_available: "OFF"
+    qos: 1
