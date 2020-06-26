@@ -1,0 +1,7 @@
+  my_computer_shutdown:
+    alias: "Playroom - Shutdown"
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: "iotlink/workgroup/desktop-11q5ps6/commands/shutdown"
+          payload: ""

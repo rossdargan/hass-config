@@ -1,0 +1,10 @@
+  - platform: mqtt
+    name: "Playroom - Current User"
+    state_topic: "iotlink/workgroup/desktop-11q5ps6/windows-monitor/stats/system/current-user"
+    unit_of_measurement: ''
+    icon: mdi:account
+    value_template: "{{ value }}"
+    availability_topic: "iotlink/workgroup/desktop-11q5ps6/lwt"
+    payload_available: "ON"
+    payload_not_available: "OFF"
+    qos: 1
