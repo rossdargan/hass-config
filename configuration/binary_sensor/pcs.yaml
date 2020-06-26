@@ -1,6 +1,6 @@
   - platform: mqtt
     name: "Playroom - Connected"
-    state_topic: "iotlink/workgroup/desktop-11q5ps6lwt/lwt"
+    state_topic: "iotlink/workgroup/desktop-11q5ps6/lwt"
     value_template: "{{ value }}"
     payload_on: "ON"
     payload_off: "OFF"
