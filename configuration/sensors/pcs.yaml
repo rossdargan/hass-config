@@ -11,7 +11,7 @@
 
 
   - platform: mqtt
-    name: "Playroom - Current User"
+    name: "Joshua - Current User"
     state_topic: "iotlink/workgroup/dar-josh-01/windows-monitor/stats/system/current-user"
     unit_of_measurement: ''
     icon: mdi:account

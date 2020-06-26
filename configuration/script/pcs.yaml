@@ -7,8 +7,8 @@
           payload: ""
 
 
-  playroom_computer_shutdown:
-    alias: "Playroom - Shutdown"
+  joshua_computer_shutdown:
+    alias: "Joshua - Shutdown"
     sequence:
       - service: mqtt.publish
         data:

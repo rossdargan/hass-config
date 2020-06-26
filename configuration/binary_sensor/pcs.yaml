@@ -8,7 +8,7 @@
     qos: 1
 
   - platform: mqtt
-    name: "Playroom - Connected"
+    name: "Joshua - Connected"
     state_topic: "iotlink/workgroup/dar-josh-01/lwt"
     value_template: "{{ value }}"
     payload_on: "ON"
