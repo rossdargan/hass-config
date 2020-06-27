@@ -43,8 +43,8 @@ zone: !include configuration/zones.yaml
 ####################################################################################
 homekit:
   pincode: !secret homekit
-  entity_config:
-    alarm_control_panel.ha_alarm:
+  #entity_config:
+  #  alarm_control_panel.ha_alarm:
       #code: !secret pin
   filter:
     exclude_domains:
