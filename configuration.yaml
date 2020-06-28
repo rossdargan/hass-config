@@ -224,7 +224,7 @@ input_text:
 
 shell_command:
   update_ha: "echo '/docker/homeassistant/up.sh' > cmdpipe"
-  restart_ha: "echo 'docker restart home-assistantW' > cmdpipe"
+  restart_ha: "echo 'docker restart home-assistant' > cmdpipe"
 
 google:
   client_id: !secret google_client_id
