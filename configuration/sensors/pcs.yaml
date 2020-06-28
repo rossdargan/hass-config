@@ -20,3 +20,14 @@
     payload_available: "ON"
     payload_not_available: "OFF"
     qos: 1
+
+  - platform: mqtt
+    name: "Adam - Current User"
+    state_topic: "iotlink/workgroup/laptop-0t01l9ak/windows-monitor/stats/system/current-user"
+    unit_of_measurement: ''
+    icon: mdi:account
+    value_template: "{{ value }}"
+    availability_topic: "iotlink/workgroup/laptop-0t01l9ak/lwt"
+    payload_available: "ON"
+    payload_not_available: "OFF"
+    qos: 1

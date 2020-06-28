@@ -15,3 +15,13 @@
     payload_off: "OFF"
     device_class: "connectivity"
     qos: 1
+
+
+  - platform: mqtt
+    name: "Adam - Connected"
+    state_topic: "iotlink/workgroup/laptop-0t01l9ak/lwt"
+    value_template: "{{ value }}"
+    payload_on: "ON"
+    payload_off: "OFF"
+    device_class: "connectivity"
+    qos: 1

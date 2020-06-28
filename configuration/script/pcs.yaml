@@ -14,3 +14,12 @@
         data:
           topic: "iotlink/workgroup/dar-josh-01/commands/shutdown"
           payload: ""
+
+
+  adam_computer_shutdown:
+    alias: "Adam - Shutdown"
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: "iotlink/workgroup/laptop-0t01l9ak/commands/shutdown"
+          payload: ""
