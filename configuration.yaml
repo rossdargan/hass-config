@@ -46,11 +46,11 @@ zone: !include configuration/zones.yaml
   #entity_config:
   #  alarm_control_panel.ha_alarm:
       #code: !secret pin
-  filter:
-    exclude_domains:
-      - automation
-    exclude_entities:
-      - binary_sensor.greenhouse_resevoir
+  #filter:
+  #  exclude_domains:
+  #    - automation
+  #  exclude_entities:
+  #    - binary_sensor.greenhouse_resevoir
 
 apcupsd:
   host: 192.168.86.10
