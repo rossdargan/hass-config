@@ -1,4 +1,5 @@
   flash_briefings:
+    password: !secret alexa_password
     traveltime:
       - title: Travel time?
         text: !include flashbriefing.yaml
