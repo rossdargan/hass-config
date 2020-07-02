@@ -232,5 +232,4 @@ google:
   
   
 logger:
-  logs:
-    custom_components.ynab: debug
+  default: info
