@@ -1,7 +1,3 @@
-  plexpy:
-      title: 'PlexPy'
-      url: !secret plexpy_url
-      icon: mdi:account-search
   sonarr:
       title: 'Sonarr'
       url: !secret sonarr_url
@@ -22,7 +18,3 @@
       title: 'Node Red'
       url: !secret nodered_url
       icon: mdi:sitemap
-  adguard:
-      title: 'Ad Guard'
-      url: !secret adguard_url
-      icon: mdi:shield-check-outline

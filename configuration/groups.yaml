@@ -152,12 +152,10 @@
       - switch.kitchen_outer_lights_switch
       - switch.bedroom_tv_switch
       - switch.lounge_sentsy_switch
-      - switch.electric_blanket_switch
       - switch.playroom_tv_switch
       - switch.diningroom_floor_lamp
       - switch.garage_switch
       - switch.lounge_floor_lamp
-      - switch.pac_man
       - switch.xbox
 
   garage:
