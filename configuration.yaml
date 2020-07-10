@@ -194,9 +194,7 @@ spotify:
 withings:
   client_id: !secret withings_client_id
   client_secret: !secret withings_client_secret
-  profiles:
-    - Ross
-    
+
 input_boolean:
   winter:
     name: Disable the greenhouse alerts in the winter

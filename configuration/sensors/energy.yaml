@@ -1,4 +1,4 @@
   - platform: statistics
     entity_id: sensor.tumble_dryer_power
-    max_age:
-      minutes: 3
+    name: tumble_dryer_power_avg
+    sampling_size: 10
