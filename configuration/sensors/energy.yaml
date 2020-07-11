@@ -2,3 +2,5 @@
     entity_id: sensor.tumble_dryer_power
     name: tumble_dryer_power_avg
     sampling_size: 10
+    max_age:
+      minutes: 3
