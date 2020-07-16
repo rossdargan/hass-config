@@ -7,3 +7,10 @@
       - sensor.garage_temperature
       - sensor.kitchen_temperature
       - sensor.playroom_temperature
+      
+  - platform: template
+    sensors:
+      solar_elevation:
+        friendly_name: "Solar Elevation"
+        unit_of_measurement: '°'
+        value_template: "{{ state_attr('sun.sun', 'elevation') }}"      
