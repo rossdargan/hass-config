@@ -29,7 +29,7 @@ sensor:
       hass_update_available:
         friendly_name: 'HASS Update Available'
         entity_id: 
-          - sensor.current_hass_version
+          - sensor.latest_version
           - sensor.installed_hass_version
         value_template: >-
           {%- if states.sensor.current_hass_version.state != states.sensor.installed_hass_version.state -%}
