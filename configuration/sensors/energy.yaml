@@ -4,3 +4,10 @@
     sampling_size: 20
     max_age:
       minutes: 3
+
+
+  - platform: integration
+    source: sensor.tumble_dryer_power
+    name: energy_spent
+    unit_prefix: k
+    round: 2
