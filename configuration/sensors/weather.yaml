@@ -7,6 +7,7 @@
       - sensor.garage_temperature
       - sensor.kitchen_temperature
       - sensor.playroom_temperature
+      - sensor.josh_room_temperature
       
   - platform: template
     sensors:
