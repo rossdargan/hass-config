@@ -76,6 +76,8 @@
   binary_sensor.playroom_door_sensor:
     device_class: door     
 
+  binary_sensor.office_door_sensor:
+    device_class: door 
   binary_sensor.josh_room_pir_b1746408_occupancy:
     device_class: motion
   sensor.hall_lux:
