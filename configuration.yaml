@@ -85,6 +85,7 @@ device_tracker:
       - 192.168.86.60 # Adam
       - 192.168.86.247 # Josh
       - 192.168.86.249 # Hot Tub
+      - 192.168.86.46 # LJ
    
 http: 
  ip_ban_enabled: true
