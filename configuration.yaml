@@ -114,6 +114,12 @@ light:
       - light.lounge_iris
       - light.lounge_main_light_level
       - light.lounge
+  - platform: group
+    name: Dining Room Main Light
+    entities:
+      - light.color_temperature_light_1
+      - light.color_temperature_light_2
+      - light.color_temperature_light_3
 mqtt:
   broker: 192.168.86.51
   port: 1883
