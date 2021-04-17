@@ -80,6 +80,11 @@
     device_class: door 
   binary_sensor.garden_gate:
     device_class: door 
+    
+  binary_sensor.front_door_zigbee:
+    device_class: door 
+  binary_sensor.garage_door_sensor_zigbee:
+    device_class: door 
   binary_sensor.josh_room_pir_b1746408_occupancy:
     device_class: motion
   sensor.hall_lux:
