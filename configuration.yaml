@@ -56,13 +56,10 @@ apcupsd:
   host: 192.168.86.10
 camera:
   - platform: generic
-    still_image_url: https://liveimages.networkwebcams.co.uk/sd_durhamcouncil08.jpg?
-    name: A1
-  - platform: generic
-    still_image_url: https://liveimages.networkwebcams.co.uk/sd_durhamcouncil13.jpg?
+    still_image_url: https://dcc.ussgroup.co.uk/images/dutmc_42.jpg
     name: 'Sniperley Roundabout'
   - platform: generic
-    still_image_url: https://liveimages.networkwebcams.co.uk/sd_durhamcouncil12.jpg?  
+    still_image_url: https://dcc.ussgroup.co.uk/images/dutmc_27.jpg?
     name: 'Dryburn Park' 
   
 #custom_updater:
@@ -174,10 +171,6 @@ tts:
 twilio:
   account_sid: !secret twilio_account_sid
   auth_token: !secret twilio_auth_token
-
-zwave:
-  usb_path: /dev/ttyUSB0
-  network_key: !secret zwave_key
 
 weather:
   - platform: darksky
