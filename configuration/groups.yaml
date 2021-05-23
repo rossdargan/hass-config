@@ -14,7 +14,7 @@
     entities:
       - light.left_lamp
       - light.right_lamp
-      - light.bedroom_main_light_level   
+      - light.main_bedroom_light
 
   main_lights:
     icon: mdi:ceiling-light
