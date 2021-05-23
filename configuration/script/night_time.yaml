@@ -2,6 +2,6 @@ night_time:
   alias: 'Night Time'
   sequence:
     - service: light.turn_off
-      entity_id: light.bedroom_main_light_level
+      entity_id: light.main_bedroom_light
     - service: alarm_control_panel.alarm_arm_night
       entity_id: alarm_control_panel.ha_alarm
