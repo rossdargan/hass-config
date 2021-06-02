@@ -145,8 +145,7 @@ proximity:
     unit_of_measurement: mi
               
 recorder:  
-  purge_keep_days: 2 
-  db_url: !secret sql
+  purge_keep_days: 2
 
 
 speedtestdotnet:
