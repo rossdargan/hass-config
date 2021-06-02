@@ -148,21 +148,9 @@ recorder:
   purge_keep_days: 2
 
 
-speedtestdotnet:
-  scan_interval:
-    minutes: 30
-  monitored_conditions:
-    - ping
-    - download
-    - upload
 
 tplink:    
 
-transmission:
-  host: !secret seedbox
-  username: !secret transmission_username
-  password: !secret transmission_password
-    
 tts:
   - platform: microsoft
     api_key: !secret microsoft_tts_key
