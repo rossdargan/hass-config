@@ -73,7 +73,7 @@
   binary_sensor.garage_door_sensor:
     device_class: door     
 
-  binary_sensor.playroom_door_sensor:
+  binary_sensor.ross_office_door_sensor:
     device_class: door     
 
   binary_sensor.office_door_sensor:
