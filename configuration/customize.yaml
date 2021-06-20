@@ -76,7 +76,7 @@
   binary_sensor.ross_office_door_sensor:
     device_class: door     
 
-  binary_sensor.office_door_sensor:
+  binary_sensor.laura_office_door_sensor:
     device_class: door 
   binary_sensor.garden_gate:
     device_class: door 
