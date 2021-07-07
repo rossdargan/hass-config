@@ -114,14 +114,6 @@
       - sensor.lounge_floor_lamp_power
       - sensor.dining_room_floor_lamp_power
       - sensor.electric_blanket_power
-  google_wifi:
-    name: "Google Wifi"
-    entities:  
-      - sensor.google_wifi_current_version
-      - sensor.google_wifi_last_restart
-      - sensor.google_wifi_new_version
-      - sensor.google_wifi_status
-      - sensor.google_wifi_uptime
 
   steam:
     name: Steam
