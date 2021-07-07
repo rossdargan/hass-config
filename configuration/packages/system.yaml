@@ -28,9 +28,6 @@ sensor:
     sensors:
       hass_update_available:
         friendly_name: 'HASS Update Available'
-        entity_id: 
-          - sensor.latest_version
-          - sensor.installed_hass_version
         value_template: >-
           {%- if states.sensor.current_hass_version.state != states.sensor.installed_hass_version.state -%}
              Yes
@@ -42,10 +39,7 @@ sensor:
   - platform: template
     sensors:
       ha_version:
-        value_template: "{%- if states.sensor.ha_release.state == states.sensor.ha_release_local.state-%} Yes! {% else %}{{states.sensor.ha_release.state}} No! {% endif%}"
-        entity_id: 
-          - sensor.ha_release
-          - sensor.ha_release_local        
+        value_template: "{%- if states.sensor.ha_release.state == states.sensor.ha_release_local.state-%} Yes! {% else %}{{states.sensor.ha_release.state}} No! {% endif%}"    
         icon_template: >-
           {% if states.sensor.ha_release.state == states.sensor.ha_release_local.state %}
             mdi:checkbox-marked
@@ -66,8 +60,6 @@ sensor:
   - platform: template
     sensors:
       host_uptime_human:
-        entity_id: 
-          - sensor.host_uptime_in_seconds
         value_template: >-
            {% macro human_time(second) -%}
              {%- set second = second|int -%}
