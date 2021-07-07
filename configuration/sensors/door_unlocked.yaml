@@ -2,7 +2,6 @@
     sensors:
       office_door_unlocked:
         friendly_name: 'Office door unlocked by'
-        entity_id: lock.office_door
         value_template: >-
           {% if states.lock.office_door.state %}
           {% set unlockStatus = state_attr('lock.office_door', 'lock_status') %}
@@ -17,7 +16,6 @@
           {% endif %}   
 
       front_door_unlocked:
-        entity_id: lock.front_door
         friendly_name: 'Front door unlocked by'
         value_template: >-
           {% if states.lock.front_door.state %}       
@@ -34,7 +32,6 @@
 
       playroom_door_unlocked:
         friendly_name: 'Playroom door unlocked by'
-        entity_id: lock.playroom_door_lock
         value_template: >-
           {% if states.lock.playroom_door_lock.state %}        
           {% set unlockStatus = state_attr('lock.playroom_door_lock', 'lock_status') %}
