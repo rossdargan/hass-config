@@ -1,5 +1,25 @@
   - platform: template
     sensors:
+      yale_playroom_alarmtype_status:
+        value_template: >
+          {% if states("sensor.playroom_door_alarmtype") == "9"  %}Jammed
+          {% elif states("sensor.playroom_door_alarmtype") == "16"  %}Unlocked by Yale App
+          {% elif states("sensor.playroom_door_alarmtype") == "21"  %}Locked manually
+          {% elif states("sensor.playroom_door_alarmtype") == "22"  %}Unlocked manually
+          {% elif states("sensor.playroom_door_alarmtype") == "23"  %}Jammed by zwave
+          {% elif states("sensor.playroom_door_alarmtype") == "24"  %}Locked by zwave
+          {% elif states("sensor.playroom_door_alarmtype") == "25"  %}Unlocked by zwave
+          {% elif states("sensor.playroom_door_alarmtype") == "26"  %}Jammed by Auto relock 
+          {% elif states("sensor.playroom_door_alarmtype") == "27"  %}Auto relock
+          {% elif states("sensor.playroom_door_alarmtype") == "144" and states("sensor.playroom_door_alarmlevel") == "5" %}Unlocked by RFID tag (Laura)
+          {% elif states("sensor.playroom_door_alarmtype") == "144" and states("sensor.playroom_door_alarmlevel") == "3" %}Unlocked by RFID tag (Ross)
+          {% elif states("sensor.playroom_door_alarmtype") == "167"  %}Battery Low
+          {% elif states("sensor.playroom_door_alarmtype") == "168"  %}Battery Critical
+          {% elif states("sensor.playroom_door_alarmtype") == "169"  %}Battery Too Low To Operate Lock
+          {% else %}Unknown ({{states("sensor.playroom_door_alarmtype")}}, {{states("sensor.playroom_door_alarmlevel")}})
+          {% endif %}
+        friendly_name: Porch Door Lock Status
+        icon_template: 'mdi:lock-clock'    
       office_door_unlocked:
         friendly_name: 'Office door unlocked by'
         value_template: >-
