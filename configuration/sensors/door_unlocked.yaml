@@ -1,6 +1,6 @@
   - platform: template
     sensors:
-      yale_playroom_alarmtype_status:
+      playroom_alarmtype_status:
         value_template: >
           {% if states("sensor.playroom_door_alarmtype") == "9"  %}Jammed
           {% elif states("sensor.playroom_door_alarmtype") == "16"  %}Unlocked by Yale App
@@ -20,6 +20,7 @@
           {% endif %}
         friendly_name: Porch Door Lock Status
         icon_template: 'mdi:lock-clock'    
+        
       office_door_unlocked:
         friendly_name: 'Office door unlocked by'
         value_template: >-
