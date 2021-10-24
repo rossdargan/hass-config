@@ -1,6 +1,6 @@
   - platform: mqtt
-    name: "Playroom - Connected"
-    state_topic: "iotlink/workgroup/desktop-11q5ps6/lwt"
+    name: "Oliver - Connected"
+    state_topic: "iotlink/workgroup/dar-oliver-01/lwt"
     value_template: "{{ value }}"
     payload_on: "ON"
     payload_off: "OFF"
@@ -19,7 +19,7 @@
 
   - platform: mqtt
     name: "Adam - Connected"
-    state_topic: "iotlink/workgroup/laptop-0t01l9ak/lwt"
+    state_topic: "iotlink/workgroup/dar-adam-02/lwt"
     value_template: "{{ value }}"
     payload_on: "ON"
     payload_off: "OFF"
