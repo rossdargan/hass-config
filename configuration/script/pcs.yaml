@@ -1,9 +1,9 @@
   playroom_computer_shutdown:
-    alias: "Playroom - Shutdown"
+    alias: "Oliver - Shutdown"
     sequence:
       - service: mqtt.publish
         data:
-          topic: "iotlink/workgroup/desktop-11q5ps6/commands/shutdown"
+          topic: "iotlink/workgroup/dar-oliver-01/commands/shutdown"
           payload: ""
 
 
@@ -21,5 +21,5 @@
     sequence:
       - service: mqtt.publish
         data:
-          topic: "iotlink/workgroup/laptop-0t01l9ak/commands/shutdown"
+          topic: "iotlink/workgroup/dar-adam-02k/commands/shutdown"
           payload: ""
