@@ -145,8 +145,9 @@ proximity:
     unit_of_measurement: mi
               
 recorder:  
-  purge_keep_days: 2
-
+  purge_keep_days: 10
+  db_url: !secret maria_db
+  
 
 
 tplink:    
