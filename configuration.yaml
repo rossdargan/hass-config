@@ -32,7 +32,7 @@ group: !include configuration/groups.yaml
 intent_script: !include_dir_merge_named configuration/alexa/intent_script/ 
 media_player: !include_dir_merge_list configuration/media_player
 notify: !include configuration/notify.yaml
-panel_iframe: !include configuration/panel_iframe.yaml
+# panel_iframe: !include configuration/panel_iframe.yaml
 scene: !include_dir_merge_list configuration/scene
 script: !include_dir_merge_named configuration/script
 sensor: !include_dir_merge_list configuration/sensors
