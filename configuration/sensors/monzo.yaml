@@ -1,5 +1,0 @@
-  - platform: monzo
-    client_id: !secret monzo_client_id
-    client_secret: !secret monzo_secret
-    name: 'Ross Monzo'    
-    current_account: true
