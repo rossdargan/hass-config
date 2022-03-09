@@ -1,7 +1,6 @@
   - platform: integration
     source: sensor.house_usage_corrected
     name: house_usage
-    friendly_name: House Usage
     unit_prefix: k
     round: 2
 
