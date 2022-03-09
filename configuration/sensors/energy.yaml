@@ -1,25 +1,23 @@
-  - platform: integration
-    source: sensor.house_usage_corrected
-    name: house_usage
-    unit_prefix: k
-
-    
-  - platform: template
-    sensors:
-      house_energy_corrected:
-        friendly_name: House Energy Corrected
-        unit_of_measurement: "W"
+template:
+  - sensor:
+      - name: House Energy Corrected
+        unique_id: 3a02104e-42d7-4e4e-b605-38437b66520c
         device_class: power
+        unit_of_measurement: W
         state_class: measurement
-        value_template: >
+        state: >-
           {{ (states('sensor.house_energy_5624021b_smartenergy_metering') | float(0))/4 }}
 
-      house_usage_corrected:      
-        friendly_name: House Usage Corrected
-        unit_of_measurement: "kWh"
+
+  - sensor:
+      - name: House Usage Corrected
+        unique_id: 3a02104e-42d7-4e4e-b605-38437b66520d
         device_class: energy
-        value_template: >
-          {{ (states('sensor.house_energy_5624021b_smartenergy_metering_summation_delivered') | float(0))/4 }}  
+        unit_of_measurement: kWh
+        state_class: total_increasing
+        state: >-
+         {{ (states('sensor.house_energy_5624021b_smartenergy_metering_summation_delivered') | float(0))/4 }}  
+          
           
  
     
