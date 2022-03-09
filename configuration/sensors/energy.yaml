@@ -2,7 +2,6 @@
     source: sensor.house_usage_corrected
     name: house_usage
     unit_prefix: k
-    round: 2
 
     
   - platform: template
@@ -11,6 +10,7 @@
         friendly_name: House Energy Corrected
         unit_of_measurement: "W"
         device_class: power
+        state_class: measurement
         value_template: >
           {{ (states('sensor.house_energy_5624021b_smartenergy_metering') | float)/4 }}
 
