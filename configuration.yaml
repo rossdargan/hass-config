@@ -35,6 +35,7 @@ notify: !include configuration/notify.yaml
 scene: !include_dir_merge_list configuration/scene
 script: !include_dir_merge_named configuration/script
 sensor: !include_dir_merge_list configuration/sensors
+template: !include_dir_merge_list configuration/template
 zone: !include configuration/zones.yaml
 
 ####################################################################################
