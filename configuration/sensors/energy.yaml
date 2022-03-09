@@ -1,43 +1,26 @@
-  - platform: statistics
-    entity_id: sensor.tumble_dryer_power
-    name: tumble_dryer_power_avg
-    sampling_size: 20
-    max_age:
-      minutes: 3
-
-
   - platform: integration
-    source: sensor.tumble_dryer_power
-    name: tumble_dryer_energy_spent
+    source: sensor.house_usage_corrected
+    name: house_usage
+    friendly_name: House Usage
     unit_prefix: k
     round: 2
 
-  - platform: integration
-    source: sensor.lds_zb_onoffplug_d0005_9973cefe_electrical_measurement
-    name: washing_machine_energy_spent
-    unit_prefix: k
-    round: 2    
     
   - platform: template
     sensors:
       house_energy_corrected:
-        friendly_name: House Energy
+        friendly_name: House Energy Corrected
         unit_of_measurement: "W"
         device_class: power
         value_template: >
           {{ (states('sensor.house_energy_5624021b_smartenergy_metering') | float)/4 }}
 
       house_usage_corrected:      
-        friendly_name: House Usage
+        friendly_name: House Usage Corrected
         unit_of_measurement: "kWh"
         device_class: energy
         value_template: >
           {{ (states('sensor.house_energy_5624021b_smartenergy_metering_summation_delivered') | float)/4 }}  
           
-
-  - platform: integration
-    source: sensor.house_energy_corrected
-    name: house_usage
-    unit_prefix: "kWh"
-    round: 2              
+ 
     
