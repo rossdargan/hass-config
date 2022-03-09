@@ -12,14 +12,14 @@
         device_class: power
         state_class: measurement
         value_template: >
-          {{ (states('sensor.house_energy_5624021b_smartenergy_metering') | float)/4 }}
+          {{ (states('sensor.house_energy_5624021b_smartenergy_metering') | float(0))/4 }}
 
       house_usage_corrected:      
         friendly_name: House Usage Corrected
         unit_of_measurement: "kWh"
         device_class: energy
         value_template: >
-          {{ (states('sensor.house_energy_5624021b_smartenergy_metering_summation_delivered') | float)/4 }}  
+          {{ (states('sensor.house_energy_5624021b_smartenergy_metering_summation_delivered') | float(0))/4 }}  
           
  
     
