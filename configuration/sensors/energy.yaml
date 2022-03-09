@@ -20,17 +20,24 @@
     
   - platform: template
     sensors:
-      house_energy:
+      house_energy_corrected:
         friendly_name: House Energy
         unit_of_measurement: "W"
         device_class: power
         value_template: >
           {{ (states('sensor.house_energy_5624021b_smartenergy_metering') | float)/4 }}
 
-      house_usage:      
+      house_usage_corrected:      
         friendly_name: House Usage
         unit_of_measurement: "kWh"
         device_class: energy
         value_template: >
-          {{ (states('sensor.house_energy_5624021b_smartenergy_metering_summation_delivered') | float)/4 }}   
+          {{ (states('sensor.house_energy_5624021b_smartenergy_metering_summation_delivered') | float)/4 }}  
+          
+
+  - platform: integration
+    source: sensor.house_energy_corrected
+    name: house_usage
+    unit_prefix: "kWh"
+    round: 2              
     
