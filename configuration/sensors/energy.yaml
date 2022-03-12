@@ -1,0 +1,14 @@
+  - platform: statistics
+    unique_id: 20767334-f380-4c18-915a-ad19a199f4b5
+    entity_id: sensor.tumble_dryer_electrical_measurement
+    name: tumble_dryer_power_avg
+    sampling_size: 20
+    max_age:
+      minutes: 3
+
+  - platform: integration
+    unique_id: f0ce9f61-e304-4a8c-90f9-cce7f6858184
+    source: sensor.washing_machine_electrical_measurement
+    name: washing_machine_energy_spent
+    unit_prefix: k
+    round: 2    
