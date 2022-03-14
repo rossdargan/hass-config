@@ -154,6 +154,6 @@
       - sensor.tumble_dryer_electrical_measurement
       - sensor.washing_machine_electrical_measurement
       - sensor.lds_zb_onoffplug_d0005_electrical_measurement
-      - sensor.flood_light_electrical_measurement
+      - sensor.flood_light_usage
       - sensor.dishwasher_power
       - sensor.ceiling_light_electric_w
