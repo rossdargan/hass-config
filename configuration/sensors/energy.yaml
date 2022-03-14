@@ -23,3 +23,11 @@
     name: Flood Light Electrical Consumed
     unit_prefix: k
     round: 2    
+
+
+  - platform: integration
+    source: sensor.other_items_electrical_measurement
+    name: Other Items Electrical Consumed
+    unit_prefix: k
+    round: 2    
+  
