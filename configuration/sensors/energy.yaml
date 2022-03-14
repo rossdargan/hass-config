@@ -19,7 +19,7 @@
 
 
   - platform: integration
-    source: sensor.flood_light_electrical_measurement
+    source: sensor.flood_light_usage
     name: Flood Light Electrical Consumed
     unit_prefix: k
     round: 2    
