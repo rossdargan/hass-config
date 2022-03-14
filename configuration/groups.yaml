@@ -143,7 +143,7 @@
       - binary_sensor.garage_door_sensor
       - binary_sensor.garage_door_sensor_zigbee
       
- energy:
+  energy:
     name: All Monitored Energy
     entities:
       - sensor.smart_energy_switch_3rd_edition_electric_consumed_w_3
