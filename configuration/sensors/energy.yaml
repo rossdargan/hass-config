@@ -13,6 +13,13 @@
 
   - platform: integration
     source: sensor.lds_zb_onoffplug_d0005_electrical_measurement
-    name: fridge_energy_spent
+    name: Fridge Usage
+    unit_prefix: k
+    round: 2    
+
+
+  - platform: integration
+    source: sensor.flood_light_usage
+    name: Flood Light Usage
     unit_prefix: k
     round: 2    
