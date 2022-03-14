@@ -99,21 +99,6 @@
       - sensor.docker1_cpu_load
       - sensor.docker1_disk_free
       - sensor.docker1_ram_free      
-  power_sensors:
-    name: "Power Usage"
-    entities:
-      - sensor.hall_main_light_power
-      - sensor.kitchen_main_light_power
-      - sensor.kitchen_outer_lights_power
-      - sensor.lounge_main_light_power
-      - sensor.hall_main_light_power
-      - sensor.bedroom_tv_power
-      - sensor.lounge_tv_power
-      - sensor.playroom_tv_power
-      - sensor.garage_power
-      - sensor.lounge_floor_lamp_power
-      - sensor.dining_room_floor_lamp_power
-      - sensor.electric_blanket_power
 
   steam:
     name: Steam
@@ -170,4 +155,5 @@
       - sensor.washing_machine_electrical_measurement
       - sensor.lds_zb_onoffplug_d0005_electrical_measurement
       - sensor.flood_light_electrical_measurement
-      
+      - sensor.dishwasher_power
+      - sensor.ceiling_light_electric_w
