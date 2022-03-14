@@ -157,3 +157,17 @@
       - binary_sensor.garage_pir_sensor
       - binary_sensor.garage_door_sensor
       - binary_sensor.garage_door_sensor_zigbee
+      
+ energy:
+    name: All Monitored Energy
+    entities:
+      - sensor.smart_energy_switch_3rd_edition_electric_consumed_w_3
+      - sensor.primary_computer_d17d43fe_electrical_measurement
+      - sensor.lounge_tv_electric_consumed_w_4
+      - sensor.bedroom_tv_electric_consumed_w
+      - sensor.kitchen_main_light_power
+      - sensor.tumble_dryer_electrical_measurement
+      - sensor.washing_machine_electrical_measurement
+      - sensor.lds_zb_onoffplug_d0005_electrical_measurement
+      - sensor.flood_light_electrical_measurement
+      
