@@ -157,3 +157,8 @@
       - sensor.flood_light_usage
       - sensor.dishwasher_power
       - sensor.ceiling_light_electric_w
+      - sensor.lounge_devices_electrical_measurement
+      - sensor.fan_heater_electrical_measurement
+      - sensor.monitor_electrical_measurement
+      - sensor.olivers_computer_electrical_measurement
+      
