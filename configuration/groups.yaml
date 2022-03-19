@@ -148,7 +148,7 @@
     entities:
       - sensor.main_server_electrical_measurement
       - sensor.primary_computer_d17d43fe_electrical_measurement
-      - sensor.lounge_tv_electric_consumed_w_4
+      - sensor.lounge_tv_electric_consumed_w
       - sensor.bedroom_tv_electric_consumed_w
       - sensor.kitchen_main_light_power
       - sensor.tumble_dryer_electrical_measurement
