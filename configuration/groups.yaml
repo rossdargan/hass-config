@@ -160,4 +160,5 @@
       - sensor.lounge_devices_electrical_measurement
       - sensor.fan_heater_electrical_measurement
       - sensor.olivers_computer_electrical_measurement
-      
+      - sensor.joshua_computer_power_electric_consumption_w
+      - sensor.adams_computer_electric_consumption_w
