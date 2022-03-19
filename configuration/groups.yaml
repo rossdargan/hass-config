@@ -146,7 +146,7 @@
   energy:
     name: All Monitored Energy
     entities:
-      - sensor.smart_energy_switch_3rd_edition_electric_consumed_w_3
+      - sensor.main_server_electrical_measurement
       - sensor.primary_computer_d17d43fe_electrical_measurement
       - sensor.lounge_tv_electric_consumed_w_4
       - sensor.bedroom_tv_electric_consumed_w
@@ -159,6 +159,5 @@
       - sensor.ceiling_light_electric_w
       - sensor.lounge_devices_electrical_measurement
       - sensor.fan_heater_electrical_measurement
-      - sensor.monitor_electrical_measurement
       - sensor.olivers_computer_electrical_measurement
       
