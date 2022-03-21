@@ -138,6 +138,7 @@ recorder:
   purge_keep_days: 10
   db_url: !secret maria_db
   exclude:
+   entities:
     - sensor.house_energy_5624021b_smartenergy_metering
     - sensor.house_energy_5624021b_smartenergy_metering_summation_delivered
 
