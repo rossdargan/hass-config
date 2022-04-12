@@ -15,7 +15,7 @@
         state: >-
          {{ (states('sensor.house_energy_5624021b_smartenergy_metering_summation_delivered') | float(0))/4 }}  
           
-   - sensor:
+ - sensor:
       - name: Server Energy
         unique_id: 4a02104e-42d7-4e4e-b605-38437b66520d
         device_class: energy
