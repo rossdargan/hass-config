@@ -1,0 +1,8 @@
+{
+  "domain": "hadockermon",
+  "name": "HA Dockermon",
+  "documentation": "https://gitlab.com/custom_components/hadockermon",
+  "dependencies": [],
+  "codeowners": [],
+  "requirements": ["pydockermon==0.0.1"]
+}
