@@ -13,7 +13,7 @@ frontend:
 ###################################################################################
 # Standard configuration
 ###################################################################################
-#emulated_roku:
+#emulated_roku:1
 #  host_ip: 192.168.86.10 # should be set to Home Assistant's address
 default_config:
 
@@ -212,7 +212,20 @@ shell_command:
 google:
   client_id: !secret google_client_id
   client_secret: !secret google_client_secret
-  
+
+proxmoxve:
+  - host: 192.168.86.11
+    username: hass@pve
+    password: !secret pve
+    nodes:
+      - node: pve
+        vms:
+          - 103
+        containers:
+          - 100
+          - 101
+          - 104
+          
   
 logger:
   default: info
