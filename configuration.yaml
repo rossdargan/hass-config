@@ -227,7 +227,7 @@ proxmoxve:
           - 101
           - 104
 switch:
-  platform: hadockermon-media
+  platform: hadockermon
   host: 192.168.86.53
   port: 8126
   stats: true
@@ -236,7 +236,7 @@ switch:
     - 'ha-dockermon'
           
 switch:
-  platform: hadockermon-automation
+  platform: hadockermon
   host: 192.168.86.51
   port: 8126
   stats: true
