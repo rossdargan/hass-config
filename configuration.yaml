@@ -226,7 +226,23 @@ proxmoxve:
           - 100
           - 101
           - 104
+switch:
+  platform: hadockermon-media
+  host: 192.168.86.53
+  port: 8126
+  stats: true
+  prefix: dockermedia
+  exclude:
+    - 'ha-dockermon'
           
-  
+switch:
+  platform: hadockermon-automation
+  host: 192.168.86.51
+  port: 8126
+  stats: true
+  prefix: dockerauto
+  exclude:
+    - 'ha-dockermon'
+
 logger:
   default: info
