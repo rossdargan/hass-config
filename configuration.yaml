@@ -217,6 +217,7 @@ proxmoxve:
   - host: 192.168.86.11
     username: hass@pve
     password: !secret pve
+    verify_ssl: false
     nodes:
       - node: pve
         vms:
