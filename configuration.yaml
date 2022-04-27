@@ -107,15 +107,7 @@ light:
       - light.color_temperature_light_1
       - light.color_temperature_light_2
       - light.color_temperature_light_3
-mqtt:
-  broker: 192.168.86.51
-  port: 1883
-  client_id: home-assistant-1
-  keepalive: 60
-  username: !secret mqtt_username
-  password: !secret mqtt_password
-  discovery: true
-  discovery_prefix: homeassistant
+
 nest:
   client_id: !secret nest_clientid
   client_secret: !secret nest_secret
