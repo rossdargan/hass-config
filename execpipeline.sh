@@ -1,2 +1,2 @@
 #!/bin/bash
-while true; do eval "$(cat /path/to/pipe/mypipe)"; done
+while true; do eval "$(cat /docker/homeassistant/cmdpipe)"; done
