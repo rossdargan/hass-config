@@ -1,0 +1,9 @@
+  - platform: unifigateway
+    host: unifi
+    username: hass2
+    password: !secret unifi
+    monitored_conditions:
+      - www
+      - wlan
+      - alerts
+      - firmware
