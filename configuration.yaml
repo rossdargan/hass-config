@@ -23,7 +23,6 @@ auth:
 ###################################################################################
 # Group configurations
 ###################################################################################
-automation: !include_dir_merge_list configuration/automation
 alexa: !include configuration/alexa/alexa.yaml
 alert: !include_dir_merge_named configuration/alert
 binary_sensor: !include_dir_merge_list configuration/binary_sensor
