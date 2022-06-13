@@ -19,9 +19,9 @@
    name: twilio
    from_number: !secret twilio_from_number
    
-  - name: signal
-    platform: signal_messenger
-    url: "http://192.168.86.51:8180" # the URL where the Signal Messenger REST API is listening
-    number: !secret ross_work # the sender number
-    recipients: # one or more recipients
-      - !secret ross_mob
+ - name: signal
+   platform: signal_messenger
+   url: "http://192.168.86.51:8180" # the URL where the Signal Messenger REST API is listening
+   number: !secret ross_work # the sender number
+   recipients: # one or more recipients
+     - !secret ross_mob
