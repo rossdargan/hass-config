@@ -248,4 +248,6 @@ sensor:
     host: 192.168.86.53
     
 logger:
-  default: info
+  default: warning
+  logs:
+    custom_components.powercalc: debug
