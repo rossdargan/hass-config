@@ -38,3 +38,7 @@
     unit_prefix: k
     round: 2    
   
+  - platform: powercalc
+    entity_id: light.main_bedroom
+    fixed:
+      power: 27.5
