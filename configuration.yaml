@@ -127,7 +127,11 @@ proximity:
         - device_tracker.lya_l09
     tolerance: 50
     unit_of_measurement: mi
-              
+
+powercalc:
+  scan_interval: 00:01:00 #Each minute
+  power_sensor_naming: "{} Powersensor"
+  
 recorder:  
   purge_keep_days: 10
   db_url: !secret maria_db
