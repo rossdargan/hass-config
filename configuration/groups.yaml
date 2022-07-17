@@ -162,3 +162,4 @@
       - sensor.olivers_computer_electrical_measurement
       - sensor.joshua_computer_power_electric_consumption_w
       - sensor.adams_computer_electric_consumption_w
+      - sensor.monitor_electrical_measurement
