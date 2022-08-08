@@ -169,10 +169,6 @@ weather:
 hacs:
   token: !secret git_token
 
-spotify:
-  client_id: !secret spotify_clientid
-  client_secret: !secret spotify_secret
-
 
 withings:
   client_id: !secret withings_client_id
@@ -208,9 +204,6 @@ shell_command:
   restart_ha: "echo 'docker restart home-assistant' > cmdpipe"
   pull_config: "echo '/docker/homeassistant/pull.sh' > cmdpipe"
   todays_timelapse: "echo '/docker/timelapse/today.sh' > cmdpipe"
-google:
-  client_id: !secret google_client_id
-  client_secret: !secret google_client_secret
 
 proxmoxve:
   - host: 192.168.86.11
