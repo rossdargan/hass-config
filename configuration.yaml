@@ -109,31 +109,6 @@ light:
       - light.color_temperature_light_1
       - light.color_temperature_light_2
       - light.color_temperature_light_3
-mqtt:
-  - binary_sensor:
-    name: "Oliver - Connected"
-    state_topic: "iotlink/workgroup/dar-oliver-01/lwt"
-    value_template: "{{ value }}"
-    payload_on: "ON"
-    payload_off: "OFF"
-    device_class: "connectivity"
-    qos: 1
-  - binary_sensor:
-    name: "Joshua - Connected"
-    state_topic: "iotlink/workgroup/dar-josh-01/lwt"
-    value_template: "{{ value }}"
-    payload_on: "ON"
-    payload_off: "OFF"
-    device_class: "connectivity"
-    qos: 1
-  - binary_sensor:
-    name: "Adam - Connected"
-    state_topic: "iotlink/workgroup/dar-adam-02/lwt"
-    value_template: "{{ value }}"
-    payload_on: "ON"
-    payload_off: "OFF"
-    device_class: "connectivity"
-    qos: 1
     
 nest:
   client_id: !secret nest_clientid
