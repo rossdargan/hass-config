@@ -115,6 +115,34 @@ nest:
   client_secret: !secret nest_secret
 
 mqtt:
+  sensor:
+    - name: "Oliver - Current User"
+      state_topic: "iotlink/workgroup/dar-oliver-01/windows-monitor/stats/system/current-user"
+      unit_of_measurement: ''
+      icon: mdi:account
+      value_template: "{{ value }}"
+      availability_topic: "iotlink/workgroup/dar-oliver-01/lwt"
+      payload_available: "ON"
+      payload_not_available: "OFF"
+      qos: 1  
+    - name: "Joshua - Current User"
+      state_topic: "iotlink/workgroup/dar-josh-01/windows-monitor/stats/system/current-user"
+      unit_of_measurement: ''
+      icon: mdi:account
+      value_template: "{{ value }}"
+      availability_topic: "iotlink/workgroup/dar-josh-01/lwt"
+      payload_available: "ON"
+      payload_not_available: "OFF"
+      qos: 1  
+    - name: "Adam - Current User"
+      state_topic: "iotlink/workgroup/dar-adam-02/windows-monitor/stats/system/current-user"
+      unit_of_measurement: ''
+      icon: mdi:account
+      value_template: "{{ value }}"
+      availability_topic: "iotlink/workgroup/dar-adam-02/lwt"
+      payload_available: "ON"
+      payload_not_available: "OFF"
+      qos: 1
   binary_sensor:
     - name: "Oliver - Connected"
       state_topic: "iotlink/workgroup/dar-oliver-01/lwt"
