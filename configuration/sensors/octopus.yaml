@@ -1,9 +1,9 @@
 - platform: rest
-    resource_template: https://api.octopus.energy/v1/products/SILVER-22-07-22/gas-tariffs/G-1R-SILVER-22-07-22-F/standard-unit-rates/?period_from={{(now().timestamp()+ (86400)) | timestamp_custom('%Y-%m-%d')}}
-    method: GET
-    name: octopus_uncapped_gas_tracker_forecast_by_API
-    value_template: "{{(value_json.results[0].value_inc_vat/100) | round (5) }}"
-    unit_of_measurement: 'GBP/kWh'
+  resource_template: https://api.octopus.energy/v1/products/SILVER-22-07-22/gas-tariffs/G-1R-SILVER-22-07-22-F/standard-unit-rates/?period_from={{(now().timestamp()+ (86400)) | timestamp_custom('%Y-%m-%d')}}
+  method: GET
+  name: octopus_uncapped_gas_tracker_forecast_by_API
+  value_template: "{{(value_json.results[0].value_inc_vat/100) | round (5) }}"
+  unit_of_measurement: 'GBP/kWh'
 #    scan_interval: 3600
-    force_update: true
-    icon: hass:currency-gbp
+  force_update: true
+  icon: hass:currency-gbp
