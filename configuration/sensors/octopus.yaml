@@ -4,6 +4,6 @@
   name: octopus_uncapped_gas_tracker_forecast_by_API
   value_template: "{{(value_json.results[0].value_inc_vat/100) | round (5) }}"
   unit_of_measurement: 'GBP/kWh'
-#    scan_interval: 3600
+  scan_interval: 3600
   force_update: true
   icon: hass:currency-gbp
