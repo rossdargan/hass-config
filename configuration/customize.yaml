@@ -1,6 +1,18 @@
   climate.adams_radiator_becathermostat:
     min_temp: 0
     max_temp: 30  
+  climate.josh_radiator_becathermostat:
+    min_temp: 0
+    max_temp: 30  
+  climate.laura_radiator_becathermostat:
+    min_temp: 0
+    max_temp: 30  
+  climate.lounge_radiator_becathermostat:
+    min_temp: 0
+    max_temp: 30  
+  climate.oliver_radiator_becathermostat:
+    min_temp: 0
+    max_temp: 30  
   switch.garage_switch_2:
     hidden: true
   switch.dead_switch_2:
