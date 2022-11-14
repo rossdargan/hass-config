@@ -116,6 +116,95 @@ nest:
 
 mqtt:
   sensor:
+      #---------------------------------------
+    # New Local MQTT for Glow IHD
+    - name: "Smart Meter Electricity: Power"
+      unique_id: "smart_meter_electricity_power"
+      state_topic: "glow/4C11AEAE0B54/SENSOR/electricitymeter"
+      device_class: "power"
+      unit_of_measurement: "W"
+      state_class: "measurement"
+      value_template: "{{ (value_json['electricitymeter']['power']['value'] * 1000) | round() }}"
+      icon: "mdi:flash"
+    - name: "Smart Meter Electricity: Energy Import"
+      unique_id: "smart_meter_electricity_energy_import"
+      state_topic: "glow/4C11AEAE0B54/SENSOR/electricitymeter"
+      device_class: "energy"
+      unit_of_measurement: "kWh"
+      state_class: "total_increasing"
+      value_template: >
+        {% if value_json['electricitymeter']['energy']['import']['cumulative'] == 0 %}
+          {{ states('sensor.smart_meter_electricity_energy_import') }}
+        {% else %}
+          {{ value_json['electricitymeter']['energy']['import']['cumulative'] }}
+        {% endif %}
+      icon: "mdi:flash"
+    - name: "Smart Meter Electricity: Energy Export"
+      unique_id: "smart_meter_electricity_energy_export"
+      state_topic: "glow/4C11AEAE0B54/SENSOR/electricitymeter"
+      device_class: "energy"
+      unit_of_measurement: "kWh"
+      state_class: "total_increasing"
+      value_template: >
+        {% if value_json['electricitymeter']['energy']['export']['cumulative'] == 0 %}
+          {{ states('sensor.smart_meter_electricity_export') }}
+        {% else %}
+          {{ value_json['electricitymeter']['energy']['export']['cumulative'] }}
+        {% endif %}
+      icon: "mdi:flash"
+    - name: "Smart Meter Gas: Import"
+      unique_id: "smart_meter_gas_import"
+      state_topic: "glow/4C11AEAE0B54/SENSOR/gasmeter"
+      device_class: "energy"
+      unit_of_measurement: "kWh"
+      state_class: "total_increasing"
+      value_template: >
+        {% if value_json['gasmeter']['energy']['import']['cumulative'] == 0 %}
+          {{ states('sensor.smart_meter_gas_import') }}
+        {% else %}
+          {{ value_json['gasmeter']['energy']['import']['cumulative'] }}
+        {% endif %}
+      icon: "mdi:fire"
+    - name: "Smart Meter Gas: Power"
+      unique_id: "smart_meter_gas_power"
+      state_topic: "glow/4C11AEAE0B54/SENSOR/gasmeter"
+      device_class: "power"
+      unit_of_measurement: "W"
+      state_class: "measurement"
+      value_template: "{{ (value_json['gasmeter']['power']['value'] * 1000) | round() }}"
+      icon: "mdi:fire"
+    - name: "Smart Meter Electricity: Import Unit Rate"
+      unique_id: "smart_meter_electricity_import_unit_rate"
+      state_topic: "glow/4C11AEAE0B54/SENSOR/electricitymeter"
+      device_class: "monetary"
+      unit_of_measurement: "GBP/kWh"
+      state_class: "measurement"
+      value_template: "{{ value_json['electricitymeter']['energy']['import']['price']['unitrate'] }}"
+      icon: "mdi:cash"
+    - name: "Smart Meter Electricity: Import Standing Charge"
+      unique_id: "smart_meter_electricity_import_standing_charge"
+      state_topic: "glow/4C11AEAE0B54/SENSOR/electricitymeter"
+      device_class: "monetary"
+      unit_of_measurement: "GBP"
+      state_class: "measurement"
+      value_template: "{{ value_json['electricitymeter']['energy']['import']['price']['standingcharge'] }}"
+      icon: "mdi:cash"
+    - name: "Smart Meter Gas: Import Unit Rate"
+      unique_id: "smart_meter_gas_import_unit_rate"
+      state_topic: "glow/4C11AEAE0B54/SENSOR/gasmeter"
+      device_class: "monetary"
+      unit_of_measurement: "GBP/kWh"
+      state_class: "measurement"
+      value_template: "{{ value_json['gasmeter']['energy']['import']['price']['unitrate'] }}"
+      icon: "mdi:cash"
+    - name: "Smart Meter Gas: Import Standing Charge"
+      unique_id: "smart_meter_gas_import_standing_charge"
+      state_topic: "glow/4C11AEAE0B54/SENSOR/gasmeter"
+      device_class: "monetary"
+      unit_of_measurement: "GBP"
+      state_class: "measurement"
+      value_template: "{{ value_json['gasmeter']['energy']['import']['price']['standingcharge'] }}"
+      icon: "mdi:cash"
     - name: "Oliver - Current User"
       state_topic: "iotlink/workgroup/dar-oliver-01/windows-monitor/stats/system/current-user"
       unit_of_measurement: ''
