@@ -163,3 +163,4 @@
       - sensor.joshua_computer_power_electric_consumption_w
       - sensor.adams_computer_electric_consumption_w
       - sensor.monitor_electrical_measurement
+      - sensor.dehumidifier_smartenergy_metering_summation_delivered
