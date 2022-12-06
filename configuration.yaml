@@ -37,6 +37,7 @@ notify: !include configuration/notify.yaml
 scene: !include_dir_merge_list configuration/scene
 script: !include_dir_merge_named configuration/script
 sensor: !include_dir_merge_list configuration/sensors
+switch: !include_dir_merge_list configuration/switches
 template: !include_dir_merge_list configuration/template
 zone: !include configuration/zones.yaml
 
@@ -359,48 +360,7 @@ proxmoxve:
           - 100
           - 101
           - 104
-switch:
-  platform: hadockermon
-  host: 192.168.86.53
-  port: 8126
-  stats: true
-  prefix: dockermedia
-  exclude:
-    - 'ha-dockermon'
-          
-switch:
-  platform: hadockermon
-  host: 192.168.86.51
-  port: 8126
-  stats: true
-  prefix: dockerauto
-  exclude:
-    - 'ha-dockermon'
 
-switch:    
-  platform: template
-  switches:
-     adams_radiator:
-       friendly_name: Adams Radiator
-       value_template: "{{ state_attr('climate.adams_radiator_becathermostat','temperature')|float >10 }}"
-       turn_on:
-         service: climate.set_temperature
-         data:
-           temperature: 22
-         target:
-           entity_id: climate.adams_radiator_becathermostat
-       turn_off:
-         service: climate.set_temperature
-         data:
-           temperature: 5          
-         target:
-           entity_id: climate.adams_radiator_becathermostat       
-       icon_template: >- 
-          {% if state_attr('climate.adams_radiator_becathermostat','temperature')|float >10 %}
-            mdi:radiator
-          {% else %}
-            mdi:radiator-off
-          {% endif %}         
 sensor:
   - platform: tautulli
     api_key: !secret tautulli
