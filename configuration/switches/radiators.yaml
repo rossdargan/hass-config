@@ -122,7 +122,7 @@
    switches:
      hall_radiator:
        friendly_name: Hall Radiator
-       unique_id: bdfedd86-bc8f-4052-8407-ceea29ec17a6  
+       unique_id: bdfedd86-bc8f-4052-8407-ceea29ec17a5 
        value_template: "{{ state_attr('climate.hall_radiator_becathermostat','temperature')|float >10 }}"
        turn_on:
          service: climate.set_temperature
