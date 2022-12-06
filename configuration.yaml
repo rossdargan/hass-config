@@ -394,12 +394,7 @@ switch:
            temperature: 22          
          target:
            entity_id: climate.adams_radiator_becathermostat
-       icon_template: >-
-         {% if {{ state_attr('climate.adams_radiator_becathermostat','temperature')|float >10 }} %}
-           mdi:radiator
-         {% else %}
-           mdi:radiator-off
-         {% endif %}
+       icon_template: {{'mdi:radiator' if state_attr('climate.adams_radiator_becathermostat','temperature')|float >10 else 'mdi:radiator-off'}}
         
 sensor:
   - platform: tautulli
