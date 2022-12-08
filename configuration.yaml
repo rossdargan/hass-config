@@ -32,7 +32,9 @@ binary_sensor: !include_dir_merge_list configuration/binary_sensor
 group: !include configuration/groups.yaml
 intent_script: !include_dir_merge_named configuration/alexa/intent_script/ 
 media_player: !include_dir_merge_list configuration/media_player
-mqtt: !include_dir_merge_list configuration/mqtt
+mqtt: 
+  binary_sensor: !include_dir_merge_list configuration/mqtt/binary_sensor
+  sensor: !include_dir_merge_list configuration/mqtt/sensor
 notify: !include configuration/notify.yaml
 # panel_iframe: !include configuration/panel_iframe.yaml
 scene: !include_dir_merge_list configuration/scene
