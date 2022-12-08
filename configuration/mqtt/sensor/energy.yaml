@@ -1,4 +1,3 @@
-  sensor:
       #---------------------------------------
     # New Local MQTT for Glow IHD
     - name: "Smart Meter Electricity: Power"
