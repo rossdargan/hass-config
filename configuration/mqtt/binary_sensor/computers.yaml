@@ -1,4 +1,3 @@
-  binary_sensor:
     - name: "Oliver - Connected"
       state_topic: "iotlink/workgroup/dar-oliver-01/lwt"
       value_template: "{{ value }}"
