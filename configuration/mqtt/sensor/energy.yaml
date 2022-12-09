@@ -7,7 +7,7 @@
       unit_of_measurement: "W"
       state_class: "measurement"
       value_template: >
-        {% if value_json['electricitymeter']['power']['value'] * 1000) | round()<10000 %}
+        {% if value_json['electricitymeter']['power']['value'] * 1000) | round()<0 %}
           {{ states('sensor.smart_meter_electricity_power') }}
         {% else %}
           {{ (value_json['electricitymeter']['power']['value'] * 1000) | round() }}
