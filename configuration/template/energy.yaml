@@ -6,6 +6,20 @@
         state_class: measurement
         state: >-
           {{ (states('sensor.house_energy_5624021b_smartenergy_metering') | float(0))/4 }}
+          
+   - sensor:
+      - name: House Energy Exported
+        unique_id: 4a02104e-42d7-4e4e-b605-38437b66520c
+        device_class: power
+        unit_of_measurement: W
+        state_class: measurement
+        state: >-
+           {% if states('sensor.smart_meter_electricity_power')==0 %}
+              {{ states('sensor.house_energy_corrected') |round() }}
+           {% else %}
+             0
+           {% endif %}                         
+
   - sensor:
       - name: House Usage Corrected
         unique_id: 3a02104e-42d7-4e4e-b605-38437b66520d
