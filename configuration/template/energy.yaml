@@ -7,7 +7,7 @@
         state: >-
           {{ (states('sensor.house_energy_5624021b_smartenergy_metering') | float(0))/4 }}
           
-   - sensor:
+  - sensor:
       - name: House Energy Exported
         unique_id: 4a02104e-42d7-4e4e-b605-38437b66520c
         device_class: power
