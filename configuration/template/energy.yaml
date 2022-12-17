@@ -14,11 +14,11 @@
         unit_of_measurement: W
         state_class: measurement
         state: >-
-           {% if states('sensor.smart_meter_electricity_power')==0 %}
+           {% if is_state('sensor.smart_meter_electricity_power',"0") %}
               {{ states('sensor.house_energy_corrected') |round() }}
            {% else %}
              0
-           {% endif %}                         
+           {% endif %}                     
 
   - sensor:
       - name: House Usage Corrected
