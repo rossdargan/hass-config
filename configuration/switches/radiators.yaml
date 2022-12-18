@@ -7,7 +7,7 @@
        turn_on:
          service: climate.set_temperature
          data:
-           temperature: 22
+           temperature: 24
          target:
            entity_id: climate.adams_radiator_becathermostat
        turn_off:
@@ -31,7 +31,7 @@
        turn_on:
          service: climate.set_temperature
          data:
-           temperature: 22
+           temperature: 24
          target:
            entity_id: climate.oliver_radiator_becathermostat
        turn_off:
@@ -55,7 +55,7 @@
        turn_on:
          service: climate.set_temperature
          data:
-           temperature: 22
+           temperature: 24
          target:
            entity_id: climate.josh_radiator_becathermostat
        turn_off:
@@ -79,7 +79,7 @@
        turn_on:
          service: climate.set_temperature
          data:
-           temperature: 22
+           temperature: 24
          target:
            entity_id: climate.lounge_radiator_becathermostat
        turn_off:
@@ -103,7 +103,7 @@
        turn_on:
          service: climate.set_temperature
          data:
-           temperature: 22
+           temperature: 24
          target:
            entity_id: climate.dining_room_radiator_becathermostat
        turn_off:
@@ -127,7 +127,7 @@
        turn_on:
          service: climate.set_temperature
          data:
-           temperature: 22
+           temperature: 24
          target:
            entity_id: climate.hall_radiator_becathermostat
        turn_off:
@@ -151,7 +151,7 @@
        turn_on:
          service: climate.set_temperature
          data:
-           temperature: 22
+           temperature: 24
          target:
            entity_id: climate.laura_radiator_becathermostat
        turn_off:
@@ -175,7 +175,7 @@
        turn_on:
          service: climate.set_temperature
          data:
-           temperature: 22
+           temperature: 24
          target:
            entity_id: climate.ross_radiator_becathermostat
        turn_off:
@@ -199,7 +199,7 @@
        turn_on:
          service: climate.set_temperature
          data:
-           temperature: 22
+           temperature: 24
          target:
            entity_id: climate.bedroom_radiator_becathermostat
        turn_off:
@@ -223,7 +223,7 @@
        turn_on:
          service: climate.set_temperature
          data:
-           temperature: 22
+           temperature: 24
          target:
            entity_id: climate.kitchen_radiator_thermostat
        turn_off:
