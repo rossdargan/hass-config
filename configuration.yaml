@@ -232,3 +232,8 @@ logger:
   default: warning
   logs:
     custom_components.powercalc: debug
+
+zha:
+  zigpy_config:
+    ota:
+      ikea_provider: true
