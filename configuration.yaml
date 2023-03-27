@@ -216,10 +216,6 @@ proxmoxve:
           - 101
           - 104
 
-sensor:
-  - platform: tautulli
-    api_key: !secret tautulli
-    host: 192.168.86.53
     
 logger:
   default: warning
