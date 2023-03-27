@@ -155,7 +155,7 @@ weather:
 
 influxdb:
   host: 192.168.86.51
-#  api_version: 2
+  api_version: 2
   ssl: false
   port: 8086
   token: !secret influxdb_token
