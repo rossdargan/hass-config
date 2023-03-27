@@ -1,6 +1,7 @@
   - platform: statistics
     entity_id: sensor.tumble_dryer_electrical_measurement
     name: tumble_dryer_power_avg
+    state_characteristic: average_linear
     sampling_size: 20
     max_age:
       minutes: 3
@@ -8,6 +9,7 @@
   - platform: statistics
     entity_id: sensor.lds_zb_onoffplug_d0005_electrical_measurement
     name: fridge_power_avg
+    state_characteristic: average_linear
     sampling_size: 20
     max_age:
       minutes: 3
