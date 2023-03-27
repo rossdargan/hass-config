@@ -60,13 +60,6 @@ zone: !include configuration/zones.yaml
 
 #apcupsd:
 #  host: 192.168.86.10
-camera:
-  - platform: generic
-    still_image_url: https://dcc.ussgroup.co.uk/images/dutmc_42.jpg
-    name: 'Sniperley Roundabout'
-  - platform: generic
-    still_image_url: https://dcc.ussgroup.co.uk/images/dutmc_27.jpg?
-    name: 'Dryburn Park' 
   
 #custom_updater:
 #  component_urls:
