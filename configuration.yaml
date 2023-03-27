@@ -160,14 +160,14 @@ weather:
     api_key: !secret darksky
   
 
-#influxdb:
-#  host: 192.168.86.51
+influxdb:
+  host: 192.168.86.51
 #  api_version: 2
-#  ssl: false
-#  port: 8086
-#  token: !secret influxdb_token
-#  organization: 3d066bf523ef93fc
-#  bucket: homeassistant
+  ssl: false
+  port: 8086
+  token: !secret influxdb_token
+  organization: 8e90e1f1bec1671f
+  bucket: homeassistant
   
 
 hacs:
