@@ -94,19 +94,6 @@ light:
     entities:
       - light.kitchen_main_light
       - light.kitchen_outer_light
-  - platform: group
-    name: Lounge Lights
-    entities:
-      - light.lounge_iris
-      - light.lounge_main_light_level
-      - light.lounge
-  - platform: group
-    name: Dining Room Main Light
-    entities:
-      - light.color_temperature_light_1
-      - light.color_temperature_light_2
-      - light.color_temperature_light_3
-    
 nest:
   client_id: !secret nest_clientid
   client_secret: !secret nest_secret
