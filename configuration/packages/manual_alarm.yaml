@@ -19,13 +19,10 @@ alarm_control_panel:
 group:
   pir_sensors:
     name: "PIR Sensors"
-    entities:
-      - binary_sensor.hall_motion_motion
-      - binary_sensor.garage_pir_sensor
-      - binary_sensor.office_motion_sensor
+    entities:      
+      - binary_sensor.garage_pir_sensor      
       - binary_sensor.lounge_motion_sensor
-      - binary_sensor.kitchen_motion_sensor
-      - binary_sensor.playroom_motion_sensor
+      - binary_sensor.kitchen_motion_sensor      
 
   door_sensors:
     name: "Door Sensors"
