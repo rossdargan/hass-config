@@ -27,7 +27,7 @@ group:
   door_sensors:
     name: "Door Sensors"
     entities:
-      - binary_sensor.front_door_zigbeer  
+      - binary_sensor.front_door_zigbee  
       - binary_sensor.garage_door_sensor
       - binary_sensor.garage_external_door
 
