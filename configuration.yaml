@@ -76,7 +76,7 @@ calendar:
 http: 
  ip_ban_enabled: true
  login_attempts_threshold: 2
- trusted_proxies: 172.28.0.6
+ trusted_proxies: 172.18.0.18
  use_x_forwarded_for: true
  
 light:
