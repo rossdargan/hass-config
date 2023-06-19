@@ -26,19 +26,6 @@
           {{ value_json['electricitymeter']['energy']['import']['cumulative'] }}
         {% endif %}
       icon: "mdi:flash"
-    - name: "Smart Meter Electricity: Energy Export"
-      unique_id: "smart_meter_electricity_energy_export"
-      state_topic: "glow/4C11AEAE0B54/SENSOR/electricitymeter"
-      device_class: "energy"
-      unit_of_measurement: "kWh"
-      state_class: "total_increasing"
-      value_template: >
-        {% if value_json['electricitymeter']['energy']['export']['cumulative'] == 0 %}
-          {{ states('sensor.smart_meter_electricity_export') }}
-        {% else %}
-          {{ value_json['electricitymeter']['energy']['export']['cumulative'] }}
-        {% endif %}
-      icon: "mdi:flash"
     - name: "Smart Meter Gas: Import"
       unique_id: "smart_meter_gas_import"
       state_topic: "glow/4C11AEAE0B54/SENSOR/gasmeter"
