@@ -94,9 +94,6 @@ light:
     entities:
       - light.kitchen_main_light
       - light.kitchen_outer_light
-nest:
-  client_id: !secret nest_clientid
-  client_secret: !secret nest_secret
 
 plant:
   chillies:
