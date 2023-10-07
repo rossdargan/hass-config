@@ -79,20 +79,4 @@ sensor:
              {%- set second = second % intervals.minute -%}
              {{- comma() ~ second ~ ' Second' ~ ('s' if second != 1) if second -}}
            {%- endmacro %}
-           {{ human_time(states.sensor.host_uptime_in_seconds.state | int ) }}       
-        
-automation:
-  - alias: New version available
-    initial_state: 'on'
-    trigger:
-      - platform: state
-        entity_id: sensor.hass_update_available
-        to: 'Yes'
-        from: 'No'
-    action:
-      service: todoist.new_task
-      data:
-        content: "Upgrade Home assistant"
-        project: 'Personal'
-        priority: 3
-        due_date_string: 'Today'
+           {{ human_time(states.sensor.host_uptime_in_seconds.state | int ) }}               
