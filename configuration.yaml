@@ -120,7 +120,8 @@ recorder:
    entities:
     - sensor.house_energy_5624021b_smartenergy_metering
     - sensor.house_energy_5624021b_smartenergy_metering_summation_delivered
-
+downloader:
+ download_dir: /snapshots/
 
 tplink:    
 
