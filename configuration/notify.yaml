@@ -11,17 +11,13 @@
 #   gcm_sender_id: !secret gcm_sender_id
 
 
- - platform: nfandroidtv
-   name: Lounge
-   host: 192.168.86.24
-
  - platform: twilio_call
    name: twilio
    from_number: !secret twilio_from_number
    
- - name: signal
-   platform: signal_messenger
-   url: "http://192.168.86.51:8180" # the URL where the Signal Messenger REST API is listening
-   number: "+441913746262" # the sender number
-   recipients: # one or more recipients
-     - "+447900270562"
+# - name: signal
+#   platform: signal_messenger
+#   url: "http://192.168.86.51:8180" # the URL where the Signal Messenger REST API is listening
+#   number: "+441913746262" # the sender number
+#   recipients: # one or more recipients
+#     - "+447900270562"
