@@ -1,7 +1,3 @@
- - name: slackbot
-   platform: slack
-   api_key: !secret slackbot
-   default_channel: '#home'
  - name: html5
    platform: html5
    vapid_pub_key: !secret vapid_pub_key
