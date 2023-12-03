@@ -1,3 +1,0 @@
-  - platform: command_line
-    name: Occasion
-    command: "python3 /config/configuration/python_scripts/occasion.py"
