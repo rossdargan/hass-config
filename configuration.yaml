@@ -161,11 +161,6 @@ influxdb:
 hacs:
   token: !secret git_token
 
-
-withings:
-  client_id: !secret withings_client_id
-  client_secret: !secret withings_client_secret
-
 input_boolean:
   winter:
     name: Disable the greenhouse alerts in the winter
