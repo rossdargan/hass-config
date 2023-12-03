@@ -158,9 +158,6 @@ influxdb:
   bucket: homeassistant
   
 
-hacs:
-  token: !secret git_token
-
 input_boolean:
   winter:
     name: Disable the greenhouse alerts in the winter
