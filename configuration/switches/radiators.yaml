@@ -290,7 +290,7 @@
    switches:
      bedroom_radiator_boost:
        friendly_name: Bedroom Radiator Boost
-       unique_id: bdfedd86-bc8f-4052-8407-ceea29ec17a8 
+       unique_id: bdfedd86-bc8f-5052-8407-ceea29ec17a8 
        value_template: "{{ state_attr('climate.bedroom_radiator_becathermostat','temperature')|float >=30 }}"
        turn_on:
          service: climate.set_temperature
