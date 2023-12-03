@@ -1,19 +1,5 @@
 ## A lot of sensors borrowed from here: https://github.com/bl0rp/Home-AssistantConfig/blob/master/packages/systeminfo.yaml#L295
 
-command_line:
-##################################################################
-### Current HASS Version
-###################################################################
-  - platform: sensor
-    command: python3 -c "import requests; print(requests.get('https://pypi.python.org/pypi/homeassistant/json').json()['info']['version'])"
-    name: Current HASS Version
-
-##################################################################
-### Installed HASS Version
-###################################################################
-  -  platform: sensor
-     command: python -m homeassistant --version
-     name: Installed HASS Version
 
 ##################################################################
 ### HASS Update Available
