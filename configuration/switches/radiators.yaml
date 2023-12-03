@@ -99,7 +99,7 @@
      lounge_radiator_boost:
        friendly_name: Lounge Radiator Boost
        unique_id: bdfedd86-bc8f-5052-8407-ceea29ec17a3       
-       value_template: "{{ state_attr('climate.lounge_radiator_becathermostat','temperature')|float =30 }}"
+       value_template: "{{ state_attr('climate.lounge_radiator_becathermostat','temperature')|float >=30 }}"
        turn_on:
          service: climate.set_temperature
          data:
@@ -113,7 +113,7 @@
          target:
            entity_id: climate.lounge_radiator_becathermostat       
        icon_template: >- 
-          {% if state_attr('climate.lounge_radiator_becathermostat','temperature')|float =30 %}
+          {% if state_attr('climate.lounge_radiator_becathermostat','temperature')|float >=30 %}
             mdi:fire
           {% else %}
             mdi:radiator-off
@@ -195,7 +195,7 @@
      laura_radiator_boost:
        friendly_name: Laura Radiator Boost
        unique_id: bdfedd86-bc8f-5052-8407-ceea29ec17a6  
-       value_template: "{{ state_attr('climate.laura_radiator_becathermostat','temperature')|float =30 }}"
+       value_template: "{{ state_attr('climate.laura_radiator_becathermostat','temperature')|float >=30 }}"
        turn_on:
          service: climate.set_temperature
          data:
@@ -209,7 +209,7 @@
          target:
            entity_id: climate.laura_radiator_becathermostat       
        icon_template: >- 
-          {% if state_attr('climate.laura_radiator_becathermostat','temperature')|float =30 %}
+          {% if state_attr('climate.laura_radiator_becathermostat','temperature')|float >=30 %}
             mdi:fire
           {% else %}
             mdi:radiator-off
@@ -243,7 +243,7 @@
      ross_radiator_boost:
        friendly_name: Ross Office Radiator Boost
        unique_id: bdfedd86-bc8f-5052-8407-ceea29ec17a7  
-       value_template: "{{ state_attr('climate.ross_radiator_becathermostat','temperature')|float =30 }}"
+       value_template: "{{ state_attr('climate.ross_radiator_becathermostat','temperature')|float >=30 }}"
        turn_on:
          service: climate.set_temperature
          data:
@@ -257,7 +257,7 @@
          target:
            entity_id: climate.ross_radiator_becathermostat       
        icon_template: >- 
-          {% if state_attr('climate.ross_radiator_becathermostat','temperature')|float =30 %}
+          {% if state_attr('climate.ross_radiator_becathermostat','temperature')|float >=30 %}
             mdi:fire
           {% else %}
             mdi:radiator-off
@@ -291,7 +291,7 @@
      bedroom_radiator_boost:
        friendly_name: Bedroom Radiator Boost
        unique_id: bdfedd86-bc8f-4052-8407-ceea29ec17a8 
-       value_template: "{{ state_attr('climate.bedroom_radiator_becathermostat','temperature')|float =30 }}"
+       value_template: "{{ state_attr('climate.bedroom_radiator_becathermostat','temperature')|float >=30 }}"
        turn_on:
          service: climate.set_temperature
          data:
@@ -305,7 +305,7 @@
          target:
            entity_id: climate.bedroom_radiator_becathermostat       
        icon_template: >- 
-          {% if state_attr('climate.bedroom_radiator_becathermostat','temperature')|float =30 %}
+          {% if state_attr('climate.bedroom_radiator_becathermostat','temperature')|float >=30 %}
             mdi:radiator
           {% else %}
             mdi:radiator-off
