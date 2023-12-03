@@ -1,6 +1,6 @@
 ## A lot of sensors borrowed from here: https://github.com/bl0rp/Home-AssistantConfig/blob/master/packages/systeminfo.yaml#L295
 
-
+sensors:
 ##################################################################
 ### HASS Update Available
 ###################################################################
@@ -25,17 +25,7 @@
             mdi:checkbox-marked
           {% else %}
             mdi:checkbox-blank-outline
-          {% endif %}
-          
-          
-##################################################################
-### Uptime for the server
-###################################################################
-  - platform: command_line
-    name: host_uptime_in_seconds
-    command: "awk '{print $1}' /proc/uptime"
-    unit_of_measurement: "sec"
-    value_template: '{{ value|round }}'
+          {% endif %}                  
 
   - platform: template
     sensors:
