@@ -1,4 +1,0 @@
- - name: Everything Turned Off
-   entities:
-    group.all_lights: off
-    group.switches: off
