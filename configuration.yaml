@@ -133,8 +133,6 @@ recorder:
 downloader:
  download_dir: /snapshots/
 
-tplink:    
-
 tts:
   - platform: microsoft
     api_key: !secret microsoft_tts_key
