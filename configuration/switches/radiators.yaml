@@ -306,7 +306,7 @@
            entity_id: climate.bedroom_radiator_becathermostat       
        icon_template: >- 
           {% if state_attr('climate.bedroom_radiator_becathermostat','temperature')|float >=30 %}
-            mdi:radiator
+            mdi:fire
           {% else %}
             mdi:radiator-off
           {% endif %}              
