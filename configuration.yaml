@@ -77,6 +77,11 @@ rest_command:
     method: post
     content_type: "application/json"
     payload: '{"duration": 30, "include_recording": true }'
+  fire_tv_notification:
+    url: "http://{{ip}}:7979/notify"
+    method: post
+    content_type: "application/json"
+    payload: '{ "duration": 30, "position": 0, "title": "{{title}}", "titleColor": "#0066cc", "titleSize": 20, "message": "{{message}}", "messageColor": "#000000", "messageSize": 14, "backgroundColor": "#ffffff", "media": { "{{media}}": { "uri": "{{mediauri}}", "width": 600 }} }'
   garden_event_door_unlocked:
     url: "https://frigate.dargan.uk/api/events/garden/Door Unlocked/create"
     method: post
