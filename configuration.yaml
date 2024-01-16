@@ -72,6 +72,11 @@ calendar:
     token: !secret todoist
     
 rest_command:
+  add_event:
+    url: "https://frigate.dargan.uk/api/events/garden/{{event}}/create"
+    method: post
+    content_type: "application/json"
+    payload: '{"duration": 30, "include_recording": true }'  
   garden_event_door_open:
     url: "https://frigate.dargan.uk/api/events/garden/Door Opened/create"
     method: post
