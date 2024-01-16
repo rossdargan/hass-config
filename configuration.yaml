@@ -73,7 +73,7 @@ calendar:
     
 rest_command:
   add_event:
-    url: "https://frigate.dargan.uk/api/events/garden/{{event}}/create"
+    url: "https://frigate.dargan.uk/api/events/{{camera}}/{{event}}/create"
     method: post
     content_type: "application/json"
     payload: '{"duration": 30, "include_recording": true }'  
