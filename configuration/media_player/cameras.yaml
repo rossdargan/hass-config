@@ -1,4 +1,4 @@
   - platform: webrtc #to set up the reolink doorbell as a media player using webrtc which supports 2-way audio. Thus I can play sounds on the camera.
     name: Doorbell
     stream: doorbell
-    audio: pcma
+    audio: '-af "volume=10dB,adelay=2s,apad=pad_dur=6" -c:a pcm_alaw -ar:a 8000 -ac:a 1'
