@@ -26,3 +26,4 @@
       - sensor.joshua_computer_power_electric_consumption_w
       - sensor.adams_computer_electric_consumption_w
       - sensor.coffee_machine_electrical_measurement
+      - sensor.dehumidifier_electrical_measurement
