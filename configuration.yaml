@@ -122,13 +122,6 @@ plant:
       brightness: sensor.greenhouse_light
     min_temperature: 5
     
-proximity:
-  home:    
-    devices:
-        - device_tracker.lya_l09
-    tolerance: 50
-    unit_of_measurement: mi
-
 powercalc:
   scan_interval: 00:01:00 #Each minute
   power_sensor_naming: "{} Powersensor"
