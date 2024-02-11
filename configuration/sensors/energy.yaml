@@ -39,11 +39,7 @@
     name: Other Items Electrical Consumed
     unit_prefix: k
     round: 2    
-  
-  - platform: powercalc
-    entity_id: light.main_bedroom
-    fixed:
-      power: 27.5
+
 
   - platform: rest
     resource: https://data.nationalgrideso.com/api/3/action/datastore_search?resource_id=000066dc-aa75-4bec-a5a2-9c935b1873d2
