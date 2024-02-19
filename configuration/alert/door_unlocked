@@ -1,0 +1,11 @@
+  fron_door_unlocked:
+    name: Front Door Unlocked
+    title: "Front Door Unlocked!"
+    message: "Your front door has been left unlocked. Please lock it!"
+    repeat: 1
+    can_acknowledge: True
+    skip_first: False
+    notifiers:
+      - mobile_app_rosss_iphone      
+    data:
+      tag: front-door
