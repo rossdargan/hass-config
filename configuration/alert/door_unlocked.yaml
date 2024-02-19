@@ -2,6 +2,7 @@
     name: Front Door Unlocked
     title: "Front Door Unlocked!"
     message: "Your front door has been left unlocked. Please lock it!"
+    entity_id: lock.front_door
     repeat: 1
     can_acknowledge: True
     skip_first: False
