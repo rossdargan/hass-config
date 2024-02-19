@@ -1,4 +1,4 @@
-  fron_door_unlocked:
+front_door_unlocked:
     name: Front Door Unlocked
     title: "Front Door Unlocked!"
     message: "Your front door has been left unlocked. Please lock it!"
