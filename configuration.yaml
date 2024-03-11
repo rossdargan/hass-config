@@ -76,7 +76,7 @@ rest_command:
     url: "https://frigate.dargan.uk/api/events/{{camera}}/{{event}}/create"
     method: post
     content_type: "application/json"
-    payload: '{"duration": 30, "include_recording": true }'  
+    payload: '{"duration": 30, "include_recording": true, "sub_label":"{{subLabel}}" }'  
   garden_event_door_open:
     url: "https://frigate.dargan.uk/api/events/garden/Door Opened/create"
     method: post
