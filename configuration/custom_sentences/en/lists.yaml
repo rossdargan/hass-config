@@ -1,0 +1,14 @@
+language: "en"
+intents:
+  AddListItem:
+    data:
+      - sentences:
+          - add {item} to [my] shopping [list]
+          - we have run out of {item}
+          - remind me to get more {item}
+        skip_words:
+          - "please"
+          - "can you"
+        lists:
+          item:
+            wildcard: true
