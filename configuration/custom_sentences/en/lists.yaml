@@ -1,6 +1,6 @@
 language: "en"
 intents:
-  AddListItem:
+  add_list_item:
     data:
       - sentences:
           - add {item} to [my] shopping [list]
