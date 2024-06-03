@@ -1,6 +1,6 @@
 language: "en"
 intents:
-  add_list_item:
+  HassShoppingListAddItem:
     data:
       - sentences:
           - add {item} to [my] shopping [list]
