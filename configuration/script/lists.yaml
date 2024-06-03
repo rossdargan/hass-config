@@ -1,4 +1,4 @@
-AddListItem:
+add_list_item:
   action:
       service: "shopping_list.add_item"
       data:
