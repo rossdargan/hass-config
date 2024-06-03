@@ -1,7 +1,0 @@
-add_list_item:
-  action:
-      service: "shopping_list.add_item"
-      data:
-        name: "{{item}}"
-  speech:
-      text: "added {{item}} to your shopping list."
