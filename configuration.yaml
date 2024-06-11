@@ -96,7 +96,7 @@ rest_command:
 http: 
  ip_ban_enabled: true
  login_attempts_threshold: 2
- trusted_proxies: 172.18.0.18
+ trusted_proxies: 192.168.10.99
  use_x_forwarded_for: true
  
 light:
