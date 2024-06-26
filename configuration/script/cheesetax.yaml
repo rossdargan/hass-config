@@ -1,0 +1,9 @@
+cheese_tax:
+  alias: "Cheese Tax"
+  sequence:
+    - service: media_player.play_media
+      data:
+        media_content_type: music
+        media_content_id: "89047"
+      target:
+        device_id: 443736d187d8b37f76464393d81a0283
