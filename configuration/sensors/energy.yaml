@@ -20,6 +20,12 @@
     unit_prefix: k
     round: 2    
 
+  - platform: statistics
+    entity_id: sensor.dehumidifier_electrical_measurement
+    name: dehumidier_daily_usage
+    max_age:
+      hours: 20
+
   - platform: integration
     source: sensor.lds_zb_onoffplug_d0005_electrical_measurement
     name: Fridge Electrical Consumed
