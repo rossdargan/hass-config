@@ -141,10 +141,6 @@ tts:
 twilio:
   account_sid: !secret twilio_account_sid
   auth_token: !secret twilio_auth_token
-
-weather:
-  - platform: darksky
-    api_key: !secret darksky
   
 
 influxdb:
