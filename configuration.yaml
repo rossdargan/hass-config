@@ -206,6 +206,11 @@ logger:
 
 zha:
   zigpy_config:
+    ezsp_policies:
+      TRUST_CENTER_POLICY: 0x0002 # ALLOW_UNSECURED_REJOINS
+      # WARNING: this effectively opens a permanent backdoor into your Zigbee network!!!
+      # While it won't allow an attacker to passively capture your network key, it will
+      # allow them to "rejoin" the network and the coordinator will blindly send it just the same.
     ota:
       ikea_provider: true
       inovelli_provider: true
