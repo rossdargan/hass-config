@@ -51,7 +51,7 @@
      josh_radiator:
        friendly_name: Joshuas Radiator
        unique_id: bdfedd86-bc8f-4052-8407-ceea29ec17a2       
-       value_template: "{{ state_attr('climate.josh_radiator_becathermostat','temperature')|float >10 }}"
+       value_template: "{{ state_attr('climate.josh_radiator_thermostat','temperature')|float >10 }}"
        turn_on:
          service: climate.set_temperature
          data:
@@ -65,7 +65,7 @@
          target:
            entity_id: climate.josh_radiator_becathermostat       
        icon_template: >- 
-          {% if state_attr('climate.josh_radiator_becathermostat','temperature')|float >10 %}
+          {% if state_attr('climate.josh_radiator_thermostat','temperature')|float >10 %}
             mdi:radiator
           {% else %}
             mdi:radiator-off
@@ -233,7 +233,7 @@
          target:
            entity_id: climate.ross_radiator_becathermostat       
        icon_template: >- 
-          {% if state_attr('climate.ross_radiator_becathermostat','temperature')|float >10 %}
+          {% if state_attr('climate.ross_office_radiator_thermostat','temperature')|float >10 %}
             mdi:radiator
           {% else %}
             mdi:radiator-off
@@ -243,7 +243,7 @@
      ross_radiator_boost:
        friendly_name: Ross Office Radiator Boost
        unique_id: bdfedd86-bc8f-5052-8407-ceea29ec17a7  
-       value_template: "{{ state_attr('climate.ross_radiator_becathermostat','temperature')|float >=30 }}"
+       value_template: "{{ state_attr('climate.ross_office_radiator_thermostat','temperature')|float >=30 }}"
        turn_on:
          service: climate.set_temperature
          data:
