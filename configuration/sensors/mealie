@@ -1,0 +1,14 @@
+- resource: "https://mealie.internal.dargan.uk/api/households/mealplans/today"
+  method: GET
+  headers:
+    Authorization: Bearer !secret mealie_key
+  scan_interval: 3600
+  sensor:
+    - name: Mealie todays meal
+      value_template: "{{ value_json[0]['recipe']['name'] }}"
+      force_update: true
+      unique_id: mealie_todays_meal
+    - name: Mealie todays meal ID
+      value_template: "{{ value_json[0]['recipe']['id'] }}"
+      force_update: true
+      unique_id: mealie_todays_meal_id
