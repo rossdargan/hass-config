@@ -3,7 +3,7 @@
     resource: "https://mealie.internal.dargan.uk/api/households/mealplans/today"
     method: GET
     headers:
-      Authorization: Bearer !secret mealie_key
+      Authorization: !secret mealie_key
     value_template: "{{ value_json[0]['recipe']['name'] }}"
     scan_interval: 3600
     force_update: true
@@ -14,7 +14,7 @@
     resource: "https://mealie.internal.dargan.uk/api/households/mealplans/today"
     method: GET
     headers:
-      Authorization: Bearer !secret mealie_key
+      Authorization: !secret mealie_key
     value_template: "{{ value_json[0]['recipe']['id'] }}"
     scan_interval: 3600
     force_update: true
