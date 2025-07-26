@@ -1,4 +1,0 @@
-    - platform: plex_recently_added
-      token: !secret plex_token
-      host: 192.168.86.10
-      port: 32400
