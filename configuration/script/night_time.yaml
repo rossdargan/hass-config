@@ -1,5 +1,0 @@
-night_time:
-  alias: 'Night Time'
-  sequence:
-    - service: alarm_control_panel.alarm_arm_night
-      entity_id: alarm_control_panel.ha_alarm
