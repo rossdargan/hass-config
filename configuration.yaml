@@ -39,7 +39,6 @@ mqtt:
 notify: !include configuration/notify.yaml
 # panel_iframe: !include configuration/panel_iframe.yaml
 scene: !include_dir_merge_list configuration/scene
-script: !include_dir_merge_named configuration/script
 sensor: !include_dir_merge_list configuration/sensors
 switch: !include_dir_merge_list configuration/switches
 template: !include_dir_merge_list configuration/template
