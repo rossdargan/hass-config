@@ -16,8 +16,7 @@ frontend:
 ###################################################################################
 # Standard configuration
 ###################################################################################
-#emulated_roku:1
-#  host_ip: 192.168.86.10 # should be set to Home Assistant's address
+
 default_config:
 
 cloud:
@@ -39,6 +38,7 @@ mqtt:
 notify: !include configuration/notify.yaml
 # panel_iframe: !include configuration/panel_iframe.yaml
 scene: !include_dir_merge_list configuration/scene
+script: !include scripts.yaml
 sensor: !include_dir_merge_list configuration/sensors
 switch: !include_dir_merge_list configuration/switches
 template: !include_dir_merge_list configuration/template
@@ -92,45 +92,44 @@ rest_command:
     method: post
     content_type: "application/json"
     payload: '{"duration": 30, "include_recording": true }'    
-rest_command:
-    push_position_to_dawarich:
-      url: !secret dawarich_key
-      method: POST
-      content_type: 'application/json'
-      payload: >
+  push_position_to_dawarich:
+    url: !secret dawarich_key
+    method: POST
+    content_type: 'application/json'
+    payload: >
+      {
+        "locations": [
         {
-          "locations": [
-          {
-           "type": "Feature",
-           "geometry":{
-             "type": "Point",
-             "coordinates":[
-               {{ longitude }},
-               {{ latitude }}
-              ]
-           },
-           "properties":{
-              "api_key": "xxxxxxxxxxxxx",
-              "timestamp": "{{ now().isoformat() }}",
-              "altitude": {{ altitude }},
-              "speed": {{ speed }},
-              "horizontal_accuracy": 0,
-              "vertical_accuracy": {{ vertical_accuracy }},
-              "motion": [],
-              "pauses": false,
-              "activity": "{{ activity }}",
-              "desired_accuracy": 0,
-              "deferred": 0,
-              "significant_change": "unknown",
-              "locations_in_payload": 1,
-              "device_id": "{{device_id}}",
-              "wifi": "unknown",
-              "battery_state": "unknown",
-              "battery_level": {{ battery_level }}
-           }
-          }
-          ]
+         "type": "Feature",
+         "geometry":{
+           "type": "Point",
+           "coordinates":[
+             {{ longitude }},
+             {{ latitude }}
+            ]
+         },
+         "properties":{
+            "api_key": "xxxxxxxxxxxxx",
+            "timestamp": "{{ now().isoformat() }}",
+            "altitude": {{ altitude }},
+            "speed": {{ speed }},
+            "horizontal_accuracy": 0,
+            "vertical_accuracy": {{ vertical_accuracy }},
+            "motion": [],
+            "pauses": false,
+            "activity": "{{ activity }}",
+            "desired_accuracy": 0,
+            "deferred": 0,
+            "significant_change": "unknown",
+            "locations_in_payload": 1,
+            "device_id": "{{device_id}}",
+            "wifi": "unknown",
+            "battery_state": "unknown",
+            "battery_level": {{ battery_level }}
+         }
         }
+        ]
+      }
 
 http: 
  ip_ban_enabled: true
