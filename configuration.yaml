@@ -72,6 +72,25 @@ calendar:
     token: !secret todoist
     
 rest_command:
+  barcodevault_lookup:
+    url: "https://barcode.internal.dargan.uk/api/lookup/{{ barcode }}"
+    method: GET
+    content_type: "application/json"
+    headers:
+      Authorization: "Bearer !secret barcodeapikey"
+  barcodevault_create_product:
+    url: "https://barcode.internal.dargan.uk/api/products"
+    method: POST
+    content_type: "application/json"
+    headers:
+      Authorization: "Bearer !secret barcodeapikey"
+    payload: >-
+      {
+        "barcode": "{{ barcode }}",
+        "name": "{{ name }}",
+        "brand": "{{ brand | default('') }}",
+        "category": "{{ category | default('') }}"
+      }
   add_event:
     url: "https://frigate.dargan.uk/api/events/{{camera}}/{{event}}/create"
     method: post
