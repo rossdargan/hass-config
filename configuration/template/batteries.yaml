@@ -1,0 +1,64 @@
+- sensor:
+    - name: Hall Motion Battery
+      unit_of_measurement: '%'
+      device_class: battery
+      state: >-
+        {%- if state_attr('binary_sensor.hall_motion_motion', 'battery_level') %}
+            {{ state_attr('binary_sensor.hall_motion_motion', 'battery_level')|round }}
+        {% else %}
+            {{ states('sensor.hall_motion_battery') }}
+        {%- endif %}
+    - name: Office Motion Battery
+      unit_of_measurement: '%'
+      device_class: battery
+      state: >-
+        {%- if state_attr('binary_sensor.office_motion_sensor', 'battery_level') %}
+            {{ state_attr('binary_sensor.office_motion_sensor', 'battery_level')|round }}
+        {% else %}
+            {{ states('sensor.office_motion_battery') }}
+        {%- endif %}
+    - name: Lounge Motion Battery
+      unit_of_measurement: '%'
+      device_class: battery
+      state: >-
+        {%- if state_attr('binary_sensor.lounge_motion_sensor', 'battery_level') %}
+            {{ state_attr('binary_sensor.lounge_motion_sensor', 'battery_level')|round }}
+        {% else %}
+            {{ states('sensor.lounge_motion_battery') }}
+        {%- endif %}
+    - name: Playroom Motion Battery
+      unit_of_measurement: '%'
+      device_class: battery
+      state: >-
+        {%- if state_attr('binary_sensor.playroom_motion_sensor', 'battery_level') %}
+            {{ state_attr('binary_sensor.playroom_motion_sensor', 'battery_level')|round }}
+        {% else %}
+            {{ states('sensor.playroom_motion_battery') }}
+        {%- endif %}
+    - name: Kitchen Motion Battery
+      unit_of_measurement: '%'
+      device_class: battery
+      state: >-
+        {%- if state_attr('binary_sensor.kitchen_motion_sensor', 'battery_level') %}
+            {{ state_attr('binary_sensor.kitchen_motion_sensor', 'battery_level')|round }}
+        {% else %}
+            {{ states('sensor.kitchen_motion_battery') }}
+        {%- endif %}
+    - name: Adam Phone Battery
+      unit_of_measurement: '%'
+      device_class: battery
+      state: >-
+        {%- if state_attr('device_tracker.adam_adamphone', 'battery_level') %}
+            {{ state_attr('device_tracker.adam_adamphone', 'battery_level')|round }}
+        {% else %}
+            {{ states('sensor.adam_phone_battery') }}
+        {%- endif %}
+    - name: Ross Phone Battery
+      unit_of_measurement: '%'
+      device_class: battery
+      state: >-
+        {%- if state_attr('device_tracker.rossdargan_rossphone', 'battery_level') %}
+            {{ state_attr('device_tracker.rossdargan_rossphone', 'battery_level')|round }}
+        {% else %}
+            {{ states('sensor.ross_phone_battery') }}
+        {%- endif %}

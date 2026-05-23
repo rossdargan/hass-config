@@ -1,0 +1,27 @@
+- binary_sensor:
+    - name: Washing machine
+      state: >
+        {{ states("sensor.lds_zb_onoffplug_d0005_9973cefe_electrical_measurement") | float(0) > 3 }}
+      delay_off: "00:05:00"
+      icon: >
+        {% if is_state("binary_sensor.washing_machine", "on") %}
+          mdi:washing-machine
+        {% else %}
+          mdi:washing-machine-off
+        {% endif %}
+    - name: Tumble Dryer
+      state: >
+        {{ states("sensor.tumble_dryer_power") | float(0) > 3 }}
+      delay_off: "00:05:00"
+      icon: >
+        {% if is_state("binary_sensor.tumble_dryer", "on") %}
+          mdi:tumble-dryer
+        {% else %}
+          mdi:tumble-dryer-off
+        {% endif %}
+
+- binary_sensor:
+    - name: Friends online
+      state: >-
+        {{ is_state('sensor.steam_76561197969133682', 'online')
+           or is_state('sensor.steam_76561198009934891', 'online') }}
