@@ -1,0 +1,4 @@
+- sensor:
+    - name: Solar Elevation
+      unit_of_measurement: '°'
+      state: "{{ state_attr('sun.sun', 'elevation') }}"
