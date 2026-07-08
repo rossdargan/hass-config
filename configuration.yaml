@@ -147,7 +147,18 @@ rest_command:
         }
         ]
       }
-
+rest:
+  - resource_template: "http://192.168.10.10:5007/v1/budgets/d643c983-37cd-44d0-bf68-be8f89a3cf81/months/{{ now().strftime('%Y-%m') }}/categories/4fa70e13-9445-4d50-8827-6e65dc956794"
+    headers:
+      x-api-key: !secret actual_api_key
+    scan_interval: 3600
+    sensor:
+      - name: "Tesla Extra Miles Saved"
+        unique_id: tesla_extra_miles_saved
+        value_template: "{{ (value_json.data.balance | float(0)) / 100 }}"
+        unit_of_measurement: "GBP"
+        device_class: monetary
+        
 http: 
  ip_ban_enabled: true
  login_attempts_threshold: 2
