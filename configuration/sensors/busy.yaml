@@ -1,0 +1,42 @@
+- platform: rest
+  scan_interval: 1
+  name: mutedeck
+  resource: http://192.168.86.189:3491/v1/status
+  json_attributes:
+    - call
+    - control
+    - mute
+    - record
+    - share
+    - status
+    - video
+- platform: template
+  sensors:
+    mutedeck_status_call:
+      value_template: "{{ state_attr('sensor.mutedeck', 'call') }}"
+      friendly_name: "MuteDeck Status - Call"
+      unique_id: mutedeck_status_call
+    mutedeck_status_control:
+      value_template: "{{ state_attr('sensor.mutedeck', 'control') }}"
+      friendly_name: "MuteDeck Status - Control"
+      unique_id: mutedeck_status_control
+    mutedeck_status_mute:
+      value_template: "{{ state_attr('sensor.mutedeck', 'mute') }}"
+      friendly_name: "MuteDeck Status - Mute"
+      unique_id: mutedeck_status_mute
+    mutedeck_status_record:
+      value_template: "{{ state_attr('sensor.mutedeck', 'record') }}"
+      friendly_name: "MuteDeck Status - Record"
+      unique_id: mutedeck_status_record
+    mutedeck_status_share:
+      value_template: "{{ state_attr('sensor.mutedeck', 'share') }}"
+      friendly_name: "MuteDeck Status - Share"
+      unique_id: mutedeck_status_share
+    mutedeck_status_status:
+      value_template: "{{ state_attr('sensor.mutedeck', 'status') }}"
+      friendly_name: "MuteDeck Status - Status"
+      unique_id: mutedeck_status_status
+    mutedeck_status_video:
+      value_template: "{{ state_attr('sensor.mutedeck', 'video') }}"
+      friendly_name: "MuteDeck Status - Video"
+      unique_id: mutedeck_status_video
