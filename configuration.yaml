@@ -161,7 +161,7 @@ rest:
         
 http: 
  ip_ban_enabled: true
- login_attempts_threshold: 2
+ login_attempts_threshold: 20
  trusted_proxies: 
    - 192.168.10.99
    - 192.168.99.118
