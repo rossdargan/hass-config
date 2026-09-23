@@ -257,20 +257,6 @@ shell_command:
   pull_config: "echo '/docker/homeassistant/pull.sh' > cmdpipe"
   todays_timelapse: "echo '/docker/timelapse/today.sh' > cmdpipe"
 
-proxmoxve:
-  - host: 192.168.86.11
-    username: hass@pve
-    password: !secret pve
-    verify_ssl: false
-    nodes:
-      - node: pve
-        vms:
-          - 103
-        containers:
-          - 100
-          - 101
-          - 104
-
     
 logger:
   default: warning
