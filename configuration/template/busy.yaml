@@ -1,0 +1,22 @@
+- sensor:
+    - name: "MuteDeck Status - Call"
+      unique_id: mutedeck_status_call
+      state: "{{ state_attr('sensor.mutedeck', 'call') }}"
+    - name: "MuteDeck Status - Control"
+      unique_id: mutedeck_status_control
+      state: "{{ state_attr('sensor.mutedeck', 'control') }}"
+    - name: "MuteDeck Status - Mute"
+      unique_id: mutedeck_status_mute
+      state: "{{ state_attr('sensor.mutedeck', 'mute') }}"
+    - name: "MuteDeck Status - Record"
+      unique_id: mutedeck_status_record
+      state: "{{ state_attr('sensor.mutedeck', 'record') }}"
+    - name: "MuteDeck Status - Share"
+      unique_id: mutedeck_status_share
+      state: "{{ state_attr('sensor.mutedeck', 'share') }}"
+    - name: "MuteDeck Status - Status"
+      unique_id: mutedeck_status_status
+      state: "{{ state_attr('sensor.mutedeck', 'status') }}"
+    - name: "MuteDeck Status - Video"
+      unique_id: mutedeck_status_video
+      state: "{{ state_attr('sensor.mutedeck', 'video') }}"
