@@ -15,19 +15,19 @@
     - sections
   scan_interval: 30
 
-  # Project comments (formerly project_notes)
-  # Link this name in the card(s) as... comments_entity: sensor.comments_sensor
-  - name: comments_sensor
-    platform: rest
-    unique_id: comments_sensor
-    method: GET
-    resource: "https://api.todoist.com/api/v1/comments"
-    params:
-      project_id: "home-regular-6CrfMwXQ8fGrmGCw"
-    headers:
-      Authorization: !secret todoist_api_token
-      Accept: application/json
-    value_template: "{{ value_json.results | length }}"
-    json_attributes:
-      - results
-    scan_interval: 10
+# Project comments (formerly project_notes)
+# Link this name in the card(s) as... comments_entity: sensor.comments_sensor
+- name: comments_sensor
+  platform: rest
+  unique_id: comments_sensor
+  method: GET
+  resource: "https://api.todoist.com/api/v1/comments"
+  params:
+    project_id: "home-regular-6CrfMwXQ8fGrmGCw"
+  headers:
+    Authorization: !secret todoist_api_token
+    Accept: application/json
+  value_template: "{{ value_json.results | length }}"
+  json_attributes:
+    - results
+  scan_interval: 10
