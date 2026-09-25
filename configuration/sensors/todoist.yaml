@@ -4,7 +4,7 @@
   platform: rest
   unique_id: todoist_chores_sensor
   method: GET
-  resource: "https://api.todoist.com/api/v1/projects/home-regular-6CrfMwXQ8fGrmGCw/full"
+  resource: "https://api.todoist.com/api/v1/projects/6CrfMwXQ8fGrmGCw/full"
   headers:
     Authorization: !secret todoist_api_token     # must include "Bearer <token>" inside the secret
     Accept: application/json
@@ -23,7 +23,7 @@
   method: GET
   resource: "https://api.todoist.com/api/v1/comments"
   params:
-    project_id: "home-regular-6CrfMwXQ8fGrmGCw"
+    project_id: "6CrfMwXQ8fGrmGCw"
   headers:
     Authorization: !secret todoist_api_token
     Accept: application/json
