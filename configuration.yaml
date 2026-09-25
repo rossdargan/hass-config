@@ -69,7 +69,24 @@ calendar:
   - platform: todoist
     token: !secret todoist
     
+command_line:
+ - sensor:
+     name: label_colors
+     command: !secret todoist_cmd_with_api_token
+     value_template: >
+       {{ value_json.label_colors | length }}
+     json_attributes:
+       - label_colors
+     scan_interval: 200
+     
 rest_command:
+  todoist:
+    method: post
+    url: 'https://api.todoist.com/api/v1/{{ url }}'
+    payload: '{{ payload }}'
+    headers:
+      Authorization: !secret todoist_api_token
+    content_type: 'application/x-www-form-urlencoded'
   barcodevault_lookup:
     url: "https://barcode.internal.dargan.uk/api/lookup/{{ barcode }}"
     method: GET
