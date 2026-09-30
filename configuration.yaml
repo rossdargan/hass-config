@@ -80,6 +80,12 @@ command_line:
      scan_interval: 200
      
 rest_command:
+  jotty_get_notes:
+    url: "https://jotty.internal.dargan.uk/api/notes"
+    method: GET
+    headers:
+      x-api-key: !secret jotty_api_key
+    timeout: 20
   todoist:
     method: post
     url: 'https://api.todoist.com/api/v1/{{ url }}'
