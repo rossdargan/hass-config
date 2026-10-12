@@ -1,8 +1,0 @@
-  - platform: average
-    name: 'Average Temperature'
-    entities:
-      - sensor.lounge_temperature
-      - sensor.hall_motion_temperature
-      - sensor.kitchen_temperature
-      - sensor.ross_office_sensor_temperature
-      - sensor.laura_office_sensor_temperature
