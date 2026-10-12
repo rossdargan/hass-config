@@ -98,13 +98,13 @@ rest_command:
     method: GET
     content_type: "application/json"
     headers:
-      Authorization: "Bearer !secret barcodeapikey"
+      Authorization: !secret barcodevault_authorization
   barcodevault_create_product:
     url: "https://barcode.internal.dargan.uk/api/products"
     method: POST
     content_type: "application/json"
     headers:
-      Authorization: "Bearer !secret barcodeapikey"
+      Authorization: !secret barcodevault_authorization
     payload: >-
       {
         "barcode": "{{ barcode }}",
@@ -182,26 +182,10 @@ rest:
         unit_of_measurement: "GBP"
         device_class: monetary
         
-http: 
- ip_ban_enabled: true
- login_attempts_threshold: 20
- trusted_proxies: 
-   - 192.168.10.99
-   - 192.168.99.118
-   - 192.168.10.10
-   - 192.168.10.105
-   - 127.0.0.1
-   - 172.26.0.2
-   - ::1
- use_x_forwarded_for: true
+# http: removed - settings already migrated to the UI (Settings > System > Network).
+# Repair "yaml_still_present_after_migration" (becomes an error in 2027.2).
  
 light:
-  - platform: switch
-    name: Kitchen Outer Light
-    entity_id: switch.kitchen_outer_lights_switch
-  - platform: switch
-    name: Playroom Main Light
-    entity_id: switch.playroom_main_light
   - platform: switch
     name: Landing Light
     entity_id: switch.landing_light
@@ -209,14 +193,7 @@ light:
     name: Kitchen Lights
     entities:
       - light.kitchen_main_light
-      - light.kitchen_outer_light
-
-plant:
-  chillies:
-    sensors:
-      temperature: sensor.greenhouse_temperature
-      brightness: sensor.greenhouse_light
-    min_temperature: 5
+      - light.kitchen_outer_lights_on_off
     
 powercalc:
   scan_interval: 00:01:00 #Each minute
@@ -239,14 +216,8 @@ twilio:
   auth_token: !secret twilio_auth_token
   
 
-influxdb:
-  host: 192.168.86.51
-  api_version: 2
-  ssl: false
-  port: 8086
-  token: !secret influxdb_token
-  organization: 8e90e1f1bec1671f
-  bucket: homeassistant
+# influxdb: removed - already imported as a UI config entry
+# ("homeassistant (http://192.168.86.51:8086)"), YAML support deprecated in 2026.9.
   
 
 input_boolean:
@@ -288,11 +259,6 @@ logger:
 
 zha:
   zigpy_config:
-    ezsp_policies:
-      TRUST_CENTER_POLICY: 0x0002 # ALLOW_UNSECURED_REJOINS
-      # WARNING: this effectively opens a permanent backdoor into your Zigbee network!!!
-      # While it won't allow an attacker to passively capture your network key, it will
-      # allow them to "rejoin" the network and the coordinator will blindly send it just the same.
     ota:
       ikea_provider: true
       inovelli_provider: true
