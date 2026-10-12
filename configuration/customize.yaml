@@ -1,165 +1,43 @@
-  climate.adams_radiator_becathermostat:
-    min_temp: 0
-    max_temp: 30  
-  climate.josh_radiator_becathermostat:
-    min_temp: 0
-    max_temp: 30  
-  climate.laura_radiator_becathermostat:
-    min_temp: 0
-    max_temp: 30  
-  climate.lounge_radiator_becathermostat:
-    min_temp: 0
-    max_temp: 30  
-  climate.oliver_radiator_becathermostat:
-    min_temp: 0
-    max_temp: 30  
-  climate.dining_room_radiator_becathermostat:
-    min_temp: 0
-    max_temp: 30
-  climate.bedroom_radiator_becathermostat:
-    min_temp: 0
-    max_temp: 30
-  climate.hall_radiator_becathermostat:
-    min_temp: 0
-    max_temp: 30
-  climate.ross_radiator_becathermostat:
-    min_temp: 0
-    max_temp: 30
-    
-  switch.garage_switch_2:
-    hidden: true
-  switch.dead_switch_2:
-    hidden: true
-  switch.dead_switch_3:
-    hidden: true
-  sensor.ross_work_commute:
-   icon: mdi:car  
-  group.kitchen_lights:
-    icon: mdi:ceiling-light
-  switch.hall_main_light_switch:
-    icon: mdi:ceiling-light
-    friendly_name: "Hall Light"
-  switch.garage_switch:
-    icon: mdi:ceiling-light
-    friendly_name: "Garage Light"
-  light.kitchen_main_light_level:
-    icon: mdi:ceiling-light
-    friendly_name: "Kitchen Light"
-  light.lounge_main_light_level:
-    icon: mdi:ceiling-light
-    friendly_name: "Lounge Light"
-  sensor.yr_dewpoint_temperature:
-    friendly_name: "Temp"
-  switch.bedroom_tv_switch:
-    icon: mdi:television
-    friendly_name: "Bedroom TV"
-  switch.playroom_tv_switch:
-    icon: mdi:television
-    friendly_name: "Playroom TV"
-  switch.lounge_tv_switch:
-    icon: mdi:television
-    friendly_name: "Lounge TV"
-  light.dining_room_lamp:
-    icon: mdi:lamp
-  light.left_lamp:
-    icon: mdi:lamp
-  light.hall:
-    icon: mdi:lamp
-  light.lounge_lamp:
-    icon: mdi:lamp
-    emulated_hue: false
-  light.right_lamp:
-    icon: mdi:lamp
-    friendly_name: "Ross Lamp"
-    emulated_hue: false
-  switch.christmas_tree:
-    friendly_name: "Christmas Tree"
-    icon: mdi:pine-tree
-  switch.diningroom_floor_lamp:
-    icon: mdi:floor-lamp
-  switch.lounge_floor_lamp:
-    icon: mdi:floor-lamp
-    friendly_name: "Lounge Floor Lamp"
-  light.garage:
-    icon: mdi:lamp
-    friendly_name: "Garage Light"
-  light.office_4:    
-    icon: mdi:ceiling-light      
-  light.playroom:    
-    icon: mdi:lamp
-  switch.kitchen_outer_lights_switch:
-    icon: mdi:ceiling-light    
-    friendly_name: "Kitchen Outer Lights"
-  light.playroom_main_light:
-    icon: mdi:ceiling-light   
-  light.landing_light:
-    icon: mdi:home-lightbulb  
-  binary_sensor.garage_motion_sensor:
-    device_class: motion 
-  binary_sensor.front_door_sensor:
-    device_class: door 
-  binary_sensor.garage_door_sensor:
-    device_class: door     
+climate.adams_radiator_becathermostat:
+  min_temp: 0
+  max_temp: 30
+climate.josh_radiator_thermostat:
+  min_temp: 0
+  max_temp: 30
+climate.lounge_radiator_becathermostat:
+  min_temp: 0
+  max_temp: 30
+climate.oliver_radiator_becathermostat:
+  min_temp: 0
+  max_temp: 30
+climate.dining_room_radiator_becathermostat:
+  min_temp: 0
+  max_temp: 30
+climate.bedroom_radiator_becathermostat:
+  min_temp: 0
+  max_temp: 30
+climate.hall_radiator_thermostat:
+  min_temp: 0
+  max_temp: 30
+climate.ross_office_radiator_thermostat:
+  min_temp: 0
+  max_temp: 30
 
-  binary_sensor.ross_office_door_sensor:
-    device_class: door     
-
-  binary_sensor.laura_office_door_sensor:
-    device_class: door 
-  binary_sensor.garden_gate:
-    device_class: door 
-    
-  binary_sensor.front_door_zigbee:
-    device_class: door 
-  binary_sensor.garage_door_sensor_zigbee:
-    device_class: door 
-  binary_sensor.josh_room_pir_b1746408_occupancy:
-    device_class: motion
-  sensor.hall_lux:
-    icon: mdi:white-balance-sunny
-  sensor.greenhouse_light:
-    icon: mdi:white-balance-sunny   
-  light.bedroom_main_light_level_2:
-    hidden: true   
-  light.bedroom_main_light_level_3:
-    hidden: true
-  person.ross:
-    entity_picture: /local/ross.png 
-  person.adam:
-    entity_picture: /local/adam.png        
-  person.josh:
-    entity_picture: /local/josh.png        
-  switch.kitchen_sentsy:
-    icon: mdi:spray    
-  switch.lounge_sentsy_switch:
-    icon: mdi:spray
-  script.tv_source_xbox:
-    config:
-      columns: 5
-      row_height: 50px
-      column_width: 62px
-      gap: 15px
-      color: '#555B65'
-      color_on: '#D5D619'
-      color_off: '#BBBEC2'
-      entities:
-        - entity: switch.lounge_tv_switch
-          icon: mdi:power
-          column: 1
-          row: 1            
-        - entity: script.tv_source_shield 
-          icon: mdi:television-classic
-          column: 2
-          row: 1          
-        - entity: script.tv_source_spotify
-          icon: mdi:spotify
-          column: 3
-          row: 1
-        - entity: script.tv_source_switch
-          icon: mdi:nintendo-switch
-          column: 4
-          row: 1
-        - entity: script.tv_source_xbox
-          icon: mdi:xbox
-          column: 5
-          row: 1
+group.kitchen_lights:
+  icon: mdi:ceiling-light
+light.landing_light:
+  icon: mdi:home-lightbulb
+binary_sensor.garage_door_sensor:
+  device_class: door
+binary_sensor.laura_office_door_sensor:
+  device_class: door
+binary_sensor.front_door_zigbee:
+  device_class: door
+binary_sensor.garage_door_sensor_zigbee:
+  device_class: door
+person.ross:
+  entity_picture: /local/ross.png
+person.adam:
+  entity_picture: /local/adam.png
+person.josh:
+  entity_picture: /local/josh.png
