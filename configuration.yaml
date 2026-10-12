@@ -191,10 +191,6 @@ light:
       - light.kitchen_main_light
       - light.kitchen_outer_lights_on_off
     
-powercalc:
-  scan_interval: 00:01:00 #Each minute
-  power_sensor_naming: "{} Powersensor"
-  
 recorder:  
   purge_keep_days: 10
   db_url: !secret maria_db
@@ -248,11 +244,6 @@ shell_command:
   todays_timelapse: "echo '/docker/timelapse/today.sh' > cmdpipe"
 
     
-logger:
-  default: warning
-  logs:
-    custom_components.powercalc: debug
-
 zha:
   zigpy_config:
     ota:
