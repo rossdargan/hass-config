@@ -1,4 +1,4 @@
-  garage:
+garage:
     name: Garage Presence
     entities:
       - binary_sensor.garage_external_door
@@ -12,7 +12,6 @@
       - sensor.main_server_electrical_measurement
       - sensor.primary_computer_d17d43fe_electrical_measurement
       - sensor.lounge_tv_electric_consumed_w
-      - sensor.bedroom_tv_electric_consumed_w
       - sensor.kitchen_main_light_power
       - sensor.tumble_dryer_electrical_measurement
       - sensor.washing_machine_electrical_measurement
@@ -22,5 +21,4 @@
       - sensor.olivers_computer_electrical_measurement
       - sensor.joshua_computer_power_electric_consumption_w
       - sensor.adams_computer_electric_consumption_w
-      - sensor.coffee_machine_electrical_measurement
       - sensor.dehumidifier_electrical_measurement

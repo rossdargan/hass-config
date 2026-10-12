@@ -1,7 +1,11 @@
+# Template switches for the radiator TRVs.
+# Each switch is unavailable while its thermostat is unavailable, and uses
+# float(0) so a missing temperature never raises a template error.
 - switch:
     - name: Adams Radiator
       unique_id: bdfedd86-bc8f-4052-8407-ceea29ec17a0
-      state: "{{ state_attr('climate.adams_radiator_becathermostat','temperature')|float >10 }}"
+      availability: "{{ has_value('climate.adams_radiator_becathermostat') }}"
+      state: "{{ state_attr('climate.adams_radiator_becathermostat','temperature')|float(0) > 10 }}"
       turn_on:
         - action: climate.set_temperature
           data:
@@ -15,7 +19,7 @@
           target:
             entity_id: climate.adams_radiator_becathermostat
       icon: >-
-        {% if state_attr('climate.adams_radiator_becathermostat','temperature')|float >10 %}
+        {% if state_attr('climate.adams_radiator_becathermostat','temperature')|float(0) > 10 %}
           mdi:radiator
         {% else %}
           mdi:radiator-off
@@ -23,7 +27,8 @@
 
     - name: Olivers Radiator
       unique_id: bdfedd86-bc8f-4052-8407-ceea29ec17a1
-      state: "{{ state_attr('climate.oliver_radiator_becathermostat','temperature')|float >10 }}"
+      availability: "{{ has_value('climate.oliver_radiator_becathermostat') }}"
+      state: "{{ state_attr('climate.oliver_radiator_becathermostat','temperature')|float(0) > 10 }}"
       turn_on:
         - action: climate.set_temperature
           data:
@@ -37,7 +42,7 @@
           target:
             entity_id: climate.oliver_radiator_becathermostat
       icon: >-
-        {% if state_attr('climate.oliver_radiator_becathermostat','temperature')|float >10 %}
+        {% if state_attr('climate.oliver_radiator_becathermostat','temperature')|float(0) > 10 %}
           mdi:radiator
         {% else %}
           mdi:radiator-off
@@ -45,21 +50,22 @@
 
     - name: Joshuas Radiator
       unique_id: bdfedd86-bc8f-4052-8407-ceea29ec17a2
-      state: "{{ state_attr('climate.josh_radiator_thermostat','temperature')|float >10 }}"
+      availability: "{{ has_value('climate.josh_radiator_thermostat') }}"
+      state: "{{ state_attr('climate.josh_radiator_thermostat','temperature')|float(0) > 10 }}"
       turn_on:
         - action: climate.set_temperature
           data:
             temperature: 24
           target:
-            entity_id: climate.josh_radiator_becathermostat
+            entity_id: climate.josh_radiator_thermostat
       turn_off:
         - action: climate.set_temperature
           data:
             temperature: 5
           target:
-            entity_id: climate.josh_radiator_becathermostat
+            entity_id: climate.josh_radiator_thermostat
       icon: >-
-        {% if state_attr('climate.josh_radiator_thermostat','temperature')|float >10 %}
+        {% if state_attr('climate.josh_radiator_thermostat','temperature')|float(0) > 10 %}
           mdi:radiator
         {% else %}
           mdi:radiator-off
@@ -67,7 +73,8 @@
 
     - name: Lounge Radiator
       unique_id: bdfedd86-bc8f-4052-8407-ceea29ec17a3
-      state: "{{ state_attr('climate.lounge_radiator_becathermostat','temperature')|float >10 }}"
+      availability: "{{ has_value('climate.lounge_radiator_becathermostat') }}"
+      state: "{{ state_attr('climate.lounge_radiator_becathermostat','temperature')|float(0) > 10 }}"
       turn_on:
         - action: climate.set_temperature
           data:
@@ -81,7 +88,7 @@
           target:
             entity_id: climate.lounge_radiator_becathermostat
       icon: >-
-        {% if state_attr('climate.lounge_radiator_becathermostat','temperature')|float >10 %}
+        {% if state_attr('climate.lounge_radiator_becathermostat','temperature')|float(0) > 10 %}
           mdi:radiator
         {% else %}
           mdi:radiator-off
@@ -89,7 +96,8 @@
 
     - name: Lounge Radiator Boost
       unique_id: bdfedd86-bc8f-5052-8407-ceea29ec17a3
-      state: "{{ state_attr('climate.lounge_radiator_becathermostat','temperature')|float >=30 }}"
+      availability: "{{ has_value('climate.lounge_radiator_becathermostat') }}"
+      state: "{{ state_attr('climate.lounge_radiator_becathermostat','temperature')|float(0) >= 30 }}"
       turn_on:
         - action: climate.set_temperature
           data:
@@ -103,7 +111,7 @@
           target:
             entity_id: climate.lounge_radiator_becathermostat
       icon: >-
-        {% if state_attr('climate.lounge_radiator_becathermostat','temperature')|float >=30 %}
+        {% if state_attr('climate.lounge_radiator_becathermostat','temperature')|float(0) >= 30 %}
           mdi:fire
         {% else %}
           mdi:radiator-off
@@ -111,7 +119,8 @@
 
     - name: Dining Room Radiator
       unique_id: bdfedd86-bc8f-4052-8407-ceea29ec17a4
-      state: "{{ state_attr('climate.dining_room_radiator_becathermostat','temperature')|float >10 }}"
+      availability: "{{ has_value('climate.dining_room_radiator_becathermostat') }}"
+      state: "{{ state_attr('climate.dining_room_radiator_becathermostat','temperature')|float(0) > 10 }}"
       turn_on:
         - action: climate.set_temperature
           data:
@@ -125,7 +134,7 @@
           target:
             entity_id: climate.dining_room_radiator_becathermostat
       icon: >-
-        {% if state_attr('climate.dining_room_radiator_becathermostat','temperature')|float >10 %}
+        {% if state_attr('climate.dining_room_radiator_becathermostat','temperature')|float(0) > 10 %}
           mdi:radiator
         {% else %}
           mdi:radiator-off
@@ -133,87 +142,45 @@
 
     - name: Hall Radiator
       unique_id: bdfedd86-bc8f-4052-8407-ceea29ec17a5
-      state: "{{ state_attr('climate.hall_radiator_becathermostat','temperature')|float >10 }}"
+      availability: "{{ has_value('climate.hall_radiator_thermostat') }}"
+      state: "{{ state_attr('climate.hall_radiator_thermostat','temperature')|float(0) > 10 }}"
       turn_on:
         - action: climate.set_temperature
           data:
             temperature: 24
           target:
-            entity_id: climate.hall_radiator_becathermostat
+            entity_id: climate.hall_radiator_thermostat
       turn_off:
         - action: climate.set_temperature
           data:
             temperature: 5
           target:
-            entity_id: climate.hall_radiator_becathermostat
+            entity_id: climate.hall_radiator_thermostat
       icon: >-
-        {% if state_attr('climate.hall_radiator_becathermostat','temperature')|float >10 %}
+        {% if state_attr('climate.hall_radiator_thermostat','temperature')|float(0) > 10 %}
           mdi:radiator
-        {% else %}
-          mdi:radiator-off
-        {% endif %}
-
-    - name: Laura Radiator
-      unique_id: bdfedd86-bc8f-4052-8407-ceea29ec17a6
-      state: "{{ state_attr('climate.laura_radiator_becathermostat','temperature')|float >10 }}"
-      turn_on:
-        - action: climate.set_temperature
-          data:
-            temperature: 24
-          target:
-            entity_id: climate.laura_radiator_becathermostat
-      turn_off:
-        - action: climate.set_temperature
-          data:
-            temperature: 5
-          target:
-            entity_id: climate.laura_radiator_becathermostat
-      icon: >-
-        {% if state_attr('climate.laura_radiator_becathermostat','temperature')|float >10 %}
-          mdi:radiator
-        {% else %}
-          mdi:radiator-off
-        {% endif %}
-
-    - name: Laura Radiator Boost
-      unique_id: bdfedd86-bc8f-5052-8407-ceea29ec17a6
-      state: "{{ state_attr('climate.laura_radiator_becathermostat','temperature')|float >=30 }}"
-      turn_on:
-        - action: climate.set_temperature
-          data:
-            temperature: 30
-          target:
-            entity_id: climate.laura_radiator_becathermostat
-      turn_off:
-        - action: climate.set_temperature
-          data:
-            temperature: 24
-          target:
-            entity_id: climate.laura_radiator_becathermostat
-      icon: >-
-        {% if state_attr('climate.laura_radiator_becathermostat','temperature')|float >=30 %}
-          mdi:fire
         {% else %}
           mdi:radiator-off
         {% endif %}
 
     - name: Ross Office Radiator
       unique_id: bdfedd86-bc8f-4052-8407-ceea29ec17a7
-      state: "{{ state_attr('climate.ross_radiator_becathermostat','temperature')|float >10 }}"
+      availability: "{{ has_value('climate.ross_office_radiator_thermostat') }}"
+      state: "{{ state_attr('climate.ross_office_radiator_thermostat','temperature')|float(0) > 10 }}"
       turn_on:
         - action: climate.set_temperature
           data:
             temperature: 24
           target:
-            entity_id: climate.ross_radiator_becathermostat
+            entity_id: climate.ross_office_radiator_thermostat
       turn_off:
         - action: climate.set_temperature
           data:
             temperature: 5
           target:
-            entity_id: climate.ross_radiator_becathermostat
+            entity_id: climate.ross_office_radiator_thermostat
       icon: >-
-        {% if state_attr('climate.ross_office_radiator_thermostat','temperature')|float >10 %}
+        {% if state_attr('climate.ross_office_radiator_thermostat','temperature')|float(0) > 10 %}
           mdi:radiator
         {% else %}
           mdi:radiator-off
@@ -221,21 +188,22 @@
 
     - name: Ross Office Radiator Boost
       unique_id: bdfedd86-bc8f-5052-8407-ceea29ec17a7
-      state: "{{ state_attr('climate.ross_office_radiator_thermostat','temperature')|float >=30 }}"
+      availability: "{{ has_value('climate.ross_office_radiator_thermostat') }}"
+      state: "{{ state_attr('climate.ross_office_radiator_thermostat','temperature')|float(0) >= 30 }}"
       turn_on:
         - action: climate.set_temperature
           data:
             temperature: 30
           target:
-            entity_id: climate.ross_radiator_becathermostat
+            entity_id: climate.ross_office_radiator_thermostat
       turn_off:
         - action: climate.set_temperature
           data:
             temperature: 24
           target:
-            entity_id: climate.ross_radiator_becathermostat
+            entity_id: climate.ross_office_radiator_thermostat
       icon: >-
-        {% if state_attr('climate.ross_radiator_becathermostat','temperature')|float >=30 %}
+        {% if state_attr('climate.ross_office_radiator_thermostat','temperature')|float(0) >= 30 %}
           mdi:fire
         {% else %}
           mdi:radiator-off
@@ -243,7 +211,8 @@
 
     - name: Bedroom Radiator
       unique_id: bdfedd86-bc8f-4052-8407-ceea29ec17a8
-      state: "{{ state_attr('climate.bedroom_radiator_becathermostat','temperature')|float >10 }}"
+      availability: "{{ has_value('climate.bedroom_radiator_becathermostat') }}"
+      state: "{{ state_attr('climate.bedroom_radiator_becathermostat','temperature')|float(0) > 10 }}"
       turn_on:
         - action: climate.set_temperature
           data:
@@ -257,7 +226,7 @@
           target:
             entity_id: climate.bedroom_radiator_becathermostat
       icon: >-
-        {% if state_attr('climate.bedroom_radiator_becathermostat','temperature')|float >10 %}
+        {% if state_attr('climate.bedroom_radiator_becathermostat','temperature')|float(0) > 10 %}
           mdi:radiator
         {% else %}
           mdi:radiator-off
@@ -265,7 +234,8 @@
 
     - name: Bedroom Radiator Boost
       unique_id: bdfedd86-bc8f-5052-8407-ceea29ec17a8
-      state: "{{ state_attr('climate.bedroom_radiator_becathermostat','temperature')|float >=30 }}"
+      availability: "{{ has_value('climate.bedroom_radiator_becathermostat') }}"
+      state: "{{ state_attr('climate.bedroom_radiator_becathermostat','temperature')|float(0) >= 30 }}"
       turn_on:
         - action: climate.set_temperature
           data:
@@ -279,7 +249,7 @@
           target:
             entity_id: climate.bedroom_radiator_becathermostat
       icon: >-
-        {% if state_attr('climate.bedroom_radiator_becathermostat','temperature')|float >=30 %}
+        {% if state_attr('climate.bedroom_radiator_becathermostat','temperature')|float(0) >= 30 %}
           mdi:fire
         {% else %}
           mdi:radiator-off
@@ -287,7 +257,8 @@
 
     - name: Kitchen Radiator
       unique_id: bdfedd86-bc8f-4052-8407-ceea29ec17a9
-      state: "{{ state_attr('climate.kitchen_radiator_thermostat','temperature')|float >10 }}"
+      availability: "{{ has_value('climate.kitchen_radiator_thermostat') }}"
+      state: "{{ state_attr('climate.kitchen_radiator_thermostat','temperature')|float(0) > 10 }}"
       turn_on:
         - action: climate.set_temperature
           data:
@@ -301,7 +272,7 @@
           target:
             entity_id: climate.kitchen_radiator_thermostat
       icon: >-
-        {% if state_attr('climate.kitchen_radiator_thermostat','temperature')|float >10 %}
+        {% if state_attr('climate.kitchen_radiator_thermostat','temperature')|float(0) > 10 %}
           mdi:radiator
         {% else %}
           mdi:radiator-off

@@ -1,8 +1,0 @@
-{
-  "domain": "monzo",
-  "name": "Monzo",
-  "documentation": "https://github.com/rossdargan/hass-config",
-  "dependencies": [],
-  "codeowners": [],
-  "requirements": ["monzo==0.5.3"]
-}
