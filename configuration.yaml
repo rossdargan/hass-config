@@ -64,10 +64,7 @@ zone: !include configuration/zones.yaml
 #  - https://raw.githubusercontent.com/custom-components/information/master/repos.json
 #  - https://raw.githubusercontent.com/kalkih/mini-graph-card/master/tracker.json
 
-calendar:
-  - platform: todoist
-    token: !secret todoist
-    
+   
 command_line:
  - sensor:
      name: label_colors
