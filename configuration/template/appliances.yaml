@@ -1,7 +1,7 @@
 - binary_sensor:
     - name: Washing machine
       state: >
-        {{ states("sensor.lds_zb_onoffplug_d0005_9973cefe_electrical_measurement") | float(0) > 3 }}
+        {{ states("sensor.lds_zb_onoffplug_d0005_electrical_measurement") | float(0) > 3 }}
       delay_off: "00:05:00"
       icon: >
         {% if is_state("binary_sensor.washing_machine", "on") %}
