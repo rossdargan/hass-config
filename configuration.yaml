@@ -207,6 +207,7 @@ recorder:
     - sensor.bedroom_tv_voltage
     - sensor.office_speaker_voltage
     - script.1753524090189
+    - sensor.ross_iphone_distance
    entity_globs:
     - sensor.*_uptime
     - sensor.*_wifi_signal*
