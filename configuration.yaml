@@ -199,7 +199,7 @@ recorder:
     - sensor.house_energy_5624021b_smartenergy_metering
     - sensor.house_energy_5624021b_smartenergy_metering_summation_delivered
     - sensor.todoist_chores
-  entity_globs:
+   entity_globs:
     - sensor.*_uptime
     - sensor.*_wifi_signal*
     - sensor.*_rssi
