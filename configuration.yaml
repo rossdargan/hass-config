@@ -199,10 +199,20 @@ recorder:
     - sensor.house_energy_5624021b_smartenergy_metering
     - sensor.house_energy_5624021b_smartenergy_metering_summation_delivered
     - sensor.todoist_chores
+    - sensor.cloud_gateway_fiber_memory_utilisation
+    - sensor.cloud_gateway_fiber_cpu_utilisation
+    - sensor.adams_pc_electric_consumption_a
+    - sensor.adams_pc_electric_consumption_v
+    - sensor.sonoff_s60zbtpg_voltage
+    - sensor.bedroom_tv_voltage
+    - sensor.office_speaker_voltage
+    - script.1753524090189
    entity_globs:
     - sensor.*_uptime
     - sensor.*_wifi_signal*
     - sensor.*_rssi
+    - sensor.*_last_seen
+    - sensor.*_sound_level
 tts:
   - platform: microsoft
     api_key: !secret microsoft_tts_key
