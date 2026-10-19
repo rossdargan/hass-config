@@ -29,8 +29,6 @@ light.landing_light:
   icon: mdi:home-lightbulb
 binary_sensor.garage_door_sensor:
   device_class: door
-binary_sensor.laura_office_door_sensor:
-  device_class: door
 binary_sensor.front_door_zigbee:
   device_class: door
 binary_sensor.garage_door_sensor_zigbee:
