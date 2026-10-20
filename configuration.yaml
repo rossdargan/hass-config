@@ -76,12 +76,277 @@ command_line:
      scan_interval: 200
      
 rest_command:
+### PREDBAT
+  tesla_refresh_token:
+    url: "https://auth.tesla.com/oauth2/v3/token"
+    method: POST
+    content_type: "application/x-www-form-urlencoded"
+    payload: >-
+      grant_type=refresh_token&client_id=ownerapi&refresh_token={{
+        (states('input_text.tesla_refresh_token_part1') or '') +
+        (states('input_text.tesla_refresh_token_part2') or '') +
+        (states('input_text.tesla_refresh_token_part3') or '') +
+        (states('input_text.tesla_refresh_token_part4') or '') +
+        (states('input_text.tesla_refresh_token_part5') or '') }}&scope=openid%20email%20offline_access"
+
+  tesla_api_get_products:
+    url: "https://fleet-api.prd.eu.vn.cloud.tesla.com/api/1/products"
+    method: GET
+    headers:
+      Authorization: >-
+        Bearer {{ (states('input_text.tesla_access_token_part1') or '') +
+          (states('input_text.tesla_access_token_part2') or '') +
+          (states('input_text.tesla_access_token_part3') or '') +
+          (states('input_text.tesla_access_token_part4') or '') +
+          (states('input_text.tesla_access_token_part5') or '') }}
+
+  tesla_api_get_current_tariff:
+    url: "https://fleet-api.prd.eu.vn.cloud.tesla.com/api/1/energy_sites/{{ states('input_text.tesla_energy_site_id') }}/tariff_rate"
+    method: GET
+    headers:
+      Authorization: >-
+        Bearer {{ (states('input_text.tesla_access_token_part1') or '') +
+          (states('input_text.tesla_access_token_part2') or '') +
+          (states('input_text.tesla_access_token_part3') or '') +
+          (states('input_text.tesla_access_token_part4') or '') +
+          (states('input_text.tesla_access_token_part5') or '') }}
+
+  tesla_api_set_export_now_tariff:
+    url: "https://fleet-api.prd.eu.vn.cloud.tesla.com/api/1/energy_sites/{{ states('input_text.tesla_energy_site_id') }}/time_of_use_settings"
+    method: POST
+    headers:
+      Authorization: >-
+        Bearer {{ (states('input_text.tesla_access_token_part1') or '') +
+          (states('input_text.tesla_access_token_part2') or '') +
+          (states('input_text.tesla_access_token_part3') or '') +
+          (states('input_text.tesla_access_token_part4') or '') +
+          (states('input_text.tesla_access_token_part5') or '') }}
+      Content-Type: application/json
+    payload: >
+      {% set now = now() %}
+      {% set minute = now.minute %}
+      {% set start = now.replace(minute=0) if minute < 30 else now.replace(minute=30) %}
+      {% set end = start + timedelta(minutes=60) %}
+      {% set ns = namespace(super_off_peak_periods=[]) %}
+      {% if start.hour > 0 %}
+        {% set ns.super_off_peak_periods = ns.super_off_peak_periods + [{"fromDayOfWeek": 0, "toDayOfWeek": 6, "fromHour": 0, "fromMinute": 0, "toHour": start.hour, "toMinute": start.minute}] %}
+      {% endif %}
+      {% if end.hour > 0 %}
+        {% set ns.super_off_peak_periods = ns.super_off_peak_periods + [{"fromDayOfWeek": 0, "toDayOfWeek": 6, "fromHour": end.hour, "fromMinute": end.minute, "toHour": 0, "toMinute": 0}] %}
+      {% endif %}
+      {
+        "tou_settings": {
+          "tariff_content_v2": {
+            "version": 1,
+            "utility": "Octopus Energy",
+            "code": "OCTO-IOG-CUSTOM",
+            "name": "Octopus IOG (Force Export Now)",
+            "currency": "GBP",
+            "monthly_minimum_bill": 0,
+            "min_applicable_demand": 0,
+            "max_applicable_demand": 0,
+            "monthly_charges": 0,
+            "daily_charges": [
+              { "name": "Charge", "amount": 0 }
+            ],
+            "daily_demand_charges": {},
+            "demand_charges": {
+              "ALL": { "rates": { "ALL": 0 } },
+              "AllYear": { "rates": {} }
+            },
+            "energy_charges": {
+              "ALL": { "rates": { "ALL": 0 } },
+              "AllYear": {
+                "rates": {
+                  "SUPER_OFF_PEAK": 0.07,
+                  "ON_PEAK": 0.31
+                }
+              }
+            },
+            "seasons": {
+              "AllYear": {
+                "fromMonth": 1,
+                "fromDay": 1,
+                "toMonth": 12,
+                "toDay": 31,
+                "tou_periods": {
+                  "SUPER_OFF_PEAK": {
+                    "periods": {{ ns.super_off_peak_periods | tojson }}
+                  },
+                  "ON_PEAK": {
+                    "periods": [
+                      { "fromDayOfWeek": 0, "toDayOfWeek": 6, "fromHour": {{ start.hour }}, "fromMinute": {{ start.minute }}, "toHour": {{ end.hour }}, "toMinute": {{ end.minute }} }
+                    ]
+                  }
+                }
+              }
+            },
+            "sell_tariff": {
+              "min_applicable_demand": 0,
+              "max_applicable_demand": 0,
+              "monthly_minimum_bill": 0,
+              "monthly_charges": 0,
+              "utility": "Octopus Energy",
+              "daily_charges": [
+                { "name": "Charge", "amount": 0 }
+              ],
+              "demand_charges": {
+                "ALL": { "rates": { "ALL": 0 } },
+                "AllYear": { "rates": {} }
+              },
+              "energy_charges": {
+                "ALL": { "rates": { "ALL": 0 } },
+                "AllYear": {
+                  "rates": {
+                    "SUPER_OFF_PEAK": 0.07,
+                    "ON_PEAK": 0.30
+                  }
+                }
+              },
+              "seasons": {
+                "AllYear": {
+                  "fromMonth": 1,
+                  "fromDay": 1,
+                  "toMonth": 12,
+                  "toDay": 31,
+                  "tou_periods": {
+                    "SUPER_OFF_PEAK": {
+                      "periods": {{ ns.super_off_peak_periods | tojson }}
+                    },
+                    "ON_PEAK": {
+                      "periods": [
+                        { "fromDayOfWeek": 0, "toDayOfWeek": 6, "fromHour": {{ start.hour }}, "fromMinute": {{ start.minute }}, "toHour": {{ end.hour }}, "toMinute": {{ end.minute }} }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+  tesla_api_set_iog_custom_tariff:
+    url: "https://fleet-api.prd.eu.vn.cloud.tesla.com/api/1/energy_sites/{{ states('input_text.tesla_energy_site_id') }}/time_of_use_settings"
+    method: POST
+    headers:
+      Authorization: >-
+        Bearer {{ (states('input_text.tesla_access_token_part1') or '') +
+          (states('input_text.tesla_access_token_part2') or '') +
+          (states('input_text.tesla_access_token_part3') or '') +
+          (states('input_text.tesla_access_token_part4') or '') +
+          (states('input_text.tesla_access_token_part5') or '') }}
+      Content-Type: application/json
+    payload: >
+      {
+        "tou_settings": {
+          "tariff_content_v2": {
+            "version": 1,
+            "monthly_minimum_bill": 0,
+            "min_applicable_demand": 0,
+            "max_applicable_demand": 0,
+            "monthly_charges": 0,
+            "utility": "Octopus Energy",
+            "code": "OCTO-IOG-CUSTOM",
+            "name": "Octopus IOG (Custom-restored)",
+            "currency": "GBP",
+            "daily_charges": [
+              { "name": "Charge", "amount": 0 }
+            ],
+            "daily_demand_charges": {},
+            "demand_charges": {
+              "ALL": { "rates": { "ALL": 0 } },
+              "AllYear": { "rates": {} }
+            },
+            "energy_charges": {
+              "ALL": { "rates": { "ALL": 0 } },
+              "AllYear": {
+                "rates": {
+                  "SUPER_OFF_PEAK": 0.07,
+                  "ON_PEAK": 0.29
+                }
+              }
+            },
+            "seasons": {
+              "AllYear": {
+                "fromMonth": 1,
+                "fromDay": 1,
+                "toMonth": 12,
+                "toDay": 31,
+                "tou_periods": {
+                  "SUPER_OFF_PEAK": {
+                    "periods": [
+                      { "fromDayOfWeek": 0, "toDayOfWeek": 6, "fromHour": 0, "fromMinute": 0, "toHour": 5, "toMinute": 30 },
+                      { "fromDayOfWeek": 0, "toDayOfWeek": 6, "fromHour": 23, "fromMinute": 30, "toHour": 0, "toMinute": 0 }
+                    ]
+                  },
+                  "ON_PEAK": {
+                    "periods": [
+                      { "fromDayOfWeek": 0, "toDayOfWeek": 6, "fromHour": 5, "fromMinute": 30, "toHour": 16, "toMinute": 0 },
+                      { "fromDayOfWeek": 0, "toDayOfWeek": 6, "fromHour": 16, "fromMinute": 0, "toHour": 19, "toMinute": 0 },
+                      { "fromDayOfWeek": 0, "toDayOfWeek": 6, "fromHour": 19, "fromMinute": 0, "toHour": 23, "toMinute": 30 }
+                    ]
+                  }
+                }
+              }
+            },
+            "sell_tariff": {
+              "min_applicable_demand": 0,
+              "max_applicable_demand": 0,
+              "monthly_minimum_bill": 0,
+              "monthly_charges": 0,
+              "utility": "Octopus Energy",
+              "daily_charges": [
+                { "name": "Charge", "amount": 0 }
+              ],
+              "demand_charges": {
+                "ALL": { "rates": { "ALL": 0 } },
+                "AllYear": { "rates": {} }
+              },
+              "energy_charges": {
+                "ALL": { "rates": { "ALL": 0 } },
+                "AllYear": {
+                  "rates": {
+                    "SUPER_OFF_PEAK": 0.00,
+                    "ON_PEAK": 0.00
+                  }
+                }
+              },
+              "seasons": {
+                "AllYear": {
+                  "fromMonth": 1,
+                  "fromDay": 1,
+                  "toMonth": 12,
+                  "toDay": 31,
+                  "tou_periods": {
+                    "SUPER_OFF_PEAK": {
+                      "periods": [
+                        { "fromDayOfWeek": 0, "toDayOfWeek": 6, "fromHour": 0, "fromMinute": 0, "toHour": 5, "toMinute": 30 },
+                        { "fromDayOfWeek": 0, "toDayOfWeek": 6, "fromHour": 23, "fromMinute": 30, "toHour": 0, "toMinute": 0 }
+                      ]
+                    },
+                    "ON_PEAK": {
+                      "periods": [
+                        { "fromDayOfWeek": 0, "toDayOfWeek": 6, "fromHour": 5, "fromMinute": 30, "toHour": 16, "toMinute": 0 },
+                        { "fromDayOfWeek": 0, "toDayOfWeek": 6, "fromHour": 16, "fromMinute": 0, "toHour": 19, "toMinute": 0 },
+                        { "fromDayOfWeek": 0, "toDayOfWeek": 6, "fromHour": 19, "fromMinute": 0, "toHour": 23, "toMinute": 30 }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+### JOTTY      
   jotty_get_notes:
     url: "https://jotty.internal.dargan.uk/api/notes"
     method: GET
     headers:
       x-api-key: !secret jotty_api_key
     timeout: 20
+### TODOIST    
   todoist:
     method: post
     url: 'https://api.todoist.com/api/v1/{{ url }}'
@@ -89,6 +354,7 @@ rest_command:
     headers:
       Authorization: !secret todoist_api_token
     content_type: 'application/x-www-form-urlencoded'
+### BARCODES    
   barcodevault_lookup:
     url: "https://barcode.internal.dargan.uk/api/lookup/{{ barcode }}"
     method: GET
@@ -108,6 +374,7 @@ rest_command:
         "brand": "{{ brand | default('') }}",
         "category": "{{ category | default('') }}"
       }
+### FROGATE      
   add_event:
     url: "https://frigate.dargan.uk/api/events/{{camera}}/{{event}}/create"
     method: post
@@ -118,16 +385,18 @@ rest_command:
     method: post
     content_type: "application/json"
     payload: '{"duration": 30, "include_recording": true }'
+  garden_event_door_unlocked:
+    url: "https://frigate.dargan.uk/api/events/garden/Door Unlocked/create"
+    method: post
+    content_type: "application/json"
+    payload: '{"duration": 30, "include_recording": true }'
+### FIRETV    
   fire_tv_notification:
     url: "http://{{ip}}:7979/notify"
     method: post
     content_type: "application/json"
     payload: '{ "duration": 30, "position": 0, "title": "{{title}}", "titleColor": "#0066cc", "titleSize": 20, "message": "{{message}}", "messageColor": "#000000", "messageSize": 14, "backgroundColor": "#ffffff", "media": { "{{media}}": { "uri": "{{mediauri}}", "width": 600 }} }'
-  garden_event_door_unlocked:
-    url: "https://frigate.dargan.uk/api/events/garden/Door Unlocked/create"
-    method: post
-    content_type: "application/json"
-    payload: '{"duration": 30, "include_recording": true }'    
+### DARWHICH    
   push_position_to_dawarich:
     url: !secret dawarich_key
     method: POST
