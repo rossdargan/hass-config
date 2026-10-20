@@ -257,7 +257,8 @@ shell_command:
   restart_ha: "echo 'docker restart home-assistant' > cmdpipe"
   pull_config: "echo '/docker/homeassistant/pull.sh' > cmdpipe"
   todays_timelapse: "echo '/docker/timelapse/today.sh' > cmdpipe"
-
+  get_tesla_fleet_token: >-
+    jq -r 'first(.data.entries[] | select(.domain == "tesla_fleet")) | .data.token.access_token' /config/.storage/core.config_entries
     
 zha:
   zigpy_config:
