@@ -77,40 +77,10 @@ command_line:
      
 rest_command:
 ### PREDBAT
-  tesla_refresh_token:
-    url: "https://auth.tesla.com/oauth2/v3/token"
-    method: POST
-    content_type: "application/x-www-form-urlencoded"
-    payload: >-
-      grant_type=refresh_token&client_id=ownerapi&refresh_token={{
-        (states('input_text.tesla_refresh_token_part1') or '') +
-        (states('input_text.tesla_refresh_token_part2') or '') +
-        (states('input_text.tesla_refresh_token_part3') or '') +
-        (states('input_text.tesla_refresh_token_part4') or '') +
-        (states('input_text.tesla_refresh_token_part5') or '') }}&scope=openid%20email%20offline_access"
-
-  tesla_api_get_products:
-    url: "https://fleet-api.prd.eu.vn.cloud.tesla.com/api/1/products"
-    method: GET
-    headers:
-      Authorization: >-
-        Bearer {{ (states('input_text.tesla_access_token_part1') or '') +
-          (states('input_text.tesla_access_token_part2') or '') +
-          (states('input_text.tesla_access_token_part3') or '') +
-          (states('input_text.tesla_access_token_part4') or '') +
-          (states('input_text.tesla_access_token_part5') or '') }}
-
-  tesla_api_get_current_tariff:
-    url: "https://fleet-api.prd.eu.vn.cloud.tesla.com/api/1/energy_sites/{{ states('input_text.tesla_energy_site_id') }}/tariff_rate"
-    method: GET
-    headers:
-      Authorization: >-
-        Bearer {{ (states('input_text.tesla_access_token_part1') or '') +
-          (states('input_text.tesla_access_token_part2') or '') +
-          (states('input_text.tesla_access_token_part3') or '') +
-          (states('input_text.tesla_access_token_part4') or '') +
-          (states('input_text.tesla_access_token_part5') or '') }}
-
+  # Replaces the existing tesla_api_set_export_now_tariff in configuration.yaml.
+  # Peak (export) window: from the current half hour to Predbat's planned export
+  # end (predbat.best_export_end), falling back to 60 minutes if that isn't
+  # usable. Handles windows that cross midnight.
   tesla_api_set_export_now_tariff:
     url: "https://fleet-api.prd.eu.vn.cloud.tesla.com/api/1/energy_sites/{{ states('input_text.tesla_energy_site_id') }}/time_of_use_settings"
     method: POST
@@ -123,16 +93,36 @@ rest_command:
           (states('input_text.tesla_access_token_part5') or '') }}
       Content-Type: application/json
     payload: >
-      {% set now = now() %}
-      {% set minute = now.minute %}
-      {% set start = now.replace(minute=0) if minute < 30 else now.replace(minute=30) %}
-      {% set end = start + timedelta(minutes=60) %}
-      {% set ns = namespace(super_off_peak_periods=[]) %}
-      {% if start.hour > 0 %}
-        {% set ns.super_off_peak_periods = ns.super_off_peak_periods + [{"fromDayOfWeek": 0, "toDayOfWeek": 6, "fromHour": 0, "fromMinute": 0, "toHour": start.hour, "toMinute": start.minute}] %}
+      {% set n = now() %}
+      {% set start = n.replace(minute=(0 if n.minute < 30 else 30), second=0, microsecond=0) %}
+      {% set pe = states('predbat.best_export_end') %}
+      {% set ns = namespace(end=start + timedelta(minutes=60)) %}
+      {% if pe is match('^\d{1,2}:\d{2}(:\d{2})?$') %}
+        {% set e = today_at(pe) %}
+        {% if e <= start %}{% set e = e + timedelta(days=1) %}{% endif %}
+        {% if e > start and e <= start + timedelta(hours=12) %}{% set ns.end = e %}{% endif %}
       {% endif %}
-      {% if end.hour > 0 %}
-        {% set ns.super_off_peak_periods = ns.super_off_peak_periods + [{"fromDayOfWeek": 0, "toDayOfWeek": 6, "fromHour": end.hour, "fromMinute": end.minute, "toHour": 0, "toMinute": 0}] %}
+      {% set end = ns.end %}
+      {% set crosses = end.date() != start.date() and not (end.hour == 0 and end.minute == 0) %}
+      {% set p = namespace(peak=[], off=[]) %}
+      {% if crosses %}
+        {% set p.peak = [
+          {"fromDayOfWeek": 0, "toDayOfWeek": 6, "fromHour": start.hour, "fromMinute": start.minute, "toHour": 0, "toMinute": 0},
+          {"fromDayOfWeek": 0, "toDayOfWeek": 6, "fromHour": 0, "fromMinute": 0, "toHour": end.hour, "toMinute": end.minute}
+        ] %}
+        {% set p.off = [
+          {"fromDayOfWeek": 0, "toDayOfWeek": 6, "fromHour": end.hour, "fromMinute": end.minute, "toHour": start.hour, "toMinute": start.minute}
+        ] %}
+      {% else %}
+        {% set p.peak = [
+          {"fromDayOfWeek": 0, "toDayOfWeek": 6, "fromHour": start.hour, "fromMinute": start.minute, "toHour": end.hour, "toMinute": end.minute}
+        ] %}
+        {% if start.hour > 0 or start.minute > 0 %}
+          {% set p.off = p.off + [{"fromDayOfWeek": 0, "toDayOfWeek": 6, "fromHour": 0, "fromMinute": 0, "toHour": start.hour, "toMinute": start.minute}] %}
+        {% endif %}
+        {% if end.hour > 0 or end.minute > 0 %}
+          {% set p.off = p.off + [{"fromDayOfWeek": 0, "toDayOfWeek": 6, "fromHour": end.hour, "fromMinute": end.minute, "toHour": 0, "toMinute": 0}] %}
+        {% endif %}
       {% endif %}
       {
         "tou_settings": {
@@ -170,14 +160,8 @@ rest_command:
                 "toMonth": 12,
                 "toDay": 31,
                 "tou_periods": {
-                  "SUPER_OFF_PEAK": {
-                    "periods": {{ ns.super_off_peak_periods | tojson }}
-                  },
-                  "ON_PEAK": {
-                    "periods": [
-                      { "fromDayOfWeek": 0, "toDayOfWeek": 6, "fromHour": {{ start.hour }}, "fromMinute": {{ start.minute }}, "toHour": {{ end.hour }}, "toMinute": {{ end.minute }} }
-                    ]
-                  }
+                  "SUPER_OFF_PEAK": { "periods": {{ p.off | tojson }} },
+                  "ON_PEAK": { "periods": {{ p.peak | tojson }} }
                 }
               }
             },
@@ -210,128 +194,8 @@ rest_command:
                   "toMonth": 12,
                   "toDay": 31,
                   "tou_periods": {
-                    "SUPER_OFF_PEAK": {
-                      "periods": {{ ns.super_off_peak_periods | tojson }}
-                    },
-                    "ON_PEAK": {
-                      "periods": [
-                        { "fromDayOfWeek": 0, "toDayOfWeek": 6, "fromHour": {{ start.hour }}, "fromMinute": {{ start.minute }}, "toHour": {{ end.hour }}, "toMinute": {{ end.minute }} }
-                      ]
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-
-  tesla_api_set_iog_custom_tariff:
-    url: "https://fleet-api.prd.eu.vn.cloud.tesla.com/api/1/energy_sites/{{ states('input_text.tesla_energy_site_id') }}/time_of_use_settings"
-    method: POST
-    headers:
-      Authorization: >-
-        Bearer {{ (states('input_text.tesla_access_token_part1') or '') +
-          (states('input_text.tesla_access_token_part2') or '') +
-          (states('input_text.tesla_access_token_part3') or '') +
-          (states('input_text.tesla_access_token_part4') or '') +
-          (states('input_text.tesla_access_token_part5') or '') }}
-      Content-Type: application/json
-    payload: >
-      {
-        "tou_settings": {
-          "tariff_content_v2": {
-            "version": 1,
-            "monthly_minimum_bill": 0,
-            "min_applicable_demand": 0,
-            "max_applicable_demand": 0,
-            "monthly_charges": 0,
-            "utility": "Octopus Energy",
-            "code": "OCTO-IOG-CUSTOM",
-            "name": "Octopus IOG (Custom-restored)",
-            "currency": "GBP",
-            "daily_charges": [
-              { "name": "Charge", "amount": 0 }
-            ],
-            "daily_demand_charges": {},
-            "demand_charges": {
-              "ALL": { "rates": { "ALL": 0 } },
-              "AllYear": { "rates": {} }
-            },
-            "energy_charges": {
-              "ALL": { "rates": { "ALL": 0 } },
-              "AllYear": {
-                "rates": {
-                  "SUPER_OFF_PEAK": 0.05,
-                  "ON_PEAK": 0.35
-                }
-              }
-            },
-            "seasons": {
-              "AllYear": {
-                "fromMonth": 1,
-                "fromDay": 1,
-                "toMonth": 12,
-                "toDay": 31,
-                "tou_periods": {
-                  "SUPER_OFF_PEAK": {
-                    "periods": [
-                      { "fromDayOfWeek": 0, "toDayOfWeek": 6, "fromHour": 0, "fromMinute": 0, "toHour": 5, "toMinute": 30 },
-                      { "fromDayOfWeek": 0, "toDayOfWeek": 6, "fromHour": 23, "fromMinute": 30, "toHour": 0, "toMinute": 0 }
-                    ]
-                  },
-                  "ON_PEAK": {
-                    "periods": [
-                      { "fromDayOfWeek": 0, "toDayOfWeek": 6, "fromHour": 5, "fromMinute": 30, "toHour": 16, "toMinute": 0 },
-                      { "fromDayOfWeek": 0, "toDayOfWeek": 6, "fromHour": 16, "fromMinute": 0, "toHour": 19, "toMinute": 0 },
-                      { "fromDayOfWeek": 0, "toDayOfWeek": 6, "fromHour": 19, "fromMinute": 0, "toHour": 23, "toMinute": 30 }
-                    ]
-                  }
-                }
-              }
-            },
-            "sell_tariff": {
-              "min_applicable_demand": 0,
-              "max_applicable_demand": 0,
-              "monthly_minimum_bill": 0,
-              "monthly_charges": 0,
-              "utility": "Octopus Energy",
-              "daily_charges": [
-                { "name": "Charge", "amount": 0 }
-              ],
-              "demand_charges": {
-                "ALL": { "rates": { "ALL": 0 } },
-                "AllYear": { "rates": {} }
-              },
-              "energy_charges": {
-                "ALL": { "rates": { "ALL": 0 } },
-                "AllYear": {
-                  "rates": {
-                    "SUPER_OFF_PEAK": 0.00,
-                    "ON_PEAK": 0.00
-                  }
-                }
-              },
-              "seasons": {
-                "AllYear": {
-                  "fromMonth": 1,
-                  "fromDay": 1,
-                  "toMonth": 12,
-                  "toDay": 31,
-                  "tou_periods": {
-                    "SUPER_OFF_PEAK": {
-                      "periods": [
-                        { "fromDayOfWeek": 0, "toDayOfWeek": 6, "fromHour": 0, "fromMinute": 0, "toHour": 5, "toMinute": 30 },
-                        { "fromDayOfWeek": 0, "toDayOfWeek": 6, "fromHour": 23, "fromMinute": 30, "toHour": 0, "toMinute": 0 }
-                      ]
-                    },
-                    "ON_PEAK": {
-                      "periods": [
-                        { "fromDayOfWeek": 0, "toDayOfWeek": 6, "fromHour": 5, "fromMinute": 30, "toHour": 16, "toMinute": 0 },
-                        { "fromDayOfWeek": 0, "toDayOfWeek": 6, "fromHour": 16, "fromMinute": 0, "toHour": 19, "toMinute": 0 },
-                        { "fromDayOfWeek": 0, "toDayOfWeek": 6, "fromHour": 19, "fromMinute": 0, "toHour": 23, "toMinute": 30 }
-                      ]
-                    }
+                    "SUPER_OFF_PEAK": { "periods": {{ p.off | tojson }} },
+                    "ON_PEAK": { "periods": {{ p.peak | tojson }} }
                   }
                 }
               }
